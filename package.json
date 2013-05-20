@@ -1,0 +1,15 @@
+{
+    "name": "steam-chat-bot"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "steam": "*"
+    , "underscore": "*"
+    , "winston": "*"
+    , "sinon": "*"
+  }
+  , "engines": {
+      "node": "0.10.x"
+    , "npm": "1.2.x"
+  }
+}
