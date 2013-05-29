@@ -29,5 +29,16 @@ myBot.addTriggers([
 	{ name: 'ButtBot', type: 'ButtBotTrigger', options: { replacement: 'butt', probability: 0.02, delay: 1000 } },
 
 	// Chat reply that doesn't need a particular message to trigger, just a random reply about once every 100 messages (and no more than once an hour)
-	{ name: 'RandomReply', type: 'ChatReplyTrigger', options: { matches: [], responses: ['ლ(ಠ益ಠლ)', 'щ(ﾟДﾟщ)', 'omg', '(ﾉಥ益ಥ)ﾉ', '¯\\_(ツ)_/¯'], delay: 500, probability: 0.01, timeout: 60*60*1000 } }
+	{ name: 'RandomReply', type: 'ChatReplyTrigger', options: { matches: [], responses: ['ლ(ಠ益ಠლ)', 'щ(ﾟДﾟщ)', 'omg', '(ﾉಥ益ಥ)ﾉ', '¯\\_(ツ)_/¯'], delay: 500, probability: 0.01, timeout: 60*60*1000 } },
+
+	// Cleverbot reply that only happens when the word "cleverbot" is mentioned
+	{ name: 'DirectCleverbotReply', type: 'CleverbotTrigger', options: { keywords: ['cleverbot'] } },
+
+	// Random cleverbot reply that triggers randomly about once every 100 messages
+	{ name: 'RandomCleverbotReply', type: 'CleverbotTrigger', options: { probability: 0.01, timeout: 30*60*1000 } },
 ]);
+
+// Trigger details can be retrieved and reloaded so that external configuration can be supported
+var details = myBot.getTriggerDetails();
+myBot.clearTriggers();
+myBot.addTriggers(details);

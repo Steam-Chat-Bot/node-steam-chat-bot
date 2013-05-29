@@ -25,6 +25,7 @@ describe("ChatBot", function() {
 			fakeTrigger.getOptions.andCallFake(function() {
 				return options;
 			});
+			fakeTrigger.name = name;
 
 			return fakeTrigger;
 		});
@@ -44,17 +45,13 @@ describe("ChatBot", function() {
 
 		it("should reconnect when disconnected", function() {
 			runs(function() {
-				fired = false;
 				bot = new ChatBot("username", "password", { client: fakeClient, babysitTimer: 100 });
 				expect(fakeClient.logOn.calls.length).toEqual(1);
 				bot.connected = false;
 
-				setTimeout(function() {
-					fired = true;
-				}, 110);
 			});
 
-			waitsFor(function() { return fired; }, "Babysit interval should have fired", 120);
+			waits(110);
 
 			runs(function() {
 				expect(fakeClient.logOn.calls.length).toEqual(2);
@@ -80,7 +77,6 @@ describe("ChatBot", function() {
 
 		it("should log in with the muted persona state after reconnection when muted", function() {
 			runs(function() {
-				fired = false;
 				bot = new ChatBot("username", "password", { client: fakeClient, babysitTimer: 100 });
 				bot._onLoggedOn(); // Fake logged on event
 				bot.mute();
@@ -88,11 +84,10 @@ describe("ChatBot", function() {
 
 				setTimeout(function() {
 					bot._onLoggedOn(); // Fake logged on event
-					fired = true;
 				}, 110);
 			});
 
-			waitsFor(function() { return fired; }, "Babysit interval should have fired", 120);
+			waits(120);
 
 			runs(function() {
 				expect(fakeClient.setPersonaState.calls.length).toEqual(3); // first log-on, mute, reconnect
@@ -187,7 +182,6 @@ describe("ChatBot", function() {
 		});
 	});
 
-
 	describe("ChatBot trigger interactions", function() {
 		it("should call onChatInvite on triggers when a user chat room invitation is sent", function() {
 			bot = new ChatBot("username", "password", { client: fakeClient, triggerFactory: fakeTriggerFactory });
@@ -253,12 +247,15 @@ describe("ChatBot", function() {
 			fakeTrigger2.onFriendMessage.andCallFake(function() { return true; });
 			var fakeTrigger3 = bot.addTrigger("fakeTrigger3", "type");
 			fakeTrigger3.onFriendMessage.andCallFake(function() { return false; });
+			var fakeTrigger4 = bot.addTrigger("fakeTrigger4", "type");
+			fakeTrigger4.onFriendMessage.andCallFake(function() { return false; });
 
 			bot._onFriendMsg("userId", "message", steam.EChatEntryType.ChatMsg);
 
 			expect(fakeTrigger1.onFriendMessage).toHaveBeenCalledWith("userId", "message", false);
 			expect(fakeTrigger2.onFriendMessage).toHaveBeenCalledWith("userId", "message", false);
 			expect(fakeTrigger3.onFriendMessage).toHaveBeenCalledWith("userId", "message", true);
+			expect(fakeTrigger4.onFriendMessage).toHaveBeenCalledWith("userId", "message", true);
 		});
 
 		it("should call onChatMessage on triggers when a message is received in a chat room", function() {
@@ -287,12 +284,15 @@ describe("ChatBot", function() {
 			fakeTrigger2.onChatMessage.andCallFake(function() { return true; });
 			var fakeTrigger3 = bot.addTrigger("fakeTrigger3", "type");
 			fakeTrigger3.onChatMessage.andCallFake(function() { return false; });
+			var fakeTrigger4 = bot.addTrigger("fakeTrigger4", "type");
+			fakeTrigger4.onChatMessage.andCallFake(function() { return false; });
 
 			bot._onChatMsg("roomId", "message", steam.EChatEntryType.ChatMsg, "chatterId");
 
 			expect(fakeTrigger1.onChatMessage).toHaveBeenCalledWith("roomId", "chatterId", "message", false, false);
 			expect(fakeTrigger2.onChatMessage).toHaveBeenCalledWith("roomId", "chatterId", "message", false, false);
 			expect(fakeTrigger3.onChatMessage).toHaveBeenCalledWith("roomId", "chatterId", "message", true, false);
+			expect(fakeTrigger4.onChatMessage).toHaveBeenCalledWith("roomId", "chatterId", "message", true, false);
 		});
 
 		it("should pass on the fact that the bot is muted in onChatMessage calls", function() {

@@ -72,7 +72,7 @@ describe("RegexReplaceTrigger", function() {
 	});
 
 	it("should replace matched groups", function() {
-		var trigger = RegexReplaceTrigger.create("regexReplace", fakeBot, { match: /^(m+?)(a+?)te(s??)$/, response: '{0}m{1}aaate{2}', exact: true } );
+		var trigger = RegexReplaceTrigger.create("regexReplace", fakeBot, { match: /^(m+?)(a+?)te(s??)$/, response: '{0}m{1}aaate{2}' } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'mate', false, false)).toEqual(true);
 		expect(fakeBot.sendMessage.calls.length).toEqual(1);
@@ -101,5 +101,21 @@ describe("RegexReplaceTrigger", function() {
 		expect(trigger.onChatMessage('roomId', 'userId', 'mmmmaaaaate', false, false)).toEqual(true);
 		expect(fakeBot.sendMessage.calls.length).toEqual(7);
 		expect(fakeBot.sendMessage.calls[6].args[1]).toEqual('mmmmmaaaaaaaate');
+	});
+
+	it("should be able to replace a specific word in the reply", function() {
+		var trigger = RegexReplaceTrigger.create("regexReplace", fakeBot, { match: /^(.*?)\bmatch\b(.*?)$/i, response: '{0}replacement{1}' } );
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'match', false, false)).toEqual(true);
+		expect(fakeBot.sendMessage.calls.length).toEqual(1);
+		expect(fakeBot.sendMessage.calls[0].args[1]).toEqual('replacement');
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'a match here', false, false)).toEqual(true);
+		expect(fakeBot.sendMessage.calls.length).toEqual(2);
+		expect(fakeBot.sendMessage.calls[1].args[1]).toEqual('a replacement here');
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'UPPERCASE MATCH', false, false)).toEqual(true);
+		expect(fakeBot.sendMessage.calls.length).toEqual(3);
+		expect(fakeBot.sendMessage.calls[2].args[1]).toEqual('uppercase replacement');
 	});
 });

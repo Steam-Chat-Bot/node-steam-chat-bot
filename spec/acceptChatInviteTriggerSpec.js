@@ -26,13 +26,11 @@ describe("AcceptChatInviteTrigger", function() {
 		runs(function() {
 			var trigger = AcceptChatInviteTrigger.create("acceptChatInvite", fakeBot, { chatrooms: { 'room1': 'hi guys' }, delay: 100 } );
 			expect(trigger.onChatInvite('room1', 'room name', 'inviterId')).toEqual(true);
-			delayLapsed = false;
 
-			setTimeout(function() { delayLapsed = true; }, 110);
 			setTimeout(function() { expect(fakeBot.sendMessage).not.toHaveBeenCalled(); }, 50);
 		});
 
-		waitsFor(function() { return delayLapsed; }, "Delay should have lapsed", 120);
+		waits(110);
 
 		runs(function() {
 			expect(fakeBot.sendMessage).toHaveBeenCalledWith('room1', 'hi guys');

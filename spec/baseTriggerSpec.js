@@ -68,14 +68,12 @@ describe("BaseTrigger", function() {
 	it("should respect the delay option when sending a message", function() {
 		runs(function() {
 			var trigger = BaseTrigger.create("base", fakeBot, { delay: 100 } );
-			delayLapsed = false;
 			trigger._sendMessageAfterDelay("steamId", "message");
 
-			setTimeout(function() { delayLapsed = true; }, 110);
 			setTimeout(function() { expect(fakeBot.sendMessage).not.toHaveBeenCalled(); }, 50);
 		});
 
-		waitsFor(function() { return delayLapsed; }, "Delay should have lapsed", 120);
+		waits(110);
 
 		runs(function() {
 			expect(fakeBot.sendMessage).toHaveBeenCalled();
@@ -85,13 +83,10 @@ describe("BaseTrigger", function() {
 	it("should not delay sending a message when there is no delay option", function() {
 		runs(function() {
 			var trigger = BaseTrigger.create("base", fakeBot, { } );
-			delayLapsed = false;
 			trigger._sendMessageAfterDelay("steamId", "message");
-
-			setTimeout(function() { delayLapsed = true; }, 5);
 		});
 
-		waitsFor(function() { return delayLapsed; }, "Delay should have lapsed", 10);
+		waits(5);
 
 		runs(function() {
 			expect(fakeBot.sendMessage).toHaveBeenCalled();
@@ -101,13 +96,10 @@ describe("BaseTrigger", function() {
 	it("should not delay sending a message when the delay option is 0", function() {
 		runs(function() {
 			var trigger = BaseTrigger.create("base", fakeBot, { delay: 0 } );
-			delayLapsed = false;
 			trigger._sendMessageAfterDelay("steamId", "message");
-
-			setTimeout(function() { delayLapsed = true; }, 5);
 		});
 
-		waitsFor(function() { return delayLapsed; }, "Delay should have lapsed", 10);
+		waits(5);
 
 		runs(function() {
 			expect(fakeBot.sendMessage).toHaveBeenCalled();
@@ -118,15 +110,12 @@ describe("BaseTrigger", function() {
 		var trigger;
 		runs(function() {
 			trigger = BaseTrigger.create("base", fakeBot, { timeout: 50 } );
-			timeoutLapsed = false;
 			expect(trigger.replyEnabled).toEqual(true);
 			trigger._disableForTimeout();
 			expect(trigger.replyEnabled).toEqual(false);
-
-			setTimeout(function() { timeoutLapsed = true; }, 60);
 		});
 
-		waitsFor(function() { return timeoutLapsed; }, "Delay should have lapsed", 70);
+		waits(60);
 
 		runs(function() {
 			expect(trigger.replyEnabled).toEqual(true);
