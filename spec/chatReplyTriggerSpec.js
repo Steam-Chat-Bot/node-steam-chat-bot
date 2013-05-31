@@ -179,4 +179,17 @@ describe("ChatReplyTrigger", function() {
 		expect(fakeBot.sendMessage.calls[1].args[1]).toEqual("response2");
 		Math.random.restore();
 	});
+
+	it("should only reply to specific users if specified", function() {
+		var trigger = ChatReplyTrigger.create("chatReply", fakeBot, { matches: ['trigger'], responses: ['response'], users: ['user1', 'user2'] } );
+
+		expect(trigger.onChatMessage('roomId', 'user3', 'trigger', false, false)).toEqual(false);
+		expect(fakeBot.sendMessage).not.toHaveBeenCalled();
+
+		expect(trigger.onChatMessage('roomId', 'user1', 'trigger', false, false)).toEqual(true);
+		expect(fakeBot.sendMessage).toHaveBeenCalledWith("roomId", "response");
+
+		expect(trigger.onChatMessage('roomId', 'user2', 'trigger', false, false)).toEqual(true);
+		expect(fakeBot.sendMessage.calls.length).toEqual(2);
+	});
 });

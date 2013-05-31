@@ -22,6 +22,9 @@ myBot.addTriggers([
 	{ name: 'HeartReply', type: 'ChatReplyTrigger', options: { matches: ['<3'], responses: ['</3', '<3'], exact: true, delay: 500, probability: 0.5, timeout: 60*60*1000 } },
 	{ name: 'SteveHoltReply', type: 'ChatReplyTrigger', options: { matches: ['steve holt', 'steve holt!'], responses: ['\\o/'], exact: false, delay: 500, timeout: 10*1000 } },
 
+	// Reply triggers that will only respond to a particular user
+	{ name: 'SingleUserReply', type: 'ChatReplyTrigger', options: { matches: ['hi bot'], responses: ['hi boss!'], exact: true, users: ['76561197961244239'] } },
+
 	// Sample regex trigger, "mate" will be responded to with "mmaaaate", "mmaaaate" will be responded to with "mmmaaaaaaate", etc
 	{ name: 'MateEscalation', type: 'RegexReplaceTrigger', options: { match: /^(m+?)(a+?)te(s??)$/, response: '{0}m{1}aaate{2}', delay: 500} },
 
@@ -36,6 +39,9 @@ myBot.addTriggers([
 
 	// Random cleverbot reply that triggers randomly about once every 100 messages
 	{ name: 'RandomCleverbotReply', type: 'CleverbotTrigger', options: { probability: 0.01, timeout: 30*60*1000 } },
+
+	// Say something when a user joins chat
+	{ name: 'SteveHoltEnter', type: 'MessageOnJoinTrigger', options: { user: '76561197961244239', message: "STEVE HOLT! \\o/", probability: 0.5, delay: 1000, timeout: 24*60*60*1000 } },
 ]);
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported
