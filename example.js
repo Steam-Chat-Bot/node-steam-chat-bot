@@ -42,6 +42,9 @@ myBot.addTriggers([
 
 	// Say something when a user joins chat
 	{ name: 'SteveHoltEnter', type: 'MessageOnJoinTrigger', options: { user: '76561197961244239', message: "STEVE HOLT! \\o/", probability: 0.5, delay: 1000, timeout: 24*60*60*1000 } },
+
+	// Query Wolfram Alpha when a message starts with !wolfram
+	{ name: 'WolframReply', type: 'WolframAlphaTrigger', options: { command: '!wolfram', appId: 'XXX-XXX' } },
 ]);
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported

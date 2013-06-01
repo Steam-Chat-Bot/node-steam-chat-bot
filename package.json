@@ -9,6 +9,7 @@
     , "sinon": "*"
     , "cleverbot-node": "*"
     , "nock": "*"
+    , "wolfram": "*"
   }
   , "engines": {
       "node": "0.10.x"

@@ -16,3 +16,7 @@ ChatReplyTrigger - Detects a message (either an exact match or a "contains" matc
 CleverbotTrigger - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 
 RegexReplaceTrigger - Detects a regex match in a message and uses the matches to construct a reply.
+
+WolframAlphaTrigger - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer.
+
+To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
