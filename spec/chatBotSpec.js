@@ -18,14 +18,12 @@ describe("ChatBot", function() {
 				return null;
 			}
 
-			var fakeTrigger = jasmine.createSpyObj('fakeTrigger', ['getType', 'getOptions', 'onChatInvite', 'onFriendRequest', 'onFriendMessage', 'onChatMessage']);
-			fakeTrigger.getType.andCallFake(function() {
-				return type;
-			});
+			var fakeTrigger = jasmine.createSpyObj('fakeTrigger', ['getOptions', 'onChatInvite', 'onFriendRequest', 'onFriendMessage', 'onChatMessage']);
 			fakeTrigger.getOptions.andCallFake(function() {
 				return options;
 			});
 			fakeTrigger.name = name;
+			fakeTrigger.type = type;
 
 			return fakeTrigger;
 		});
