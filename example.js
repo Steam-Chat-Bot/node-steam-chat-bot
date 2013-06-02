@@ -44,7 +44,10 @@ myBot.addTriggers([
 	{ name: 'SteveHoltEnter', type: 'MessageOnJoinTrigger', options: { user: '76561197961244239', message: "STEVE HOLT! \\o/", probability: 0.5, delay: 1000, timeout: 24*60*60*1000 } },
 
 	// Query Wolfram Alpha when a message starts with !wolfram
-	{ name: 'WolframReply', type: 'WolframAlphaTrigger', options: { command: '!wolfram', appId: 'XXX-XXX' } },
+	{ name: 'WolframReply', type: 'WolframAlphaTrigger', options: { command: '!wolfram', appId: 'XXXXXX' } },
+
+	// Post all links from chat to tumblr, and also post things on command
+	{ name: 'TumblrTrigger', type: 'TumblrTrigger', options: { blogName: 'XXX', consumerKey: 'XXX', consumerSecret: 'XXX', token: 'XXX', tokenSecret: 'XXX' }  },
 ]);
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported
