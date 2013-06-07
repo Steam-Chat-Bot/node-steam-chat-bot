@@ -9,7 +9,7 @@ describe("TumblrTrigger", function() {
 
 	it("should not post on demand if there is nothing after a command", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['text', 'photo']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!posttext', false, false)).toEqual(false);
 		expect(trigger.onChatMessage('roomId', 'userId', '!posttext ', false, false)).toEqual(false);
@@ -21,7 +21,7 @@ describe("TumblrTrigger", function() {
 
 	it("should not post on demand without the right command", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['text']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '', false, false)).toEqual(false);
 		expect(trigger.onChatMessage('roomId', 'userId', 'posttext', false, false)).toEqual(false);
@@ -34,7 +34,7 @@ describe("TumblrTrigger", function() {
 
 	it("should not post on demand from a friend message", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['text']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onFriendMessage('userId', '!posttext text here', false)).toEqual(false);
 		expect(fakeTumblrClient.text).not.toHaveBeenCalled();
@@ -42,7 +42,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post text on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['text']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!posttext text here', false, false)).toEqual(true);
 		expect(fakeTumblrClient.text.calls.length).toEqual(1);
@@ -52,7 +52,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post a link as a photo on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['photo']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!postphoto http://a.com/image.jpg', false, false)).toEqual(true);
 		expect(fakeTumblrClient.photo.calls.length).toEqual(1);
@@ -87,7 +87,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post a photo on demand with additional context if provided", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['photo']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!postphoto check this out http://a.com/image.jpg', false, false)).toEqual(true);
 		expect(fakeTumblrClient.photo.calls.length).toEqual(1);
@@ -107,7 +107,7 @@ describe("TumblrTrigger", function() {
 
 	it("should not post a photo on demand if no links are provided", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['photo']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!postphoto no links here http://', false, false)).toEqual(false);
 		expect(fakeTumblrClient.photo).not.toHaveBeenCalled();
@@ -115,7 +115,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post a quote on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['quote']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		var quote = 'this is a quote';
 
@@ -127,7 +127,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post a link on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!postlink http://a.com', false, false)).toEqual(true);
 		expect(fakeTumblrClient.link.calls.length).toEqual(1);
@@ -147,7 +147,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post a chat on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['chat']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		var conversation = '9:30 PM - User 1: first message\
 9:30 PM - User 2: second message';
@@ -160,7 +160,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post audio on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!postaudio https://soundcloud.com/dumbshitthatjakazidmade/get-clucky', false, false)).toEqual(true);
 		expect(fakeTumblrClient.audio.calls.length).toEqual(1);
@@ -180,7 +180,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post video on demand", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['video']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', '!postvideo http://www.youtube.com/watch?v=7E0ot9iJm_k', false, false)).toEqual(true);
 		expect(fakeTumblrClient.video.calls.length).toEqual(1);
@@ -200,7 +200,7 @@ describe("TumblrTrigger", function() {
 
 	it("should not post malformed links automatically", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'mailto link mailto://email@host.com', false, false)).toEqual(false);
 		expect(trigger.onChatMessage('roomId', 'userId', 'invalid schema link htp://www.google.com', false, false)).toEqual(false);
@@ -216,7 +216,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post generic links as links automatically", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		// Automatic posts should always return false
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.google.com', false, false)).toEqual(false);
@@ -252,7 +252,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post image links as photos automatically", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.google.com/image.jpg', false, false)).toEqual(false);
 		expect(fakeTumblrClient.photo.calls.length).toEqual(1);
@@ -287,7 +287,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post bad image links as links", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.google.com/image .jpg', false, false)).toEqual(false);
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.google.com/xjpg', false, false)).toEqual(false);
@@ -300,7 +300,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post tumblr gifs as photos", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio', 'text']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://25.media.tumblr.com/x/x.gif', false, false)).toEqual(false);
 		expect(fakeTumblrClient.photo.calls.length).toEqual(1);
@@ -316,7 +316,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post non-tumblr gifs as HTML text tagged as photo", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio', 'text']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://i.imgur.com/x.gif', false, false)).toEqual(false);
 		
@@ -333,7 +333,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post video links as video automatically", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.youtube.com/watch?v=xx', false, false)).toEqual(false);
 		expect(fakeTumblrClient.video.calls.length).toEqual(1);
@@ -356,7 +356,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post bad video links as links", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.youtube.com/', false, false)).toEqual(false);
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.youtube.com', false, false)).toEqual(false);
@@ -369,7 +369,7 @@ describe("TumblrTrigger", function() {
 
 	it("should post audio links as audio automatically", function() {
 		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
-		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', tumblr: fakeTumblrClient } );
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: true, tumblr: fakeTumblrClient } );
 
 		expect(trigger.onChatMessage('roomId', 'userId', 'http://google.com/audio.mp3', false, false)).toEqual(false);
 		expect(fakeTumblrClient.audio.calls.length).toEqual(1);
@@ -391,6 +391,63 @@ describe("TumblrTrigger", function() {
 		expect(fakeTumblrClient.audio.calls.length).toEqual(5);
 		expect(fakeTumblrClient.audio.calls[4].args[1]).toEqual({ tags: 'audio', external_url: 'https://x.subdomain.soundcloud.com/xx' });
 
-		expect(fakeTumblrClient.link).not.toHaveBeenCalled();		
+		expect(fakeTumblrClient.link).not.toHaveBeenCalled();
+	});
+
+	it("should not post context if the autoPostContext option is false", function() {
+		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: false, tumblr: fakeTumblrClient } );
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'context http://www.google.com context', false, false)).toEqual(false);
+		expect(fakeTumblrClient.link.calls.length).toEqual(1);
+		expect(fakeTumblrClient.link.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.link.calls[0].args[1]).toEqual({ tags: 'link', url: 'http://www.google.com' });
+	});
+
+	it("should not post context if the autoPostContext option is missing", function() {
+		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, tumblr: fakeTumblrClient } );
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'context http://www.google.com context', false, false)).toEqual(false);
+		expect(fakeTumblrClient.link.calls.length).toEqual(1);
+		expect(fakeTumblrClient.link.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.link.calls[0].args[1]).toEqual({ tags: 'link', url: 'http://www.google.com' });
+	});
+
+	it("should post each link separately if the autoPostContext option is false", function() {
+		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: true, autoPostContext: false, tumblr: fakeTumblrClient } );
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'context http://www.google.com/1 context http://www.google.com/2', false, false)).toEqual(false);
+		expect(fakeTumblrClient.link.calls.length).toEqual(2);
+		expect(fakeTumblrClient.link.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.link.calls[0].args[1]).toEqual({ tags: 'link', url: 'http://www.google.com/1' });
+		expect(fakeTumblrClient.link.calls[1].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.link.calls[1].args[1]).toEqual({ tags: 'link', url: 'http://www.google.com/2' });
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'http://google.com/audio.mp3 http://www.youtube.com/watch?v=xx http://www.google.com/image.jpg', false, false)).toEqual(false);
+		expect(fakeTumblrClient.link.calls.length).toEqual(2);
+		expect(fakeTumblrClient.audio.calls.length).toEqual(1);
+		expect(fakeTumblrClient.audio.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.audio.calls[0].args[1]).toEqual({ tags: 'audio', external_url: 'http://google.com/audio.mp3' });
+		expect(fakeTumblrClient.video.calls.length).toEqual(1);
+		expect(fakeTumblrClient.video.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.video.calls[0].args[1]).toEqual({ tags: 'video', embed: 'http://www.youtube.com/watch?v=xx' });
+		expect(fakeTumblrClient.photo.calls.length).toEqual(1);
+		expect(fakeTumblrClient.photo.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.photo.calls[0].args[1]).toEqual({ tags: 'photo', source: 'http://www.google.com/image.jpg', link: 'http://www.google.com/image.jpg' });
+	});
+
+	it("should not auto-post links if the autoPost option is false", function() {
+		var fakeTumblrClient = jasmine.createSpyObj('fakeTumblrClient', ['link', 'photo', 'video', 'audio']);
+		var trigger = TumblrTrigger.create("tumblrTrigger", fakeBot, { blogName: 'blogname', autoPost: false, tumblr: fakeTumblrClient } );
+
+		expect(trigger.onChatMessage('roomId', 'userId', 'http://www.google.com/1', false, false)).toEqual(false);
+		expect(fakeTumblrClient.link).not.toHaveBeenCalled();
+
+		expect(trigger.onChatMessage('roomId', 'userId', '!postlink http://www.google.com/1', false, false)).toEqual(true);
+		expect(fakeTumblrClient.link.calls.length).toEqual(1);
+		expect(fakeTumblrClient.link.calls[0].args[0]).toEqual('blogname');
+		expect(fakeTumblrClient.link.calls[0].args[1]).toEqual({ tags: 'link', url: 'http://www.google.com/1' });
 	});
 });

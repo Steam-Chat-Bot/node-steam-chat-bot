@@ -47,7 +47,7 @@ myBot.addTriggers([
 	{ name: 'WolframReply', type: 'WolframAlphaTrigger', options: { command: '!wolfram', appId: 'XXXXXX' } },
 
 	// Post all links from chat to tumblr, and also post things on command
-	{ name: 'TumblrTrigger', type: 'TumblrTrigger', options: { blogName: 'XXX', consumerKey: 'XXX', consumerSecret: 'XXX', token: 'XXX', tokenSecret: 'XXX' }  },
+	{ name: 'TumblrTrigger', type: 'TumblrTrigger', options: { autoPost: true, autoPostContext: false, blogName: 'XXX', consumerKey: 'XXX', consumerSecret: 'XXX', token: 'XXX', tokenSecret: 'XXX' }  },
 ]);
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported
