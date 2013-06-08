@@ -48,6 +48,9 @@ myBot.addTriggers([
 
 	// Post all links from chat to tumblr, and also post things on command
 	{ name: 'TumblrTrigger', type: 'TumblrTrigger', options: { autoPost: true, autoPostContext: false, blogName: 'XXX', consumerKey: 'XXX', consumerSecret: 'XXX', token: 'XXX', tokenSecret: 'XXX' }  },
+
+	// Search YouTube and respond with the top result whenever someone types !yt <query>
+	{ name: 'Youtube', type: 'YoutubeTrigger', options: { command: '!yt' } },
 ]);
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported

@@ -21,4 +21,8 @@ TumblrTrigger - Allows the bot to post things to a tumblr blog, either by comman
 
 WolframAlphaTrigger - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer. You will need an appId from http://products.wolframalpha.com/api/.
 
+YoutubeTrigger - Responds to a message with the top YouTube search result if it starts with a specific command.
+
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
+
+See [example.js](https://github.com/bonnici/node-steam-chat-bot/blob/master/example.js) for an example usage.
