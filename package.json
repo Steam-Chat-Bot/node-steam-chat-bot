@@ -1,7 +1,14 @@
 {
     "name": "steam-chat-bot"
-  , "version": "0.0.1"
-  , "private": true
+  , "version": "1.0.0"
+  , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
+  , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr"]
+  , "author": "bonnici <lljksteveholt@gmail.com>"
+  , "main": "./lib/chatBot"
+  , "repository": {
+      "type": "git"
+    , "url": "https://github.com/bonnici/node-steam-chat-bot.git"
+  }
   , "dependencies": {
       "steam": "*"
     , "underscore": "*"
