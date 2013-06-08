@@ -36,23 +36,64 @@ describe("ChatBot", function() {
 	});
 
 	describe("ChatBot connections", function() {
-		it("should connect when created", function() {
-			bot = new ChatBot("username", "password", { client: fakeClient });
+		it("should connect when created if autoConnect option is on", function() {
+			bot = new ChatBot("username", "password", { client: fakeClient, autoConnect: true, autoReconnect: true });
 			expect(fakeClient.logOn).toHaveBeenCalled();
 		});
 
-		it("should reconnect when disconnected", function() {
+		it("should reconnect when disconnected if autoReconnect option is on", function() {
 			runs(function() {
-				bot = new ChatBot("username", "password", { client: fakeClient, babysitTimer: 100 });
+				bot = new ChatBot("username", "password", { client: fakeClient, babysitTimer: 100, autoConnect: true, autoReconnect: true });
 				expect(fakeClient.logOn.calls.length).toEqual(1);
 				bot.connected = false;
-
 			});
 
 			waits(110);
 
 			runs(function() {
 				expect(fakeClient.logOn.calls.length).toEqual(2);
+			});
+		});
+
+		it("should not automatically connect if autoConnect option is off", function() {
+			bot = new ChatBot("username", "password", { client: fakeClient, autoConnect: false, autoReconnect: false });
+			expect(fakeClient.logOn).not.toHaveBeenCalled();
+			bot.connect();
+			expect(fakeClient.logOn).toHaveBeenCalled();
+		});
+
+		it("should not automatically re-connect until connect is called if autoConnect option is off", function() {
+			bot = new ChatBot("username", "password", { client: fakeClient, autoConnect: false, autoReconnect: true, babysitTimer: 100 });
+			
+			waits(110);
+
+			runs(function() {
+				expect(fakeClient.logOn).not.toHaveBeenCalled();
+
+				bot.connect();
+				expect(fakeClient.logOn).toHaveBeenCalled();
+				bot.connected = false;
+			});
+
+			waits(110);
+
+			runs(function() {
+				expect(fakeClient.logOn.calls.length).toEqual(2);
+			});
+		});
+
+		it("should not automatically re-connect on disconnection if autoReconnect option is off", function() {
+			bot = new ChatBot("username", "password", { client: fakeClient, autoConnect: false, autoReconnect: false, babysitTimer: 100 });
+			expect(fakeClient.logOn).not.toHaveBeenCalled();
+			bot.connect();
+			expect(fakeClient.logOn).toHaveBeenCalled();
+
+			bot.connected = false;
+
+			waits(110);
+
+			runs(function() {
+				expect(fakeClient.logOn.calls.length).toEqual(1);
 			});
 		});
 	});
