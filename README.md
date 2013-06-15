@@ -1,7 +1,7 @@
 node-steam-chat-bot
 ===================
 
-Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types, see example.js for an example of the usage. The triggers that currently exist are:
+Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. The triggers that currently exist are:
 
 AcceptChatInviteTrigger - Joins a specified chatroom when invited and says an optional welcome message.
 
@@ -21,7 +21,7 @@ TumblrTrigger - Allows the bot to post things to a tumblr blog, either by comman
 
 WolframAlphaTrigger - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer. You will need an appId from http://products.wolframalpha.com/api/.
 
-YoutubeTrigger - Responds to a message with the top YouTube search result if it starts with a specific command.
+YoutubeTrigger - Responds to a message with the top YouTube search result if it starts with a specific command. Also has an option to randomly rickroll instead of returning the best result.
 
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 

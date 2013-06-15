@@ -163,11 +163,11 @@ myBot.addTriggers([
 		}  
 	},
 
-	// Search YouTube and respond with the top result whenever someone types !yt <query>
+	// Search YouTube and respond with the top result whenever someone types !yt <query>, rickroll about 1 every 100 times
 	{ 
 		name: 'Youtube', 
 		type: 'YoutubeTrigger', 
-		options: { command: '!yt' } 
+		options: { command: '!yt', rickrollChance: 0.01 } 
 	},
 ]);
 
