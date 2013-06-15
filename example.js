@@ -30,7 +30,8 @@ myBot.addTriggers([
 		name: 'AcceptChatInvite', 
 		type: 'AcceptChatInviteTrigger', 
 		options: { 
-			chatrooms: { 'GroupSteamId': 'Welcome message' } 
+			chatrooms: { 'GroupSteamId': 'Welcome message' }, 
+			autoJoinAfterDisconnect: true
 		} 
 	},
 
