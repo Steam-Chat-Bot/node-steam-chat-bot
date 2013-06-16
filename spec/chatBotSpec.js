@@ -10,7 +10,7 @@ describe("ChatBot", function() {
 	var fakeTriggerFactory;
 
 	beforeEach(function() {
-		fakeClient = jasmine.createSpyObj('fakeClient', ['on', 'logOn', 'setPersonaState']);
+		fakeClient = jasmine.createSpyObj('fakeClient', ['on', 'logOn', 'setPersonaState', 'joinChat']);
 
 		fakeTriggerFactory = jasmine.createSpyObj('fakeTriggerFactory', ['createTrigger']);
 		fakeTriggerFactory.createTrigger.andCallFake(function(type, name, bot, options) {
