@@ -1,6 +1,5 @@
-var ChatBot = require('./lib/chatBot.js').ChatBot;
-
-var BotCommandTrigger = require('./lib/triggers/botCommandTrigger.js');
+var ChatBot = require('steam-chat-bot').ChatBot;
+var BotCommands = require('steam-chat-bot').BotCommands;
 
 // This will log in a steam user with the specified username and password
 var myBot = new ChatBot('username', 'password', { autoReconnect: true });
