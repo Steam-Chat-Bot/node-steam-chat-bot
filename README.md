@@ -3,7 +3,7 @@ node-steam-chat-bot
 
 Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. Steam requires that a user has at least one game before it can join chat rooms (unless it's a mod), so you'll need to buy a game for the bot account or make it a mod before it will be able to join.
 
-If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (e.g. new ChatBot('username', 'password', { guardCode: 'XXXX' };) and you should be able to log in. A 'sentry' file will be stored, which should allow you to log in with a different computer using the same guard code but I've honestly never tried this so ¯\\_(ツ)_/¯. However if you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
+If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (e.g. new ChatBot('username', 'password', { guardCode: 'XXXX' };) and you should be able to log in. A 'sentry' file will be stored, which should allow you to log in with a different computer using the same guard code but I've honestly never tried this so ¯\\_(ツ)_/¯. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
 
 The triggers that currently exist are:
 
@@ -11,7 +11,7 @@ AcceptChatInviteTrigger - Joins a specified chatroom when invited and says an op
 
 AcceptFriendRequestTrigger - Automatically accepts any friend requests sent to the bot.
 
-BotCommandTrigger - Runs a command on the bot when a specific command message is typed, currently only supports mute and unmute commands.
+BotCommandTrigger - Runs a specified callback when a specific command message is typed. The callback is passed the bot object allowing bot functions (e.g. mute, unmute, joinGame) to be run regardless of scope. This is a breaking change going from v1.1.x to v1.2.0.
 
 ButtBotTrigger - Repeats a message, but with one word randomly replaced with a specific other word. The canonical example is replacing a random word with "butt".
 

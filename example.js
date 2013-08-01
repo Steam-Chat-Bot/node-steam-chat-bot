@@ -1,5 +1,4 @@
 var ChatBot = require('steam-chat-bot').ChatBot;
-var BotCommands = require('steam-chat-bot').BotCommands;
 
 // This will log in a steam user with the specified username and password 
 // You can also pass in a steam guard code from an email
@@ -7,13 +6,15 @@ var myBot = new ChatBot('username', 'password', { guardCode: 'XXXXX', autoReconn
 
 // Set up the triggers to control the bot
 myBot.addTriggers([
-	// Commands to stop the bot from saying anything in a chatroom
+
+	// Commands to stop/unstop the bot from saying anything in a chatroom
 	{ 
 		name: 'MuteCommand', 
 		type: 'BotCommandTrigger', 
 		options: { 
 			matches: ['!mute', '!pause'], 
-			command: BotCommandTrigger.Commands.Mute 
+			exact: true,
+			callback: function(bot) { bot.mute(); }
 		} 
 	},
 	{ 
@@ -21,7 +22,19 @@ myBot.addTriggers([
 		type: 'BotCommandTrigger', 
 		options: { 
 			matches: ['!unmute', '!unpause'], 
-			command: BotCommandTrigger.Commands.Unmute 
+			exact: true,
+			callback: function(bot) { bot.unmute(); }
+		} 
+	},
+
+	// Command to join Bad Rats whenever it's mentioned	
+	{ 
+		name: 'BadRatsCommand', 
+		type: 'BotCommandTrigger', 
+		options: { 
+			matches: ['bat rats'], 
+			exact: false,
+			callback: function(bot) { bot.joinGame(34900); }
 		} 
 	},
 
