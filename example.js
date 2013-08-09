@@ -85,7 +85,27 @@ myBot.addTriggers([
 			delay: 1000, 
 			probability: 1, 
 			timeout: 10*1000 } },
+/*	you probably don't have :D: or :medicon: emotes on your bot, so this is commented out.
 	{ 
+		name: 'HealReply', 
+		type: 'ChatReplyTrigger', 
+		options: { 
+			matches: ['heal','health','heal me',"i'm hurt","I'm hurt",'im hurt','Im hurt'], 
+			responses: [':medicon:'], 
+			exact: true, 
+			delay: 1000, 
+			probability: 1, 
+			timeout: 10*1000 } },
+		name: 'GrinReply', 
+		type: 'ChatReplyTrigger', 
+		options: { 
+			matches: [':D'], 
+			responses: [':D:'], 
+			exact: true, 
+			delay: 500, 
+			probability: 0.5, 
+			timeout: 60*1000 } },
+*/	{ 
 		name: 'SteveHoltReply', 
 		type: 'ChatReplyTrigger', 
 		options: { 
