@@ -76,6 +76,16 @@ myBot.addTriggers([
 			probability: 0.5, 
 			timeout: 60*60*1000 } },
 	{ 
+		name: 'PingReply', 
+		type: 'ChatReplyTrigger', 
+		options: { 
+			matches: ['ping'], 
+			responses: ['pong'], 
+			exact: true, 
+			delay: 1000, 
+			probability: 1, 
+			timeout: 10*1000 } },
+	{ 
 		name: 'SteveHoltReply', 
 		type: 'ChatReplyTrigger', 
 		options: { 
@@ -87,6 +97,14 @@ myBot.addTriggers([
 		} 
 	},
 
+		name: 'SteamIDCheck', 
+		type: 'SteamInfoTrigger', 
+		options: { 
+			command: "!steamrep", 
+			delay: 2000, 
+			timeout: 5000 
+		} 
+	},
 	// Reply triggers that will only respond to a particular user
 	{ 
 		name: 'SingleUserReply', 
