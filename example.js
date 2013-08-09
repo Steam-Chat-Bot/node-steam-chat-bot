@@ -2,7 +2,12 @@ var ChatBot = require('steam-chat-bot').ChatBot;
 
 // This will log in a steam user with the specified username and password 
 // You can also pass in a steam guard code from an email
-var myBot = new ChatBot('username', 'password', { guardCode: 'XXXXX', autoReconnect: true });
+var myBot = new ChatBot('username', 'password', {
+//	sentryFile: '',		//Bot tries to find a sentry file automatically. This is only required if you have one with a strange name, otherwise it's automatic.
+//	guardCode: '',		//guardCode will override a sentry file. Comment this out after the first use.
+//	games: [440],		//this is a comma-separated array of games that the bot will play automatically on login. 440 is tf2.
+	autoReconnect: true	//automatically reconnect to the server
+	});
 
 // Set up the triggers to control the bot
 myBot.addTriggers([
