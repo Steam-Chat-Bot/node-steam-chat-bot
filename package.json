@@ -19,6 +19,7 @@
     , "wolfram": "0.2.x"
     , "tumblr.js": "0.0.x"
     , "youtube-feeds": "2.2.x"
+    , "steam-trade": "git://github.com/seishun/node-steam-trade.git"
   }
   , "engines": {
       "node": "0.10.x"
