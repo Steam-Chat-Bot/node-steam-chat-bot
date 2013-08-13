@@ -68,8 +68,7 @@ myBot.addTriggers([
 			delay: 1000, 
 			probability: 0.2, 
 			timeout: 10*1000,
-			//don't respond to this command in the steam workshop chat, and don't respond to /id/groupchatbot.
-			ignore: ['103582791432805705','76561198084722566']
+			ignore: ['103582791432805705','76561198084722566']  //don't respond to this command in the steam workshop chat, and don't respond to /id/groupchatbot.
 		} 
 	},
 	{ 
@@ -82,8 +81,7 @@ myBot.addTriggers([
 			delay: 500, 
 			probability: 0.5, 
 			timeout: 60*60*1000,
-			//only do this trigger in the steam workshop chat
-			rooms: ['103582791432805705'] } },
+			rooms: ['103582791432805705'] } },  //only do this trigger in the steam workshop chat
 	{ 
 		name: 'PingReply', 
 		type: 'ChatReplyTrigger', 
@@ -220,6 +218,9 @@ myBot.addTriggers([
 			consumerKey: 'XXX', 
 			consumerSecret: 'XXX', 
 			token: 'XXX', 
+//			ignore: ['103582791432805705','76561198084722566'],   //don't post stuff from the steam workshop chat, and don't post stuff from /id/groupchatbot.
+//			rooms: ['103582791432805705'],                        //only post stuff from the steam workshop chat
+//			users: ['76561198084722566'],                         //only post stuff from /id/groupchatbot
 			tokenSecret: 'XXX' 
 		}  
 	},
