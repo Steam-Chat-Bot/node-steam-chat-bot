@@ -67,7 +67,9 @@ myBot.addTriggers([
 			exact: true, 
 			delay: 1000, 
 			probability: 0.2, 
-			timeout: 10*1000 
+			timeout: 10*1000,
+			//don't respond to this command in the steam workshop chat, and don't respond to /id/groupchatbot.
+			ignore: ['103582791432805705','76561198084722566']
 		} 
 	},
 	{ 
@@ -79,7 +81,9 @@ myBot.addTriggers([
 			exact: true, 
 			delay: 500, 
 			probability: 0.5, 
-			timeout: 60*60*1000 } },
+			timeout: 60*60*1000,
+			//only do this trigger in the steam workshop chat
+			rooms: ['103582791432805705'] } },
 	{ 
 		name: 'PingReply', 
 		type: 'ChatReplyTrigger', 
