@@ -199,6 +199,16 @@ myBot.addTriggers([
 			timeout: 24*60*60*1000 
 		} 
 	},
+	//roll those dice!
+	{ 
+		name: 'RollDice', 
+		type: 'RollTrigger', 
+		options: { 
+			command: '!dice', 
+			delay: 500,
+			timeout: 1000
+		} 
+	},
 
 	// Query Wolfram Alpha when a message starts with !wolfram
 	{ 
