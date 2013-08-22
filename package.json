@@ -7,7 +7,7 @@
   , "main": "./lib/chatBot"
   , "repository": {
       "type": "git"
-    , "url": "https://github.com/bonnici/node-steam-chat-bot.git"
+    , "url": "https://github.com/Efreak/node-steam-chat-bot.git"
   }
   , "dependencies": {
       "steam": "0.5.x"
