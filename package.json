@@ -20,6 +20,7 @@
     , "tumblr.js": "0.0.x"
     , "youtube-feeds": "2.2.x"
     , "request": "2.1"
+    , "roll": "0.3.2"
     , "steam-trade": "git://github.com/Efreak/node-steam-trade.git"
   }
   , "engines": {
