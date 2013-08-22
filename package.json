@@ -19,6 +19,7 @@
     , "wolfram": "0.2.x"
     , "tumblr.js": "0.0.x"
     , "youtube-feeds": "2.2.x"
+    , "request": "2.1"
     , "steam-trade": "git://github.com/Efreak/node-steam-trade.git"
   }
   , "engines": {
