@@ -1,6 +1,6 @@
 {
     "name": "steam-chat-bot"
-  , "version": "1.2.2"
+  , "version": "1.2.3"
   , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
   , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr"]
   , "author": "bonnici <lljksteveholt@gmail.com>"
