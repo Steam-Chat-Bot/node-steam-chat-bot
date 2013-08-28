@@ -217,6 +217,13 @@ myBot.addTriggers([
 		options: { command: '!wolfram', appId: 'XXXXXX' } 
 	},
 
+	//Query Urban Dictionary using their *unofficial* api when a message starts with !urban
+	{ 
+		name: 'WolframReply', 
+		type: 'UrbanDictionaryTrigger', 
+		options: { command: '!urban' } 
+	},
+
 	// Post all links from chat to tumblr, and also post things on command
 	{ 
 		name: 'TumblrTrigger', 
