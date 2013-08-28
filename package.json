@@ -1,6 +1,6 @@
 {
     "name": "steam-chat-bot"
-  , "version": "1.2.1"
+  , "version": "1.2.2"
   , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
   , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr"]
   , "author": "bonnici <lljksteveholt@gmail.com>"
@@ -19,7 +19,7 @@
     , "wolfram": "0.2.x"
     , "tumblr.js": "0.0.x"
     , "youtube-feeds": "2.2.x"
-    , "request": "2.1"
+    , "request": "2.26.0"
     , "roll": "0.3.2"
     , "steam-trade": "git://github.com/Efreak/node-steam-trade.git"
   }
