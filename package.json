@@ -3,7 +3,15 @@
   , "version": "1.2.4"
   , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
   , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr"]
-  , "author": "bonnici <lljksteveholt@gmail.com>"
+  , "contributors": [
+    {
+      "name": "bonnici",
+      "email": "lljksteveholt@gmail.com",
+    },{
+      "name": "Efreak",
+      "email": "nodesteamchatbot@efreakbnc.net",
+      "url": "http://www.github.com/Efreak"
+    }]
   , "main": "./lib/chatBot"
   , "repository": {
       "type": "git"
