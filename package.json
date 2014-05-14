@@ -21,7 +21,7 @@
     , "youtube-feeds": "2.2.x"
     , "request": "2.26.0"
     , "roll": "0.3.2"
-    , "steam-trade": "git://github.com/Efreak/node-steam-trade.git"
+    , "steam-trade": "https://github.com/seishun/node-steam-trade"
   }
   , "engines": {
       "node": "0.10.x"
