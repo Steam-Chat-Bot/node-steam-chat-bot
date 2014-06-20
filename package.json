@@ -18,7 +18,7 @@
     , "url": "https://github.com/Efreak/node-steam-chat-bot.git"
   }
   , "dependencies": {
-      "steam": "0.5.x"
+      "steam": "0.6.x"
     , "underscore": "1.5.x"
     , "winston": "0.7.x"
     , "sinon": "1.7.x"
