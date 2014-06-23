@@ -35,6 +35,8 @@
     , "youtube-feeds": "2.2.x"
     , "request": "2.26.0"
     , "roll": "0.3.2"
+    , "google": "0.3.x"
+    , "google-images": "0.1.x"
     , "steam-trade": "git://github.com/seishun/node-steam-trade.git"
   }
   , "engines": {
