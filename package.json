@@ -4,7 +4,8 @@
   , "bugs": { "url" : "http://github.com/Efreak/node-steam-chat-bot/issues" }
   , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
   , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr", "google", "steamrep"]
-  , "author": { "name" : "See contributors"
+  , "author": {
+      "name" : "See contributors"
     , "email" : "not@given.com"
     , "url" : "http://www.github.com/Efreak/node-steam-chat-bot"
   }
@@ -34,7 +35,7 @@
     , "youtube-feeds": "2.2.x"
     , "request": "2.26.0"
     , "roll": "0.3.2"
-    , "steam-trade": "https://github.com/seishun/node-steam-trade"
+    , "steam-trade": "git://github.com/seishun/node-steam-trade.git"
   }
   , "engines": {
       "node": "0.10.x"
