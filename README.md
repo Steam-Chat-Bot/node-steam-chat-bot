@@ -96,4 +96,4 @@ command - "!string" - this isn't universal, however many triggers allow you to c
 
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
-See [example.js](https://github.com/bonnici/node-steam-chat-bot/blob/master/example.js) for an example usage.
+See [example.js](https://github.com/efreak/node-steam-chat-bot/blob/master/example.js) for an example usage.
