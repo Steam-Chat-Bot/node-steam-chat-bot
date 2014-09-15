@@ -1,6 +1,6 @@
 {
     "name": "steam-chat-bot"
-  , "version": "1.2.4"
+  , "version": "1.2.5"
   , "bugs": { "url" : "http://github.com/Efreak/node-steam-chat-bot/issues" }
   , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
   , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr", "google", "steamrep"]
@@ -31,6 +31,7 @@
     , "nock": "0.28.x"
     , "cleverbot-node": "0.1.x"
     , "wolfram": "0.3.x"
+	, "tinycache": "*"
     , "tumblr.js": "0.0.x"
     , "youtube-feeds": "2.2.x"
     , "request": "2.26.0"
