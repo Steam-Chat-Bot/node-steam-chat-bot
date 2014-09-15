@@ -14,9 +14,11 @@ AcceptFriendRequestTrigger - Automatically accepts any friend requests sent to t
 
 AddFriendTrigger - provides a !add command. You should probably restrict this and other similar commands to admin user(s) only.
 
+BanCheckTrigger - checks to see if a user has any VAC/economy/community bans via steam API. Requires a steam api key, defined as option apikey in the plugin, or globally defined as a chatBot option steamapikey
+
 BanTrigger - bans a user from a groupchat. User does not need to be in groupchat for this to work.
 
-BotCommandTrigger - Runs a specified callback when a specific command message is typed. The callback is passed the bot object allowing bot functions (e.g. mute, unmute, joinGame) to be run regardless of scope. This is a breaking change going from v1.1.x to v1.2.0.
+BotCommandTrigger - Runs a specified callback when a specific command message is typed.
 
 ButtBotTrigger - Repeats a message, but with one word randomly replaced with a specific other word. The canonical example is replacing a random word with "butt".
 
@@ -24,17 +26,17 @@ ChatReplyTrigger - Detects a message (either an exact match or a "contains" matc
 
 CleverbotTrigger - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 
-GoogleTrigger - Prints out the title and link of the first search result on Google. Ability to get multiple results will be added later.
+GoogleTrigger - Prints out the title and link of the first search result on Google.
 
 GoogleImagesTrigger - Prints a link to the first search result on Google Images.
 
-IsUpTrigger - checks to see if a webserver is running.
+IsUpTrigger - Checks to see if a webserver is running (looks for 200, 301, 302 status)
 
-JoinChatTrigger - tells the bot to join a groupchat - set option notify to false if you don't want the bot to announce who told it to join the chat.
+JoinChatTrigger - tells the bot to join a groupchat, and announce who sent it
 
 KickTrigger - tells the box to kick someone from a groupchat.
 
-LeaveChatTrigger - tells the bot to leave a groupchat. - set option notify to false if you don't want the bot to announce who told it to leave the chat.
+LeaveChatTrigger - tells the bot to leave a groupchat, announcing who commanded it
 
 LockChatTrigger - tells the bot to lock a groupchat.
 
@@ -43,6 +45,16 @@ MessageOnJoinTrigger - tells the bot to welcome a specific user with an message 
 ModerateTrigger - tells the bot to set the groupchat to be moderated.
 
 PlayGameTrigger - tells the bot to play a game. You need to send the game's appid. - options allowpublic and allowprivate (both true by default) allow you to restrict usage of this command to either private or groupchat messages.
+
+PlayTrigger - same as above. Not sure why I have two of this plugin; one or the other may not work.
+
+ProfileCheckTrigger - When a user joins, look up their profile in steam API and if they have a private profile, or never bothered to set one up, announce it to the groupchat. Optional option: apikey can be defined in options, overriding any steamapikey can be defined in the bot constructor. If neither is defined, it won't be used (not required).
+
+RandomGameTrigger - Default command !randomgame. When command is used, it will check the user's games list (or that of the given steamid64, if one is placed after the command) and return a random game, along with a steam:// link to launch it, and the amount of time spent in that game. Requires apikey in options, or steamapikey in bot constructor.
+
+RedditOnJoinTrigger - When a user joins a groupchat, check a (currently private) Reddit API to fetch information on the user for /r/SteamGameSwap (ban status, flair level, username, etc) and greet them with it.
+
+RedditTrigger - Check reddit flair/bans/username on command. Takes /u/username, steamid64, or full profile urls for steam or reddit. If no input, returns information for the calling user.
 
 RegexReplaceTrigger - Detects a regex match in a message and uses the matches to construct a reply.
 
@@ -54,9 +66,9 @@ SayTrigger - tells the bot to say something in another groupchat.
 
 SetNameTrigger - changes the bot's display/profile name.
 
-SetStatusTrigger - changes the bot's status between online, away, snooze, etc. - options: statuses {online,busy,away,snooze,trade,play,offline}. You can set these to false to disable them, or to whatever you wish the second part of the command to be in order to tell the bot to set that status. Defaults: online, busy, away, snooze, trademe, playme, and false. Recommended you don't allow the bot to be set offline unless you have a way to bring it back online.
+SetStatusTrigger - changes the bot's status between online, away, snooze, etc. - options: statuses {online,busy,away,snooze,trade,play,offline}.
 
-SteamrepOnJoinTrigger - checks steamrep API whenever someone joins a chat the bot is in. If Steamrep lists the user as a scammer, then bot announces it and gives links for more info. option whoToTell - if this is defined, the bot will not announce scammers; rather it will send them to this steamid64.
+SteamrepOnJoinTrigger - checks steamrep API whenever someone joins a chat the bot is in. If Steamrep lists the user as a scammer, then bot announces it and gives links for more info.
 
 SteamrepTrigger - same as SteamrepOnJoinTrigger, but provides a command rather than automatic onjoin check.
 
@@ -68,7 +80,7 @@ UnlockTrigger - unlocks a groupchat.
 
 UnmoderateTrigger - unmoderates a groupchat.
 
-UrbanDictionaryTrigger - Queries Urban Dictionary for the first definition of a word, then pastes it into chat. Easily abused, as the bot can bypass steam's limit on characters per message, though it still gets cut off after a certain extent.
+UrbanDictionaryTrigger - Queries Urban Dictionary for the first definition of a word, then pastes it into chat.
 
 WolframAlphaTrigger - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer. You will need an appId from http://products.wolframalpha.com/api/.
 
