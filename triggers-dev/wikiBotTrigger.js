@@ -53,7 +53,6 @@ exports.create = function(name, chatBot, options) {
 //  trigger.options.isup = trigger.options.isup || isup;
 	return trigger;
 };
-WikiBotTrigger.mediaWiki
 // Return true if a message was sent
 WikiBotTrigger.prototype._respondToFriendMessage = function(userId, message) {
 	return this._respond(userId, userId, message);
