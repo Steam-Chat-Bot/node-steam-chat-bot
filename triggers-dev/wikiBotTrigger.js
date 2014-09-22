@@ -64,7 +64,44 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 		this._importGames(toId,steamId,query);
 		return true;
 	}
-	return false;
+	query = this._stripCommand(message, this.options.commandEdit);
+	if(query) {
+		this._editPage(toId,steamId,query);
+		return: true;
+	}
+}
+
+WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
+	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
+	var lines = query.split("\n");
+	var summary = (lines[lines.length-1].toLowerCase().indexOf("summary: ") == 0 ? true : false);
+	if(summary)
+		summary = lines.pop().substring(9) + " - Edit initiated by "+whoCalled+"."+this.options.byeline;
+	else
+		summary = "";
+	var articlename = lines.shift();
+	if(lines.length < 2) {
+		that.logInfo(toId,steamId,"You need to include an article title on the first line, content, and optionally a summary in the last line, prefixed with \"summary: \"");
+		return;
+	}
+	var that = this;
+	try { that.wikiBot.login(function(data){
+		if(data.result!="Success") {
+			that.logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
+			throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
+		}
+		that.logInfo(toId,steamId,"Logged in as " + data.lgusername);
+		that.wikiBot.edit(articlename, lines.join("\n"), summary, function(editdata){
+			if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp + ".\nPage " + (data.oldrevid==0 ? "created" : "updated") +" for "+articlename);
+			else that.logInfo(toId,steamId, "Edit fail for "+result.gamename+". Logging out.",{level:error,data:JSON.stringify(editdata)});
+		});
+		}
+		that.wikiBot.logout().complete(function () {
+			that.logInfo(toId,steamId, "Logged out!");
+		});
+	});} catch (err) {
+		that.logInfo(toId,steamId,"Failure",{level:"error",err:err});
+	}
 }
 
 WikiBotTrigger.prototype._importGames = function(toId,steamId,query) {
@@ -91,7 +128,7 @@ WikiBotTrigger.prototype._importGames = function(toId,steamId,query) {
 				that._getParsedResult(body[key], whoCalled);
 				that.wikiBot.edit(result.gamename, result.text, result.summary, function(editdata){
 					if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp + ".\nPage " + (data.oldrevid==0 ? "created" : "updated") +" for "+result.gamename);
-					else that.logInfo(toId,steamId, "Edit fail for "+result.gamename+". Logging out.",{level:warn,data:JSON.stringify(editdata)})
+					else that.logInfo(toId,steamId, "Edit fail for "+result.gamename+". Logging out.",{level:error,data:JSON.stringify(editdata)});
 				});
 			}
 			that.wikiBot.logout().complete(function () {
