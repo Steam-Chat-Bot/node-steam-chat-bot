@@ -71,27 +71,42 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 	}
 	query = this._stripCommand(message, this.options.commandMove);
 	if(query) {
-		from = query.split(" ")[0];
-		to = query.split(" ")[1];
-		this._movePage(toId,steamId,from,to);
-		return true;
-	}
-	query = this._stripCommand(message, this.options.commandDelete);
-	if(query) {
-		this._movePage(toId,steamId,query);
+		this._movePage(toId,steamId,message);
 		return true;
 	}
 	return false;
+}
+
+WikiBotTrigger.prototype._movePage = function(toId,steamId,message) {
+	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
+	var params = message.split("||");
+	if(params.length < 2 || this.logInfo(toId, steamId, "You need to specify the following: \"" d+this.options.commandMove+" OldName||NewName[||Summary]\""		
+	var from = params[0];
+	var to = params[1];
+	var summary = (params[2] ? params[2] + " - ": "") + "Edit initiated by "+whoCalled+"."+this.options.byeline;
+	try { that.wikiBot.login(function(data){
+		if(data.result!="Success") {
+			that.logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
+			throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
+		}
+		that.logInfo(toId,steamId,"Logged in as " + data.lgusername);
+		that.wikiBot.move(from, to, summary, function(editdata){
+			if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp+".\n"+from+" moved to "+to+".");
+			else that.logInfo(toId,steamId, "Failed to move "+from+" to "+to+". Logging out.",{level:error,data:JSON.stringify(editdata)});
+		});
+		that.wikiBot.logout().complete(function () {
+			that.logInfo(toId,steamId, "Logged out!");
+		});
+	})} catch (err) {
+		that.logInfo(toId,steamId,"Failure",{level:"error",err:err});
+	}
 }
 
 WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
 	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
 	var lines = query.split("\n");
 	var summary = (lines[lines.length-1].toLowerCase().indexOf("summary: ") == 0 ? true : false);
-	if(summary)
-		summary = lines.pop().substring(9) + " - Edit initiated by "+whoCalled+"."+this.options.byeline;
-	else
-		summary = "";
+	summary = (summary ? lines.pop().substring(9) +" - ": "") + "Edit initiated by "+whoCalled+"."+this.options.byeline;
 	var articlename = lines.shift();
 	if(lines.length < 2) {
 		that.logInfo(toId,steamId,"You need to include an article title on the first line, content, and optionally a summary in the last line, prefixed with \"summary: \"");
