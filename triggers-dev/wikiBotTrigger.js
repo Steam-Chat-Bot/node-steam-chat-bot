@@ -17,7 +17,7 @@ wikiPassword = string - the password for the bot on the wiki.
 userAgent = string - the bot's useragent on the wiki. Defaults to "freakbot <https://igbwiki.com/wiki/User:freakbot>",
 byeline = string - the bot's signature on pages it edits. Defaults to " - freakbot"
 concurrency = int - the number of API requests that the bot can run in parallel
-categories = string, array[string,string] - category name (or array of categories) to add edited articles to. Defaults to Incomplete; artciles created by the bot will only have information on the game itself, not what bundles it was in, etc.
+categories = string, array[string,string] - category name (or array of categories) to add to imported articles. Defaults to Incomplete; articles created by the bot will only have information on the game itself, not what bundles it was in, etc.
 */
 
 var WikiBotTrigger = function() {
