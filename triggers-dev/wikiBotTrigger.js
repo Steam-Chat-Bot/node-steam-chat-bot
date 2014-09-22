@@ -8,7 +8,10 @@ Trigger that adds entries to igbWiki on command.
 server = string - what wiki server is the bot supposed to connect to? defaults to IGBWikicommand
 path = string - path to api.php. defaults to /w
 debug = bool - more output. defaults to false;
-command = string - a message must start with this + a space before a response will be given
+cmdImport = string - Command to import a page with info from steam api. Input a single appid or comma-separated list. Default !import
+cmdEdit = string - Command to edit a page. Defaults to !edit
+cmdMove = string - Command to move a page. Defaults to !move
+cmdDel = string - Command to delete a page. Defaults to !del
 wikiUsername = string - the username for the bot on the wikiUsername.
 wikiPassword = string - the password for the bot on the wiki.
 userAgent = string - the bot's useragent on the wiki. Defaults to "freakbot <https://igbwiki.com/wiki/User:freakbot>",
@@ -27,14 +30,17 @@ var type = "WikiBotTrigger";
 exports.triggerType = type;
 exports.create = function(name, chatBot, options) {
 	var trigger = new WikiBotTrigger(type, name, chatBot, options);
-		trigger.options.server      = trigger.options.server || "igbwiki.com"; //server
-		trigger.options.path        = trigger.options.path || "/w" //path to api.php
-		trigger.options.debug       = trigger.options.debug || false;
-		trigger.options.command     = trigger.options.command || "!addpage";
-		trigger.options.userAgent   = trigger.options.userAgent || "freakbot <https://igbwiki.com/wiki/User:freakbot>";
-		trigger.options.byeline     = trigger.options.byeline || " - freakbot";
+		trigger.options.server      = trigger.options.server      || "igbwiki.com"; //server
+		trigger.options.path        = trigger.options.path        || "/w" //path to api.php
+		trigger.options.debug       = trigger.options.debug       || false;
+		trigger.options.cmdImport   = trigger.options.cmdImport   || "!import";
+		trigger.options.cmdEdit     = trigger.options.cmdEdit     || "!edit";
+		trigger.options.cmdMove     = trigger.options.cmdMove     || "!move";
+		trigger.options.cmdDel      = trigger.options.cmdDel      || "!del";
+		trigger.options.userAgent   = trigger.options.userAgent   || "freakbot <https://igbwiki.com/wiki/User:freakbot>";
+		trigger.options.byeline     = trigger.options.byeline     || " - freakbot";
 		trigger.options.concurrency = trigger.options.concurrency || 3;
-		trigger.options.categories  = trigger.options.categories || "Incomplete";
+		trigger.options.categories  = trigger.options.categories  || "Incomplete";
 		trigger.wikiBot = new nodemw({
 			server: trigger.options.endpoint,
 			path: trigger.options.path,
@@ -59,22 +65,22 @@ WikiBotTrigger.prototype._respondToChatMessage = function(roomId, chatterId, mes
 }
 
 WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
-	var query = this._stripCommand(message, this.options.commandImport);
+	var query = this._stripCommand(message, this.options.cmdImport);
 	if (query) {
 		this._importGames(toId,steamId,query);
 		return true;
 	}
-	query = this._stripCommand(message, this.options.commandEdit);
+	query = this._stripCommand(message, this.options.cmdEdit);
 	if(query) {
 		this._editPage(toId,steamId,query);
 		return true;
 	}
-	query = this._stripCommand(message, this.options.commandMove);
+	query = this._stripCommand(message, this.options.cmdMove);
 	if(query) {
 		this._movePage(toId,steamId,message);
 		return true;
 	}
-	query = this._stripCommand(message, this.options.commandDelete);
+	query = this._stripCommand(message, this.options.cmdDel);
 	if(query) {
 		this._deletePage(toId,steamId,message);
 		return true;
