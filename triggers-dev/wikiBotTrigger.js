@@ -90,7 +90,7 @@ WikiBotTrigger.prototype._importGames = function(toId,steamId,query) {
 			for (var key in info) {
 				that._getParsedResult(body[key], whoCalled);
 				that.wikiBot.edit(result.gamename, result.text, result.summary, function(editdata){
-					if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp + ".\nPage " + (data.oldrevid==0 ? "created" : "updated") for "+result.gamename);
+					if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp + ".\nPage " + (data.oldrevid==0 ? "created" : "updated") +" for "+result.gamename);
 					else that.logInfo(toId,steamId, "Edit fail for "+result.gamename+". Logging out.",{level:warn,data:JSON.stringify(editdata)})
 				});
 			}
