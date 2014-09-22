@@ -67,7 +67,7 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 	query = this._stripCommand(message, this.options.commandEdit);
 	if(query) {
 		this._editPage(toId,steamId,query);
-		return: true;
+		return true;
 	}
 	query = this._stripCommand(message, this.options.commandMove);
 	if(query) {
@@ -85,7 +85,7 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 WikiBotTrigger.prototype._deletePage = function(toId,steamId,message) {
 	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
 	var params = message.split("||");
-	if(params.length < 1 || this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" pagename[||reason]\"");
+	if(params.length < 1) this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" pagename[||reason]\"");
 	var page = params[0];
 	var reason = whoCalled + " is deleting this page " (params[1] ? "because: " + params[1] : "") + this.options.byeline;
 	try { that.wikiBot.login(function(data){
@@ -109,7 +109,7 @@ WikiBotTrigger.prototype._deletePage = function(toId,steamId,message) {
 WikiBotTrigger.prototype._movePage = function(toId,steamId,message) {
 	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
 	var params = message.split("||");
-	if(params.length < 2 || this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" OldName||NewName[||Summary]\"");
+	if(params.length < 2) this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" OldName||NewName[||Summary]\"");
 	var from = params[0];
 	var to = params[1];
 	var summary = whoCalled+" is moving this page "+(params[2] ? " because: "+params[2]: "") + "."+this.options.byeline;
