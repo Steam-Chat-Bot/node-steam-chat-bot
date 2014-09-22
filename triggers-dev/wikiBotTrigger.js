@@ -69,6 +69,19 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 		this._editPage(toId,steamId,query);
 		return: true;
 	}
+	query = this._stripCommand(message, this.options.commandMove);
+	if(query) {
+		from = query.split(" ")[0];
+		to = query.split(" ")[1];
+		this._movePage(toId,steamId,from,to);
+		return true;
+	}
+	query = this._stripCommand(message, this.options.commandDelete);
+	if(query) {
+		this._movePage(toId,steamId,query);
+		return true;
+	}
+	return false;
 }
 
 WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
@@ -95,11 +108,10 @@ WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
 			if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp + ".\nPage " + (data.oldrevid==0 ? "created" : "updated") +" for "+articlename);
 			else that.logInfo(toId,steamId, "Edit fail for "+result.gamename+". Logging out.",{level:error,data:JSON.stringify(editdata)});
 		});
-		}
 		that.wikiBot.logout().complete(function () {
 			that.logInfo(toId,steamId, "Logged out!");
 		});
-	});} catch (err) {
+	})} catch (err) {
 		that.logInfo(toId,steamId,"Failure",{level:"error",err:err});
 	}
 }
