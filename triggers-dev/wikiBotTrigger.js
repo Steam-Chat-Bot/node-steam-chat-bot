@@ -112,7 +112,7 @@ WikiBotTrigger.prototype._movePage = function(toId,steamId,message) {
 	if(params.length < 2 || this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" OldName||NewName[||Summary]\"");
 	var from = params[0];
 	var to = params[1];
-	var summary = (params[2] ? params[2] + " - ": "") + "Edit initiated by "+whoCalled+"."+this.options.byeline;
+	var summary = whoCalled+" is moving this page "+(params[2] ? " because: "+params[2]: "") + "."+this.options.byeline;
 	try { that.wikiBot.login(function(data){
 		if(data.result!="Success") {
 			that.logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
@@ -135,7 +135,7 @@ WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
 	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
 	var lines = query.split("\n");
 	var summary = (lines[lines.length-1].toLowerCase().indexOf("summary: ") == 0 ? true : false);
-	summary = (summary ? lines.pop().substring(9) +" - ": "") + "Edit initiated by "+whoCalled+"."+this.options.byeline;
+	summary = whoCalled+" is editing this page " + (summary ? "because "+lines.pop().substring(9): "") +this.options.byeline;
 	var articlename = lines.shift();
 	if(lines.length < 2) {
 		that.logInfo(toId,steamId,"You need to include an article title on the first line, content, and optionally a summary in the last line, prefixed with \"summary: \"");
@@ -223,7 +223,7 @@ WikiBotTrigger.prototype._getParsedResult = function(game, who) {
 			message.text +=  (this._getExists(game.detailed_description)  ? "===Detailed Description===\n"    + game.detailed_description  + "\n\n" : "");
 			message.appid = game.steam_appid;
 			message.gamename = game.name.split(" ").join("_");
-			message.summary = "Bot import of info for "+game.name+" initiated by "+who+"."+this.options.byeline;
+			message.summary = who + "initiated bot import of info for "+game.name+this.options.byeline;
 			
 			if(this.options.categories && Array.isArray(this.options.categories)){
 				message.text+="\n";
