@@ -137,7 +137,7 @@ WikiBotTrigger.prototype._getParsedResult = function(game, who) {
 				this.options.categories.forEach(function(entry){
 					message.text+="[[Category:"+entry+"]]";
 				});
-			else if (this.options.categories && typeof this.options.categories==="string") {
+			} else if (this.options.categories && typeof this.options.categories==="string") {
 				message.text+="[[Category:"+this.options.categories+"]]";
 			}
 			//winston.log("message: "+JSON.stringify(message));
