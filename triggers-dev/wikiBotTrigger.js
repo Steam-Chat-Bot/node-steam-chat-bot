@@ -74,13 +74,42 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 		this._movePage(toId,steamId,message);
 		return true;
 	}
+	query = this._stripCommand(message, this.options.commandDelete);
+	if(query) {
+		this._deletePage(toId,steamId,message);
+		return true;
+	}
 	return false;
+}
+
+WikiBotTrigger.prototype._deletePage = function(toId,steamId,message) {
+	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
+	var params = message.split("||");
+	if(params.length < 1 || this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" pagename[||reason]\"");
+	var page = params[0];
+	var reason = whoCalled + " is deleting this page " (params[1] ? "because: " + params[1] : "") + this.options.byeline;
+	try { that.wikiBot.login(function(data){
+		if(data.result!="Success") {
+			that.logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
+			throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
+		}
+		that.logInfo(toId,steamId,"Logged in as " + data.lgusername);
+		that.wikiBot.delete(page, reason, function(editdata){
+			if(editdata.result=="Success") that.logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp+". "+page+" deleted.");
+			else that.logInfo(toId,steamId, "Failed to delete "+page+". Logging out.",{level:error,data:JSON.stringify(editdata)});
+		});
+		that.wikiBot.logout().complete(function () {
+			that.logInfo(toId,steamId, "Logged out!");
+		});
+	})} catch (err) {
+		that.logInfo(toId,steamId,"Failure",{level:"error",err:err});
+	}
 }
 
 WikiBotTrigger.prototype._movePage = function(toId,steamId,message) {
 	var whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
 	var params = message.split("||");
-	if(params.length < 2 || this.logInfo(toId, steamId, "You need to specify the following: \"" d+this.options.commandMove+" OldName||NewName[||Summary]\""		
+	if(params.length < 2 || this.logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" OldName||NewName[||Summary]\"");
 	var from = params[0];
 	var to = params[1];
 	var summary = (params[2] ? params[2] + " - ": "") + "Edit initiated by "+whoCalled+"."+this.options.byeline;
