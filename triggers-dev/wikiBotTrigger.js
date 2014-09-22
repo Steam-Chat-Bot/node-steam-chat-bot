@@ -3,6 +3,7 @@ var winston = require('winston');
 var request = require('request');
 var BaseTrigger = require('./baseTrigger.js').BaseTrigger;
 var nodemw = require('nodemw');
+var TinyCache = require( 'tinycache' );
 /*
 Trigger that adds entries to igbWiki on command.
 server = string - what wiki server is the bot supposed to connect to? defaults to IGBWikicommand
@@ -18,6 +19,7 @@ userAgent = string - the bot's useragent on the wiki. Defaults to "freakbot <htt
 byeline = string - the bot's signature on pages it edits. Defaults to " - freakbot"
 concurrency = int - the number of API requests that the bot can run in parallel
 categories = string, array[string,string] - category name (or array of categories) to add to imported articles. Defaults to Incomplete; articles created by the bot will only have information on the game itself, not what bundles it was in, etc.
+loginTimer = int - if last login was less than this many ms ago, don't bother logging in, keep using last login token.
 */
 
 var WikiBotTrigger = function() {
@@ -37,10 +39,13 @@ exports.create = function(name, chatBot, options) {
 		trigger.options.cmdEdit     = trigger.options.cmdEdit     || "!edit";
 		trigger.options.cmdMove     = trigger.options.cmdMove     || "!move";
 		trigger.options.cmdDel      = trigger.options.cmdDel      || "!del";
+		trigger.options.cmdLogin    = trigger.options.cmdLogin    || "!login";
 		trigger.options.userAgent   = trigger.options.userAgent   || "freakbot <https://igbwiki.com/wiki/User:freakbot>";
 		trigger.options.byeline     = trigger.options.byeline     || " - freakbot";
 		trigger.options.concurrency = trigger.options.concurrency || 3;
 		trigger.options.categories  = trigger.options.categories  || "Incomplete";
+		trigger.options.loginTimer  = trigger.options.loginTimer  || 10*60*1000;
+		trigger.cache = new TinyCache();
 		trigger.wikiBot = new nodemw({
 			server: trigger.options.server,
 			path: trigger.options.path,
@@ -76,15 +81,40 @@ WikiBotTrigger.prototype._respond = function(toId, steamId, message) {
 	}
 	query = this._stripCommand(message, this.options.cmdMove);
 	if(query) {
-		this._movePage(toId,steamId,message);
+		this._movePage(toId,steamId,query);
 		return true;
 	}
 	query = this._stripCommand(message, this.options.cmdDel);
 	if(query) {
-		this._deletePage(toId,steamId,message);
+		this._deletePage(toId,steamId,query);
+		return true;
+	}
+	query = this._stripCommand(message, this.options.cmdLogin);
+	if(query) {
+		this._logIn(toId,steamId,query);
 		return true;
 	}
 	return false;
+}
+
+WikiBotTrigger.prototype._logIn = function(toId, steamId, message) {
+	var that = this;
+	if(that.cache.get("Login")==null) {
+		try { that.wikiBot.logIn(function(data){
+			if(data.result!="Success") {
+				that._logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
+				throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
+			}
+			that._logInfo(toId,steamId,"Logged in as " + data.lgusername);
+			that.cache.put("Login",Math.round(new Date().getTime() / 1000),that.options.loginTimer);
+			return true;
+		})} catch (err) {
+			that._logInfo(toId,steamId,"Failure logging in. Last successful login: " (that.cache.get("Login") ? that.cache.get("Login") - Math.round(new Date().getTime() / 1000) + "ago" : "never"),{level:"error",err:err});
+			return false;
+		}
+	} else {
+		return true;
+	}
 }
 
 WikiBotTrigger.prototype._deletePage = function(toId,steamId,message) {
@@ -93,20 +123,16 @@ WikiBotTrigger.prototype._deletePage = function(toId,steamId,message) {
 	if(params.length < 1) this._logInfo(toId, steamId, "You need to specify the following: \"" +this.options.commandMove+" pagename[||reason]\"");
 	var page = params[0];
 	var reason = whoCalled + " is deleting this page " (params[1] ? "because: " + params[1] : "") + this.options.byeline;
-	try { that.wikiBot.logIn(function(data){
-		if(data.result!="Success") {
-			that._logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
-			throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
-		}
-		that._logInfo(toId,steamId,"Logged in as " + data.lgusername);
+	if(this._logIn(toId,steamId,messages)) { try {
 		that.wikiBot.delete(page, reason, function(editdata){
 			if(editdata.result=="Success") that._logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp+". "+page+" deleted.");
 			else that._logInfo(toId,steamId, "Failed to delete "+page+".",{level:error,data:JSON.stringify(editdata)});
 		});
-	})} catch (err) {
+	} catch (err) {
 		that._logInfo(toId,steamId,"Failure",{level:"error",err:err});
-	}
+	}}
 }
+
 
 WikiBotTrigger.prototype._movePage = function(toId,steamId,message) {
 	var whoCalled = ((this.chatBot.steamClient.users && steamId in this.chatBot.steamClient.users) ? (this.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
@@ -115,19 +141,15 @@ WikiBotTrigger.prototype._movePage = function(toId,steamId,message) {
 	var from = params[0];
 	var to = params[1];
 	var summary = whoCalled+" is moving this page "+(params[2] ? " because: "+params[2]: "") + "."+this.options.byeline;
-	try { that.wikiBot.logIn(function(data){
-		if(data.result!="Success") {
-			that._logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
-			throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
-		}
-		that._logInfo(toId,steamId,"Logged in as " + data.lgusername);
+	var that = this;
+	if(this._logIn(toId,steamId,messages)) { try {
 		that.wikiBot.move(from, to, summary, function(editdata){
 			if(editdata.result=="Success") that._logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp+". "+from+" moved to "+to+".");
 			else that._logInfo(toId,steamId, "Failed to move "+from+" to "+to+".",{level:error,data:JSON.stringify(editdata)});
 		});
-	})} catch (err) {
+	} catch (err) {
 		that._logInfo(toId,steamId,"Failure",{level:"error",err:err});
-	}
+	}}
 }
 
 WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
@@ -141,19 +163,14 @@ WikiBotTrigger.prototype._editPage = function(toId,steamId,query) {
 		return;
 	}
 	var that = this;
-	try { that.wikiBot.logIn(function(data){
-		if(data.result!="Success") {
-			that._logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
-			throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
-		}
-		that._logInfo(toId,steamId,"Logged in as " + data.lgusername);
+	if(this._logIn(toId,steamId,messages)) { try {
 		that.wikiBot.edit(articlename, lines.join("\n"), summary, function(editdata){
 			if(editdata.result=="Success") that._logInfo(toId,steamId,editdata.title+" Revision #" + editdata.newrevid + " completed at " + editdata.newtimestamp + ". Page " + (data.oldrevid==0 ? "created" : "updated") +" for "+articlename);
 			else that._logInfo(toId,steamId, "Edit fail for "+result.gamename+".",{level:error,data:JSON.stringify(editdata)});
 		});
-	})} catch (err) {
+	} catch (err) {
 		that._logInfo(toId,steamId,"Failure",{level:"error",err:err});
-	}
+	}}
 }
 
 WikiBotTrigger.prototype._importGames = function(toId,steamId,query) {
@@ -169,13 +186,7 @@ WikiBotTrigger.prototype._importGames = function(toId,steamId,query) {
 		var info = body;
 		//winston.log(JSON.stringify(body));
 		whoCalled = ((that.chatBot.steamClient.users && steamId in that.chatBot.steamClient.users) ? (that.chatBot.steamClient.users[steamId].playerName + "/"+steamId) : steamId);
-		try { that.wikiBot.logIn(function(data){
-			if(data.result!="Success") {
-				that._logInfo(toId,steamId,"Failure logging in" + (data.result ? ": " + data.result : ""));
-				throw new Error("Failure logging in" + (data.result ? ": " + data.result : ""));
-			}
-			that._logInfo(toId,steamId,"Logged in as " + data.lgusername);
-			//Parse through the various appids and edit each page
+		if(this._logIn(toId,steamId,messages)) { try {
 			for (var key in info) {
 				var result = that._getParsedResult(body[key], whoCalled);
 				if(result.success) {
@@ -187,16 +198,20 @@ WikiBotTrigger.prototype._importGames = function(toId,steamId,query) {
 					that._logInfo(toId,steamId, "Edit fail for "+key+". "+key+" is not a valid appId.");
 				}
 			}
-		});} catch (err) {
+		} catch (err) {
 			that._logInfo(toId,steamId,"Failure",{level:"error",err:err});
-		}
+		}}
 	});
 }
-WikiBotTrigger.prototype._stripCommand = function(message, cmd) {
-	if(cmd) var command = cmd;
-	else var command = this.options.command;
-	if(typeof command==="string" && message && (message.toLowerCase().indexOf(command.toLowerCase()+" ")==0||message.toLowerCase().indexOf(command.toLowerCase()+"\n"==0) == 0))
-		return message.substring(command.length + 1);
+WikiBotTrigger.prototype._stripCommand = function(msg, cmd) {
+	if(cmd) var command = cmd.toLowerCase();
+	else var command = this.options.command.toLowerCase();
+	if(typeof command==="string" && msg) {
+		if(msg.toLowerCase().indexOf(command+" ")==0||msg.toLowerCase().indexOf(command+"\n")==0)
+			return msg.substring(command.length + 1);
+		else if (msg.toLowerCase()==command)
+			return true;
+	}
 	return null;
 }
 WikiBotTrigger.prototype._getParsedResult = function(game, who) {
