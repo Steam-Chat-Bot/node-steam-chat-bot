@@ -1,16 +1,13 @@
-<<<<<<< HEAD
 var ChatBot = require('steam-chat-bot').ChatBot;
 
 // This will log in a steam user with the specified username and password 
 // You can also pass in a steam guard code from an email
 var myBot = new ChatBot('username', 'password', {
-	logFile: true,				//set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
-	autoReconnect: true,			//automatically reconnect to the server
-//	autojoinFile: 'bot.username.autojoin',	//this is the file where autojoin channels are defined.
-	babysitTimer: 300000,			//This is how often the bot will try to reconnect. 300000 is 5 minutes. You probably want 5-30 seconds instead.
-	guardCode: "7DDK8",			//You need to get a guardCode from the steamguard email. Unfortunately, we can't import steamguard from the existing steam install.
-//	sentryFile: 'bot.username.sentry'	//This is the default sentryFile. If not defined, the bot will search for several possible sentry files then create this file.
-});
+//	sentryFile: '',		//Bot tries to find a sentry file automatically. This is only required if you have one with a strange name, otherwise it's automatic.
+//	guardCode: '',		//guardCode will override a sentry file. Comment this out after the first use.
+	logFile: true,		//set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
+	autoReconnect: true	//automatically reconnect to the server
+	});
 
 // Set up the triggers to control the bot
 myBot.addTriggers([
@@ -37,12 +34,12 @@ myBot.addTriggers([
 
 	// Command to join Bad Rats whenever it's mentioned	
 	{ 
-		name: 'TF2Command', 
+		name: 'BadRatsCommand', 
 		type: 'BotCommandTrigger', 
 		options: { 
-			matches: ['team fortress 2'], 
+			matches: ['bat rats'], 
 			exact: false,
-			callback: function(bot) { bot.joinGame(440); }
+			callback: function(bot) { bot.joinGame(34900); }
 		} 
 	},
 
@@ -70,8 +67,7 @@ myBot.addTriggers([
 			exact: true, 
 			delay: 1000, 
 			probability: 0.2, 
-			timeout: 10*1000,
-			ignore: ['103582791432805705','76561198084722566']  //don't respond to this command in the steam workshop chat, and don't respond to /id/groupchatbot.
+			timeout: 10*1000 
 		} 
 	},
 	{ 
@@ -83,8 +79,7 @@ myBot.addTriggers([
 			exact: true, 
 			delay: 500, 
 			probability: 0.5, 
-			timeout: 60*60*1000,
-			rooms: ['103582791432805705'] } },  //only do this trigger in the steam workshop chat
+			timeout: 60*60*1000 } },
 	{ 
 		name: 'PingReply', 
 		type: 'ChatReplyTrigger', 
@@ -95,6 +90,7 @@ myBot.addTriggers([
 			delay: 1000, 
 			probability: 1, 
 			timeout: 10*1000 } },
+/*	you probably don't have :D: or :medicon: emotes on your bot, so this is commented out.
 	{ 
 		name: 'HealReply', 
 		type: 'ChatReplyTrigger', 
@@ -114,7 +110,7 @@ myBot.addTriggers([
 			delay: 500, 
 			probability: 0.5, 
 			timeout: 60*1000 } },
-	{ 
+*/	{ 
 		name: 'SteveHoltReply', 
 		type: 'ChatReplyTrigger', 
 		options: { 
@@ -201,16 +197,6 @@ myBot.addTriggers([
 			timeout: 24*60*60*1000 
 		} 
 	},
-	//roll those dice!
-	{ 
-		name: 'RollDice', 
-		type: 'RollTrigger', 
-		options: { 
-			command: '!dice', 
-			delay: 500,
-			timeout: 1000
-		} 
-	},
 
 	// Query Wolfram Alpha when a message starts with !wolfram
 	{ 
@@ -220,10 +206,10 @@ myBot.addTriggers([
 	},
 
 	//Query Urban Dictionary using their *unofficial* api when a message starts with !urban
-	{ 
-		name: 'WolframReply', 
-		type: 'UrbanDictionaryTrigger', 
-		options: { command: '!urban' } 
+	{
+		name: 'WolframReply',
+		type: 'UrbanDictionaryTrigger',
+		options: { command: '!urban' }
 	},
 
 	// Post all links from chat to tumblr, and also post things on command
@@ -237,9 +223,6 @@ myBot.addTriggers([
 			consumerKey: 'XXX', 
 			consumerSecret: 'XXX', 
 			token: 'XXX', 
-//			ignore: ['103582791432805705','76561198084722566'],   //don't post stuff from the steam workshop chat, and don't post stuff from /id/groupchatbot.
-//			rooms: ['103582791432805705'],                        //only post stuff from the steam workshop chat
-//			users: ['76561198084722566'],                         //only post stuff from /id/groupchatbot
 			tokenSecret: 'XXX' 
 		}  
 	},
@@ -258,3 +241,9 @@ myBot.connect();
 var details = myBot.getTriggerDetails();
 myBot.clearTriggers();
 myBot.addTriggers(details);
+
+//these are useful for displaying your bot as playing a game, so it shows up in the upper part of the userlist.
+//this is a comma-separated array of games that the bot will play automatically on login. 440 is tf2.
+//myBot.setGames([440]);
+//this will stop all games, start the game listed (the first parameter), then after a delay in ms (the second param), start any games it was already playing. 570 is dota2.
+//myBot.setPrimaryGame(570,250);
