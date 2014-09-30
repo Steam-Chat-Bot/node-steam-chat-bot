@@ -24,14 +24,15 @@
     , "url": "https://github.com/Efreak/node-steam-chat-bot.git"
   }
   , "dependencies": {
-      "steam": "0.6.x"
+      "steam": ">= 0.6.0"
     , "underscore": "1.6.x"
     , "winston": "0.7.x"
+    , "mediawiki": "*"
     , "sinon": "1.9.x"
     , "nock": "0.28.x"
     , "cleverbot-node": "0.1.x"
     , "wolfram": "0.3.x"
-	, "tinycache": "*"
+    , "tinycache": "*"
     , "tumblr.js": "0.0.x"
     , "youtube-feeds": "2.2.x"
     , "request": "2.26.0"
