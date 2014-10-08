@@ -4,6 +4,5 @@ servers
 autojoin
 bot.*
 sentry.*
-
 test.js
 .ntvs_analysis.dat
