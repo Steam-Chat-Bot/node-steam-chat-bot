@@ -107,3 +107,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
 See [example.js](https://github.com/efreak/node-steam-chat-bot/blob/master/example.js) for an example usage.
+
+### Heroku
+
+See the bottom of example-heroku.js for an example of a simple webserver and self-pinger that satisfies heroku's requirements of 1 visit per hour to keep a free Dyno running. It also provides some simple statistics when you visit the /stats url. You need to add a setting APP_URL in heroku config to make the selfpinger work correctly.
