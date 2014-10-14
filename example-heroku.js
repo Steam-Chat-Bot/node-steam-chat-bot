@@ -21,9 +21,12 @@ var ChatBot = require('steam-chat-bot').ChatBot;
 var myBot = new ChatBot(proc.env.username||username, proc.env.password||password, {
 //	sentryFile: '',		//Bot tries to find a sentry file automatically. This is only required if you have one with a strange name, otherwise it's automatic.
 //	guardCode: '',		//guardCode will override a sentry file. Comment this out after the first use.
-	logFile: true,		//set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
-	autoReconnect: true	//automatically reconnect to the server
-	});
+	logFile: true,          //set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
+	autoReconnect: true,    //automatically reconnect to the server
+	consoleTime: false,     //don't put timestamps in the console log, `heroku logs` shows them anyways
+	consoleColors: false,   //don't use colors in the log. using `heroku logs` will be annoying.
+	consoleLogLevel: "warn" //don't log chatter to console, it's spammy. Only log warnings, errors, etc.
+});
 
 // Set up the triggers to control the bot
 myBot.addTriggers([
