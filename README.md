@@ -110,4 +110,6 @@ See [example.js](https://github.com/efreak/node-steam-chat-bot/blob/master/examp
 
 ### Heroku
 
-See the bottom of example-heroku.js for an example of a simple webserver and self-pinger that satisfies heroku's requirements of 1 visit per hour to keep a free Dyno running. It also provides some simple statistics when you visit the /stats url. You need to add a setting APP_URL in heroku config to make the selfpinger work correctly.
+See the bottom of example-heroku.js for an example of a simple webserver and self-pinger that satisfies heroku's requirements of 1 visit per hour to keep a free Dyno running. It also provides some simple statistics when you visit the /stats url. Read the top of the file to set it up correctly with heroku.
+
+After you have example-heroku set up to your liking, follow the instructions [here](https://devcenter.heroku.com/articles/git) to set up heroku and upload your bot. Once it's uploaded, start it with `heroku ps:scale web=1`
