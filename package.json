@@ -1,6 +1,6 @@
 {
     "name": "steam-chat-bot"
-  , "version": "1.2.5"
+  , "version": "1.3.0"
   , "bugs": { "url" : "http://github.com/Efreak/node-steam-chat-bot/issues" }
   , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
   , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr", "google", "steamrep"]
