@@ -1,50 +1,68 @@
 {
-    "name": "steam-chat-bot"
-  , "version": "1.3.0"
-  , "bugs": { "url" : "http://github.com/Efreak/node-steam-chat-bot/issues" }
-  , "description": "Simplified interface for a steam chat bot with lots of built-in functionality"
-  , "keywords": ["steam", "chatbot", "cleverbot", "wolfram", "youtube", "tumblr", "google", "steamrep"]
-  , "author": {
-      "name" : "See contributors"
-    , "email" : "not@given.com"
-    , "url" : "http://www.github.com/Efreak/node-steam-chat-bot"
-  }
-  , "contributors": [
+  "name": "steam-chat-bot",
+  "version": "1.3.0",
+  "bugs": {
+    "url": "http://github.com/Efreak/node-steam-chat-bot/issues"
+  },
+  "description": "Simplified interface for a steam chat bot with lots of built-in functionality",
+  "keywords": [
+    "steam",
+    "chatbot",
+    "cleverbot",
+    "wolfram",
+    "youtube",
+    "tumblr",
+    "google",
+    "steamrep"
+  ],
+  "author": {
+    "name": "See contributors",
+    "email": "not@given.com",
+    "url": "http://www.github.com/Efreak/node-steam-chat-bot"
+  },
+  "contributors": [
     {
-      "name": "bonnici"
-    , "email": "lljksteveholt@gmail.com"
-    },{
-      "name": "Efreak"
-    , "email": "nodesteamchatbot@efreakbnc.net"
-    , "url": "http://www.github.com/Efreak"
-    }]
-  , "main": "./lib/chatBot"
-  , "repository": {
-      "type": "git"
-    , "url": "https://github.com/Efreak/node-steam-chat-bot.git"
-  }
-  , "dependencies": {
-      "steam": ">= 0.6.0"
-    , "underscore": "1.6.x"
-    , "winston": "0.7.x"
-    , "mediawiki": "*"
-    , "sinon": "1.9.x"
-    , "nock": "0.28.x"
-    , "cleverbot-node": "0.1.x"
-    , "wolfram": "0.3.x"
-    , "tinycache": "*"
-    , "tumblr.js": "0.0.x"
-    , "youtube-feeds": "2.2.x"
-    , "request": "2.26.0"
-    , "roll": "0.3.2"
-    , "money": "*"
-    , "accounting": "*"
-    , "google": "0.3.x"
-    , "google-images": "0.1.x"
-    , "steam-trade": "git://github.com/seishun/node-steam-trade.git"
-  }
-  , "engines": {
-      "node": "0.10.x"
-    , "npm": "1.2.x"
+      "name": "bonnici",
+      "email": "lljksteveholt@gmail.com"
+    },
+    {
+      "name": "Efreak",
+      "email": "nodesteamchatbot@efreakbnc.net",
+      "url": "http://www.github.com/Efreak"
+    }
+  ],
+  "main": "./lib/chatBot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Efreak/node-steam-chat-bot.git"
+  },
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "cleverbot-node": "0.1.x",
+    "google": "0.3.x",
+    "google-images": "0.1.x",
+    "http": "0.0.0",
+    "mediawiki": "0.0.14",
+    "mkdirp": "^0.5.0",
+    "money": "^0.2.0",
+    "nock": "0.28.x",
+    "node-localstorage": "^0.3.4",
+    "request": "^2.26.0",
+    "roll": "0.3.2",
+    "sanitize-filename": "^1.1.1",
+    "sinon": "1.9.x",
+    "steam": ">= 0.6.7",
+    "steam-trade": "git://github.com/seishun/node-steam-trade.git",
+    "tinycache": "^0.1.5",
+    "tumblr.js": "0.0.x",
+    "underscore": "1.6.x",
+    "winston": "0.7.x",
+    "wolfram": "0.3.x",
+    "ws": "^0.4.32",
+    "youtube-feeds": "2.2.x"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }
