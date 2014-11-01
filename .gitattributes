@@ -5,6 +5,10 @@
 # to native line endings on checkout.
 *.c text
 *.h text
+*.js text
+*.json text
+*.txt text
+*.md text
 
 # Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
