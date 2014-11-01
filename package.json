@@ -13,7 +13,11 @@
     "youtube",
     "tumblr",
     "google",
-    "steamrep"
+    "steamrep",
+    "currency",
+    "google",
+    "logging",
+    "chat"
   ],
   "author": {
     "name": "See contributors",
