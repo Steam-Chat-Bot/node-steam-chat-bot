@@ -1,6 +1,6 @@
 {
   "name": "steam-chat-bot",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "bugs": {
     "url": "http://github.com/Efreak/node-steam-chat-bot/issues"
   },
@@ -55,7 +55,6 @@
     "request": "^2.26.0",
     "roll": "0.3.2",
     "sanitize-filename": "^1.1.1",
-    "sequelize": "^2.0.0-rc2",
     "serve-index": "^1.5.0",
     "sinon": "1.9.x",
     "sqlite3": "^3.0.2",
@@ -63,6 +62,7 @@
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
     "tinycache": "^0.1.5",
     "tumblr.js": "0.0.x",
+    "ueberDB": "^0.2.7",
     "underscore": "1.6.x",
     "winston": "0.7.x",
     "wolfram": "0.3.x",
