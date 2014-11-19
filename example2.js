@@ -1,5 +1,4 @@
 #!/bin/node -
-function $(arg){ return arg; }
 
 var ChatBot = require('steam-chat-bot').ChatBot;
 
@@ -78,7 +77,7 @@ myBot.addTriggers([
 		name: 'AcceptChatInvite', 
 		type: 'AcceptChatInviteTrigger', 
 		options: { 
-			chatrooms: { '10358279143999997': "Hello! I'm Admin's obnoxious chatbot and I'm here to spam you all! :D:",
+			chatrooms: { "10358279143999997": "Hello! I'm Admin's obnoxious chatbot and I'm here to spam you all! :D:",
 			autoJoinAfterDisconnect: true }
 		} 
 	},
@@ -133,7 +132,7 @@ myBot.addTriggers([
 			ignore: [ignoredUser] } },
 	{	name: 'HealReply', type: 'ChatReplyTrigger', 
 		options: { 
-			matches: ['heal','health','heal me',"i'm hurt","I'm hurt",'im hurt','Im hurt'], 
+			matches: ["heal","health","heal me","i'm hurt","I'm hurt","im hurt","Im hurt"], 
 			responses: [':medicon:',':health:',':medkit:',':medpack:'], 
 			delay: 1000, 
 			probability: 25, 
@@ -184,7 +183,7 @@ myBot.addTriggers([
 	{	name: 'NameReply', type: 'ChatReplyTrigger', 
 		options: { 
 			matches: ['Bot','Annoying Chatbot'], 
-			responses: ['That\'s my name!','That\'s my name! Don't wear it out!','I don't like you. Go away!'], 
+			responses: ["That\'s my name!","That's my name! Don't wear it out!","I don't like you. Go away!"], 
 			exact: true, 
 			delay: 500, 
 			probability: 1, 
