@@ -13,14 +13,14 @@ var localport = 5001;			//set this to the local port expressjs should bind to du
 var startTime = process.hrtime();       //leave this alone
 //var username = "";                    //Default is to set a config option for the username and password. Comment out these lines if you intend to run more than one bot or something.
 //var password = "";                    //To define config options, use `heroku config:set name=settingvalue`, e.g. username=chatbot or password=50m3_P4w0rD or APP_URL=chatbots.heroku.com
-var ChatBot = require('steam-chat-bot').ChatBot;
+var ChatBot = require("steam-chat-bot").ChatBot;
 
 // This will log in a steam user with the specified username and password 
 // You can also pass in a steam guard code from an email
 
 var myBot = new ChatBot(proc.env.username||username, proc.env.password||password, {
-//	sentryFile: '',		//Bot tries to find a sentry file automatically. This is only required if you have one with a strange name, otherwise it's automatic.
-//	guardCode: '',		//guardCode will override a sentry file. Comment this out after the first use.
+//	sentryFile: "",		//Bot tries to find a sentry file automatically. This is only required if you have one with a strange name, otherwise it's automatic.
+//	guardCode: "",		//guardCode will override a sentry file. Comment this out after the first use.
 	logFile: true,          //set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
 	autoReconnect: true,    //automatically reconnect to the server
 	consoleTime: false,     //don't put timestamps in the console log, `heroku logs` shows them anyways
@@ -33,19 +33,19 @@ myBot.addTriggers([
 
 	// Commands to stop/unstop the bot from saying anything in a chatroom
 	{ 
-		name: 'MuteCommand', 
-		type: 'BotCommandTrigger', 
+		name: "MuteCommand", 
+		type: "BotCommandTrigger", 
 		options: { 
-			matches: ['!mute', '!pause'], 
+			matches: ["!mute", "!pause"], 
 			exact: true,
 			callback: function(bot) { bot.mute(); }
 		} 
 	},
 	{ 
-		name: 'UnmuteCommand', 
-		type: 'BotCommandTrigger', 
+		name: "UnmuteCommand", 
+		type: "BotCommandTrigger", 
 		options: { 
-			matches: ['!unmute', '!unpause'], 
+			matches: ["!unmute", "!unpause"], 
 			exact: true,
 			callback: function(bot) { bot.unmute(); }
 		} 
@@ -53,10 +53,10 @@ myBot.addTriggers([
 
 	// Command to join Bad Rats whenever it's mentioned	
 	{ 
-		name: 'BadRatsCommand', 
-		type: 'BotCommandTrigger', 
+		name: "BadRatsCommand", 
+		type: "BotCommandTrigger", 
 		options: { 
-			matches: ['bat rats'], 
+			matches: ["bat rats"], 
 			exact: false,
 			callback: function(bot) { bot.joinGame(34900); }
 		} 
@@ -64,25 +64,25 @@ myBot.addTriggers([
 
 	// Automatically accept invites from any user to the specified group chat
 	{ 
-		name: 'AcceptChatInvite', 
-		type: 'AcceptChatInviteTrigger', 
+		name: "AcceptChatInvite", 
+		type: "AcceptChatInviteTrigger", 
 		options: { 
-			chatrooms: { 'GroupSteamId': 'Welcome message' }, 
+			chatrooms: { "GroupSteamId": "Welcome message" }, 
 			autoJoinAfterDisconnect: true
 		} 
 	},
 
 	// Automatically accept all friend requests
-	{ name: 'AcceptFriendRequest', type: 'AcceptFriendRequestTrigger' },
+	{ name: "AcceptFriendRequest", type: "AcceptFriendRequestTrigger" },
 
 	// Reply triggers - respond to a chat/private message if it matches a set of inputs 
 	// (case-insensitive exact or substring match), and choose randomly from a set of responses
 	{ 
-		name: 'EmptyQuoteReply', 
-		type: 'ChatReplyTrigger', 
+		name: "EmptyQuoteReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: ['^'], 
-			responses: ['^'], 
+			matches: ["^"], 
+			responses: ["^"], 
 			exact: true, 
 			delay: 1000, 
 			probability: 0.2, 
@@ -90,59 +90,59 @@ myBot.addTriggers([
 		} 
 	},
 	{ 
-		name: 'HeartReply', 
-		type: 'ChatReplyTrigger', 
+		name: "HeartReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: ['<3'], 
-			responses: ['</3', '<3'], 
+			matches: ["<3"], 
+			responses: ["</3", "<3"], 
 			exact: true, 
 			delay: 500, 
 			probability: 0.5, 
 			timeout: 60*60*1000 } },
 	{ 
-		name: 'PingReply', 
-		type: 'ChatReplyTrigger', 
+		name: "PingReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: ['ping'], 
-			responses: ['pong'], 
+			matches: ["ping"], 
+			responses: ["pong"], 
 			exact: true, 
 			delay: 1000, 
 			probability: 1, 
 			timeout: 10*1000 } },
 /*	you probably don't have :D: or :medicon: emotes on your bot, so this is commented out.
 	{ 
-		name: 'HealReply', 
-		type: 'ChatReplyTrigger', 
+		name: "HealReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: ['heal','health','heal me',"i'm hurt","I'm hurt",'im hurt','Im hurt'], 
-			responses: [':medicon:'], 
+			matches: ["heal","health","heal me","i'm hurt","I'm hurt","im hurt","Im hurt"], 
+			responses: [":medicon:"], 
 			exact: true, 
 			delay: 1000, 
 			probability: 1, 
 			timeout: 10*1000 } },
-		name: 'GrinReply', 
-		type: 'ChatReplyTrigger', 
+		name: "GrinReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: [':D'], 
-			responses: [':D:'], 
+			matches: [":D"], 
+			responses: [":D:"], 
 			exact: true, 
 			delay: 500, 
 			probability: 0.5, 
 			timeout: 60*1000 } },
 */	{ 
-		name: 'SteveHoltReply', 
-		type: 'ChatReplyTrigger', 
+		name: "SteveHoltReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: ['steve holt', 'steve holt!'], 
-			responses: ['\\o/'], 
+			matches: ["steve holt", "steve holt!"], 
+			responses: ["\\o/"], 
 			exact: false, 
 			delay: 500, 
 			timeout: 10*1000 
 		} 
 	},
 
-		name: 'SteamIDCheck', 
-		type: 'SteamInfoTrigger', 
+		name: "SteamIDCheck", 
+		type: "SteamInfoTrigger", 
 		options: { 
 			command: "!steamrep", 
 			delay: 2000, 
@@ -151,39 +151,39 @@ myBot.addTriggers([
 	},
 	// Reply triggers that will only respond to a particular user
 	{ 
-		name: 'SingleUserReply', 
-		type: 'ChatReplyTrigger', 
+		name: "SingleUserReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
-			matches: ['hi bot'], 
-			responses: ['hi boss!'], 
+			matches: ["hi bot"], 
+			responses: ["hi boss!"], 
 			exact: true, 
-			users: ['76561197961244239'] 
+			users: ["76561197961244239"] 
 		} 
 	},
 
 	// Sample regex trigger, "mate" will be responded to with "mmaaaate", 
 	// "mmaaaate" will be responded to with "mmmaaaaaaate", etc
 	{ 
-		name: 'MateEscalation', 
-		type: 'RegexReplaceTrigger',
-		options: { match: /^(m+?)(a+?)te(s??)$/, response: '{0}m{1}aaate{2}', delay: 500} 
+		name: "MateEscalation", 
+		type: "RegexReplaceTrigger",
+		options: { match: /^(m+?)(a+?)te(s??)$/, response: "{0}m{1}aaate{2}", delay: 500} 
 	},
 
-	// Butt bot, replace a random word from someone's message with "butt" about once every 50 messages
+// Butt bot, replace a random word from someone's message with "butt" about once every 50 messages
 	{ 
-		name: 'ButtBot', 
-		type: 'ButtBotTrigger', 
-		options: { replacement: 'butt', probability: 0.02, delay: 1000 } 
+		name: "ButtBot", 
+		type: "ButtBotTrigger", 
+		options: { replacement: "butt", probability: 0.02, delay: 1000 } 
 	},
 
-	// Chat reply that doesn't need a particular message to trigger, just a random reply about 
+// Chat reply that doesn't need a particular message to trigger, just a random reply about 
 	// once every 100 messages (and no more than once an hour)
 	{ 
-		name: 'RandomReply', 
-		type: 'ChatReplyTrigger', 
+		name: "RandomReply", 
+		type: "ChatReplyTrigger", 
 		options: { 
 			matches: [], 
-			responses: ['ლ(ಠ益ಠლ)', 'щ(ﾟДﾟщ)', 'omg', '(ﾉಥ益ಥ)ﾉ', '¯\\_(ツ)_/¯'], 
+			responses: ["ლ(ಠ益ಠლ)", "щ(ﾟДﾟщ)", "omg", "(ﾉಥ益ಥ)ﾉ", "¯\\_(ツ)_/¯"], 
 			delay: 500, 
 			probability: 0.01, 
 			timeout: 60*60*1000 
@@ -192,24 +192,24 @@ myBot.addTriggers([
 
 	// Cleverbot reply that only happens when the word "cleverbot" is mentioned
 	{ 
-		name: 'DirectCleverbotReply', 
-		type: 'CleverbotTrigger', 
-		options: { keywords: ['cleverbot'] } 
+		name: "DirectCleverbotReply", 
+		type: "CleverbotTrigger", 
+		options: { keywords: ["cleverbot"] } 
 	},
 
 	// Random cleverbot reply that triggers randomly about once every 100 messages
 	{ 
-		name: 'RandomCleverbotReply', 
-		type: 'CleverbotTrigger', 
+		name: "RandomCleverbotReply", 
+		type: "CleverbotTrigger", 
 		options: { probability: 0.01, timeout: 30*60*1000 } 
 	},
 
 	// Say something when a user joins chat
 	{ 
-		name: 'SteveHoltEnter', 
-		type: 'MessageOnJoinTrigger', 
+		name: "SteveHoltEnter", 
+		type: "MessageOnJoinTrigger", 
 		options: { 
-			user: '76561197961244239', 
+			user: "76561197961244239", 
 			message: "STEVE HOLT! \\o/", 
 			probability: 0.5, 
 			delay: 1000, 
@@ -219,38 +219,38 @@ myBot.addTriggers([
 
 	// Query Wolfram Alpha when a message starts with !wolfram
 	{ 
-		name: 'WolframReply', 
-		type: 'WolframAlphaTrigger', 
-		options: { command: '!wolfram', appId: 'XXXXXX' } 
+		name: "WolframReply", 
+		type: "WolframAlphaTrigger", 
+		options: { command: "!wolfram", appId: "XXXXXX" } 
 	},
 
 	//Query Urban Dictionary using their *unofficial* api when a message starts with !urban
 	{
-		name: 'WolframReply',
-		type: 'UrbanDictionaryTrigger',
-		options: { command: '!urban' }
+		name: "WolframReply",
+		type: "UrbanDictionaryTrigger",
+		options: { command: "!urban" }
 	},
 
 	// Post all links from chat to tumblr, and also post things on command
 	{ 
-		name: 'TumblrTrigger', 
-		type: 'TumblrTrigger', 
+		name: "TumblrTrigger", 
+		type: "TumblrTrigger", 
 		options: { 
 			autoPost: true, 
 			autoPostContext: false, 
-			blogName: 'XXX', 
-			consumerKey: 'XXX', 
-			consumerSecret: 'XXX', 
-			token: 'XXX', 
-			tokenSecret: 'XXX' 
+			blogName: "XXX", 
+			consumerKey: "XXX", 
+			consumerSecret: "XXX", 
+			token: "XXX", 
+			tokenSecret: "XXX" 
 		}  
 	},
 
 	// Search YouTube and respond with the top result whenever someone types !yt <query>, rickroll about 1 every 100 times
 	{ 
-		name: 'Youtube', 
-		type: 'YoutubeTrigger', 
-		options: { command: '!yt', rickrollChance: 0.01 } 
+		name: "Youtube", 
+		type: "YoutubeTrigger", 
+		options: { command: "!yt", rickrollChance: 0.01 } 
 	},
 ]);
 
@@ -284,12 +284,12 @@ var pingcount = 0;
 function getClientIp(req) {
 	var ipAddress;
 	// Amazon EC2 / Heroku workaround to get real client IP
-	var forwardedIpsStr = req.header('x-forwarded-for'); 
+	var forwardedIpsStr = req.header("x-forwarded-for"); 
 	if (forwardedIpsStr) {
-		// 'x-forwarded-for' header may return multiple IP addresses in
+		// "x-forwarded-for" header may return multiple IP addresses in
 		// the format: "client IP, proxy 1 IP, proxy 2 IP" so take the
 		// the first one
-		var forwardedIps = forwardedIpsStr.split(',');
+		var forwardedIps = forwardedIpsStr.split(",");
 		ipAddress = forwardedIps[0];
 	}
 	if (!ipAddress) {
@@ -300,10 +300,10 @@ function getClientIp(req) {
 	return ipAddress;
 };
 _bytesToSize = function(bytes) {
-    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    if (bytes == 0) return '0 Byte';
+    var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+    if (bytes == 0) return "0 Byte";
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+    return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
 }
 Number.prototype.toHHMMSS = function () {
 	var sec_num = parseInt(this, 10); // don't forget the second param
@@ -315,7 +315,7 @@ Number.prototype.toHHMMSS = function () {
 	if (hours   < 10) {hours   = "0"+hours;}
 	if (minutes < 10) {minutes = "0"+minutes;}
 	if (seconds < 10) {seconds = "0"+seconds;}
-	return (days>0?days+":":"")+hours+':'+minutes+':'+seconds;
+	return (days>0?days+":":"")+hours+":"+minutes+":"+seconds;
 }
 getStats = function() {
 	var meminfo = process.memoryUsage();
@@ -336,20 +336,20 @@ getStatsString = function() {
 
 _nanosecondsToStr = function(seconds, goagain) {
     var temp = seconds;
-    function numberEnding (number) {return (number > 1) ? 's' : '';}
+    function numberEnding (number) {return (number > 1) ? "s" : "";}
 
     if(temp > 259200) {
         var temp = Math.floor(temp / 86400);
         var next = (goagain==true ? _nanosecondsToStr(seconds-temp*86400,false) : "");
-        return ' ' + temp + ' day' + numberEnding(temp) + next;
+        return " " + temp + " day" + numberEnding(temp) + next;
     } else if (temp > 10800) {
         var temp = Math.floor(temp / 3600);
         var next = (goagain==true ? _nanosecondsToStr(seconds-temp*3600,false) : "");
-        return ' ' + temp + ' hour' + numberEnding(temp) + next;
+        return " " + temp + " hour" + numberEnding(temp) + next;
     } else if (temp > 180) {
         var temp = Math.floor(temp / 60);
         var next = (goagain==true ? _nanosecondsToStr(seconds-temp*60,false) : "");
-        return ' ' + temp + ' minute' + numberEnding(temp) + next;
+        return " " + temp + " minute" + numberEnding(temp) + next;
     } else return (goagain==true ? " less than a minute" : "");
 }
 
@@ -366,8 +366,8 @@ app.get("/ping", function(req, res) {
 	pingcount++;
 });
 app.get("/stats", function(req, res) {
-	console.log('Accepts JSON?', req.accepts('text/html') !== undefined);
-	if(req.accepts('text/html')) 
+	console.log("Accepts JSON?", req.accepts("text/html") !== undefined);
+	if(req.accepts("text/html")) 
 		res.send(getStatsString());
 	else
 		res.send(JSON.stringify(getStats()));
@@ -380,7 +380,7 @@ app.get("/stats.js", function(req, res) {
 
 // serves all the logfiles
 app.get(/^(.+.log)$/, function(req, res){ 
-	console.log(getClientIp(req)+' requested '+req.params[0]);
+	console.log(getClientIp(req)+" requested "+req.params[0]);
 	res.sendFile( __dirname + req.params[0]); 
 });
 
@@ -391,14 +391,14 @@ app.listen(port, function() {
 
 var pingself = function(self){
 	console.log("Pinging self");
-	request.get({method:'GET',encoding:'utf8',uri:"http://"+hostname+"/ping",followAllRedirects:true}, function(error, response, body) {
+	request.get({method:"GET",encoding:"utf8",uri:"http://"+hostname+"/ping",followAllRedirects:true}, function(error, response, body) {
 		if(error) console.log(error);
 		else console.log(body);
 	});
 }
 var fetchstats = function(self){
 	console.log("Pinging self");
-	request.get({method:'GET',encoding:'utf8',uri:"http://"+hostname+"/stats",json:true,followAllRedirects:true}, function(error, response, body) {
+	request.get({method:"GET",encoding:"utf8",uri:"http://"+hostname+"/stats",json:true,followAllRedirects:true}, function(error, response, body) {
 		if(error) console.log(error);
 		else console.log(body);
 	});
