@@ -140,7 +140,7 @@ myBot.addTriggers([
 			timeout: 10*1000 
 		} 
 	},
-
+	{
 		name: "SteamIDCheck", 
 		type: "SteamInfoTrigger", 
 		options: { 
