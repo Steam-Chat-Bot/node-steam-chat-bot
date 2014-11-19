@@ -15,8 +15,6 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 }
 var ueberDB = require('ueberDB');
 var ubr = new ueberDB.database("sqlite", {filename:dbFile||'db.db'}, {writeInterval:1000});
-var fs = require('fs');
-var output = {};
 var db = new LocalStorage(storageDir||'.');
 var keys = db.keys;
 console.log("Starting import");
