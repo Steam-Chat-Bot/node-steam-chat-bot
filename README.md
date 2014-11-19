@@ -1,6 +1,5 @@
-![version]
-![depends]
-
+[![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
+[![Dependencies](https://david-dm.org/efreak/node-steam-chat-bot.svg)](https://david-dm.org/efreak/node-steam-chat-bot)
 
 
 node-steam-chat-bot
@@ -118,7 +117,3 @@ See [example.js](https://github.com/efreak/node-steam-chat-bot/blob/master/examp
 See the bottom of example-heroku.js for an example of a simple webserver and self-pinger that satisfies heroku's requirements of 1 visit per hour to keep a free Dyno running. It also provides some simple statistics when you visit the /stats url. Read the top of the file to set it up correctly with heroku.
 
 After you have example-heroku set up to your liking, follow the instructions [here](https://devcenter.heroku.com/articles/git) to set up heroku and upload your bot. Once it's uploaded, start it with `heroku ps:scale web=1`
-
-
-[version]: https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg
-[depends]: https://david-dm.org/efreak/node-steam-chat-bot.svg
