@@ -44,7 +44,7 @@
     "accounting": "^0.4.1",
     "cleverbot-node": "0.1.x",
     "express": "^4.10.0",
-    "google": "0.3.x",
+    "google": "^0.6.0",
     "google-images": "0.1.x",
     "http": "0.0.0",
     "mediawiki": "0.0.14",
@@ -67,7 +67,7 @@
     "winston": "0.8.2",
     "wolfram": "0.3.x",
     "ws": "^0.4.32",
-    "youtube-feeds": "2.2.x"
+    "youtube-feeds": "^2.3.0"
   },
   "engines": {
     "node": "0.10.x",
