@@ -64,7 +64,7 @@
     "tumblr.js": "0.0.x",
     "ueberDB": "^0.2.7",
     "underscore": "^1.7.0",
-    "winston": "0.8.2",
+    "winston": "^0.8.3",
     "wolfram": "0.3.x",
     "ws": "^0.5.0",
     "youtube-feeds": "^2.3.0"
