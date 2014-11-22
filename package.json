@@ -54,7 +54,7 @@
     "node-localstorage": "^0.3.4",
     "random-js": "^1.0.4",
     "request": "^2.26.0",
-    "roll": "0.3.2",
+    "roll": "^1.0.0",
     "sanitize-filename": "^1.1.1",
     "serve-index": "^1.5.0",
     "sinon": "^1.12.1",
