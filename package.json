@@ -15,9 +15,10 @@
     "google",
     "steamrep",
     "currency",
-    "google",
     "logging",
-    "chat"
+    "chat",
+    "reddit",
+    "/r/steamgameswap"
   ],
   "author": {
     "name": "See contributors",
@@ -71,6 +72,6 @@
   },
   "engines": {
     "node": "0.10.x",
-    "npm": "1.2.x"
+    "npm": "1.4.x"
   }
 }
