@@ -52,6 +52,7 @@
     "money": "^0.2.0",
     "nock": "0.28.x",
     "node-localstorage": "^0.3.4",
+    "random-js": "^1.0.4",
     "request": "^2.26.0",
     "roll": "0.3.2",
     "sanitize-filename": "^1.1.1",
