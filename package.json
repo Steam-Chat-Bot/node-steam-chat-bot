@@ -60,7 +60,6 @@
     "sinon": "^1.12.1",
     "sqlite3": "^3.0.2",
     "steam": ">= 0.6.7",
-    "steam-trade": "git://github.com/seishun/node-steam-trade.git",
     "tinycache": "^0.1.5",
     "tumblr.js": "0.0.x",
     "ueberDB": "^0.2.7",
