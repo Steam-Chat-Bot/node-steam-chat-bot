@@ -123,7 +123,7 @@ myBot.addTriggers([
 	},
 	{
 		name: "SteamIDCheck", 
-		type: "SteamInfoTrigger", 
+		type: "SteamrepTrigger", 
 		options: { 
 			command: "!steamrep", 
 			delay: 2000, 
