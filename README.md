@@ -40,6 +40,8 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `IsUpTrigger` - Checks to see if a webserver is running (looks for 200, 301, 302 status)
 
+`InfoTrigger` - Provides information about the status of the bot (amount of time it was running, operating system, etc)
+
 `JoinChatTrigger` - tells the bot to join a groupchat, and announce who sent it
 
 `KickTrigger` - tells the box to kick someone from a groupchat.
@@ -48,9 +50,15 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `LockChatTrigger` - tells the bot to lock a groupchat.
 
+`MemeBotTrigger` - Adds ">" before a message it will send
+
 `MessageOnJoinTrigger` - tells the bot to welcome a specific user with an message every time they join a chat the user is in. Recommended not to use too much, and to set a long timeout to prevent abuse.
 
 `ModerateTrigger` - tells the bot to set the groupchat to be moderated.
+
+`MoneyTrigger` - Converts between currencies, will require an `apikey` from https://openexchangerates.org
+
+`OMDBTrigger` - Searches IMDB for  a specified movie
 
 `PlayGameTrigger` - tells the bot to play a game. You need to send the game's appid. - options allowpublic and allowprivate (both true by default) allow you to restrict usage of this command to either private or groupchat messages.
 
@@ -89,6 +97,8 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 `UnmoderateTrigger` - unmoderates a groupchat.
 
 `UrbanDictionaryTrigger` - Queries Urban Dictionary for the first definition of a word, then pastes it into chat.
+
+`WikiBotTrigger` - Posts to igbwiki.com. Open up the wikibottrigger.js file to see how to customize it.
 
 `WolframAlphaTrigger` - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer. You will need an appId from http://products.wolframalpha.com/api/.
 
