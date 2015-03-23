@@ -98,7 +98,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `UrbanDictionaryTrigger` - Queries Urban Dictionary for the first definition of a word, then pastes it into chat.
 
-`WikiBotTrigger` - Posts to igbwiki.com. Open up the wikibottrigger.js file to see how to customize it.
+`WikiBotTrigger` - Posts to igbwiki.com. See [wikiBotTrigger.js](https://github.com/Efreak/node-steam-chat-bot/blob/master/lib/triggers/wikiBotTrigger.js) to see how to customize it.
 
 `WolframAlphaTrigger` - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer. You will need an appId from http://products.wolframalpha.com/api/.
 
