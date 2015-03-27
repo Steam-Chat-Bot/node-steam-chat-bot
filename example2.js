@@ -107,6 +107,14 @@ myBot.addTriggers([
 		options: { command: '!image' }
 	},
 
+	{
+		name: 'Translate',
+		type: 'TranslateTrigger', //uses http://hablaa.com/api' to translate when someone types !translate <word> <start lang> <eng lang> or displays a list of language codes using !languages
+		options: {
+			translatecommand: '!translate',
+			languagescommand: '!languages'
+		}
+	},
 	// Automatically accept all friend requests. I have reports that this may not currently work.
 	{ name: 'AcceptFriendRequest', type: 'AcceptFriendRequestTrigger' },
 
