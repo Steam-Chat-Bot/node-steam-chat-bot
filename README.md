@@ -57,7 +57,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `MoneyTrigger` - Converts between currencies, will require an `apikey` from https://openexchangerates.org
 
-`OMDBTrigger` - Searches IMDB for  a specified movie
+`OMDBTrigger` - Searches IMDB for  a specified movie. Can accept an optional year parameter (ex: !movie aliens 1986). If one is not provided, it will return the first result without the year.
 
 `PlayGameTrigger` - tells the bot to play a game. You need to send the game's appid. - options allowpublic and allowprivate (both true by default) allow you to restrict usage of this command to either private or groupchat messages.
 
