@@ -1,9 +1,14 @@
 [![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
-
-[![Codacy Badge](https://www.codacy.com/project/badge/79e3862b9b2b4e0fbbcf9e980fcb6263)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
+[![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)]()
+[![node](https://img.shields.io/node/v/gh-badges.svg)]()
+[![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
+[![Packagist](https://img.shields.io/badge/license-MIT-44CC11.svg)](/LICENCE)
 
 [![Dependencies](https://david-dm.org/efreak/node-steam-chat-bot.svg)](https://david-dm.org/efreak/node-steam-chat-bot)
 [![Dependency Status](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
+[![Codacy Badge](https://www.codacy.com/project/badge/79e3862b9b2b4e0fbbcf9e980fcb6263)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
+
+[![forthebadge](http://forthebadge.com/images/badges/built-with-swag.svg)](http://forthebadge.com)
 
 node-steam-chat-bot
 ===================
@@ -132,3 +137,7 @@ See [example.js](https://github.com/efreak/node-steam-chat-bot/blob/master/examp
 See the bottom of example-heroku.js for an example of a simple webserver and self-pinger that satisfies heroku's requirements of 1 visit per hour to keep a free Dyno running. It also provides some simple statistics when you visit the /stats url. Read the top of the file to set it up correctly with heroku.
 
 After you have example-heroku set up to your liking, follow the instructions [here](https://devcenter.heroku.com/articles/git) to set up heroku and upload your bot. Once it's uploaded, start it with `heroku ps:scale web=1`
+
+### Testing Policy : [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
+
+In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do...
