@@ -29,12 +29,28 @@
   "contributors": [
     {
       "name": "bonnici",
+      "url": "https://github.com/bonnici",
       "email": "lljksteveholt@gmail.com"
     },
     {
       "name": "Efreak",
-      "email": "nodesteamchatbot@efreakbnc.net",
-      "url": "http://www.github.com/Efreak"
+      "email": "github@efreakbnc.net",
+      "url": "https://github.com/Efreak"
+    },
+    {
+      "name": "Houston",
+      "email": "",
+      "url": "https://github.com/dungdung",
+    },
+    {
+      "name": "Paul Schow",
+      "email": "",
+      "url": "https://github.com/paulschow",
+    },
+    {
+      "name": "Kyle Smith",
+      "email": "dragonbanshee@gmail.com",
+      "url": "https://github.com/dragonbanshee",
     }
   ],
   "main": "./lib/chatBot",
