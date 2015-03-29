@@ -40,17 +40,17 @@
     {
       "name": "Houston",
       "email": "",
-      "url": "https://github.com/dungdung",
+      "url": "https://github.com/dungdung"
     },
     {
       "name": "Paul Schow",
       "email": "",
-      "url": "https://github.com/paulschow",
+      "url": "https://github.com/paulschow"
     },
     {
       "name": "Kyle Smith",
       "email": "dragonbanshee@gmail.com",
-      "url": "https://github.com/dragonbanshee",
+      "url": "https://github.com/dragonbanshee"
     }
   ],
   "main": "./lib/chatBot",
