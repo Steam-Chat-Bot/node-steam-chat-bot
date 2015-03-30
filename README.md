@@ -92,7 +92,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `SteamrepTrigger` - same as `SteamrepOnJoinTrigger`, but provides a command rather than automatic onjoin check.
 
-`TranslateTrigger` - uses http://hablaa.com/api' to translate. Define a `translatecommand` (command used to do translating) and a `languagescommand` (command used to print language codes), or leave as default. Usage is `!translate <word> <start language> <end language>` to translate, `!languages` for a list of language codes (sent via private message), and `!languages <code>` to see what language does with that code.
+`TranslateTrigger` - uses http://hablaa.com/api to translate. Define a `translatecommand` (command used to do translating) and a `languagescommand` (command used to print language codes), or leave as default. Usage is `!translate <word> <start language> <end language>` to translate, `!languages` for a list of language codes (sent via private message), and `!languages <code>` to see what language does with that code.
 
 `TumblrTrigger` - Allows the bot to post things to a tumblr blog, either by commands (!postphoto, !postquote, !posttext, !postlink, !postchat, !postaudio, !postvideo), or by monitoring the chatrooms the bot is in for links. You will need to register an app here: http://www.tumblr.com/oauth/apps and follow these instructions to get the keys: https://groups.google.com/d/msg/tumblr-api/gz8Zv-Mhex4/8-eACnkArkgJ.
 
