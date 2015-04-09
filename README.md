@@ -17,6 +17,12 @@ Simplified interface for a steam chat bot. This is a wrapper around [Steam for N
 
 If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (e.g. `new ChatBot('username', 'password', { guardCode: 'XXXX' };)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
 
+
+### Installation:
+
+
+`npm install steam-chat-bot`
+
 ### Current Triggers:
 
 

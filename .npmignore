@@ -1,0 +1,12 @@
+node_modules/
+todo.txt
+servers
+autojoin
+bot.*
+sentry.*
+test.js
+.ntvs_analysis.dat
+npm-debug.log
+sentryfile.*
+*.hash
+configs/
