@@ -1,22 +1,11 @@
-#!/bin/node -
-
-var ChatBot = require('steam-chat-bot').ChatBot;
+// this file contains example trigger config/definitions and is meant to be required and passed into ChatBot.addTriggers()
 
 var adminUser = '76565196008335999';   // this is an example of a user that's allowed to use commands nobody else can; see how it's used below.
 var ignoredUser = '76565196178365111'; // this is an example of a user that's not allowed to use commands everyone else can; see how it's used below.
 var ignoredChat = '47598124341';       // rooms:[] works exactly the same as users: [], only it specifies which groupchats a command may be used in
 var allowedChat = '978255';            // ignored: [] allows steamid64s for both groupchats and users. If a user's steamid64 matches, he can't use the command; same if the groupchat it's posted in matches.
 
-// This will log in a steam user with the specified username and password
-var myBot = new ChatBot('username', 'password', {
-	logFile: true,		//set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
-	autoReconnect: true,	//automatically reconnect to the server
-	autojoinFile: 'bot.username.autojoin',
-	babysitTimer: 300000
-});
-
-// Set up the triggers to control the bot
-myBot.addTriggers([
+module.exports = [
 	// Commands to stop/unstop the bot from saying anything in a chatroom
 	{ 
 		name: 'MuteCommand', 
@@ -338,13 +327,4 @@ myBot.addTriggers([
 	{	name: 'SteamrepOnJoin',
 		type: 'SteamrepOnJoinTrigger',
 		options: {} } 
-]);
-myBot.connect();
-
-// Trigger details can be retrieved and reloaded so that external configuration can be supported
-var details = myBot.getTriggerDetails();
-myBot.clearTriggers();
-myBot.addTriggers(details);
-
-//You can also tell the bot to start playing a game, such as Steam for Linux.
-//myBot.setGames([221410]);
+];
