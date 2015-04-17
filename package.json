@@ -82,8 +82,8 @@
     "tinycache": "^1.1.0",
     "tumblr.js": "0.0.x",
     "ueberDB": "^0.2.7",
-    "underscore": "^1.7.0",
-    "winston": "^0.9.0",
+    "underscore": "^1.8.3",
+    "winston": "^1.0.0",
     "wolfram": "0.3.x",
     "ws": "^0.7.1",
     "youtube-feeds": "^2.3.0"
