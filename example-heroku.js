@@ -41,52 +41,56 @@ var chatBotOptions = {
 
 // Default triggers
 var triggers = require("./example-config-triggers2");
-
+var myBot;
 
 if (firebaseURL && firebaseSecret) {
 	var Firebase = require("firebase");
 	var fbRef = new Firebase(firebaseURL);
 
-	fbRef.authWithCustomToken(firebaseSecret, function(error, authData) {
-		if (error) {
-			console.error("Firebase login failed", error);
-		} else {
-			console.log("Firebase login successful");
-
-			var configRef = fbRef.child("config");
-			configRef.once("value", function(snapshot) {
-				console.log("Fetched bot config from Firebase");
-				chatBotOptions.config = snapshot.val()
-				var myBot = new ChatBot(username, password, chatBotOptions);
-				
-				var triggerRef = fbRef.child("triggers");
-				triggerRef.on("value", function(snapshot) {
-					console.log("Received updated triggers from Firebase");
-					
-					var fbTriggers;
-					if (snapshot.val()) {
-						fbTriggers = snapshot.val();
-					} else {
-						fbTriggers = triggers;
-						triggerRef.set(fbTriggers);
-					}
-					myBot.clearTriggers();
-					myBot.addTriggers(triggers);
-				});
-
-				myBot.on("configChanged", function(key, val) {
-					configRef.child(key).set(val);
-				});
-				myBot.connect();
-			});
-		}
-	});
-	
+	fbRef.authWithCustomToken(firebaseSecret, onFirebaseAuth);
 } else {
 	console.log("not using firebase");
-	var myBot = new ChatBot(username, password, chatBotOptions);
+	myBot = new ChatBot(username, password, chatBotOptions);
 	myBot.addTriggers(triggers);
 	myBot.connect();
+}
+
+function onFirebaseAuth(error, authData) {
+	if (error) {
+		console.error("Firebase login failed", error);
+	} else {
+		console.log("Firebase login successful");
+		fbRef.child("config").once("value", onConfigLoadedFromFirebase);
+	}
+}
+
+function onConfigLoadedFromFirebase(snapshot) {
+	console.log("Fetched bot config from Firebase");
+	chatBotOptions.config = snapshot.val()
+	myBot = new ChatBot(username, password, chatBotOptions);
+	
+	fbRef.child("triggers").on("value", onTriggersChanged);
+
+	myBot.on("configChanged", storeConfigToFirebase);
+	myBot.connect();
+}
+
+function storeConfigToFirebase(key, val) {
+	fbRef.child("config").child(key).set(val);
+}
+
+function onTriggersChanged(snapshot) {
+	console.log("Received updated triggers from Firebase");
+	
+	var fbTriggers;
+	if (snapshot.val()) {
+		fbTriggers = snapshot.val();
+	} else {
+		fbTriggers = triggers;
+		fbRef.child("triggers").set(fbTriggers);
+	}
+	myBot.clearTriggers();
+	myBot.addTriggers(fbTriggers);
 }
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported
