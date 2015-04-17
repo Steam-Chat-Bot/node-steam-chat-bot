@@ -41,6 +41,7 @@ module.exports = [
 	{ name: 'JoinChatTrigger',     type: 'JoinChatTrigger',     options: { users: [adminUser] } },
 	{ name: 'RemoveFriendTrigger', type: 'RemoveFriendTrigger', options: { users: [adminUser] } },
 	{ name: 'AddFriendTrigger',    type: 'AddFriendTrigger',    options: { users: [adminUser] } },
+	{ name: 'PlayGameTrigger',     type: 'PlayGameTrigger',     options: { users: [adminUser] } },
 
 // Informational commands
 	{ name: 'HelpCmd',   type: 'ChatReplyTrigger', options: {
