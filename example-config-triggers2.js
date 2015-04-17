@@ -3,7 +3,6 @@
 var adminUser = '76565196008335999';   // this is an example of a user that's allowed to use commands nobody else can; see how it's used below.
 var ignoredUser = '76565196178365111'; // this is an example of a user that's not allowed to use commands everyone else can; see how it's used below.
 var ignoredChat = '47598124341';       // rooms:[] works exactly the same as users: [], only it specifies which groupchats a command may be used in
-var allowedChat = '978255';            // ignored: [] allows steamid64s for both groupchats and users. If a user's steamid64 matches, he can't use the command; same if the groupchat it's posted in matches.
 
 module.exports = [
 	// Commands to stop/unstop the bot from saying anything in a chatroom
@@ -14,7 +13,7 @@ module.exports = [
 			matches: ['!mute','stfu bot','bot, stfu','shut up, bot','bot, shut up'], 
 			exact: true,
 			ignore: [ignoredUser],
-			callback: function(bot) { bot.mute(); }
+			callback: ["mute"]
 		} 
 	},
 	{ 
@@ -24,7 +23,7 @@ module.exports = [
 			matches: ['!unmute', '!unpause','wake up, bot','bot, wake up','wake up bot','bot wake up'], 
 			exact: true,
 			ignore: [ignoredUser],
-			callback: function(bot) { bot.unmute(); } 
+			callback: ["unmute"]
 		} 
 	},
 
@@ -66,8 +65,10 @@ module.exports = [
 		name: 'AcceptChatInvite', 
 		type: 'AcceptChatInviteTrigger', 
 		options: { 
-			chatrooms: { "10358279143999997": "Hello! I'm Admin's obnoxious chatbot and I'm here to spam you all! :D:",
-			autoJoinAfterDisconnect: true }
+			chatrooms: {
+				"10358279143999997": "Hello! I'm Admin's obnoxious chatbot and I'm here to spam you all! :D:"
+			},
+			autoJoinAfterDisconnect: true
 		} 
 	},
 
@@ -79,7 +80,7 @@ module.exports = [
 		options: { command: '!g' }
 	},
 	{
-		name: 'Google',
+		name: 'Google alt',
 		type: 'GoogleTrigger',
 		options: { command: '!google' }
 	},
@@ -91,7 +92,7 @@ module.exports = [
 		options: { command: '!gi' }
 	},
 	{
-		name: 'GoogleImages',
+		name: 'GoogleImages alt',
 		type: 'GoogleImagesTrigger',
 		options: { command: '!image' }
 	},
@@ -143,14 +144,14 @@ module.exports = [
 			timeout: 10*60*1000 } },
 	{	name: 'SmileReply', type: 'ChatReplyTrigger', 
 		options: { 
-			matches: ['☺',':)'], 
+			matches: ['☺',':)',':]','=]','=)',':-)',':o)'], 
 			responses: ['☹'],
 			delay: 500, 
 			probability: 0.3, 
 			timeout: 30*60*1000 } },
 	{	name: 'FrownReply', type: 'ChatReplyTrigger', 
 		options: { 
-			matches: ['☹',':('], 
+			matches: ['☹',':(',':[','=[','=(','D:',':-(',':o(','D-:'], 
 			responses: ['☺'],
 			delay: 500, 
 			probability: 0.3, 
@@ -209,7 +210,7 @@ module.exports = [
 			matches: ['hi bot'], 
 			responses: ['hi boss!','hi master!'], 
 			exact: true, 
-			users: adminUser } },
+			users: [adminUser] } },
 
 	{	name: 'IsUp', 
 		type: 'isupTrigger', 

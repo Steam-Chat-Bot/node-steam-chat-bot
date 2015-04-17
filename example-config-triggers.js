@@ -9,7 +9,7 @@ module.exports = [
 		options: { 
 			matches: ["!mute", "!pause"], 
 			exact: true,
-			callback: function(bot) { bot.mute(); }
+			callback: ["mute"] // calls ChatBot.mute()
 		} 
 	},
 	{ 
@@ -18,7 +18,7 @@ module.exports = [
 		options: { 
 			matches: ["!unmute", "!unpause"], 
 			exact: true,
-			callback: function(bot) { bot.unmute(); }
+			callback: ["unmute"] // calls ChatBot.unmute()
 		} 
 	},
 
@@ -29,7 +29,7 @@ module.exports = [
 		options: { 
 			matches: ["bat rats"], 
 			exact: false,
-			callback: function(bot) { bot.joinGame(34900); }
+			callback: ["joinGame", 34900] // calls ChatBot.joinGame(34900)
 		} 
 	},
 

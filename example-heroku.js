@@ -10,18 +10,25 @@ var express = require("express");
 var request = require("request");
 var hostname = "localhost"		//set this to the hostname to be used when pinging yourself.  This will not be used if you set an APP_URL env variable in heroku
 var localport = 5001;			//set this to the local port expressjs should bind to during testing or in non-heroku situations (the script fetches heroku's APP_PORT automatically)
-var startTime = process.hrtime();       //leave this alone
-//var username = "";                    //Default is to set a config option for the username and password. Comment out these lines if you intend to run more than one bot or something.
-//var password = "";                    //To define config options, use `heroku config:set name=settingvalue`, e.g. username=chatbot or password=50m3_P4w0rD or APP_URL=chatbots.heroku.com
+var startTime = process.hrtime();       	//leave this alone
 
-// To run this example without first copying it outside of node_modules/steam-chat-bot, use ./ as the require path, e.g.:
-// var ChatBot = require("./").ChatBot
-var ChatBot = require("steam-chat-bot").ChatBot;
+//Default is to set a config option for the username and password.
+//To define config options, use `heroku config:set name=settingvalue`, e.g. username=chatbot or password=50m3_P4w0rD or APP_URL=chatbots.heroku.com
+//For details see https://devcenter.heroku.com/articles/config-vars
+var username = process.env.username || "";
+var password = process.env.password || "";
 
-// This will log in a steam user with the specified username and password 
-// You can also pass in a steam guard code from an email
+//Optional Firebase config storage, since Heroku doesn't persist local file writes
+//Very useful if you don't want to keep entering Steam Guard code for example
+var firebaseURL = process.env.FIREBASE_URL || "";
+var firebaseSecret = process.env.FIREBASE_SECRET || "";
 
-var myBot = new ChatBot(proc.env.username||username, proc.env.password||password, {
+
+
+var _ = require("underscore");
+var ChatBot = require("./").ChatBot;
+
+var chatBotOptions = {
 //	sentryFile: "",		//Bot tries to find a sentry file automatically. This is only required if you have one with a strange name, otherwise it's automatic.
 //	guardCode: "",		//guardCode will override a sentry file. Comment this out after the first use.
 	logFile: true,          //set to true to log to bot.$username.log, or define a custom logfile. Set to false if you don't want to log to file.
@@ -29,18 +36,63 @@ var myBot = new ChatBot(proc.env.username||username, proc.env.password||password
 	consoleTime: false,     //don't put timestamps in the console log, `heroku logs` shows them anyways
 	consoleColors: false,   //don't use colors in the log. using `heroku logs` will be annoying.
 	consoleLogLevel: "warn" //don't log chatter to console, it's spammy. Only log warnings, errors, etc.
-});
+};
 
-// Set up the triggers to control the bot
-var triggers = require("./example-config-triggers");
-myBot.addTriggers(triggers);
 
-myBot.connect();
+// Default triggers
+var triggers = require("./example-config-triggers2");
+
+
+if (firebaseURL && firebaseSecret) {
+	var Firebase = require("firebase");
+	var fbRef = new Firebase(firebaseURL);
+
+	fbRef.authWithCustomToken(firebaseSecret, function(error, authData) {
+		if (error) {
+			console.error("Firebase login failed", error);
+		} else {
+			console.log("Firebase login successful");
+
+			var configRef = fbRef.child("config");
+			configRef.once("value", function(snapshot) {
+				console.log("Fetched bot config from Firebase");
+				chatBotOptions.config = snapshot.val()
+				var myBot = new ChatBot(username, password, chatBotOptions);
+				
+				var triggerRef = fbRef.child("triggers");
+				triggerRef.on("value", function(snapshot) {
+					console.log("Received updated triggers from Firebase");
+					
+					var fbTriggers;
+					if (snapshot.val()) {
+						fbTriggers = snapshot.val();
+					} else {
+						fbTriggers = triggers;
+						triggerRef.set(fbTriggers);
+					}
+					myBot.clearTriggers();
+					myBot.addTriggers(triggers);
+				});
+
+				myBot.on("configChanged", function(key, val) {
+					configRef.child(key).set(val);
+				});
+				myBot.connect();
+			});
+		}
+	});
+	
+} else {
+	console.log("not using firebase");
+	var myBot = new ChatBot(username, password, chatBotOptions);
+	myBot.addTriggers(triggers);
+	myBot.connect();
+}
 
 // Trigger details can be retrieved and reloaded so that external configuration can be supported
-var details = myBot.getTriggerDetails();
-myBot.clearTriggers();
-myBot.addTriggers(details);
+//var details = myBot.getTriggerDetails();
+//myBot.clearTriggers();
+//myBot.addTriggers(details);
 
 //these are useful for displaying your bot as playing a game, so it shows up in the upper part of the userlist.
 //this is a comma-separated array of games that the bot will play automatically on login. 440 is tf2.
@@ -170,9 +222,10 @@ app.listen(port, function() {
 	console.log("Listening on " + port);
 });
 
-var pingself = function(self){
-	console.log("Pinging self");
-	request.get({method:"GET",encoding:"utf8",uri:"http://"+hostname+"/ping",followAllRedirects:true}, function(error, response, body) {
+var pingself = function(){
+	var uri = process.env.APP_URL ? ("https://"+process.env.APP_URL+"/ping") : ("http://"+hostname+"/ping");
+	console.log("Pinging uri "+uri);
+	request.get({method:"GET",encoding:"utf8",uri:uri,followAllRedirects:true}, function(error, response, body) {
 		if(error) console.log(error);
 		else console.log(body);
 	});
@@ -184,4 +237,4 @@ var fetchstats = function(self){
 		else console.log(body);
 	});
 }
-setInterval(function(){pingself(process.env.APP_URL||"http://"+hostname+":"+remoteport)},1800000);
+setInterval(function(){pingself()}, process.env.PING_INTERVAL || 1800000);
