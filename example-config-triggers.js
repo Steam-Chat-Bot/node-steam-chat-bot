@@ -137,7 +137,7 @@ module.exports = [
 	{ 
 		name: "MateEscalation", 
 		type: "RegexReplaceTrigger",
-		options: { match: /^(m+?)(a+?)te(s??)$/, response: "{0}m{1}aaate{2}", delay: 500} 
+		options: { match: "^(m+?)(a+?)te(s??)$", response: "{0}m{1}aaate{2}", delay: 500} 
 	},
 
 	// Butt bot, replace a random word from someone's message with "butt" about once every 50 messages

@@ -214,7 +214,7 @@ module.exports = [
 			users: [adminUser] } },
 
 	{	name: 'IsUp', 
-		type: 'isupTrigger', 
+		type: 'IsUpTrigger', 
 		options: { command: '!isup' } },
 
 /*
@@ -237,7 +237,7 @@ module.exports = [
 	{	name: 'MateEscalation', 
 		type: 'RegexReplaceTrigger',
 		options: {
-			match: /^(m+?)(a+?)te(s??)$/,
+			match: "^(m+?)(a+?)te(s??)$",
 			response: '{0}m{1}aaate{2}',
 			delay: 500 } },
 
