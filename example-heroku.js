@@ -230,7 +230,7 @@ app.listen(port, function() {
 });
 
 var pingself = function(){
-	var uri = process.env.APP_URL ? ("https://"+process.env.APP_URL+"/ping") : ("http://"+hostname+"/ping");
+	var uri = process.env.APP_URL ? (process.env.APP_URL+"/ping") : ("http://"+hostname+"/ping");
 	console.log("Pinging uri "+uri);
 	request.get({method:"GET",encoding:"utf8",uri:uri,followAllRedirects:true}, function(error, response, body) {
 		if(error) console.log(error);
