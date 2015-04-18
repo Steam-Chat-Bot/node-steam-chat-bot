@@ -38,6 +38,9 @@ var chatBotOptions = {
 	consoleLogLevel: "warn" //don't log chatter to console, it's spammy. Only log warnings, errors, etc.
 };
 
+if(process.env.guardCode) {
+	chatBotOptions.guardCode = process.env.guardCode;
+}
 
 // Default triggers
 var triggers = require("./example-config-triggers2");
