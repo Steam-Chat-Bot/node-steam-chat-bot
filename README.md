@@ -1,6 +1,6 @@
 [![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
 [![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)]()
-[![node](https://img.shields.io/badge/node-0.12.x-yellow.svg]()
+[![node](https://img.shields.io/node/v/gh-badges.svg)]()
 [![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
 [![Packagist](https://img.shields.io/badge/license-MIT-44CC11.svg)](/LICENCE)
 
