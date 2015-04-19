@@ -90,7 +90,7 @@
     "youtube-feeds": "^2.3.0"
   },
   "engines": {
-    "node": "0.10.x 0.12.x",
+    "node": "0.12.x",
     "npm": "1.4.x"
   }
 }
