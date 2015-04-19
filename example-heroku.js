@@ -196,8 +196,8 @@ _nanosecondsToStr = function(seconds, goagain) {
 var app = express();
 app.get("/", function(req, res) {
 	res.send("This is a private server! You shouldn't be here!");
-	console.log(res);
-//	console.log(getClientIp(req)+" tried to view us!");
+//	console.log(res);
+	console.log(getClientIp(req)+" tried to view us!");
 });
 
 app.get("/ping", function(req, res) {
