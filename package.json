@@ -80,6 +80,7 @@
     "sqlite3": "^3.0.2",
     "steam": "^0.6.8",
     "tinycache": "^1.1.0",
+    "touch": "0.0.3",
     "tumblr.js": "0.0.x",
     "ueberDB": "^0.2.7",
     "underscore": "^1.8.3",
