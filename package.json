@@ -63,6 +63,7 @@
     "accounting": "^0.4.1",
     "cleverbot-node": "0.1.x",
     "express": "^4.10.0",
+    "firebase": "^2.2.3",
     "google": "^1.0.0",
     "google-images": "0.1.x",
     "http": "0.0.0",

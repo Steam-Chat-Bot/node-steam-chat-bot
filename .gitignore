@@ -10,3 +10,4 @@ npm-debug.log
 sentryfile.*
 *.hash
 configs/
+.env
