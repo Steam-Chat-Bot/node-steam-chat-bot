@@ -1,6 +1,6 @@
 [![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
 [![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)]()
-[![node](https://img.shields.io/node/v/gh-badges.svg)]()
+[![node](https://img.shields.io/node/v/steam-chat-bot.svg)]()
 [![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
 [![Packagist](https://img.shields.io/badge/license-MIT-44CC11.svg)](/LICENCE)
 
@@ -16,6 +16,12 @@ node-steam-chat-bot
 Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. Steam requires that a user has at least one game before it can join chat rooms (unless it's a mod), so you'll need to buy a game for the bot account or make it a mod before it will be able to join.
 
 If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (e.g. `new ChatBot('username', 'password', { guardCode: 'XXXX' };)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
+
+### Installation: 
+
+`npm install steam-chat-bot`
+
+To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
 ### Current Triggers:
 
@@ -128,7 +134,6 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `command` - "!string" - this isn't universal, however many triggers allow you to change the default command using this option.
 
-To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
 See [example.js](https://github.com/efreak/node-steam-chat-bot/blob/master/example.js) for an example usage.
 
