@@ -87,7 +87,7 @@
     "winston": "^1.0.0",
     "wolfram": "0.3.x",
     "ws": "^0.7.1",
-    "youtube-feeds": "^2.3.0"
+    "youtube-api": "^0.3.2"
   },
   "engines": {
     "node": "0.12.x",

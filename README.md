@@ -1,6 +1,6 @@
 [![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
 [![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)]()
-[![node](https://img.shields.io/node/v/steam-chat-bot.svg)]()
+[![node](https://img.shields.io/node/v/gh-badges.svg)]()
 [![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
 [![Packagist](https://img.shields.io/badge/license-MIT-44CC11.svg)](/LICENCE)
 
@@ -16,12 +16,6 @@ node-steam-chat-bot
 Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. Steam requires that a user has at least one game before it can join chat rooms (unless it's a mod), so you'll need to buy a game for the bot account or make it a mod before it will be able to join.
 
 If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (e.g. `new ChatBot('username', 'password', { guardCode: 'XXXX' };)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
-
-
-### Installation:
-
-
-`npm install steam-chat-bot`
 
 ### Current Triggers:
 
@@ -114,7 +108,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 `WolframAlphaTrigger` - Queries Wolfram Alpha if a message starts with a specified command. This only displays a textual representation of the primary result (if it exists) so it's not always a good answer. You will need an appId from http://products.wolframalpha.com/api/.
 
-`YoutubeTrigger` - Responds to a message with the top YouTube search result if it starts with a specific command. Also has an option to randomly rickroll instead of returning the best result.
+`YoutubeTrigger` - Will respond to a Youtube search term, whether it be a video or a channel (1st result, will be automatic). This will require an API key (not OAUTH token) from Google. This can be found here: https://console.developers.google.com (create a project, and generate an API key, if you need extra help google it) and defined as `apikey: <key>`.
 
 ### Universal properties that work on *all* triggers (defined in BaseTrigger)
 
