@@ -69,6 +69,7 @@
     "money": "^0.2.0",
     "node-localstorage": "^0.5.0",
     "omdb": "^0.2.3",
+	"pushbullet": "^1.4.3",
     "random-js": "^1.0.4",
     "request": "^2.26.0",
     "roll": "^1.0.0",
