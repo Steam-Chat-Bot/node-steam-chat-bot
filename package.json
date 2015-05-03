@@ -1,7 +1,7 @@
 {
   "name": "steam-chat-bot",
   "homepage": "https://github.com/Efreak/node-steam-chat-bot",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "bugs": {
     "url": "http://github.com/Efreak/node-steam-chat-bot/issues"
   },
