@@ -1,7 +1,7 @@
 {
   "name": "steam-chat-bot",
   "homepage": "https://github.com/Efreak/node-steam-chat-bot",
-  "version": "1.6.4",
+  "version": "1.7.0",
   "bugs": {
     "url": "http://github.com/Efreak/node-steam-chat-bot/issues"
   },
@@ -78,6 +78,7 @@
     "sinon": "^1.12.1",
     "sqlite3": "^3.0.2",
     "steam": "^0.6.8",
+    "steam-trade": "git://github.com/seishun/node-steam-trade.git",
     "tinycache": "^1.1.0",
     "touch": "0.0.3",
     "tumblr.js": "0.0.x",
