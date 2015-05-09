@@ -19,7 +19,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 ### Installation: 
 
-`npm install steam-chat-bot`
+[![NPM](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
 
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
