@@ -8,7 +8,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
 [![Codacy Badge](https://www.codacy.com/project/badge/79e3862b9b2b4e0fbbcf9e980fcb6263)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-swag.svg)](http://forthebadge.com)
+[![NPM](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
 
 node-steam-chat-bot
 ===================
@@ -19,7 +19,7 @@ If you have Steam Guard enabled you'll get a failed logon attempt the first time
 
 ### Installation: 
 
-`npm install steam-chat-bot`
+Type `npm install steam-chat-bot`. If you want to run the development version, type `npm install efreak/node-steam-chat-bot#development` (or the url to your preferred repo/branch).
 
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
