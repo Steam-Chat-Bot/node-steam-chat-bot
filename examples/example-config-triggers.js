@@ -216,7 +216,23 @@ module.exports = [
 			tokenSecret: "XXX" 
 		}  
 	},
-
+	//look for posted links, then respond with page title
+	{
+		name: 'linkname',
+		type: 'LinkName',
+		options: {}
+	},
+	// Greet every enterin person by name
+	{ 
+		name: "unnamed enter", 
+		type: "DoormatTrigger", 
+		options: { 
+			
+			delay: 4000, 
+			probability: 1.0, 
+			timeout: 60*1000
+		} 
+	},
 	// Search YouTube and respond with the top result whenever someone types !yt <query>, rickroll about 1 every 100 times
 	{ 
 		name: "Youtube", 
