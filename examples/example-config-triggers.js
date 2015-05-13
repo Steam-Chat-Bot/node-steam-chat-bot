@@ -21,6 +21,31 @@ module.exports = [
 			callback: function(bot) { bot.unmute(); }
 		} 
 	},
+	//Admin command to stop the bot
+	{ 
+		name: 'KillCommand', 
+		type: 'BotCommandTrigger', 
+		options: { 
+			matches: ['!die'], 
+			exact: true,
+			users: [adminUser],
+			ignore: [ignoredUser],
+			callback: function(bot) { bot.logOff(); } 
+		} 
+	},
+	//user command to make the bot leave
+	{ 
+		name: 'leaveCommand', 
+		type: 'LeaveChatTrigger', 
+		options: 
+		{ 
+			matches: ['!leave', '!quit', '!exit'], 
+			ignore: [ignoredUser],
+			exact: true
+			
+		
+		} 
+	},
 
 	// Command to join Bad Rats whenever it's mentioned	
 	{ 
@@ -216,7 +241,23 @@ module.exports = [
 			tokenSecret: "XXX" 
 		}  
 	},
-
+	//look for posted links, then respond with page title
+	{
+		name: 'linkname',
+		type: 'LinkName',
+		options: {}
+	},
+	// Greet every enterin person by name
+	{ 
+		name: "unnamed enter", 
+		type: "DoormatTrigger", 
+		options: { 
+			
+			delay: 4000, 
+			probability: 1.0, 
+			timeout: 60*1000
+		} 
+	},
 	// Search YouTube and respond with the top result whenever someone types !yt <query>, rickroll about 1 every 100 times
 	{ 
 		name: "Youtube", 
