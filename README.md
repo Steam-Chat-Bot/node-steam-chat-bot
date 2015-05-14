@@ -46,7 +46,7 @@ To get this running in Windows you'll need to follow the setup instructions for 
 
 `CleverbotTrigger` - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 
-`DoormatTrigger` - Sends a message ("Hello <username>") to someone when they join the chat.
+`DoormatTrigger` - Sends a message ("Hello username") to someone when they join the chat.
 
 `GoogleTrigger` - Prints out the title and link of the first search result on Google.
 
