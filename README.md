@@ -40,9 +40,13 @@ To get this running in Windows you'll need to follow the setup instructions for 
 
 `ButtBotTrigger` - Repeats a message, but with one word randomly replaced with a specific other word. The canonical example is replacing a random word with "butt".
 
+`ChatPmTrigger` - Responds to certain messages via private message.
+
 `ChatReplyTrigger` - Detects a message (either an exact match or a "contains" match) and replies with a specified message.
 
 `CleverbotTrigger` - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
+
+`DoormatTrigger` - Sends a message ("Hello username") to someone when they join the chat.
 
 `GoogleTrigger` - Prints out the title and link of the first search result on Google.
 
@@ -57,6 +61,8 @@ To get this running in Windows you'll need to follow the setup instructions for 
 `KickTrigger` - tells the box to kick someone from a groupchat.
 
 `LeaveChatTrigger` - tells the bot to leave a groupchat, announcing who commanded it
+
+`LinkName` - Is given a link and sends the title of the website.
 
 `LockChatTrigger` - tells the bot to lock a groupchat.
 
