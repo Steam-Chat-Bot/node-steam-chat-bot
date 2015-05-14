@@ -233,6 +233,17 @@ module.exports = [
 			timeout: 60*1000
 		} 
 	},
+	//Private message trigger text
+	{ 
+		name: "PmReply", 
+		type: "ChatPmTrigger", 
+		options: { 
+			matches: ["whisper"], 
+			responses: ["shh! secret!"], 
+			exact: true, 
+			delay: 1000, 
+			probability: 1, 
+			timeout: 10*1000 } },
 	// Search YouTube and respond with the top result whenever someone types !yt <query>, rickroll about 1 every 100 times
 	{ 
 		name: "Youtube", 
