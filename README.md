@@ -15,7 +15,24 @@ node-steam-chat-bot
 
 Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. Steam requires that a user has at least one game before it can join chat rooms (unless it's a mod), so you'll need to buy a game for the bot account or make it a mod before it will be able to join.
 
-If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (e.g. `new ChatBot('username', 'password', { guardCode: 'XXXX' };)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
+If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (below) and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
+
+````javascript
+new ChatBot('username', 'password', {
+	guardCode: 'XXXX', //this is required on the first run if you have steamguard enabled, but not after that.
+	disableWebServer:false, //the built-in webserver is enabled by default
+	webServerPort: 8080, //If you run steam-chat-bot as root, it will eat your babies. Do NOT run steam-chat-bot as root.
+	autojoinFile: "bot.username.autojoin",
+	consoleColors:true,
+	consoleTime:true,
+	consoleLogLevel:"info", //can also be error or debug
+	logFile: "bot.username.log", //this does *not* log chatter. If you want to log chatter, use the logTrigger.
+	sentryFile: "bot.username.sentry", //this is your ssfn file (no, you can't actually use an ssfn file)
+	autoconnect: true, //Why would you *not* want it to autoconnect?
+	autoReconnect: false, //You probably want to set this to true, though...
+	babysitTimer: 5*60*1000 //that's 5 minutes, if you can't do math. The babysitter checks to make sure we're online if above is true.
+})
+````
 
 ### Installation: 
 
