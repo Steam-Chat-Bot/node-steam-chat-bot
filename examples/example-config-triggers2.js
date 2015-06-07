@@ -14,7 +14,7 @@ module.exports = [
 			matches: ['!mute','stfu bot','bot, stfu','shut up, bot','bot, shut up'], 
 			exact: true,
 			ignore: [ignoredUser],
-			callback: function(bot) { bot.mute(); }
+			callback: ["mute"] // calls ChatBot.mute()
 		} 
 	},
 	{ 
@@ -24,7 +24,7 @@ module.exports = [
 			matches: ['!unmute', '!unpause','wake up, bot','bot, wake up','wake up bot','bot wake up'], 
 			exact: true,
 			ignore: [ignoredUser],
-			callback: function(bot) { bot.unmute(); } 
+			callback: ["unmute"] // calls ChatBot.unmute()
 		} 
 	},
 
@@ -66,8 +66,10 @@ module.exports = [
 		name: 'AcceptChatInvite', 
 		type: 'AcceptChatInviteTrigger', 
 		options: { 
-			chatrooms: { "10358279143999997": "Hello! I'm Admin's obnoxious chatbot and I'm here to spam you all! :D:",
-			autoJoinAfterDisconnect: true }
+			chatrooms: {
+				"10358279143999997": "Hello! I'm Admin's obnoxious chatbot and I'm here to spam you all! :D:"
+			},
+			autoJoinAfterDisconnect: true
 		} 
 	},
 
@@ -79,7 +81,7 @@ module.exports = [
 		options: { command: '!g' }
 	},
 	{
-		name: 'Google',
+		name: 'Google2',
 		type: 'GoogleTrigger',
 		options: { command: '!google' }
 	},
@@ -91,7 +93,7 @@ module.exports = [
 		options: { command: '!gi' }
 	},
 	{
-		name: 'GoogleImages',
+		name: 'GoogleImages2',
 		type: 'GoogleImagesTrigger',
 		options: { command: '!image' }
 	},
@@ -212,7 +214,7 @@ module.exports = [
 			users: adminUser } },
 
 	{	name: 'IsUp', 
-		type: 'isupTrigger', 
+		type: 'IsUpTrigger',
 		options: { command: '!isup' } },
 
 /*
@@ -235,7 +237,7 @@ module.exports = [
 	{	name: 'MateEscalation', 
 		type: 'RegexReplaceTrigger',
 		options: {
-			match: /^(m+?)(a+?)te(s??)$/,
+			match: "^(m+?)(a+?)te(s??)$",
 			response: '{0}m{1}aaate{2}',
 			delay: 500 } },
 
