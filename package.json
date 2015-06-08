@@ -58,7 +58,7 @@
   ],
   "main": "./lib/chatBot",
   "scripts": {
-    "example": "node ./examples/example.js"
+    "example": "node ./examples/example.js",
     "example-firebase": "node ./examples/example-firebase.js"
   },
   "repository": {
