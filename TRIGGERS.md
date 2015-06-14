@@ -1,4 +1,4 @@
-# Triggers
+email# Triggers
 
 Many triggers have a default command (or commands) defined, so if you don't choose one in the options, the default will be used.
 
@@ -269,7 +269,7 @@ Commands:
 - `!notify filter add $YourName` - adds *$YourName* to the filter list, provided none of the banned list is in it.
 - `!notify filter list` - lists your current filters.
 - `!notify filter remove ##` - removes the ## filter from your list.
-- `!notify send TEXT` - tests your filters with 'TEXT', as though it were a line sent from chat
+- `!notify send TEXT` - tests your filters with 'TEXT', as though it were a line sent from a chat (Without this, the bot will not trigger notifications on your own messages)
 - `!notify email some@address.tld` - sets your email address to some@address.tld. Set email to N/No/F/False to disable emails.
 - `!notify message BOOL` - enables or disables sending you private messages as notifications. Y/Yes/N/No/T/True/F/False.
 - `!notify delete` - Tells the bot to delete you from the database. You must add 'yes' to the end to actually do so.
@@ -280,12 +280,13 @@ Options:
 - banned - array of triggers not allowed. Use this to prevent people from trigger on e.g. 'password' or some such. defaults to [] (blank)
 - dbFile - database file. This is a flatfile containing json. Defaults to USERNAME/Notification.db.
 - roomNames - object associating group names with ids, for use displaying group name. `{"steamid64":"name","steamid64":"name"}`
-- nodemailerOptions - object of options for nodemailer's smtp transport. If not included, will send mails using direct-transport.
-- nodemailer - Allows you to pass in an initialized nodemailer instance if you want to use a transport other than smtp/directmailer (ie, AWS, etc)
+- nodemailer - Allows you to pass in an initialized nodemailer instance if you want to use a transport other than smtp/directmailer (ie, AWS, etc). If not included, tries nodemailer-sendmail-transport (below)
+- sendmailPath = string - path to sendmail binary. I recommend using ssmtp to use an smtp server. If not included, uses smtpPool (below option)
+- smtpPoolOptions - object of options for nodemailer's smtpPool transport. If not included, will try to send mails using direct-transport. Most likely such mails will not be received.
+- address - from address for notifications. Noreply address or real address recommended. Required for direct-transport (ultimate fallback).
+- hostname = string - hostname that will be used to introduce direct transport mailer to the mx server.
 - hashfunc - function used to generate hashes for verifying email addresses. Currently a substring of sha256.
 - saveTimer - how often do we save the database to disk? DB is saved after every command, but not on every chat event.
-- hostname - used by nodemailer
-- address - from address for notifications. Noreply address recommended.
 
 ### `RandomGameTrigger`
 
