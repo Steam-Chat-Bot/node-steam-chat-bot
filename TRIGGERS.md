@@ -263,11 +263,29 @@ Options:
 
 A Notification trigger. Notify anyone who wants of anything they want. Basically, if a keyword is in a message, it gets sent to their pushbullet/pm/email.
 
+Commands:
+- `!seen steamid64` - replies when the last time *steamid64* was seen, formatted by moment().fromNow(). (ie, 1 hour ago)
+- `!notify pbapikey asdf` - tests *asdf* as the pushbullet APIkey. Greets user (with name, if avaialble) on success, complains on failure.
+- `!notify filter add $YourName` - adds *$YourName* to the filter list, provided none of the banned list is in it.
+- `!notify filter list` - lists your current filters.
+- `!notify filter remove ##` - removes the ## filter from your list.
+- `!notify send TEXT` - tests your filters with 'TEXT', as though it were a line sent from chat
+- `!notify email some@address.tld` - sets your email address to some@address.tld. Set email to N/No/F/False to disable emails.
+- `!notify message BOOL` - enables or disables sending you private messages as notifications. Y/Yes/N/No/T/True/F/False.
+- `!notify delete` - Tells the bot to delete you from the database. You must add 'yes' to the end to actually do so.
+
 Options:
+- seenCommand - what is the command for the seen function? !seen steamID64.
 - cmd - command for pushbullet. Defaults to "!notify"
-- banned - array of triggers not allowed. Use this to prevent people from tirgger on e.g. 'password' or some such. defaults to [] (blank)
-- dbFile - database file. This is a flatfile containing json. Defaults to Notification.db.
+- banned - array of triggers not allowed. Use this to prevent people from trigger on e.g. 'password' or some such. defaults to [] (blank)
+- dbFile - database file. This is a flatfile containing json. Defaults to USERNAME/Notification.db.
 - roomNames - object associating group names with ids, for use displaying group name. `{"steamid64":"name","steamid64":"name"}`
+- nodemailerOptions - object of options for nodemailer's smtp transport. If not included, will send mails using direct-transport.
+- nodemailer - Allows you to pass in an initialized nodemailer instance if you want to use a transport other than smtp/directmailer (ie, AWS, etc)
+- hashfunc - function used to generate hashes for verifying email addresses. Currently a substring of sha256.
+- saveTimer - how often do we save the database to disk? DB is saved after every command, but not on every chat event.
+- hostname - used by nodemailer
+- address - from address for notifications. Noreply address recommended.
 
 ### `RandomGameTrigger`
 
