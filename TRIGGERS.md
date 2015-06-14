@@ -287,6 +287,7 @@ Options:
 - hostname = string - hostname that will be used to introduce direct transport mailer to the mx server.
 - hashfunc - function used to generate hashes for verifying email addresses. Currently a substring of sha256.
 - saveTimer - how often do we save the database to disk? DB is saved after every command, but not on every chat event.
+- sendmailArgs - array of arguments to pass to the sendmail path. Use if you want eg a custom config for ssmtp. ['-uusername','-ppassword']
 
 ### `RandomGameTrigger`
 
