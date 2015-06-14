@@ -259,14 +259,14 @@ Options:
 - cacheTime - Message will not be sent if last join was within this much time, to reduce spam. Defaults to 10 minutes.
 - apikey - your steam api key. Can be alternatively defined for the bot globally as an option, steamapikey. Not required for this particular plugin, but if you're hosting multiple bots for multiple people, it may be a good idea to prevent IP blacklisting.
 
-### `PushbulletTrigger`
+### `NotificationTrigger`
 
-A Pushbullet trigger. Notify anyone who wants of anything they want. Basically, if a keyword is in a message, it gets sent to their pushbullet.
+A Notification trigger. Notify anyone who wants of anything they want. Basically, if a keyword is in a message, it gets sent to their pushbullet/pm/email.
 
 Options:
-- cmd - command for pushbullet. Defaults to "!pb"
+- cmd - command for pushbullet. Defaults to "!notify"
 - banned - array of triggers not allowed. Use this to prevent people from tirgger on e.g. 'password' or some such. defaults to [] (blank)
-- dbFile - database file. This is a flatfile containing json. Defaults to pb.db.
+- dbFile - database file. This is a flatfile containing json. Defaults to Notification.db.
 - roomNames - object associating group names with ids, for use displaying group name. `{"steamid64":"name","steamid64":"name"}`
 
 ### `RandomGameTrigger`
