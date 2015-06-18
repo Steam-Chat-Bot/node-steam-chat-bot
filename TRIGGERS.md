@@ -24,8 +24,10 @@ This is not settings for any one individual trigger; rather, these are options t
 Joins a specified chatroom when invited and says an optional welcome message. set option autoJoinAfterDisconnect to add channels to autojoin list when used.
 
 Options: 
-- chatrooms - *object* - An object containing roomIDs and messages. `{"roomId1": "message1", "roomId1": "message1"}`
-- autoJoinAfterDisconnect - *boolean* - automatically rejoin chat after the bot reconnects or starts up again (unless it has been removed from chat since it was invited)
+- chatrooms = {"roomId1": "message1", "roomId1": "message1"} - list of rooms to join and their welcome message. If message is null, it will be replaced with defaultMessage; $inviter will be replaced with inviter's steamid64, $inviterurl with their profile url, and $invitername with their name/url.
+- autoJoinAfterDisconnect = boolean - automatically rejoin chat after the bot reconnects or starts up again (unless it has been removed from chat since it was invited)
+- joinAll = bool or array - set to 'true' to allow *anyone* to invite the bot to *any* chat. Set to false to only allow people to invite it to specified chats. Set to an array of users to only allow those users to invite the bot to all chats (anyone can still invite the bot to the chats specified)
+- defaultMessage = string - used when a room's welcome message is set to null (not falsy, only null) or when joinAll is being used to allow joining unspecified chats. replaceable info is same as above.
 
 ### `AcceptFriendRequestTrigger`
 
