@@ -13,11 +13,13 @@
 
 # steam-chat-bot
 
+This module is based on the original steam-chat-bot written by [bonnici](https://github.com/bonnici). The original module link is [here](https://github.com/bonnici/node-steam-chat-bot).
+
 Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. Steam requires that a user has at least one game before it can join chat rooms (unless it's a mod), so you'll need to buy a game for the bot account or make it a mod before it will be able to join.
 
 If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (below)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
 
-
+We also have our very own [subreddit](http://reddit.com/r/NodeSteamChatBot). If you like steam-chat-bot, please subscripe to it. We often post news, and other important information. It is also a place for users to get help if something doesn't work. 
 ### Installation: 
 
 Type `npm install steam-chat-bot`. If you want to run the development version, type `npm install efreak/node-steam-chat-bot#development` (or the url to your preferred repo/branch).
