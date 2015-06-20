@@ -19,7 +19,7 @@ Simplified interface for a steam chat bot. This is a wrapper around [Steam for N
 
 If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (below)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
 
-We also have our very own [subreddit](http://reddit.com/r/NodeSteamChatBot). If you like steam-chat-bot, please subscripe to it. We often post news, and other important information. It is also a place for users to get help if something doesn't work. 
+We also have our very own [subreddit](http://reddit.com/r/NodeSteamChatBot). If you like steam-chat-bot, please subscribe to it. We often post news, and other important information. It is also a place for users to get help if something doesn't work. 
 ### Installation: 
 
 Type `npm install steam-chat-bot`. If you want to run the development version, type `npm install efreak/node-steam-chat-bot#development` (or the url to your preferred repo/branch).
