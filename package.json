@@ -1,7 +1,7 @@
 {
   "name": "steam-chat-bot",
   "homepage": "https://github.com/Efreak/node-steam-chat-bot",
-  "version": "1.8.2",
+  "version": "2.0.0",
   "bugs": {
     "url": "http://github.com/Efreak/node-steam-chat-bot/issues"
   },
@@ -15,7 +15,6 @@
     "youtube",
     "tumblr",
     "google",
-    "steamrep",
     "currency",
     "logging",
     "chat",
@@ -57,23 +56,40 @@
     }
   ],
   "main": "./lib/chatBot",
+  "scripts": {
+    "example": "node ./examples/example.js",
+    "example-firebase": "node ./examples/example-firebase.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Efreak/node-steam-chat-bot.git"
   },
   "dependencies": {
+    "steam": "^0.6.8",
+    "steam-trade": "git://github.com/seishun/node-steam-trade.git",
+    "winston": "^1.0.0",
+    "underscore": "^1.8.3",
+    "express": "^4.10.0",
+    "express-winston": "^0.3.1"
+  },
+  "optionalDependencies": {
     "accounting": "^0.4.1",
     "cleverbot-node": "0.1.x",
-    "express": "^4.10.0",
+    "dotenv": "^1.1.0",
+    "firebase": "^2.2.6",
+    "fireproof": "^2.5.2",
     "google": "^1.0.0",
     "google-images": "0.1.x",
-    "http": "0.0.0",
     "mediawiki": "0.0.14",
     "mkdirp": "^0.5.0",
+    "moment": "^2.10.3",
     "money": "^0.2.0",
     "node-localstorage": "^0.5.0",
+    "nodemailer": "^1.3.4",
+    "nodemailer-sendmail-transport": "^1.0.0",
     "omdb": "^0.2.3",
     "pushbullet": "^1.4.3",
+    "pushover-notifications": "^0.2.2",
     "random-js": "^1.0.4",
     "request": "^2.26.0",
     "roll": "^1.0.0",
@@ -81,14 +97,11 @@
     "serve-index": "^1.6.3",
     "sinon": "^1.12.1",
     "sqlite3": "^3.0.2",
-    "steam": "^0.6.8",
-    "steam-trade": "git://github.com/seishun/node-steam-trade.git",
     "tinycache": "^1.1.0",
     "touch": "0.0.3",
     "tumblr.js": "0.0.x",
     "ueberDB": "^0.2.7",
-    "underscore": "^1.8.3",
-    "winston": "^1.0.0",
+    "when": "^3.7.3",
     "wolfram": "0.3.x",
     "ws": "^0.7.1",
     "youtube-api": "^0.3.2"

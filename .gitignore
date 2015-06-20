@@ -11,3 +11,4 @@ sentryfile.*
 *.hash
 configs/
 logs/
+.env

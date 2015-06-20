@@ -9,7 +9,7 @@ module.exports = [
 		options: { 
 			matches: ["!mute", "!pause"], 
 			exact: true,
-			callback: function(bot) { bot.mute(); }
+			callback: ["mute"] // calls ChatBot.mute()
 		} 
 	},
 	{ 
@@ -18,7 +18,7 @@ module.exports = [
 		options: { 
 			matches: ["!unmute", "!unpause"], 
 			exact: true,
-			callback: function(bot) { bot.unmute(); }
+			callback: ["unmute"] // calls ChatBot.unmute()
 		} 
 	},
 
@@ -26,10 +26,10 @@ module.exports = [
 	{ 
 		name: "BadRatsCommand", 
 		type: "BotCommandTrigger", 
-		options: { 
-			matches: ["bat rats"], 
+		options: {
+			matches: ["bat rats"],
 			exact: false,
-			callback: function(bot) { bot.joinGame(34900); }
+			callback: ["joinGame", 34900] // calls ChatBot.joinGame(34900)
 		} 
 	},
 
@@ -137,7 +137,7 @@ module.exports = [
 	{ 
 		name: "MateEscalation", 
 		type: "RegexReplaceTrigger",
-		options: { match: /^(m+?)(a+?)te(s??)$/, response: "{0}m{1}aaate{2}", delay: 500} 
+		options: { match: "^(m+?)(a+?)te(s??)$", response: "{0}m{1}aaate{2}", delay: 500}
 	},
 
 	// Butt bot, replace a random word from someone's message with "butt" about once every 50 messages
