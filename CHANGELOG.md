@@ -14,7 +14,7 @@
 - [f6d381b](https://github.com/Efreak/node-steam-chat-bot/commit/f6d381b2f87fdc15625495803a162fb56b08c7c1) - Expanded readme
 - [0365f86](https://github.com/Efreak/node-steam-chat-bot/commit/0365f864c36e043fc08301cf28485a358ccb9410) - Move webserver out of logTrigger.js
 - [975bc92](https://github.com/Efreak/node-steam-chat-bot/commit/975bc9242ef18064685b81c943ace1d3593e1ed4) - Moved variable inside of _respond, fixed consistency 
-[f0f3aca](https://github.com/Efreak/node-steam-chat-bot/commit/f0f3aca1c61422c0e7360b7d5bdb4a9aa2e4abec), [7456187](https://github.com/Efreak/node-steam-chat-bot/commit/74561878799ea7c49ad5d83bf713d3c4426fa05d), [9b3c225](https://github.com/Efreak/node-steam-chat-bot/commit/9b3c225bee1f0dcdfcdd67b8df8c7f6983d3be31) - Bug fixes
+- [f0f3aca](https://github.com/Efreak/node-steam-chat-bot/commit/f0f3aca1c61422c0e7360b7d5bdb4a9aa2e4abec), [7456187](https://github.com/Efreak/node-steam-chat-bot/commit/74561878799ea7c49ad5d83bf713d3c4426fa05d), [9b3c225](https://github.com/Efreak/node-steam-chat-bot/commit/9b3c225bee1f0dcdfcdd67b8df8c7f6983d3be31) - Bug fixes
 [387a749](https://github.com/Efreak/node-steam-chat-bot/commit/387a7496816b512609cc2f3631127f7efa3b7ed5) - Fix server listening and logging
 
 #### May 27, 2015
