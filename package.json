@@ -32,27 +32,57 @@
   },
   "contributors": [
     {
+      "name": "Paul Schow",
+      "email": "paulschow@users.noreply.github.com",
+      "url": "https://github.com/paulschow",
+      "contributions": 1,
+      "additions": 54,
+      "deletions": 0,
+      "hireable": true
+    },
+    {
       "name": "bonnici",
       "email": "lljksteveholt@gmail.com",
       "url": "https://github.com/bonnici"
-    },
-    {
-      "name": "Efreak",
-      "email": "github@efreakbnc.net",
-      "url": "https://github.com/Efreak"
+      "contributions": 29,
+      "additions": 4367,
+      "deletions": 747
     },
     {
       "name": "Houston",
-      "url": "https://github.com/dungdung"
-    },
-    {
-      "name": "Paul Schow",
-      "url": "https://github.com/paulschow"
+      "email": "dungdung@users.noreply.github.com",
+      "url": "https://github.com/dungdung",
+      "contributions": 11,
+      "additions": 740,
+      "deletions": 861,
+      "hireable": false
     },
     {
       "name": "Kyle Smith",
       "email": "dragonbanshee@gmail.com",
-      "url": "https://github.com/dragonbanshee"
+      "url": "https://github.com/dragonbanshee",
+      "contributions": 49,
+      "additions": 1433,
+      "deletions": 970,
+      "hireable": false
+    },
+    {
+      "name": "Efreak",
+      "email": "Efreak@users.noreply.github.com",
+      "url": "https://github.com/Efreak",
+      "contributions": 339,
+      "additions": 11745,
+      "deletions": 7254,
+      "hireable": true
+    },
+    {
+      "name": "Divinux",
+      "email": "Divinux@users.noreply.github.com",
+      "url": "https://github.com/Divinux",
+      "contributions": 2,
+      "additions": 215,
+      "deletions": 4,
+      "hireable": false
     }
   ],
   "main": "./lib/chatBot",
