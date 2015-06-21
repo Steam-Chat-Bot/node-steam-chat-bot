@@ -366,11 +366,12 @@ Options:
 
 ### `TranslateTrigger`
 
-uses http://hablaa.com/api to translate. Define a `translatecommand` (command used to do translating) and a `languagescommand` (command used to print language codes), or leave as default. Usage is `!translate <word> <start language> <end language>` to translate, `!languages` for a list of language codes (sent via private message), and `!languages <code>` to see what language does with that code.
+uses http://hablaa.com/api to translate. Define a `translatecommand` (command used to do translating) and a `languagescommand` (command used to print language codes), or leave as default. Usage is `!translate <word> <start language> <end language>` to translate, `!languages` for a list of language codes (sent via private message), and `!languages <code>` to see what language does with that code. To see an example sentence with a word and a language, the usage for examples is `!example <word> <start language> <end language> <example language>`. Example language is the language the example will be in. 
 
 Options: 
 - translatecommand - defaults to "!translate"
 - languagecommand - defaults to "!languages"
+- examplecommand - defaults to "!example"
 
 ### `TumblrTrigger`
 
