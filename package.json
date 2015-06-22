@@ -121,7 +121,7 @@
     "pushbullet": "^1.4.3",
     "pushover-notifications": "^0.2.2",
     "random-js": "^1.0.4",
-    "request": "^2.26.0",
+    "request": "^2.58.0",
     "roll": "^1.0.0",
     "sanitize-filename": "^1.1.1",
     "serve-index": "^1.6.3",
