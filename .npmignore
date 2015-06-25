@@ -1,8 +1,12 @@
+chatbot/
+botname/
+bot/
 node_modules/
 todo.txt
 servers
 autojoin
 bot.*
+sentry
 sentry.*
 test.js
 .ntvs_analysis.dat
@@ -10,3 +14,5 @@ npm-debug.log
 sentryfile.*
 *.hash
 configs/
+logs/
+.env
