@@ -30,23 +30,11 @@ To get this running in Windows you'll need to follow the setup instructions for 
 
 #### Basic Config:
 
+You almost certainly want more than this in your config, unless you're happy with all the defaults and only having a logTrigger.
+
 ````javascript
-var 
-new ChatBot('username', 'password', {
-	guardCode: 'XXXX',//this is required on the first run if you have steamguard enabled, but not after that.
-	disableWebServer: false, //the built-in webserver is enabled by default
-	webServerPort:    8080, //If you run steam-chat-bot as root, it will eat your babies. DO NOT RUN steam-chat-bot AS ROOT. Use nginx, lighttpd, or apache as a frontend webserver, or use iptables or your router to forward the port. DO NOT RUN AS ROOT!
-	autojoinFile:     "bot.username.autojoin",
-	consoleColors:    true,
-	consoleTime:      true,
-	logLevel:         "info", //can also be error, debug, none, or other valid winston log levels. Mostly, only Error, Debug, Info get used. 
-	consoleLogLevel:  "info", //can also be error or debug - only controls what gets logged to console; above controls the logfile.
-	logFile:          "bot.username.log", //this does *not* log chatter. If you want to log chatter, use the logTrigger.
-	sentryFile:       "bot.username.sentry", //this is your ssfn file. No, you can't actually use an ssfn file, and we won't help you try.
-	autoconnect:      true, //Why would you *not* want it to autoconnect?
-	autoReconnect:    false, //You probably want to set this to true, though...
-	babysitTimer:     5*60*1000 //that's 5 minutes, if you can't do math. The babysitter checks to make sure we're online if above is true.
-})
+var myBot = new ChatBot('username', 'password');
+myBot.loadTriggers([{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames} }]);
 ````
 
 There are also several example configurations in the [examples folder](https://github.com/Efreak/node-steam-chat-bot/tree/master/examples).
