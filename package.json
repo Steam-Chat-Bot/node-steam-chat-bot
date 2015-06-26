@@ -87,8 +87,7 @@
   ],
   "main": "./lib/chatBot",
   "scripts": {
-    "example": "node ./examples/example.js",
-    "example-firebase": "node ./examples/example-firebase.js"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -136,11 +135,9 @@
     "ws": "^0.7.1",
     "youtube-api": "^0.3.2"
   },
-  "scripts": {
-    "test": "jasmine"
-  },
   "devDependencies": {
-    "jasmine": "^2.3.1"
+    "jasmine": "^2.3.1",
+    "sinon": "^1.15.3"
   },
   "engines": {
     "node": "0.12.x",
