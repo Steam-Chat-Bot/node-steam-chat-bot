@@ -16,3 +16,9 @@ sentryfile.*
 configs/
 logs/
 .env
+triggers.stable
+triggers.private
+lib/chatBot.stable.js
+lib/triggers.stable
+lib/triggers.private
+lib/chatBot.private.js
