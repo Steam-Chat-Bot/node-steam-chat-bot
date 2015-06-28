@@ -53,8 +53,11 @@ var myBot = new ChatBot("username", "password", {
 	httpFormat:       false,
 
 	//that's 5 minutes, if you can't do math. The babysitter checks to make sure we're online if above is true.
-	babysitTimer:     5*60*1000
-	});
+	babysitTimer:     5*60*1000,
+
+	//ignore these people for all triggers that don't explicitly *not* ignore them. (this way you can still log them)
+	ignores: ['steamid64','steamid64','steamid64']
+});
 
 // Set up the triggers to control the bot
 var triggers = require("./example-config-triggers");
