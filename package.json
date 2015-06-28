@@ -108,6 +108,7 @@
     "dotenv": "^1.1.0",
     "firebase": "^2.2.6",
     "fireproof": "^2.5.2",
+    "github-webhook-handler": "^0.4.0",
     "google": "^1.0.0",
     "google-images": "0.1.x",
     "mediawiki": "0.0.14",
