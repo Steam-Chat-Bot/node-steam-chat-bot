@@ -1,3 +1,20 @@
+Development:
+- Fix webserver breaking on clearTrigger and subsequent adding logTrigger (fixes [#80](https://github.com/Efreak/node-steam-chat-bot/issues/80))
+- Fix TriviaTrigger
+- Update npmignore and gitignore for testing + development in a working install
+- Add internal version number, included in infoTrigger.
+- Add favicon to webserver
+
+### 2.0.1 - bugfixes + translateTrigger
+#### Jun 21, 2015
+- [f93f3c8](https://github.com/Efreak/node-steam-chat-bot/commit/f93f3c8) - Add example translations to translateTrigger
+- [8552e83](https://github.com/Efreak/node-steam-chat-bot/commit/8552e83) - Fix json in package.json
+- [cc3d426](https://github.com/Efreak/node-steam-chat-bot/commit/cc3d426) - Add debugging
+- [d152f7f](https://github.com/Efreak/node-steam-chat-bot/commit/d152f7f) - Try fixing triviaTrigger
+- [1c6295e](https://github.com/Efreak/node-steam-chat-bot/commit/1c6295e) - Fix winston logging
+- [08761f3](https://github.com/Efreak/node-steam-chat-bot/commit/08761f3) - Fix rollTrigger
+- [d496dfe](https://github.com/Efreak/node-steam-chat-bot/commit/d496dfe) - Fix changelog, remove dates
+
 ### 2.0.0
 #### Jun 20, 2015
 - [4b9e63c](https://github.com/Efreak/node-steam-chat-bot/commit/4b9e63c3f2d467417f655b982a2f4df176f036c8) - Reduce unnecessary logging
