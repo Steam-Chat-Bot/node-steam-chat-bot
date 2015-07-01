@@ -250,4 +250,16 @@ module.exports = [
 		type: "YoutubeTrigger", 
 		options: { command: "!yt", rickrollChance: 0.01 } 
 	},
+
+	//notify on github activity
+	{
+		name: 'GitHubWebHookTrigger',
+		type: 'GithubTrigger', 
+		options: {
+			rooms: ['103582791438731217'],
+			secret: 'replaceme',
+			path: '/GitHubWebHook',
+			disabled: ['pull_request/synchronize','gollum']
+		}
+	},
 ];

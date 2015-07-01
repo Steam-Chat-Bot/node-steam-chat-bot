@@ -103,6 +103,22 @@ Sends a message ("Hello username") to someone when they join the chat. You might
 Options: 
 - ???
 
+### `GithubTrigger`
+
+Tells you in chat when something happens to your repo. You need to set up a webhook as well.
+
+Options:
+- room = string - where do you want events announced? REQUIRED.
+- path = string - where should github attach? (you might be running multiple bots on the same host. I am) Defaults to /GitHubWebHook
+- secret = string - use the same secret as you put in the webhook. You can consider it an API key for github to use when it connects to the bot.
+- showDetails = string - Show details of actions. IE the actual comment text added if true, otherwise just the username/place of the comment.
+- disabled, disabled = array - if you don't want *all* events enabled, then you should set a whitelist or blacklist with an array of items you want enabled/disabled.
+  - The individual values must be the event names from https://developer.github.com/v3/activity/events/types
+  - For subtypes like pullrequest actions, add the type, then / then the subtype. EG 'pull_request/synchronize'. * as a subtype means all subtypes.
+  - If you're using a blacklist *and* a whitelist, you need to explicitly add all subtypes to the blacklist/whitelist.
+
+Commands: none yet (planned)
+
 ### `GoogleTrigger`
 
 Prints out the title and link of the first search result on Google.
