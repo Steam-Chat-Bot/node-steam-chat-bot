@@ -193,7 +193,7 @@ Options:
 - command - defaults to "!leave"
 - notify - bool - defaults to true. Should we tell the chat who told the bot to leave?
 
-### `LinkName`
+### `LinkNameTrigger`
 
 Attempts to fetch all urls seen by the bot, parses them as html, and announces the page title.
 
