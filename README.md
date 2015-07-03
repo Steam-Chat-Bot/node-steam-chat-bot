@@ -4,7 +4,7 @@
 [![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
 [![Packagist](https://img.shields.io/badge/license-MIT-44CC11.svg)](/LICENCE)
 
-[![Dependencies](https://david-dm.org/efreak/node-steam-chat-bot.svg)](https://david-dm.org/efreak/node-steam-chat-bot)
+[![Join the chat at https://gitter.im/Efreak/node-steam-chat-bot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Efreak/node-steam-chat-bot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Dependency Status](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
 [![Codacy Badge](https://www.codacy.com/project/badge/79e3862b9b2b4e0fbbcf9e980fcb6263)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
 
