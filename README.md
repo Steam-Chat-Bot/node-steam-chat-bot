@@ -13,6 +13,8 @@
 
 # steam-chat-bot
 
+[![Join the chat at https://gitter.im/Efreak/node-steam-chat-bot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Efreak/node-steam-chat-bot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This module is based on the original steam-chat-bot written by [bonnici](https://github.com/bonnici). The original module link is [here](https://github.com/bonnici/node-steam-chat-bot).
 
 Simplified interface for a steam chat bot. This is a wrapper around [Steam for Node.js](https://github.com/seishun/node-steam) which is aimed at making an easily configurable chatbot that sits in Steam groups chat rooms and responds to various events. Responses are handled as a set of triggers of various types which can be configured to respond to a number of different chat messages. Steam requires that a user has at least one game before it can join chat rooms (unless it's a mod), so you'll need to buy a game for the bot account or make it a mod before it will be able to join.
