@@ -111,6 +111,7 @@
     "github-webhook-handler": "^0.4.0",
     "google": "^1.0.0",
     "google-images": "0.1.x",
+    "irc": "^0.3.12",
     "mediawiki": "0.0.14",
     "mkdirp": "^0.5.0",
     "moment": "^2.10.3",
