@@ -25,3 +25,4 @@ lib/chatBot.private.js
 *.bak
 backup/
 temp/
+changelog.dev
