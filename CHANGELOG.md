@@ -1,12 +1,26 @@
-Development:
-- Fix webserver breaking on clearTrigger and subsequent adding logTrigger (fixes [#80](https://github.com/Efreak/node-steam-chat-bot/issues/80))
-- Fix TriviaTrigger
-- Update npmignore and gitignore for testing + development in a working install
-- Add internal version number, included in infoTrigger.
-- Add favicon to webserver
+2.1.0 / 2015-06-30 - senpaiplznoticemeeeeeee
+==================
 
-### 2.0.1 - bugfixes + translateTrigger
-#### Jun 21, 2015
+- New trigger: githubTrigger will notify you when configured repos have activity. Requires built-in webserver enabled, this will be fixed in next release.
+
+- logTrigger pings always
+- new global ignores (setting ignore on a single trigger overrides the global ignore, even if it's empty)
+- acceptChatInviteTrigger
+  - now allows default entry messages (set a room's entry to null to use default, or to false to not have a message)
+  - now allows you to specify admins that can invite the bot anywhere (just set it to `true` to allow anyone to invite anywhere)
+- fix triviatrigger
+- bugfixes (triviatrigger, logtrigger)
+- Multiple codacy issues resolved
+- add option for favicon in webserver
+  - Only works behind reverse proxy if frontend root is same as backend root.
+  - Set to 'true' to redirect to nodejs.org's favicon
+- Add example for webserver config (really just using expressjs)
+
+
+
+2.0.1 / 2015-06-21 -  bugfixes + translateTrigger
+==================
+
 - [f93f3c8](https://github.com/Efreak/node-steam-chat-bot/commit/f93f3c8) - Add example translations to translateTrigger
 - [8552e83](https://github.com/Efreak/node-steam-chat-bot/commit/8552e83) - Fix json in package.json
 - [cc3d426](https://github.com/Efreak/node-steam-chat-bot/commit/cc3d426) - Add debugging
@@ -15,8 +29,11 @@ Development:
 - [08761f3](https://github.com/Efreak/node-steam-chat-bot/commit/08761f3) - Fix rollTrigger
 - [d496dfe](https://github.com/Efreak/node-steam-chat-bot/commit/d496dfe) - Fix changelog, remove dates
 
-### 2.0.0
-#### Jun 20, 2015
+
+
+2.0.0 / 2015-06-20
+==================
+
 - [4b9e63c](https://github.com/Efreak/node-steam-chat-bot/commit/4b9e63c3f2d467417f655b982a2f4df176f036c8) - Reduce unnecessary logging
 - [f39a223](https://github.com/Efreak/node-steam-chat-bot/commit/f39a223a6baa0433b760ede47cfab05c343ac776) - Remove private data from debug (still shown in silly logs)
 - [c277c2c](https://github.com/Efreak/node-steam-chat-bot/commit/c277c2c004fd342f5ad9c7809aa55bc248d6efbf) - Add trigger functions for trade and announcement events
@@ -40,8 +57,9 @@ Development:
 
 
 
-###1.9.0 - unreleased
-####Jun 14, 2015
+1.9.0 / 2015-06-14 - unreleased
+==================
+
 - This version was not officially released. The only way to install it is to use the sha hash.
 - [d6520cf](https://github.com/Efreak/node-steam-chat-bot/commit/d6520cfa249d3a010b2e079f780707e70ba8e609) - Fixed LinkName
 - [996169a](https://github.com/Efreak/node-steam-chat-bot/commit/996169a9039e1160fbf25f79a718127fc9cc5112) - Put Array.prototype into a function
@@ -83,14 +101,16 @@ Development:
 
 
 
-###1.8.2 - bugfix
-#### May 17, 2015
+1.8.2 / 2015-05-17 - bugfix
+==================
+
 - Fixed Pushbullet crashing the bot...oops.
 
 
 
-### 1.8.1
-#### May 17 2015
+1.8.1 / 2015-05-17
+==================
+
 - a10361a90d0ff2177b06e843ea8fdcebc6622973 Update tags for pushbullet, etc
 - 63ab0a0f646da08fee3b30334fb70d62f1da86a6 Replace chatPmTrigger with an optional options.response="pm" or ="group" in chatReplyTrigger
 - fc56e7aadda56931a1f85a75d8d9c0d7ebe16436 Move sendGreeting out of baseTrigger
@@ -102,16 +122,18 @@ Development:
 
 
 
-### 1.8.0 New Triggers!
-#### May 13 2015
+1.8.0 / 2015-05-13 - New Triggers!
+==================
+
 - `LinkName`: Responds to posted links with their titles (i.e https://github.com will be responded with "GitHub, build better software, together")
 - `ChatPmTrigger`: Responds to a certain message with a PM instead of in the group
 - `DoormatTrigger`: Says "Hello user" (replace user with their name) when they join the chat
 
 
 
-###1.7.0 Add some APIs
-#### May 9 2015
+1.7.0 / 2015-05-09 - Add some APIs
+==================
+
 - New node-steam apis:
     - Add steam-trade dependency
     - Add an option for `maingroup` (will decide where the bot will show announcements from)(groupid) and    `acceptTrade` (will determine whether a bot will accept trade)(bool)
@@ -134,35 +156,40 @@ Development:
 
 
 
-###1.6.4 Fixes, fixes, fixes!
-#### May 3 2015
+1.6.4 / 2015-05-03 - Fixes, fixes, fixes!
+==================
+
 - Fix acceptFriendRequest not working
 
 
 
-###1.6.3 More Fixes, Organization
-####May 3, 2015
+1.6.3 / 2015-05-03 - More Fixes, Organization
+==================
+
 - Fix OMDB year argument
 - Moved examples to their own folder
 - Rename LICENCE to LICENSE
 
 
 
-###1.6.2 Bug Fixes
-####May 3, 2015
+1.6.2 / 2015-05-03 - Bug Fixes
+==================
+
 - Fix youtube typeerror
 - Add pushbullet to package.json
 
 
 
-###1.6.1 Fix Youtube
-####Apr 30, 2015
+1.6.1 / 2015-04-30 - Fix Youtube
+==================
+
 - Youtube updated their API to v3 and deprecated the v2 API. This release fixes that.
 
 
 
-###1.6.0 APRIL FOOLS!
-####Mar 28, 2015
+1.6.0 / 2015-04-28 - APRIL FOOLS!
+==================
+
 - Add contributors list & update package.json
 - New trigger for translations with !translate and !languages
 - fix for cleverbot
@@ -176,6 +203,7 @@ Development:
 
 
 
-### 1.5.0
-#### Nov 22, 2014
+1.5.0 / 2015-11-22
+==================
+
 - Added !movies command
