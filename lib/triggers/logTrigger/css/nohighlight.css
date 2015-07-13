@@ -1,0 +1,73 @@
+body {
+	font-family:"HelveticaNeue",helvetica,arial;
+	padding:15px;
+}
+.time {
+	display:none;
+	text-indent:0;
+}
+#title a {
+	text-decoration:none;
+	color:#0588BC;
+}
+a.userid {
+	text-decoration:none;
+	color:#298F00;
+}
+ol {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+li:hover .time, li:focus .time {
+	display: inline;
+	float: right;
+}
+ol li:hover, ol li:focus {
+	text-indent:initial;
+	margin-left:initial;
+}
+
+ol li {
+	line-height:1.4;
+	font-size:12pt;
+	text-indent:-100px;
+	margin-left:100px
+}
+.roomid {
+	display:none;
+	font-size:9pt;
+}
+.join, .left, .kick, .disconnect, .ban {
+	font-style: italic;
+}
+.title {
+	margin:0px;
+	width: 100%;
+	z-index:1;
+	padding:15px;
+	display:inline-block;
+	background-color: #FFF;
+	position:fixed;
+	top:0px;
+}
+#buttons {
+	padding: 15px;
+	background-color: #FFF;
+	display:inline-block;
+	position:fixed;
+	float:right;
+	top:0px;
+	right: 0px;
+}
+#title a{
+	text-decoration:none;
+	color:#0588BC;
+}
+a.userid{
+	text-decoration:none;
+	color:#298F00;
+}
+.old {
+	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,1)))
+}
