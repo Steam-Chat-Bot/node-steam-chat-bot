@@ -59,6 +59,10 @@ ol li {
 	float:right;
 	top:0px;
 	right: 0px;
+	z-index:10;
+	max-width:30%;
+	min-width:10%;
+	width:300px;
 }
 #title a{
 	text-decoration:none;
