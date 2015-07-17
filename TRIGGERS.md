@@ -11,14 +11,13 @@ This is not settings for any one individual trigger; rather, these are options t
 | probability | *float* 0-1 | 1 | what is the likelyhood that the command will occur? Random number generated before any other checks must be less than this.|
 | timeout | number | | how long in ms is a trigger disabled for before it can be used again. |
 | respectsMute | bool | true | does the trigger respect muted status? That is, if the bot is muted, do we answer or not?|
-| respectsFilters | bool | true | intended to be used internally, to override filters (as defined below). |
-| respectsGlobalFilters | bool | true | same as above, but works on global ignores defined in the bot constructor. Used for e.g. logging a room where you don't want the bot to say anything, or globally ignoring a user while still logging them |
+| respectsGlobalFilters | bool | true | Should the trigger respect global ignores defined in the bot constructor? Used for e.g. logging a room where you don't want the bot to say anything, or globally ignoring a user while still logging them. There is a similar setting for triggers to use internally; at the time of this writing the only that uses the internal setting is logTrigger. |
+| ~~respectsFilters~~ | bool | true | used internally only (ie, has no effect if you set it), to override filters (as defined below). Cannot be set (would be pointless) |
 | ignore | ['steamid64', 'steamid64'] | | this filter is an array of steamid64s of users that this command will not work for, as well as groups this command cannot be used in. If a user or a groupchat matches any element, trigger will not be allowed to proceed. Overrides global filters. (If this is defined, global filters will be ignored)|
 | user | ['steamid64', 'steamid64'] | | this filter is an array of whitelisted steamid64s of users that are allowed to use this command or groupchats that are allowed to use this command. If the steamid64 matches any elements, or if this array is not defined, trigger will be allowed to proceed (to the next filter, at least) |
 | rooms | ['steamid64', 'steamid64'] | | this filter is an array of whitelisted steamid64s of groupchats for a trigger. If the steamid64 matches any elements, or if this array is not defined, trigger will be allowed to proceed (to the next filter, at least) |
 | command | "!string" | see trigger | this isn't universal, however many triggers allow you to change the default command using this option. |
 | allowMess... | *boolean* | false | allowMessageTriggerAfterResponse - If we trigger on a given line, should we pass the line down to more triggers or no? |
-
 
 ### `AcceptChatInviteTrigger`
 
