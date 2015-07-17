@@ -95,12 +95,13 @@
     "url": "https://github.com/Efreak/node-steam-chat-bot.git"
   },
   "dependencies": {
+    "express": "^4.10.0",
+    "express-winston": "^0.3.1",
+    "qs": "^4.0.0",
     "steam": "^0.6.8",
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
-    "winston": "^1.0.0",
     "underscore": "^1.8.3",
-    "express": "^4.10.0",
-    "express-winston": "^0.3.1"
+    "winston": "^1.0.0"
   },
   "optionalDependencies": {
     "accounting": "^0.4.1",
