@@ -115,7 +115,7 @@
   "optionalDependencies": {
     "accounting": "^0.4.1",
     "body-parser": "^1.13.2",
-    "cleverbot-node": "0.1.x",
+    "cleverbot-node": "0.2.x",
     "dotenv": "^1.1.0",
     "express-session": "^1.11.3",
     "filendir": "0.0.1",
