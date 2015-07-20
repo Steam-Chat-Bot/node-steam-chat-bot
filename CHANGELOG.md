@@ -1,3 +1,26 @@
+2.1.1 / 2015-07-20 - VeniVidiYoutubePoop
+==================
+
+  * v2.1.1
+  * fix option = option || true everywhere (thanks, /u/Guilemouse)
+  * Allow adding users/group chats to banned items in notificationtrigger
+  * Fix global ignores
+  * Allow access to the expressjs constructor
+  * Finish logTrigger changes
+  * Add socket.io stuff
+  * Change the way routers work
+  * notificationTrigger: Allow other triggers to parse messages
+  * Google Image crash fix.
+  * Allow non-trigger files in triggers directory
+    * files for logTrigger are now kept in triggers/logTrigger/*
+  * Add irc dependency
+  * githubTrigger: Allow multiple rooms
+  * Add buggy, poorly written IRC relay (incomplete)
+  * Add per-trigger functions for onLoggedOn and onLoggedOff
+  * Separate onLoad for db stuff
+  * Update dependencies
+  * Make the uptime better
+
 2.1.0 / 2015-06-30 - senpaiplznoticemeeeeeee
 ==================
 
