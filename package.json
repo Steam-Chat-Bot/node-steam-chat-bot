@@ -32,30 +32,21 @@
   },
   "contributors": [
     {
-      "name": "Paul Schow",
-      "email": "paulschow@users.noreply.github.com",
-      "url": "https://github.com/paulschow",
-      "contributions": 1,
-      "additions": 54,
-      "deletions": 0,
-      "hireable": true
-    },
-    {
-      "name": "Houston",
-      "email": "dungdung@users.noreply.github.com",
-      "url": "https://github.com/dungdung",
-      "contributions": 11,
-      "additions": 740,
-      "deletions": 861,
+      "name": "John",
+      "email": "jmcortinax@users.noreply.github.com",
+      "url": "https://github.com/JMCortinax",
+      "contributions": 2,
+      "additions": 8,
+      "deletions": 2,
       "hireable": false
     },
     {
       "name": "bonnici",
       "email": "lljksteveholt@gmail.com",
       "url": "https://github.com/bonnici",
-      "contributions": 29,
-      "additions": 4367,
-      "deletions": 747
+      "contributions": 30,
+      "additions": 4384,
+      "deletions": 779
     },
     {
       "name": "Divinux",
@@ -67,22 +58,40 @@
       "hireable": false
     },
     {
+      "name": "Paul Schow",
+      "email": "paulschow@users.noreply.github.com",
+      "url": "https://github.com/paulschow",
+      "contributions": 1,
+      "additions": 54,
+      "deletions": 0,
+      "hireable": true
+    },
+    {
       "name": "Kyle Smith",
       "email": "smith.kyle1734@gmail.com",
       "url": "https://github.com/dragonbanshee",
-      "contributions": 56,
-      "additions": 1512,
-      "deletions": 990,
+      "contributions": 59,
+      "additions": 1545,
+      "deletions": 1023,
       "hireable": false
     },
     {
       "name": "Efreak",
-      "email": "github@efreakbnc.net",
+      "email": "efreak@users.noreply.github.com",
       "url": "https://github.com/Efreak",
-      "contributions": 371,
-      "additions": 12532,
-      "deletions": 7526,
+      "contributions": 408,
+      "additions": 14288,
+      "deletions": 8054,
       "hireable": true
+    },
+    {
+      "name": "Houston",
+      "email": "dungdung@users.noreply.github.com",
+      "url": "https://github.com/dungdung",
+      "contributions": 11,
+      "additions": 740,
+      "deletions": 861,
+      "hireable": false
     }
   ],
   "main": "./lib/chatBot",
