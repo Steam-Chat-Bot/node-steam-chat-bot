@@ -114,8 +114,11 @@
   },
   "optionalDependencies": {
     "accounting": "^0.4.1",
-    "cleverbot-node": "0.1.x",
+    "body-parser": "^1.13.2",
+    "cleverbot-node": "0.2.x",
     "dotenv": "^1.1.0",
+    "express-session": "^1.11.3",
+    "filendir": "0.0.1",
     "firebase": "^2.2.6",
     "fireproof": "^2.5.2",
     "github-webhook-handler": "^0.4.0",
