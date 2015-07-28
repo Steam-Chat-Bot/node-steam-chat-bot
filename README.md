@@ -78,7 +78,7 @@ General bot-related and chat-related functions.
 - `ChatReplyTrigger` - Detects a message (either an exact match or a "contains" match) and replies with a specified message.
 - `CleverbotTrigger` - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 - `GoogleTrigger` - Prints out the title and link of the first search result on Google.
-- `LinkName` - Is given a link and sends the title of the website.
+- `LinkNameTrigger` - Is given a link and sends the title of the website.
 - `OMDBTrigger` - Searches IMDB for  a specified movie.
 - `RandomGameTrigger` - Picks a random game from the calling user's games list, or that of any specified user with an open profile.
 - `RegexReplaceTrigger` - Detects a regex match in a message and uses the matches to construct a reply.
