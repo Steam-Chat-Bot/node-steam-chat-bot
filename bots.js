@@ -96,7 +96,7 @@ for(var name in assholes) {
 
 
 //store private areas of configuration separately so I can share this file
-var logLevel = 'silly';
+var logLevel = 'info';
 
 var cfg = require('./configs/private.js');
 //this file mostly has private info in it, like passwords and crap.
