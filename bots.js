@@ -168,7 +168,7 @@ miley.addTriggers([
 			}]
 		}
 	},
-	{ name: 'GithubTrigger',       type: 'GithubTrigger',       options: cfg.githubOptions },
+//	{ name: 'GithubTrigger',       type: 'GithubTrigger',       options: cfg.githubOptions },
 	{ name: 'WebUI',               type: 'WebUI',               options: {
 		public: cfg.miley.webUIPublic,
 		admins:[users.efreak]
@@ -243,7 +243,7 @@ miley.addTriggers([
 	{ name: 'NotMyName',       type: 'ChatReplyTrigger',       options: cfg.replies.miley3 },
 	{ name: 'SteamIDCheck',    type: 'SteamrepTrigger',        options: { command: "!steamrep", delay: 0, timeout: 2*1000 } },
 	{ name: 'SingleUserReply', type: 'ChatReplyTrigger',       options: { matches: ['hi bot'], responses: ['hi boss!','hi master!'], exact: true, user: users.efreak,	users: [users.efreak] } },
-	{ name: 'IsUp',            type: 'isupTrigger',            options: { command: '!isup' } },
+//	{ name: 'IsUp',            type: 'isupTrigger',            options: { command: '!isup' } },
 	{ name: 'MateEscal',       type: 'RegexReplaceTrigger',    options: { match: /^(m+?)(a+?)te(s??)$/, response: '{0}m{1}aaate{2}', delay: 500, ignore: [rooms.BLG,rooms.rg,rooms.OPS,rooms.OPT,rooms.OPG] } },
 //	{ name: 'ButtBot',         type: 'ButtBotTrigger',         options: { replacement: 'butt', probability: 0.008, delay: 1000, timeout: 2*60*60*1000, ignore: [rooms.BLG,rooms.OPS,rooms.OPT,rooms.OPG] } },
 //	{ name: 'ButtReply',       type: 'ChatReplyTrigger',       options: { matches: ['butt'], responses: ['lol, you said butt'], probability: 0.5, timeout: 2*60*60*1000, delay: 500, ignore: [rooms.BLG,rooms.OPS,rooms.OPT,rooms.OPG] } },
