@@ -87,6 +87,12 @@ var assholes = { //I can't report you to steamrep for spamming, but I will add y
 	crowley: '76561197986549862',	//abusing !roll
 }
 
+var trustedBots = {
+	bansheebot: '76561198233180832 ',
+	sgsbot: '76561198055589142',
+	zay: '76561198212058096',
+	miley: '76561198055685680'
+}
 
 var globalIgnores = []; //generate the global ignores list by adding everyone from the 'asshole' list. This list is used on all 3 bots.
 for(var name in assholes) {
@@ -115,7 +121,7 @@ var miley = new ChatBot(cfg.miley.username, cfg.miley.password, {
 	logFile: true,
 	autoReconnect: true,
 	autojoinFile: cfg.miley.autojoinFile,
-	steamapikey: cfg.miley.steamapikey,
+	steamapikey: cfg.steamapikey,
 	babysitTimer: 300000,
 	sentryFile: cfg.miley.sentryFile,
 	logLevel: logLevel,
@@ -267,6 +273,7 @@ miley.addTriggers([
 	{ name: 'SteamrepOnJoin',  type: 'SteamrepOnJoinTrigger',  options: { ignore: [users.efreak] } },
 	{ name: 'RedditTrigger',   type: 'RedditTrigger',          options: cfg.redditrepOptions }
 ]);
+
 miley.onLogon = function(that){
 	that.setGames(gamesList);
 	that.unmute();
@@ -364,11 +371,11 @@ sgsBot.addTriggers([
 	{ name: 'PingReply',           type: 'ChatReplyTrigger',      options: { exact: true, delay: 0,   probability: 1, timeout: 30 * 1000,     matches: ['ping'],   responses: ['pong'] } },
 	{ name: 'RedditTrigger',       type: 'RedditTrigger',         options: cfg.redditrepOptions },
 	{ name: 'NameReply',           type: 'ChatReplyTrigger',      options: { exact: true, delay: 500, probability: 1, timeout: 5 * 60 * 1000, matches: ['/r/SGS Bot', 'SteamGameSwap Bot','/r/SGS Bot?', 'SteamGameSwap Bot?', 'bot?', 'what bot?'], responses: ['That\'s me! I\'m the official bot for /r/SGS groupchat! Please see my profile for available commands.'] } },
-	{ name: 'ProfileCheckTrigger', type: 'ProfileCheckTrigger'},
+	{ name: 'ProfileCheckTrigger', type: 'ProfileCheckTrigger',   options: { ignore: trustedBots }}, //these are bots that idle in my dev chat. Most of them have blank/locked/new/etc profiles.
 	{ name: 'SteamrepOnJoin',      type: 'SteamrepOnJoinTrigger'},
 	{ name: 'SteamrepCommand',     type: 'SteamrepTrigger',       options: { command: "!steamrep",    delay: 0,       timeout: 2 * 1000 } },
 //	{ name: 'IsUp',                type: 'isupTrigger',           options: { command: '!isup', delay: 500, timeout: 1 * 60 * 1000 } },
-	{ name: 'WolframReply',    type: 'WolframAlphaTrigger',       options: { command: '!wolfram', appId: cfg.wolframAppId } },
+	{ name: 'WolframReply',        type: 'WolframAlphaTrigger',   options: { command: '!wolfram', appId: cfg.wolframAppId } },
 	{ name: 'Youtube',             type: 'YoutubeTrigger',        options: { command: '!yt', rickrollChance: .01  } },
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },
 	{ name: 'BanCheckTrigger',     type: 'BanCheckTrigger'},
