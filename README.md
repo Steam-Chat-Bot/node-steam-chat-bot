@@ -21,14 +21,14 @@ Simplified interface for a steam chat bot. This is a wrapper around [Steam for N
 
 If you have Steam Guard enabled you'll get a failed logon attempt the first time you try to log on and you'll be sent a Steam Guard code. Pass this code in with the constructor (below)` and you should be able to log in. A sentry file will be stored, which should allow you to log in with a different computer using the same guard code. If you start getting logon failures again you should delete the sentry file, remove the guard code, and try to log in with neither so you get a fresh code emailed to you.
 
-We also have our very own [subreddit](http://reddit.com/r/NodeSteamChatBot). If you like steam-chat-bot, please subscribe to it. We often post news, and other important information. It is also a place for users to get help if something doesn't work. 
-### Installation: 
+We also have our very own [subreddit](http://reddit.com/r/NodeSteamChatBot). If you like steam-chat-bot, please subscribe to it. We often post news, and other important information. It is also a place for users to get help if something doesn't work.
+### Installation:
 
 Type `npm install steam-chat-bot`. If you want to run the development version, type `npm install efreak/node-steam-chat-bot#development` (or the url to your preferred repo/branch).
 
 To get this running in Windows you'll need to follow the setup instructions for [node-gyp](https://github.com/TooTallNate/node-gyp#installation) and also use a branch of libxmljs as described in [this issue](https://github.com/polotek/libxmljs/issues/176) (TLDR is to run 'npm install polotek/libxmljs#vendor-src' before 'npm install').
 
-### Configuration: 
+### Configuration:
 
 #### Basic Config:
 
@@ -99,4 +99,6 @@ After you have example-heroku set up to your liking, follow the instructions [he
 
 ### Testing Policy : [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
 
-In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do...
+In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
+
+Note: Please read the wiki page called "Contributing" before creating a pull request. Any request that goes against this guide will not be accepted and we will ask you to redo it.
