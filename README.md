@@ -101,4 +101,4 @@ After you have example-heroku set up to your liking, follow the instructions [he
 
 In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
 
-Note: Please read the wiki page called "Contributing" before creating a pull request. Any request that goes against this guide will not be accepted and we will ask you to redo it.
+Note: Please read the file CONTRIBUTING.md before creating a pull request. If your pull request goes against what is said, it will not be accepted and we will ask you to fix it. 
