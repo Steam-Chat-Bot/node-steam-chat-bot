@@ -88,7 +88,7 @@ var assholes = { //I can't report you to steamrep for spamming, but I will add y
 }
 
 var trustedBots = {
-	bansheebot: '76561198233180832 ',
+	bansheebot: '76561198164977236',
 	sgsbot: '76561198055589142',
 	zay: '76561198212058096',
 	miley: '76561198055685680'
