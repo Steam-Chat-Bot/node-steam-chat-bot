@@ -108,8 +108,10 @@
     "express-winston": "^0.3.1",
     "qs": "^4.0.0",
     "steam": "^1.0.0",
+    "steam-web-api": "^0.0.1",
+    "steam-web-api-key": "^0.0.1",
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
-	"steam-weblogon": "^0.0.3",
+	  "steam-weblogon": "^0.0.3",
     "underscore": "^1.8.3",
     "winston": "^1.0.0"
   },
