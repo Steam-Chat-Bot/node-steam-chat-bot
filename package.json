@@ -32,21 +32,13 @@
   },
   "contributors": [
     {
-      "name": "John",
-      "email": "jmcortinax@users.noreply.github.com",
-      "url": "https://github.com/JMCortinax",
-      "contributions": 2,
-      "additions": 8,
-      "deletions": 2,
-      "hireable": false
-    },
-    {
-      "name": "bonnici",
-      "email": "lljksteveholt@gmail.com",
-      "url": "https://github.com/bonnici",
-      "contributions": 30,
-      "additions": 4384,
-      "deletions": 779
+      "name": "Paul Schow",
+      "email": "paulschow@users.noreply.github.com",
+      "url": "https://github.com/paulschow",
+      "contributions": 1,
+      "additions": 54,
+      "deletions": 0,
+      "hireable": true
     },
     {
       "name": "Divinux",
@@ -58,31 +50,13 @@
       "hireable": false
     },
     {
-      "name": "Paul Schow",
-      "email": "paulschow@users.noreply.github.com",
-      "url": "https://github.com/paulschow",
-      "contributions": 1,
-      "additions": 54,
-      "deletions": 0,
-      "hireable": true
-    },
-    {
-      "name": "Kyle Smith",
-      "email": "smith.kyle1734@gmail.com",
-      "url": "https://github.com/dragonbanshee",
-      "contributions": 59,
-      "additions": 1545,
-      "deletions": 1023,
+      "name": "John",
+      "email": "jmcortinax@users.noreply.github.com",
+      "url": "https://github.com/JMCortinax",
+      "contributions": 2,
+      "additions": 8,
+      "deletions": 2,
       "hireable": false
-    },
-    {
-      "name": "Efreak",
-      "email": "efreak@users.noreply.github.com",
-      "url": "https://github.com/Efreak",
-      "contributions": 408,
-      "additions": 14288,
-      "deletions": 8054,
-      "hireable": true
     },
     {
       "name": "Houston",
@@ -92,6 +66,32 @@
       "additions": 740,
       "deletions": 861,
       "hireable": false
+    },
+    {
+      "name": "bonnici",
+      "email": "lljksteveholt@gmail.com",
+      "url": "https://github.com/bonnici",
+      "contributions": 31,
+      "additions": 4397,
+      "deletions": 915
+    },
+    {
+      "name": "Kyle Smith",
+      "email": "smith.kyle1734@gmail.com",
+      "url": "https://github.com/dragonbanshee",
+      "contributions": 81,
+      "additions": 2233,
+      "deletions": 1410,
+      "hireable": false
+    },
+    {
+      "name": "Efreak",
+      "email": "efreak@users.noreply.github.com",
+      "url": "https://github.com/Efreak",
+      "contributions": 418,
+      "additions": 14465,
+      "deletions": 8195,
+      "hireable": true
     }
   ],
   "main": "./lib/chatBot",
@@ -111,7 +111,7 @@
     "steam-web-api": "^0.0.1",
     "steam-web-api-key": "^0.0.1",
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
-	  "steam-weblogon": "^0.0.3",
+    "steam-weblogon": "^0.0.3",
     "underscore": "^1.8.3",
     "winston": "^1.0.0"
   },
