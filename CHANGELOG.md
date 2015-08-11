@@ -1,3 +1,10 @@
+2.2.0 / 2015-08-11 - PanStoXDexter
+==================
+
+  * v2.2.0
+  * Update to node-steam 2.2.0
+  * Fix Codacy issues
+
 2.1.1 / 2015-07-20 - VeniVidiYoutubePoop
 ==================
 
