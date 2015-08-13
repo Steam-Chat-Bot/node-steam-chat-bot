@@ -8,6 +8,7 @@ When contributing by opening a pull request, please make sure you follow the sty
 
 
 - Braces on the same line
+
 ```javascript
 //bad
 for(var i = 0; i < 11; i++)
@@ -23,6 +24,7 @@ for(var i = 0; i < 11; i++) {
 
 
 - Use 3 equal signs (using 2 is only acceptable in CERTAIN situations)
+
 ```javascript
 //bad
 if(variable1 == variable2) {}
@@ -35,6 +37,7 @@ if(variable1 !== variable2) {}
 
 
 - Don't put semicolons after braces, put them after every other statement
+
 ```javascript
 //bad
 if(variable1 === variable2) {
@@ -53,6 +56,7 @@ console.log('good good good');
 
 
 - Put spaces after commas, after parentheses (not before), before braces, etc...
+
 ```javascript
 //bad
 if(variable1===variable2){
@@ -67,6 +71,7 @@ if(variable1 === variable2) {
 
 
 - Don't create lines that are too long
+
 ```javascript
 //bad
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890987654321');
@@ -79,6 +84,7 @@ console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
 
 
 - Use single quotes (only use double quotes in package.json)
+
 ```javascript
 //bad
 console.log("Double quotes are BAD!");
@@ -89,6 +95,7 @@ console.log('Single quotes are GOOD!');
 
 
 - Don't put commas after a property if nothing follows
+
 ```javascript
 //bad 
 var object = {
@@ -106,6 +113,7 @@ var object = {
 ```
 
 - Don't declare variables and not use them
+
 ```javascript
 //bad
 prototype._respond = function() {
@@ -123,6 +131,7 @@ prototype._respond = function() {
 ```
 
 - Don't put extra spaces after a line (efreak told me this)(you probably won't be able to see the space, but its there)(I think atom (my text editor) removes them automatically, but still don't do it)
+
 ```javascript
 //bad
 console.log('space over here --->'); 

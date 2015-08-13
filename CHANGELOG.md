@@ -14,7 +14,7 @@ title: Changelog
 ==================
 
   * v2.1.1
-  * fix option = option || true everywhere (thanks, /u/Guilemouse)
+  * fix option = option &#124;&#124; true everywhere (thanks, /u/Guilemouse)
   * Allow adding users/group chats to banned items in notificationtrigger
   * Fix global ignores
   * Allow access to the expressjs constructor
