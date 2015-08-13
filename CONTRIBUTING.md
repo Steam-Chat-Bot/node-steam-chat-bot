@@ -9,7 +9,7 @@ When contributing by opening a pull request, please make sure you follow the sty
 
 - Braces on the same line
 
-```javascript
+````javascript
 //bad
 for(var i = 0; i < 11; i++)
 {
@@ -20,12 +20,12 @@ for(var i = 0; i < 11; i++)
 for(var i = 0; i < 11; i++) {
     console.log(i);
 }
-```
+````
 
 
 - Use 3 equal signs (using 2 is only acceptable in CERTAIN situations)
 
-```javascript
+````javascript
 //bad
 if(variable1 == variable2) {}
 if(variable1 != variable2) {}
@@ -33,12 +33,12 @@ if(variable1 != variable2) {}
 //good
 if(variable1 === variable2) {}
 if(variable1 !== variable2) {}
-```
+````
 
 
 - Don't put semicolons after braces, put them after every other statement
 
-```javascript
+````javascript
 //bad
 if(variable1 === variable2) {
     same = true;
@@ -52,12 +52,12 @@ if(variable1 === variable2) {
 }
 
 console.log('good good good');
-```
+````
 
 
 - Put spaces after commas, after parentheses (not before), before braces, etc...
 
-```javascript
+````javascript
 //bad
 if(variable1===variable2){
     same=true;
@@ -67,12 +67,12 @@ if(variable1===variable2){
 if(variable1 === variable2) {
     same = true;
 }
-```
+````
 
 
 - Don't create lines that are too long
 
-```javascript
+````javascript
 //bad
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890987654321');
 
@@ -80,23 +80,23 @@ console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789098765
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
         'abcdefghijklmnopqrstuvwxyz' +
         '1234567890987654321');
-```
+````
 
 
 - Use single quotes (only use double quotes in package.json)
 
-```javascript
+````javascript
 //bad
 console.log("Double quotes are BAD!");
 
 //good
 console.log('Single quotes are GOOD!');
-```
+````
 
 
 - Don't put commas after a property if nothing follows
 
-```javascript
+````javascript
 //bad 
 var object = {
     this.first: 1,
@@ -110,11 +110,11 @@ var object = {
     this.second: 2,
     this.third: 3
 }
-```
+````
 
 - Don't declare variables and not use them
 
-```javascript
+````javascript
 //bad
 prototype._respond = function() {
     var that = this;
@@ -128,17 +128,17 @@ prototype._respond = function() {
         that.winston.info('Used that, +10 points');
     }, 100);
 }
-```
+````
 
 - Don't put extra spaces after a line (efreak told me this)(you probably won't be able to see the space, but its there)(I think atom (my text editor) removes them automatically, but still don't do it)
 
-```javascript
+````javascript
 //bad
 console.log('space over here --->'); 
 
 //good
 console.log('no space --->');
-```
+````
 
 
 That's the end of my guide. I'm only writing this since I just spent hours fixing codacy stuff. Basically, don't do anything that would upset codacy.
