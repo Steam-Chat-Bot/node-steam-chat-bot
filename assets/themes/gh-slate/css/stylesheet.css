@@ -143,9 +143,11 @@ img {
   position: relative;
   margin: 0 auto;
   max-width: 739px;
-  padding: 5px;
-  margin: 10px 0 10px 0;
+//annoying shit...
+//  padding: 5px;
+//  margin: 10px 0 10px 0;
   border: 1px solid #ebebeb;
+  vertical-align: middle;
 
   box-shadow: 0 0 5px #ebebeb;
   -webkit-box-shadow: 0 0 5px #ebebeb;
@@ -158,6 +160,7 @@ pre, code {
   width: 100%;
   color: #222;
   background-color: #fff;
+  white-space: pre;
 
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 14px;
