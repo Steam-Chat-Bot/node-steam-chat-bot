@@ -129,3 +129,5 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+github_project : 'efreak\node-steam-chat-bot'
+npm_name : 'node-steam-chat-bot'
