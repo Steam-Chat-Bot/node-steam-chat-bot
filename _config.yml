@@ -131,3 +131,8 @@ JB :
   
 github_project : 'efreak\node-steam-chat-bot'
 npm_name : 'node-steam-chat-bot'
+
+markdown: kramdown
+kramdown:
+  use_coderay: true
+
