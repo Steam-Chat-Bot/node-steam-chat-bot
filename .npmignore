@@ -26,3 +26,6 @@ lib/chatBot.private.js
 backup/
 temp/
 changelog.dev
+.vs
+node-steam-chat-bot.njsproj
+node-steam-chat-bot.sln

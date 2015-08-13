@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{9169822a-286d-4c6a-afa2-47985baeca9b}</ProjectGuid>
+        <ProjectHome />
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile>index.js</StartupFile>
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Compile Include="baseTrigger.js" />
+        <Compile Include="chatBot.js" />
+        <Compile Include="index.js" />
+        <Content Include="package.json" />
+        <Content Include="CHANGELOG.md" />
+        <Content Include="CONTRIBUTING.md" />
+        <Content Include="CONTRIBUTORS.md" />
+        <Content Include="README.md" />
+        <Content Include="TRIGGERS.md" />
+        <Compile Include="examples\example-config-triggers.js" />
+        <Compile Include="examples\example-config-triggers2.js" />
+        <Compile Include="examples\example-firebase.js" />
+        <Compile Include="examples\example-heroku.js" />
+        <Compile Include="examples\example.js" />
+        <Compile Include="examples\servePages.js" />
+        <Compile Include="lib\chatBot.js" />
+        <Compile Include="lib\triggerFactory.js" />
+        <Compile Include="spec\acceptChatInviteTriggerSpec.js" />
+        <Compile Include="spec\acceptFriendRequestTriggerSpec.js" />
+        <Compile Include="spec\baseTriggerSpec.js" />
+        <Compile Include="spec\botCommandTriggerSpec.js" />
+        <Compile Include="spec\buttBotTriggerSpec.js" />
+        <Compile Include="spec\chatBotSpec.js" />
+        <Compile Include="spec\chatReplyTriggerSpec.js" />
+        <Compile Include="spec\cleverbotTriggerSpec.js" />
+        <Compile Include="spec\messageOnJoinTriggerSpec.js" />
+        <Compile Include="spec\regexReplaceTriggerSpec.js" />
+        <Compile Include="spec\tumblrTriggerSpec.js" />
+        <Compile Include="spec\youtubeTriggerSpec.js" />
+        <Compile Include="lib\triggers\acceptChatInviteTrigger.js" />
+        <Compile Include="lib\triggers\acceptFriendRequestTrigger.js" />
+        <Compile Include="lib\triggers\addFriendTrigger.js" />
+        <Compile Include="lib\triggers\banCheckTrigger.js" />
+        <Compile Include="lib\triggers\banTrigger.js" />
+        <Compile Include="lib\triggers\baseTrigger.js" />
+        <Compile Include="lib\triggers\botCommandTrigger.js" />
+        <Compile Include="lib\triggers\buttBotTrigger.js" />
+        <Compile Include="lib\triggers\chatReplyTrigger.js" />
+        <Compile Include="lib\triggers\cleverbotTrigger.js" />
+        <Compile Include="lib\triggers\doormatTrigger.js" />
+        <Compile Include="lib\triggers\githubTrigger.js" />
+        <Compile Include="lib\triggers\googleImagesTrigger.js" />
+        <Compile Include="lib\triggers\googleTrigger.js" />
+        <Compile Include="lib\triggers\infobotTrigger.js" />
+        <Compile Include="lib\triggers\infoTrigger.js" />
+        <Compile Include="lib\triggers\ircTrigger.js" />
+        <Compile Include="lib\triggers\isupTrigger.js" />
+        <Compile Include="lib\triggers\joinChatTrigger.js" />
+        <Compile Include="lib\triggers\jsonTrigger.js" />
+        <Compile Include="lib\triggers\kickTrigger.js" />
+        <Compile Include="lib\triggers\leaveChatTrigger.js" />
+        <Compile Include="lib\triggers\linkNameTrigger.js" />
+        <Compile Include="lib\triggers\lockChatTrigger.js" />
+        <Compile Include="lib\triggers\logTrigger.js" />
+        <Compile Include="lib\triggers\memeBotTrigger.js" />
+        <Compile Include="lib\triggers\messageOnJoinTrigger.js" />
+        <Compile Include="lib\triggers\moderateTrigger.js" />
+        <Compile Include="lib\triggers\moneyTrigger.js" />
+        <Compile Include="lib\triggers\notificationTrigger.js" />
+        <Compile Include="lib\triggers\omdbTrigger.js" />
+        <Compile Include="lib\triggers\playGameTrigger.js" />
+        <Compile Include="lib\triggers\playTrigger.js" />
+        <Compile Include="lib\triggers\profileCheckTrigger.js" />
+        <Compile Include="lib\triggers\randomGameTrigger.js" />
+        <Compile Include="lib\triggers\redditOnJoinTrigger.js" />
+        <Compile Include="lib\triggers\redditTrigger.js" />
+        <Compile Include="lib\triggers\regexReplaceTrigger.js" />
+        <Compile Include="lib\triggers\removeFriendTrigger.js" />
+        <Compile Include="lib\triggers\rollTrigger.js" />
+        <Compile Include="lib\triggers\sayTrigger.js" />
+        <Compile Include="lib\triggers\setNameTrigger.js" />
+        <Compile Include="lib\triggers\setStatusTrigger.js" />
+        <Compile Include="lib\triggers\statusTrigger.js" />
+        <Compile Include="lib\triggers\steamrepOnJoinTrigger.js" />
+        <Compile Include="lib\triggers\steamrepTrigger.js" />
+        <Compile Include="lib\triggers\translateTrigger.js" />
+        <Compile Include="lib\triggers\triviaTrigger.js" />
+        <Compile Include="lib\triggers\tumblrTrigger.js" />
+        <Compile Include="lib\triggers\unbanTrigger.js" />
+        <Compile Include="lib\triggers\unlockChatTrigger.js" />
+        <Compile Include="lib\triggers\unmoderateTrigger.js" />
+        <Compile Include="lib\triggers\urbanDictionaryTrigger.js" />
+        <Compile Include="lib\triggers\wikiBotTrigger.js" />
+        <Compile Include="lib\triggers\wolframAlphaTrigger.js" />
+        <Compile Include="lib\triggers\youtubeTrigger.js" />
+        <Compile Include="lib\triggers\logTrigger\Autolinker.min.js" />
+        <Compile Include="lib\triggers\logTrigger\logs.js" />
+        <Content Include="lib\triggers\logTrigger\index.html" />
+        <Content Include="lib\triggers\logTrigger\css\default.css" />
+        <Content Include="lib\triggers\logTrigger\css\nohighlight.css" />
+        <Content Include="lib\triggers\logTrigger\css\plain.css" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="examples" />
+        <Folder Include="lib" />
+        <Folder Include="lib\triggers" />
+        <Folder Include="lib\triggers\logTrigger" />
+        <Folder Include="lib\triggers\logTrigger\css" />
+        <Folder Include="spec" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>
