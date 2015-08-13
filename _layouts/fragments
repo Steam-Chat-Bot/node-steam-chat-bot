@@ -4,4 +4,4 @@ theme :
 layout: default
 ---
 {% include JB/setup %}
-{% include themes/gh-slate/page.html %}
+{% include themes/gh-slate/fragments %}
