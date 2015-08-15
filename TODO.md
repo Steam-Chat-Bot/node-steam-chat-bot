@@ -79,6 +79,7 @@ If you're looking at this file, please keep in mind that this file is *far* more
   - Maybe rename filters to 'whitelist' and 'blacklist' to make it more clear what they do?
     - This will break many configs.
     - Since this will break *all* of my configs, many of which are now split up into multiple files, this is unlikely to happen.
+  - Maximum public response length. If response exceeds this, send privately to avoid spamming. Individual triggers should be able to override this.
 
 ### New Triggers
 - BaseCommandTrigger
