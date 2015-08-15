@@ -2,6 +2,7 @@
 layout: page
 title: TODO
 tagline: Plans and vague ideas for improving and extending steam-chat-bot
+redirect_from: "/TODO/"
 ---
 
 If you're looking at this file, please keep in mind that this file is *far* more than just a todo list. It's also a file of vague ideas I've had, things I've already done, things I want to do, things I'd like to do but probably won't, and things I'm still trying to decide if I should do. Some of it is also notes to myself. If you know anything about supybot/limnoria, you'll probably notice quite a bit of similarity in here.
