@@ -99,6 +99,8 @@ If you're looking at this file, please keep in mind that this file is *far* more
 - SteamDB searching
 - Steam API searches (game info/prices, etc)
 - ITAD api searches when the public API gets released.
+- Port of [PieSpy](http://www.jibble.org/piespy/) for visualization
+  - *PieSpy is an IRC bot that monitors a set of IRC channels. It uses a simple set of heuristics to infer relationships between pairs of users. These inferrences allow PieSpy to build a mathematical model of a social network for any channel. These social networks can be drawn and used to create animations of evolving social networks.*
 
 ### IN PROGRESS
 - IRC Relay - needs commands (!users, etc)
