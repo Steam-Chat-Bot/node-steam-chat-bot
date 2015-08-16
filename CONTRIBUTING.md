@@ -15,7 +15,7 @@ for(var i = 0; i < 11; i++)
 {
     console.log(i);
 }
-
+ 
 //good
 for(var i = 0; i < 11; i++) {
     console.log(i);
@@ -30,7 +30,7 @@ for(var i = 0; i < 11; i++) {
 //bad
 if(variable1 == variable2) {}
 if(variable1 != variable2) {}
-
+ 
 //good
 if(variable1 === variable2) {}
 if(variable1 !== variable2) {}
@@ -45,14 +45,14 @@ if(variable1 !== variable2) {}
 if(variable1 === variable2) {
     same = true;
 };
-
+ 
 console.log('bad bad bad')
-
+ 
 //good
 if(variable1 === variable2) {
     same = true;
 }
-
+ 
 console.log('good good good');
 {% endhighlight %}
 
@@ -65,7 +65,7 @@ console.log('good good good');
 if(variable1===variable2){
     same=true;
 }
-
+ 
 //good
 if(variable1 === variable2) {
     same = true;
@@ -93,7 +93,7 @@ console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
 - {% highlight javascript %}
 //bad
 console.log("Double quotes are BAD!");
-
+ 
 //good
 console.log('Single quotes are GOOD!');
 {% endhighlight %}
@@ -109,7 +109,7 @@ var object = {
     this.second: 2,
     this.third: 3,
 }
-
+ 
 //good
 var object = {
     this.first: 1,
@@ -128,7 +128,7 @@ prototype._respond = function() {
     var that = this;
     this.winston.info('Didn\'t use that, -10 points');
 }
-
+ 
 //good
 prototype._respond = function() {
     var that = this;
@@ -145,7 +145,7 @@ prototype._respond = function() {
 - {% highlight javascript %}
 //bad
 console.log('space over here --->'); 
-
+ 
 //good
 console.log('no space --->');
 {% endhighlight %}
