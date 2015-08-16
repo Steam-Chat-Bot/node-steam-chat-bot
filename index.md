@@ -4,15 +4,16 @@ title: Steam Chat Bot
 tagline: Simplified interface for a steam chat bot
 ---
 
-[![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
-[![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)]()
-[![node](https://img.shields.io/node/v/steam-chat-bot.svg)]()
-[![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
-[![Packagist](https://img.shields.io/badge/license-MIT-44CC11.svg)](/LICENCE)
+[![GitHub version](//img.shields.io/github/release/efreak/node-steam-chat-bot.svg?label=ver)](https://github.com/Efreak/node-steam-chat-bot/releases/latest)
+[![GitHub tag](//img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)](https://github.com/Efreak/node-steam-chat-bot/tags/latest)
+[![node](//img.shields.io/node/v/steam-chat-bot.svg)](https://npmjs.com/package/steam-chat-bot)
+[![Repo Size](//reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
+[![License](//img.shields.io/badge/license-MIT-44CC11.svg)](https://efreak.mit-license.org)
 
 [![Join the chat at https://gitter.im/Efreak/node-steam-chat-bot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Efreak/node-steam-chat-bot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
-[![Codacy Badge](https://www.codacy.com/project/badge/79e3862b9b2b4e0fbbcf9e980fcb6263)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
+[![Dependency Status](//www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
+[![Codacy Badge](//img.shields.io/codacy/79e3862b9b2b4e0fbbcf9e980fcb6263.svg)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
+[![Downloads per month](//img.shields.io/npm/dm/steam-chat-bot.svg?label=DLs)](https://npmjs.com/package/steam-chat-bot)
 
 [![Stats](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
 [![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=2)](https://nodei.co/npm/steam-chat-bot/)
