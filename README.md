@@ -60,9 +60,9 @@ If there is no example configuration for a specified trigger, please check the t
 
 ### Popular Triggers:
 
-See [TRIGGERS.md](https://github.com/Efreak/node-steam-chat-bot/blob/master/TRIGGERS.md) or the triggers folder for the full list of triggers and how
+See [TRIGGERS](TRIGGERS) or the triggers folder for the full list of triggers and how
 to use them. If you want to contribute a trigger, please make sure to add a quick description and list of all parameters and how to use them at the
-top of the trigger file (required) and add a basic usage section to TRIGGERS.md (also required, need not be in-depth).
+top of the trigger file (required) and add a basic usage section to [TRIGGERS](TRIGGERS) (also required, need not be in-depth).
 
 #### Management Triggers
 
@@ -116,4 +116,4 @@ After you have example-heroku set up to your liking, follow the instructions [he
 
 In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
 
-Note: Please read the file CONTRIBUTING.md before creating a pull request. If your pull request goes against what is said, it will not be accepted and we will ask you to fix it. 
+Note: Please read about [CONTRIBUTING](CONTRIBUTING) before creating a pull request. If your pull request goes against what is said, it will not be accepted and we will ask you to fix it. 
