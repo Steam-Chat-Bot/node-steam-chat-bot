@@ -112,7 +112,7 @@ See the bottom of example-heroku.js for an example of a simple webserver and sel
 
 After you have example-heroku set up to your liking, follow the instructions [here](https://devcenter.heroku.com/articles/git) to set up heroku and upload your bot. Once it's uploaded, start it with `heroku ps:scale web=1`
 
-### Testing Policy : [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com){: style="vertical-align:middle;"}
+### Testing Policy: [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com "Because we care™"){: style="vertical-align:middle;"}
 
 In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
 
