@@ -8,14 +8,12 @@ When contributing by opening a pull request, please make sure you follow the sty
 
 
 - Braces on the same line
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 for(var i = 0; i < 11; i++)
 {
     console.log(i);
 }
- 
 //good
 for(var i = 0; i < 11; i++) {
     console.log(i);
@@ -25,12 +23,10 @@ for(var i = 0; i < 11; i++) {
 <br>
 
 - Use 3 equal signs (using 2 is only acceptable in CERTAIN situations)
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 if(variable1 == variable2) {}
 if(variable1 != variable2) {}
- 
 //good
 if(variable1 === variable2) {}
 if(variable1 !== variable2) {}
@@ -39,33 +35,27 @@ if(variable1 !== variable2) {}
 <br>
 
 - Don't put semicolons after braces, put them after every other statement
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 if(variable1 === variable2) {
     same = true;
 };
- 
 console.log('bad bad bad')
- 
 //good
 if(variable1 === variable2) {
     same = true;
 }
- 
 console.log('good good good');
 {% endhighlight %}
 
 <br>
 
 - Put spaces after commas, after parentheses (not before), before braces, etc...
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 if(variable1===variable2){
     same=true;
 }
- 
 //good
 if(variable1 === variable2) {
     same = true;
@@ -75,11 +65,9 @@ if(variable1 === variable2) {
 <br>
 
 - Don't create lines that are too long
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890987654321');
-
 //good
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
         'abcdefghijklmnopqrstuvwxyz' +
@@ -89,11 +77,9 @@ console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
 <br>
 
 - Use single quotes (only use double quotes in package.json)
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 console.log("Double quotes are BAD!");
- 
 //good
 console.log('Single quotes are GOOD!');
 {% endhighlight %}
@@ -101,15 +87,13 @@ console.log('Single quotes are GOOD!');
 <br>
 
 - Don't put commas after a property if nothing follows
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad 
 var object = {
     this.first: 1,
     this.second: 2,
     this.third: 3,
 }
- 
 //good
 var object = {
     this.first: 1,
@@ -121,14 +105,12 @@ var object = {
 <br>
 
 - Don't declare variables and not use them
-
-- {% highlight javascript %}
+{% highlight javascript %}
 //bad
 prototype._respond = function() {
     var that = this;
     this.winston.info('Didn\'t use that, -10 points');
 }
- 
 //good
 prototype._respond = function() {
     var that = this;
@@ -140,12 +122,10 @@ prototype._respond = function() {
 
 <br>
 
-- Don't put extra spaces after a line (efreak told me this)(you probably won't be able to see the space, but its there)(I think atom (my text editor) removes them automatically, but still don't do it)
-
-- {% highlight javascript %}
+- Don't put whitespace at the ends of lines. Detect with `/\s\s?+$/`, replace with `s/\s\s?+$//g`.
+{% highlight javascript %}
 //bad
 console.log('space over here --->'); 
- 
 //good
 console.log('no space --->');
 {% endhighlight %}
