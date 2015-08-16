@@ -119,6 +119,7 @@ var delayedJoin = cfg.delayedJoin; //make sure bots join chats they should be in
 
 var ChatBot = require('./').ChatBot;
 var miley = new ChatBot(cfg.miley.username, cfg.miley.password, {
+//	guardCode: 'QXQDK',
 	logFile: true,
 	autoReconnect: true,
 	autojoinFile: cfg.miley.autojoinFile,
@@ -307,6 +308,7 @@ miley.connect();
 
 
 var sgsBot = new ChatBot(cfg.sgs.username, cfg.sgs.password, {
+//	guardCode: 'WX7BK',
 	logFile: true,
 	autoReconnect: true,
 	autojoinFile: cfg.sgs.autojoinFile,
@@ -395,10 +397,11 @@ sgsBot.connect();
 
 
 
-var triviagamesList = [221410,218800];
+var triviagamesList = [221410];//,218800];
 var triviagamesListMuted = [];
 var triviaAdmins = [users.efreak,users.grizzly,users.nasty];
 var poonicorn = new ChatBot(cfg.poo.username,cfg.poo.password, {
+//	guardCode: '75MDB',
 	logFile: true,
 	autoReconnect: true,
 	autojoinFile: cfg.poo.autojoinFile,
