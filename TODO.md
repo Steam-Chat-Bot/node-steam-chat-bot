@@ -40,7 +40,6 @@ If you're looking at this file, please keep in mind that this file is *far* more
   - pidfile
   - helper script for above, maybe?
 - Consider [chroot](https://www.npmjs.com/package/chroot)ing or [jail](https://www.npmjs.com/package/jail)ing.
-- START MOVING TO NODE-STEAM 1.0!!
 - Fix announcements!
 - Supybotify everything!
 
@@ -96,11 +95,6 @@ If you're looking at this file, please keep in mind that this file is *far* more
     - We have 2-4 bots going in the test chat at any given time. They all respond to mostly the same !commands.
 - I wonder if we can get PieSpy on steam, it might be kinda cool.
 - Announcement trigger for the owner to send a message to all open chats, except those in the ignore list.
-- Web UI for common functions
-  - shutdown bot
-  - provide a javascript shell inside the bot context for debugging, maybe?
-  - styles
-  - public interface so users can check the bot's status, private interface with inputs and crap.
 - Javascript eval function. Use something sandboxed like [localeval](https://www.npmjs.com/package/localeval)
 - Shell eval function. Make sure all input, including pathnames, is escaped when not being used by an admin, and set the pwd to /tmp.
 - SteamDB searching
@@ -116,14 +110,17 @@ If you're looking at this file, please keep in mind that this file is *far* more
   - Send a message to a groupchat
   - Change bot's name/status
   - Set bot chat status to offline/online (this is already possible through commands, it just can't be undone yet...)
+- Web UI for common functions
+  - shutdown bot
+  - provide a javascript shell inside the bot context for debugging, maybe?
+  - styles
+  - public interface so users can check the bot's status, private interface with inputs and crap.
 
 ### Done locally, not yet merged into github (possibly not merged into *any* repo)
-- Fix global ignores.
-  - Using the ignoreGlobalFilters (or whatever) is now required
-  - instead of simply having local ignores override global, they work together (unless trigger.ignoreGlobalFilters or trigger.options.ignoreGlobalFilters is set)
 
 
 ### DONE
 - Global ignores
 - Move webserver to chatBot.js
 - Change from logTrigger/ws to chatBot.js/socket.io
+- Fix global ignores.
