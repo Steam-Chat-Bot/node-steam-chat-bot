@@ -1,3 +1,9 @@
+---
+layout: page
+title: Contributors
+tagline: Who contributed how much code to the project
+---
+
 ###### Contributors
 [Efreak](https://github.com/Efreak)
 <font color="#999">418 Commits</font> / <font color="#6cc644">14465++</font> / <font color="#bd3c00"> 8195--</font>

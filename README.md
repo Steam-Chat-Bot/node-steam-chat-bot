@@ -1,3 +1,9 @@
+---
+layout: page
+title: Steam Chat Bot
+tagline: Simplified interface for a steam chat bot
+---
+
 [![GitHub version](https://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot.svg)](http://badge.fury.io/gh/efreak%2Fnode-steam-chat-bot)
 [![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)]()
 [![node](https://img.shields.io/node/v/steam-chat-bot.svg)]()
@@ -9,7 +15,7 @@
 [![Codacy Badge](https://www.codacy.com/project/badge/79e3862b9b2b4e0fbbcf9e980fcb6263)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
 
 [![Stats](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
-[![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=3)](https://nodei.co/npm/steam-chat-bot/)
+[![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=2)](https://nodei.co/npm/steam-chat-bot/)
 
 ### Note: In 2.1.1 GithubTrigger is currently broken. It does not work with the new webserver correctly. This should be fixed by next release.
 
@@ -36,10 +42,16 @@ To get this running in Windows you'll need to follow the setup instructions for 
 
 You almost certainly want more than this in your config, unless you're happy with all the defaults and only having a logTrigger.
 
-````javascript
+{% highlight javascript %}
 var myBot = new ChatBot('username', 'password');
-myBot.loadTriggers([{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames} }]);
-````
+myBot.loadTriggers([
+	{
+		name: 'logTrigger',
+		type: 'LogTrigger',
+		options: { roomNames: roomNames }
+	}
+]);
+{% endhighlight %}
 
 There are also several example configurations in the [examples folder](https://github.com/Efreak/node-steam-chat-bot/tree/master/examples).
 
@@ -99,7 +111,7 @@ See the bottom of example-heroku.js for an example of a simple webserver and sel
 
 After you have example-heroku set up to your liking, follow the instructions [here](https://devcenter.heroku.com/articles/git) to set up heroku and upload your bot. Once it's uploaded, start it with `heroku ps:scale web=1`
 
-### Testing Policy : [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
+### Testing Policy : [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com){: style="vertical-align:middle;"}
 
 In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
 

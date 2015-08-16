@@ -1,15 +1,25 @@
-2.2.0 / 2015-08-11 - PanStoXDexter
+---
+layout: page
+title: Changelog
+---
+
+Post-2.2.0 (unreleased as yet)
+==================
+
+  * Created website with jekyll, hosted on github pages. Send users here for support.
+
+[2.2.0 / 2015-08-11 - PanStoXDexter](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.2.0)
 ==================
 
   * v2.2.0
   * Update to node-steam 2.2.0
   * Fix Codacy issues
 
-2.1.1 / 2015-07-20 - VeniVidiYoutubePoop
+[2.1.1 / 2015-07-20 - VeniVidiYoutubePoop](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.1.1)
 ==================
 
   * v2.1.1
-  * fix option = option || true everywhere (thanks, /u/Guilemouse)
+  * fix option = option &#124;&#124; true everywhere (thanks, /u/Guilemouse)
   * Allow adding users/group chats to banned items in notificationtrigger
   * Fix global ignores
   * Allow access to the expressjs constructor
@@ -28,7 +38,7 @@
   * Update dependencies
   * Make the uptime better
 
-2.1.0 / 2015-06-30 - senpaiplznoticemeeeeeee
+[2.1.0 / 2015-06-30 - senpaiplznoticemeeeeeee](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.1.0)
 ==================
 
 - New trigger: githubTrigger will notify you when configured repos have activity. Requires built-in webserver enabled, this will be fixed in next release.
@@ -48,7 +58,7 @@
 
 
 
-2.0.1 / 2015-06-21 -  bugfixes + translateTrigger
+[2.0.1 / 2015-06-21 -  bugfixes + translateTrigger](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.0.1)
 ==================
 
 - [f93f3c8](https://github.com/Efreak/node-steam-chat-bot/commit/f93f3c8) - Add example translations to translateTrigger
@@ -61,7 +71,7 @@
 
 
 
-2.0.0 / 2015-06-20
+[2.0.0 / 2015-06-20](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.0.0)
 ==================
 
 - [4b9e63c](https://github.com/Efreak/node-steam-chat-bot/commit/4b9e63c3f2d467417f655b982a2f4df176f036c8) - Reduce unnecessary logging
@@ -87,7 +97,7 @@
 
 
 
-1.9.0 / 2015-06-14 - unreleased
+[1.9.0 / 2015-06-14 - unreleased](https://github.com/Efreak/node-steam-chat-bot/tree/6018c9482bd5ba8f4b872ad9e0a5f91fb10323dc)
 ==================
 
 - This version was not officially released. The only way to install it is to use the sha hash.
@@ -131,28 +141,28 @@
 
 
 
-1.8.2 / 2015-05-17 - bugfix
+[1.8.2 / 2015-05-17 - bugfix](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.8.2)
 ==================
 
 - Fixed Pushbullet crashing the bot...oops.
 
 
 
-1.8.1 / 2015-05-17
+[1.8.1 / 2015-05-17](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.8.1)
 ==================
 
-- a10361a90d0ff2177b06e843ea8fdcebc6622973 Update tags for pushbullet, etc
-- 63ab0a0f646da08fee3b30334fb70d62f1da86a6 Replace chatPmTrigger with an optional options.response="pm" or ="group" in chatReplyTrigger
-- fc56e7aadda56931a1f85a75d8d9c0d7ebe16436 Move sendGreeting out of baseTrigger
-- 0926858ae9353dd1837fa45c8dbe28aacd6c7e94 readd untested makeAnnouncement function
-- 44aeb5b46fec4e20bc8f408a08f8d847d0a23490 notify live log viewers when they get disconnected from the server
-- 7c5332f3b43ce44f86921acbb0383afde808b59b Fix crash on announcement
+- a10361a Update tags for pushbullet, etc
+- 63ab0a0 Replace chatPmTrigger with an optional options.response="pm" or ="group" in chatReplyTrigger
+- fc56e7a Move sendGreeting out of baseTrigger
+- 0926858 readd untested makeAnnouncement function
+- 44aeb5b notify live log viewers when they get disconnected from the server
+- 7c5332f Fix crash on announcement
 - Don't show web sessionID in log unless debugging enabled.
 - Add doormatTrigger
 
 
 
-1.8.0 / 2015-05-13 - New Triggers!
+[1.8.0 / 2015-05-13 - New Triggers!](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.8.0)
 ==================
 
 - `LinkName`: Responds to posted links with their titles (i.e https://github.com will be responded with "GitHub, build better software, together")
@@ -161,7 +171,7 @@
 
 
 
-1.7.0 / 2015-05-09 - Add some APIs
+[1.7.0 / 2015-05-09 - Add some APIs](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.7.0)
 ==================
 
 - New node-steam apis:
@@ -182,18 +192,18 @@
         - trade(steamID): sends a trade to `steamID`
         - respondToTrade(tradeID, bool): determines whether to respond to a specific trade, don't use this in the bot file
         - cancelTrade(steamID): will cancel a trade sent to a specific `steamID`
-- Don't show private messages in live log (https://github.com/Efreak/node-steam-chat-bot/commit/533d5c307ff52125c3711d28f7ee2e5a5147a02a)
+- 533d5c3 Don't show private messages in live log
 
 
 
-1.6.4 / 2015-05-03 - Fixes, fixes, fixes!
+[1.6.4 / 2015-05-03 - Fixes, fixes, fixes!](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.6.4)
 ==================
 
 - Fix acceptFriendRequest not working
 
 
 
-1.6.3 / 2015-05-03 - More Fixes, Organization
+[1.6.3 / 2015-05-03 - More Fixes, Organization](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.6.3)
 ==================
 
 - Fix OMDB year argument
@@ -202,7 +212,7 @@
 
 
 
-1.6.2 / 2015-05-03 - Bug Fixes
+[1.6.2 / 2015-05-03 - Bug Fixes](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.6.2)
 ==================
 
 - Fix youtube typeerror
@@ -210,14 +220,14 @@
 
 
 
-1.6.1 / 2015-04-30 - Fix Youtube
+[1.6.1 / 2015-04-30 - Fix Youtube](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.6.1)
 ==================
 
 - Youtube updated their API to v3 and deprecated the v2 API. This release fixes that.
 
 
 
-1.6.0 / 2015-04-28 - APRIL FOOLS!
+[1.6.0 / 2015-04-28 - APRIL FOOLS!](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.6.0)
 ==================
 
 - Add contributors list & update package.json
@@ -233,7 +243,22 @@
 
 
 
-1.5.0 / 2015-11-22
+[1.5.0 / 2015-11-22](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.5.0)
 ==================
 
 - Added !movies command
+
+[1.4.5 / 2014-09-21](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.4.5)
+==================
+
+- Dependencies updated.
+- Added project to [Codacy](http://www.codacy.com/) and updated code for a better score.
+
+[1.4.4 / 2014-09-18](https://github.com/Efreak/node-steam-chat-bot/releases/tag/1.4.4)
+==================
+
+- I'm liable to forget that I want to do this, but it would likely be a nice idea to make a release ~1wk after every change that doesn't break anything.
+
+[Pre-1.4.4](https://github.com/bonnici/node-steam-chat-bot)
+==================
+ - please see @bonnici's [original repo](https://github.com/bonnici/node-steam-chat-bot), as this is where it was forked.
