@@ -52,6 +52,16 @@ There are also several example configurations in the [examples folder](https://g
 
 If there is no example configuration for a specified trigger, please check the top of the trigger file for information on calling it. The trigger definition files may also have information on more advanced usage than is contained in the readme or wiki or example configs.
 
+### Public Functions
+
+There are some public functions available for more advanced/programmatic usage of the bot.
+
+- `chatBot.onLogon(function(bot){code()}` - execute code() whenever the bot logs on. You can use this to send yourself a notification whenever the bot logs on, or do pretty much anything else without actually writing a trigger for it.
+- `chatBot.redirect(source,destination,code)` - set up a web redirect for the bot. You may wish to use this to, say, redirect /help to the bot's website.
+- `chatBot.addTrigger(triggerDefinition)` - add a single trigger to the bot.
+- `chatBot.addTriggers(triggerDefinitionArray)` - add an array of triggers to the bot.
+- `chatBot.clearTriggers()` - remove all triggers from the bot. Note that poorly behaved triggers may not be completely removed if they modify other parts of the bot.
+
 ### Popular Triggers:
 
 See [TRIGGERS](TRIGGERS) or the triggers folder for the full list of triggers and how
