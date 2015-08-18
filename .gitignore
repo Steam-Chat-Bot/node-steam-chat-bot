@@ -29,3 +29,15 @@ changelog.dev
 gh-pages
 master
 
+_site/*
+_theme_packages/*
+
+Thumbs.db
+.DS_Store
+
+!.gitkeep
+
+.rbenv-version
+.rvmrc
+
+Gemfile.lock
