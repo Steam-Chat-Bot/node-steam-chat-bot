@@ -219,7 +219,7 @@ module.exports = [
 	//look for posted links, then respond with page title
 	{
 		name: 'linkname',
-		type: 'LinkName',
+		type: 'LinkNameTrigger',
 		options: {}
 	},
 	// Greet every enterin person by name
