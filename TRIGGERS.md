@@ -1,9 +1,3 @@
----
-layout: page
-title: Triggers
-tagline: Loading and using triggers
----
-
 Many triggers have a default command (or commands) defined, so if you don't choose one in the options, the default will be used.
 
 ### Global options:
@@ -16,7 +10,7 @@ This is not settings for any one individual trigger; rather, these are options t
 | timeout | number | | how long in ms is a trigger disabled for before it can be used again. |
 | respectsMute | bool | true | does the trigger respect muted status? That is, if the bot is muted, do we answer or not?|
 | respectsGlobalFilters | bool | true | Should the trigger respect global ignores defined in the bot constructor? Used for e.g. logging a room where you don't want the bot to say anything, or globally ignoring a user while still logging them. There is a similar setting for triggers to use internally; at the time of this writing the only that uses the internal setting is logTrigger. |
-| ~~respectsFilters~~ | bool | true | used internally only (ie, has no effect if you set it), to override filters (as defined below). Cannot be set (would be pointless) |
+| <s>respectsFilters</s> | bool | true | used internally only (ie, has no effect if you set it), to override filters (as defined below). Cannot be set (would be pointless) |
 | ignore | ['steamid64', 'steamid64'] | | this filter is an array of steamid64s of users that this command will not work for, as well as groups this command cannot be used in. If a user or a groupchat matches any element, trigger will not be allowed to proceed. Overrides global filters. (If this is defined, global filters will be ignored)|
 | user | ['steamid64', 'steamid64'] | | this filter is an array of whitelisted steamid64s of users that are allowed to use this command or groupchats that are allowed to use this command. If the steamid64 matches any elements, or if this array is not defined, trigger will be allowed to proceed (to the next filter, at least) |
 | rooms | ['steamid64', 'steamid64'] | | this filter is an array of whitelisted steamid64s of groupchats for a trigger. If the steamid64 matches any elements, or if this array is not defined, trigger will be allowed to proceed (to the next filter, at least) |
@@ -27,7 +21,7 @@ This is not settings for any one individual trigger; rather, these are options t
 
 Joins a specified chatroom when invited and says an optional welcome message. set option autoJoinAfterDisconnect to add channels to autojoin list when used.
 
-Options: 
+Options:
 
 - chatrooms = {"roomId1": "message1", "roomId1": "message1"} - list of rooms to join and their welcome message. If message is null, it will be replaced with defaultMessage; $inviter will be replaced with inviter's steamid64, $inviterurl with their profile url, and $invitername with their name/url.
 - autoJoinAfterDisconnect = boolean - automatically rejoin chat after the bot reconnects or starts up again (unless it has been removed from chat since it was invited)
@@ -42,7 +36,7 @@ Automatically accepts any friend requests sent to the bot.
 
 Tells the bot to add someone as a friend. You must input a steamid64.
 
-Options: 
+Options:
 
 - command - *string* - defaults to "!friend"
 
@@ -50,7 +44,7 @@ Options:
 
 Checks to see if a user has any VAC/economy/community bans via steam API. Requires a steam api key, defined as option apikey in the plugin, or globally defined as a chatBot option steamapikey
 
-Options: 
+Options:
 
 - command - *string* - defaults to "!********************************************************************"
 - cacheTime - *int* - Message will not be sent if last join was within this much time, to reduce spam; Defaults to 1 hour (`3600000`). Set to -1 to disable onjoin checking.
@@ -62,7 +56,7 @@ Options:
 
 Bans a user from a groupchat. User does not need to be in groupchat for this to work.
 
-Options: 
+Options:
 
 - command - *string* - defaults to "!ban"
 - user - *array* of *string*s. Who can use this trigger
@@ -71,7 +65,7 @@ Options:
 
 Runs a specified callback when a specific command message is typed. It is preferred to write an actual trigger, but for simple things (e.g. muting, unmuting), this is easier.
 
-Options: 
+Options:
 
 - matches - *array* of case-insensitive *string*s - when to trigger the callback.
 - exact - *boolean* - true to only trigger on an exact match, false to trigger on partial match
@@ -81,7 +75,7 @@ Options:
 
 Repeats a message, but with one word randomly replaced with a specific other word. The canonical example is replacing a random word with "butt".
 
-Options: 
+Options:
 
 - replacement - *string* - the word to replace the random word with.
 - probability - see global triggers.
@@ -90,7 +84,7 @@ Options:
 
 Detects a message (either an exact match or a "contains" match) and replies with a specified message.
 
-Options: 
+Options:
 
 - matches - *array of strings* - messages that trigger the response
 - responses - *array of strings* - the response will be a randomly selected string from this array
@@ -102,7 +96,7 @@ Options:
 
 Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 
-Options: 
+Options:
 
 - cleverbot - cleverbot-node *object* - use this as the cleverbot (object) if passed in (optional)
 - session - *string* - construct a new cleverbot with this session (optional)
@@ -111,7 +105,7 @@ Options:
 
 Sends a message ("Hello username") to someone when they join the chat. You might prefer to use *MessageOnJoinTrigger*.
 
-Options: 
+Options:
 
 - ???
 
@@ -136,7 +130,7 @@ Commands: none yet (planned)
 
 Prints out the title and link of the first search result on Google.
 
-Options: 
+Options:
 
 - google - google object - Optional. Created if not pre-defined. Not entirely sure what the advantages are of this, possibly account logins.
 - command - *string* - defaults to "!google" 
@@ -145,7 +139,7 @@ Options:
 
 Prints a link to the first search result on Google Images.
 
-Options: 
+Options:
 
 - images - google-images object - Optional. Created if not pre-defined. Not entirely sure what the advantages are of this, possibly account logins.
 - command - *string* - defaults to "!gi"
@@ -171,7 +165,7 @@ Options:
 
 Provides information about the status of the bot (amount of time it was running, operating system, etc)
 
-Options: 
+Options:
 
 - command - defaults to !botinfo
 
@@ -179,7 +173,7 @@ Options:
 
 Tells the bot to join a groupchat, and announce who sent it
 
-Options: 
+Options:
 
 - command - defaults to "!join"
 - notify - bool - defaults to true. Should we tell the chat who told the bot to join?
@@ -200,7 +194,7 @@ Options:
 
 tells the bot to kick someone from a groupchat.
 
-Options: 
+Options:
 
 - command - defaults to "!kick"
 
@@ -208,7 +202,7 @@ Options:
 
 tells the bot to leave a groupchat, announcing who commanded it
 
-Options: 
+Options:
 
 - command - defaults to "!leave"
 - notify - bool - defaults to true. Should we tell the chat who told the bot to leave?
@@ -221,7 +215,7 @@ Attempts to fetch all urls seen by the bot, parses them as html, and announces t
 
 Tells the bot to lock a groupchat. Does not respect mute.
 
-Options: 
+Options:
 
 - command - defaults to "!lock"
 
@@ -241,7 +235,7 @@ everything. Removes blank lines.
 
 Adds ">" before a message it will send. How does it work? Who knows?
 
-Options: 
+Options:
 
 - ???
 
@@ -249,7 +243,7 @@ Options:
 
 tells the bot to welcome a specific user with an message every time they join a chat the user is in. Recommended not to use too much, and to set a long timeout to prevent abuse.
 
-Options: 
+Options:
 
 - user - string - user to send the message on
 - message - string - message to send
@@ -258,7 +252,7 @@ Options:
 
 tells the bot to set the groupchat to be moderated.
 
-Options: 
+Options:
 
 - command - defaults to "!mod"
 
@@ -266,7 +260,7 @@ Options:
 
 Converts between currencies, will require an `apikey` from https://openexchangerates.org
 
-Options: 
+Options:
 
 - moneycommand - defaults to "!money"
 - currenciescommand - defaults to "!currencies"
@@ -308,7 +302,7 @@ Options:
 
 Searches IMDB for a specified movie. Can accept an optional year parameter (ex: !movie aliens 1986). If one is not provided, it will return the first result without the year.
 
-Options: 
+Options:
 
 - command - defaults to "!movie"
 
@@ -316,7 +310,7 @@ Options:
 
 tells the bot to play a game. You need to send the game's appid. - options allowpublic and allowprivate (both true by default) allow you to restrict usage of this command to either private or groupchat messages.
 
-Options: 
+Options:
 
 - command - defaults to "!play"
 - allowpublic - allow use in groupchats - defaults to true
@@ -326,7 +320,7 @@ Options:
 
 same as above. Not sure why I have two of this plugin; one or the other may not work.
 
-Options: 
+Options:
 
 - command - defaults to "!play"
 
@@ -334,7 +328,7 @@ Options:
 
 When a user joins, look up their profile in steam API and if they have a private profile, or never bothered to set one up, announce it to the groupchat. Optional option: apikey can be defined in options, overriding any steamapikey can be defined in the bot constructor. If neither is defined, it won't be used (not required).
 
-Options: 
+Options:
 
 - cacheTime - Message will not be sent if last join was within this much time, to reduce spam. Defaults to 10 minutes.
 - apikey - your steam api key. Can be alternatively defined for the bot globally as an option, steamapikey. Not required for this particular plugin, but if you're hosting multiple bots for multiple people, it may be a good idea to prevent IP blacklisting.
@@ -343,7 +337,7 @@ Options:
 
 Default command !randomgame. When command is used, it will check the user's games list (or that of the given steamid64, if one is placed after the command) and return a random game, along with a steam:// link to launch it, and the amount of time spent in that game. Requires apikey in options, or steamapikey in bot constructor.
 
-Options: 
+Options:
 
 - apikey - your steam api key. Can be alternatively defined for the bot globally as an option, steamapikey. Required for this plugin.
 - command - defaults to "!randomgame"
@@ -352,7 +346,7 @@ Options:
 
 Detects a regex match in a message and uses the matches to construct a reply.
 
-Options: 
+Options:
 
 - match - regex - the message to match, must be exact
 - response - string - response, possibly including wildcards of the form {0}, {1}, etc as placeholders for the matched regex group
@@ -361,7 +355,7 @@ Options:
 
 tells the bot to delete a friend.
 
-Options: 
+Options:
 
 - command - defaults to "!unfriend"
 
@@ -369,7 +363,7 @@ Options:
 
 tells the bot to roll dice. Can get very spammy. Can be easily abused to make the bot crash. If you want to use, recommended you set a limit on the number/size of dice rolled (please submit pull request if you do this).
 
-Options: 
+Options:
 
 - command - defaults to "!roll"
 
@@ -377,7 +371,7 @@ Options:
 
 tells the bot to say something in another groupchat.
 
-Options: 
+Options:
 
 - command - defaults to "!say"
 
@@ -385,15 +379,15 @@ Options:
 
 changes the bot's display/profile name.
 
-Options: 
+Options:
 
 - command - defaults to "!name"
 
 ### `SetStatusTrigger`
 
-changes the bot's status between online, away, snooze, etc. - options: statuses {online,busy,away,snooze,trade,play,offline}.
+changes the bot's status between online, away, snooze, etc.
 
-Options: 
+Options:
 
 - command - defaults to "!status"
 - statuses - object defining statuses. See the trigger to see how they work.
@@ -417,7 +411,7 @@ checks steamrep API whenever someone joins a chat the bot is in. If Steamrep lis
 
 same as `SteamrepOnJoinTrigger`, but provides a command rather than automatic onjoin check.
 
-Options: 
+Options:
 
 - command - defaults to "!steamrep"
 
@@ -425,7 +419,7 @@ Options:
 
 uses http://hablaa.com/api to translate. Define a `translatecommand` (command used to do translating) and a `languagescommand` (command used to print language codes), or leave as default. Usage is `!translate <word> <start language> <end language>` to translate, `!languages` for a list of language codes (sent via private message), and `!languages <code>` to see what language does with that code. To see an example sentence with a word and a language, the usage for examples is `!example <word> <start language> <end language> <example language>`. Example language is the language the example will be in. 
 
-Options: 
+Options:
 
 - translatecommand - defaults to "!translate"
 - languagecommand - defaults to "!languages"
@@ -435,7 +429,7 @@ Options:
 
 Allows the bot to post things to a tumblr blog, either by commands (!postphoto, !postquote, !posttext, !postlink, !postchat, !postaudio, !postvideo), or by monitoring the chatrooms the bot is in for links. You will need to register an app here: http://www.tumblr.com/oauth/apps and follow these instructions to get the keys: https://groups.google.com/d/msg/tumblr-api/gz8Zv-Mhex4/8-eACnkArkgJ.
 
-Options: 
+Options:
 
 - Please see the trigger file for help.
 
@@ -443,7 +437,7 @@ Options:
 
 unbans a user from a groupchat.
 
-Options: 
+Options:
 
 - command - defaults to "!unban"
 
@@ -451,7 +445,7 @@ Options:
 
 unlocks a groupchat.
 
-Options: 
+Options:
 
 - command - defaults to "!unlock"
 
@@ -459,7 +453,7 @@ Options:
 
 unmoderates a groupchat.
 
-Options: 
+Options:
 
 - command - defaults to "!unmod"
 
@@ -467,7 +461,7 @@ Options:
 
 Queries Urban Dictionary for the first definition of a word, then pastes it into chat.
 
-Options: 
+Options:
 
 - command - defaults to "!ud"
 - maxlength - defaults to 540

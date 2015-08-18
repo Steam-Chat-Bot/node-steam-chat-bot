@@ -1,14 +1,8 @@
----
-layout: page
-title: Contributing
-tagline: Stylistic and other standards to comply with when submitting code
----
-
 When contributing by opening a pull request, please make sure you follow the style that already exists in the files. PLEASE PLEASE PLEASE also check your pull request on [codacy](https://www.codacy.com/app/node-steam-chat-bot/steam-chat-bot/pullRequests?bid=2286175) so I don't need to spend 2 hours and 5 commits fixing all of your problems. Some common examples:
 
 
 - Braces on the same line
-{% highlight javascript %}
+```javascript
 //bad
 for(var i = 0; i < 11; i++)
 {
@@ -18,24 +12,24 @@ for(var i = 0; i < 11; i++)
 for(var i = 0; i < 11; i++) {
     console.log(i);
 }
-{% endhighlight %}
+```
 
 <br>
 
 - Use 3 equal signs (using 2 is only acceptable in CERTAIN situations)
-{% highlight javascript %}
+```javascript
 //bad
 if(variable1 == variable2) {}
 if(variable1 != variable2) {}
 //good
 if(variable1 === variable2) {}
 if(variable1 !== variable2) {}
-{% endhighlight %}
+```
 
 <br>
 
 - Don't put semicolons after braces, put them after every other statement
-{% highlight javascript %}
+```javascript
 //bad
 if(variable1 === variable2) {
     same = true;
@@ -46,12 +40,12 @@ if(variable1 === variable2) {
     same = true;
 }
 console.log('good good good');
-{% endhighlight %}
+```
 
 <br>
 
 - Put spaces after commas, after parentheses (not before), before braces, etc...
-{% highlight javascript %}
+```javascript
 //bad
 if(variable1===variable2){
     same=true;
@@ -60,34 +54,34 @@ if(variable1===variable2){
 if(variable1 === variable2) {
     same = true;
 }
-{% endhighlight %}
+```
 
 <br>
 
 - Don't create lines that are too long
-{% highlight javascript %}
+```javascript
 //bad
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890987654321');
 //good
 console.log('ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
         'abcdefghijklmnopqrstuvwxyz' +
         '1234567890987654321');
-{% endhighlight %}
+```
 
 <br>
 
 - Use single quotes (only use double quotes in package.json)
-{% highlight javascript %}
+```javascript
 //bad
 console.log("Double quotes are BAD!");
 //good
 console.log('Single quotes are GOOD!');
-{% endhighlight %}
+```
 
 <br>
 
 - Don't put commas after a property if nothing follows
-{% highlight javascript %}
+```javascript
 //bad 
 var object = {
     this.first: 1,
@@ -100,12 +94,12 @@ var object = {
     this.second: 2,
     this.third: 3
 }
-{% endhighlight %}
+```
 
 <br>
 
 - Don't declare variables and not use them
-{% highlight javascript %}
+```javascript
 //bad
 prototype._respond = function() {
     var that = this;
@@ -118,17 +112,17 @@ prototype._respond = function() {
         that.winston.info('Used that, +10 points');
     }, 100);
 }
-{% endhighlight %}
+```
 
 <br>
 
 - Don't put whitespace at the ends of lines. Detect with `/\s\s?+$/`, replace with `s/\s\s?+$//g`.
-{% highlight javascript %}
+```javascript
 //bad
 console.log('space over here --->'); 
 //good
 console.log('no space --->');
-{% endhighlight %}
+```
 
 
 That's the end of my guide. I'm only writing this since I just spent hours fixing codacy stuff. Basically, don't do anything that would upset codacy.

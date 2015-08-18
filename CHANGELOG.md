@@ -1,12 +1,12 @@
----
-layout: page
-title: Changelog
----
-
 Post-2.2.0 (unreleased as yet)
 ==================
 
   * Created website with jekyll, hosted on github pages. Send users here for support.
+  * Update dependencies
+  * Consistency
+  * Prevent abuse of roll trigger killing the bot
+  * Fix examples
+  * Fix YoutubeTrigger crash
 
 [2.2.0 / 2015-08-11 - PanStoXDexter](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.2.0)
 ==================

@@ -1,13 +1,13 @@
-[![GitHub version](https://img.shields.io/github/release/efreak/node-steam-chat-bot.svg?label=ver)](https://github.com/Efreak/node-steam-chat-bot/releases/latest)
-[![GitHub tag](https://img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)](https://github.com/Efreak/node-steam-chat-bot/tags/latest)
-[![node](https://img.shields.io/node/v/steam-chat-bot.svg)](https://npmjs.com/package/steam-chat-bot)
-[![Repo Size](https://reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
-[![License](https://img.shields.io/badge/license-MIT-44CC11.svg)](https://efreak.mit-license.org)
+[![GitHub version](//img.shields.io/github/release/efreak/node-steam-chat-bot.svg?label=ver)](https://github.com/Efreak/node-steam-chat-bot/releases/latest)
+[![GitHub tag](//img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)](https://github.com/Efreak/node-steam-chat-bot/tags/latest)
+[![node](//img.shields.io/node/v/steam-chat-bot.svg)](https://npmjs.com/package/steam-chat-bot)
+[![Repo Size](//reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
+[![License](//img.shields.io/badge/license-MIT-44CC11.svg)](https://efreak.mit-license.org)
 
 [![Join the chat at https://gitter.im/Efreak/node-steam-chat-bot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Efreak/node-steam-chat-bot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
-[![Codacy Badge](https://img.shields.io/codacy/79e3862b9b2b4e0fbbcf9e980fcb6263.svg)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
-[![Downloads per month](https://img.shields.io/npm/dm/steam-chat-bot.svg?label=DLs)](https://npmjs.com/package/steam-chat-bot)
+[![Dependency Status](//www.versioneye.com/user/projects/547014ce9dcf6d5567000b49/badge.svg?style=flat)](https://www.versioneye.com/user/projects/547014ce9dcf6d5567000b49)
+[![Codacy Badge](//img.shields.io/codacy/79e3862b9b2b4e0fbbcf9e980fcb6263.svg)](https://www.codacy.com/public/efreak2004/node-steam-chat-bot)
+[![Downloads per month](//img.shields.io/npm/dm/steam-chat-bot.svg?label=DLs)](https://npmjs.com/package/steam-chat-bot)
 
 [![Stats](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
 [![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=2)](https://nodei.co/npm/steam-chat-bot/)
@@ -37,7 +37,7 @@ To get this running in Windows you'll need to follow the setup instructions for 
 
 You almost certainly want more than this in your config, unless you're happy with all the defaults and only having a logTrigger.
 
-{% highlight javascript %}
+```javascript
 var myBot = new ChatBot('username', 'password');
 myBot.loadTriggers([
 	{
@@ -46,7 +46,7 @@ myBot.loadTriggers([
 		options: { roomNames: roomNames }
 	}
 ]);
-{% endhighlight %}
+```
 
 There are also several example configurations in the [examples folder](https://github.com/Efreak/node-steam-chat-bot/tree/master/examples).
 
@@ -54,9 +54,9 @@ If there is no example configuration for a specified trigger, please check the t
 
 ### Popular Triggers:
 
-See [TRIGGERS.md](https://github.com/Efreak/node-steam-chat-bot/blob/master/TRIGGERS.md) or the triggers folder for the full list of triggers and how
+See [TRIGGERS](TRIGGERS) or the triggers folder for the full list of triggers and how
 to use them. If you want to contribute a trigger, please make sure to add a quick description and list of all parameters and how to use them at the
-top of the trigger file (required) and add a basic usage section to TRIGGERS.md (also required, need not be in-depth).
+top of the trigger file (required) and add a basic usage section to [TRIGGERS](TRIGGERS) (also required, need not be in-depth).
 
 #### Management Triggers
 
@@ -110,4 +110,4 @@ After you have example-heroku set up to your liking, follow the instructions [he
 
 In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
 
-Note: Please read the file CONTRIBUTING.md before creating a pull request. If your pull request goes against what is said, it will not be accepted and we will ask you to fix it. 
+Note: Please read about [CONTRIBUTING](CONTRIBUTING) before creating a pull request. If your pull request goes against what is said, it will not be accepted and we will ask you to fix it. 
