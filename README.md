@@ -37,7 +37,7 @@ To get this running in Windows you'll need to follow the setup instructions for 
 
 You almost certainly want more than this in your config, unless you're happy with all the defaults and only having a logTrigger.
 
-{% highlight javascript %}
+```javascript
 var myBot = new ChatBot('username', 'password');
 myBot.loadTriggers([
 	{
@@ -46,7 +46,7 @@ myBot.loadTriggers([
 		options: { roomNames: roomNames }
 	}
 ]);
-{% endhighlight %}
+```
 
 There are also several example configurations in the [examples folder](https://github.com/Efreak/node-steam-chat-bot/tree/master/examples).
 
