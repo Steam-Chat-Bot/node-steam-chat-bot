@@ -94,14 +94,48 @@ var trustedBots = {
 	zay: '76561198212058096',
 	miley: '76561198055685680'
 }
-
 var globalIgnores = []; //generate the global ignores list by adding everyone from the 'asshole' list. This list is used on all 3 bots.
 for(var name in assholes) {
 	globalIgnores.push(assholes[name]);
 }
-//I don't think this even works with such a long list, but whatever. It amuses me.
 
 
+//ignoredBots is basically bots that will be ignored by my bots. Feel free to steal this code. ignoredBots get added to global ignores. There's also a function for admins (me) to add other bots (or annoying users) to the list with.
+var fs = require('fs');
+var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
+for(var bot in ignoredBots) {
+	globalIgnores.push(ignoredBots[bot].id);
+}
+var addbot = function(chatBot,data) {
+	var info = data.message.match(/\!addbot[\s+]?([0-9]+)[\s+]?(.+)/)
+	if(!info || info.index!==0) {
+		chatBot.sendMessage(data.toId,"Bot id and comment required");
+		return;
+	}
+	data.comment = info[2];
+	data.botId = info[1];
+	chatBot.ignores.push(data.botId);
+	var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
+	ignoredBots[data.fromId] = data;
+	ignoredBots[data.fromId].time = (Date()-0);
+	fs.writeFileSync('bots.json',JSON.stringify(ignoredBots));
+	chatBot.sendMessage(data.toId, data.botId+" has been added as a bot. I will not respond to any input from them.");
+}
+var imabot = function(chatBot,data) {
+	var info = data.message.match(/\!addbot[\s+]?(.+)/)
+	if(!info || info.index!==0) {
+		chatBot.sendMessage(data.toId,"You need to have a comment saying who owns you. Please include the steamid64 of your owner/admin");
+		return false;
+	}
+	chatBot.ignores.push(data.fromId);
+	var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
+	data.time = (Date()-0);
+	data.botId = data.fromId;
+	data.comment = info[1]
+	ignoredBots[data.fromId] = data;
+	fs.writeFileSync('bots.json',JSON.stringify(ignoredBots));
+	chatBot.sendMessage(data.toId,"You have been added as a bot. I will not respond to any more input from you.");
+}
 //store private areas of configuration separately so I can share this file
 var logLevel = 'info';
 
@@ -181,6 +215,8 @@ miley.addTriggers([
 		public: cfg.miley.webUIPublic,
 		admins:[users.efreak]
 	} },
+	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot }},
+	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',   options: { matches: ['!stopplaying'],  exact:true, users:[users.efreak], callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at http://miley.efreakbnc.net/logs/files and you can find a live updating log with 100 lines of history at http://miley.efreakbnc.net/logs/live#room="+data.toId+"&lines=100");}}},
 	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames} }, //no commands.
@@ -329,6 +365,8 @@ sgsBot.addTriggers([
 		public: cfg.sgs.webUIPublic,
 		admins:[users.efreak]
 	} },
+	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot}},
+	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',     options: { matches: ['!stopplaying'],  exact:true, users:sgsAdmins, callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'startplaying',        type: 'BotCommandTrigger',     options: { matches: ['!startplaying'], exact:true, users:sgsAdmins, callback: function(bot,data){bot.setGames(sgsGamesList);}}},
 	{ name: 'logTrigger',          type: 'LogTrigger',            options: {roomNames: roomNames, linesToSend:250} },
@@ -448,6 +486,8 @@ poonicorn.addTriggers([
 		public: cfg.poo.webUIPublic,
 		admins:[users.efreak]
 	} },
+	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot}},
+	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"Live log is available at http://trivia.efreakbnc.net/logs/live#room=103582791438401769&lines=100 Lines show up immediately, as soon as the bot sees them. A complete history is at http://trivia.efreakbnc.net/logs/g-Trivia%20Knights.txt");}}},
 	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames, pingTimer:5000} },
 	{ name: 'TriviaTrigger',       type: 'TriviaTrigger',          options: { command: '!trivia', rooms:[rooms.tknights], admins: triviaAdmins}},
