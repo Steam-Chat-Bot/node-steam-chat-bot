@@ -246,6 +246,7 @@ miley.addTriggers([
 	{ name: 'CNJFetcher',          type: 'JsonTrigger',         options: { command: "!norris", url:"http://api.icndb.com/jokes/random",parser:['value','joke'] } },
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger'}, //!randomgame
 	{ name: 'OMDBTrigger',         type: 'OMDBTrigger' }, //!imdb (or maybe !omdb?)
+	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',        options: { }},
 	{ name: 'HelpCmd',             type: 'ChatReplyTrigger',    options: { matches: ['!help','!triggers','!cmds','!commands'],
 		responses: ['Please view my profile for a list of public commands and other triggers. Not all triggers are allowed in all chats.'],
 		exact: true, probability: 1, timeout: 1000 } },
@@ -386,6 +387,7 @@ sgsBot.addTriggers([
 			autoJoinAfterDisconnect: true
 		}
 	},
+	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',        options: { }},
 	{ name: 'BanTrigger',          type: 'BanTrigger',            options: { users: sgsAdmins } },
 	{ name: 'KickTrigger',         type: 'KickTrigger',           options: { users: sgsAdmins } },
 	{ name: 'UnbanTrigger',        type: 'UnbanTrigger',          options: { users: sgsAdmins } },
@@ -488,6 +490,7 @@ poonicorn.addTriggers([
 	} },
 	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot}},
 	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
+	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',        options: { }},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"Live log is available at http://trivia.efreakbnc.net/logs/live#room=103582791438401769&lines=100 Lines show up immediately, as soon as the bot sees them. A complete history is at http://trivia.efreakbnc.net/logs/g-Trivia%20Knights.txt");}}},
 	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames, pingTimer:5000} },
 	{ name: 'TriviaTrigger',       type: 'TriviaTrigger',          options: { command: '!trivia', rooms:[rooms.tknights], admins: triviaAdmins}},
