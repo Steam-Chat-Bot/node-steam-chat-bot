@@ -215,7 +215,7 @@ miley.addTriggers([
 		public: cfg.miley.webUIPublic,
 		admins:[users.efreak]
 	} },
-	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot }},
+	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!imabot'], exact:false, callback:imabot }},
 	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',   options: { matches: ['!stopplaying'],  exact:true, users:[users.efreak], callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at http://miley.efreakbnc.net/logs/files and you can find a live updating log with 100 lines of history at http://miley.efreakbnc.net/logs/live#room="+data.toId+"&lines=100");}}},
@@ -366,7 +366,7 @@ sgsBot.addTriggers([
 		public: cfg.sgs.webUIPublic,
 		admins:[users.efreak]
 	} },
-	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot}},
+	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!imabot'], exact:false, callback:imabot}},
 	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',     options: { matches: ['!stopplaying'],  exact:true, users:sgsAdmins, callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'startplaying',        type: 'BotCommandTrigger',     options: { matches: ['!startplaying'], exact:true, users:sgsAdmins, callback: function(bot,data){bot.setGames(sgsGamesList);}}},
@@ -387,7 +387,7 @@ sgsBot.addTriggers([
 			autoJoinAfterDisconnect: true
 		}
 	},
-	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',        options: { }},
+	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',          options: { users: sgsAdmins}},
 	{ name: 'BanTrigger',          type: 'BanTrigger',            options: { users: sgsAdmins } },
 	{ name: 'KickTrigger',         type: 'KickTrigger',           options: { users: sgsAdmins } },
 	{ name: 'UnbanTrigger',        type: 'UnbanTrigger',          options: { users: sgsAdmins } },
@@ -488,7 +488,7 @@ poonicorn.addTriggers([
 		public: cfg.poo.webUIPublic,
 		admins:[users.efreak]
 	} },
-	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!true'], exact:false, callback:imabot}},
+	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!imabot'], exact:false, callback:imabot}},
 	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',        options: { }},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"Live log is available at http://trivia.efreakbnc.net/logs/live#room=103582791438401769&lines=100 Lines show up immediately, as soon as the bot sees them. A complete history is at http://trivia.efreakbnc.net/logs/g-Trivia%20Knights.txt");}}},
