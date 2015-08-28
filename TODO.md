@@ -1,7 +1,8 @@
 ---
 layout: page
-title: TODO
+title: Todo
 tagline: Plans and vague ideas for improving and extending steam-chat-bot
+group: content
 redirect_from: "/TODO/"
 ---
 

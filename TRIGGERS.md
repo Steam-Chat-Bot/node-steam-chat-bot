@@ -2,6 +2,7 @@
 layout: page
 title: Triggers
 tagline: Loading and using triggers
+group: content
 ---
 
 Many triggers have a default command (or commands) defined, so if you don't choose one in the options, the default will be used.

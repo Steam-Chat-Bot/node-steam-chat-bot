@@ -2,6 +2,7 @@
 layout: page
 title: Steam Chat Bot
 tagline: Simplified interface for a steam chat bot
+redirect_to: /
 ---
 
 [![GitHub version](//img.shields.io/github/release/efreak/node-steam-chat-bot.svg?label=ver)](https://github.com/Efreak/node-steam-chat-bot/releases/latest)

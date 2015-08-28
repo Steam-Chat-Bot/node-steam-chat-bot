@@ -2,7 +2,7 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title 
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "Rakefile", "changelog.md"]
 highlighter: pygments
 
 # Themes are encouraged to use these universal variables 
@@ -136,3 +136,4 @@ markdown: kramdown
 kramdown:
   use_coderay: true
 
+listInFooter: true

@@ -2,6 +2,7 @@
 layout: page
 title: Contributing
 tagline: Stylistic and other standards to comply with when submitting code
+group: content
 ---
 
 When contributing by opening a pull request, please make sure you follow the style that already exists in the files. PLEASE PLEASE PLEASE also check your pull request on [codacy](https://www.codacy.com/app/node-steam-chat-bot/steam-chat-bot/pullRequests?bid=2286175) so I don't need to spend 2 hours and 5 commits fixing all of your problems. Some common examples:

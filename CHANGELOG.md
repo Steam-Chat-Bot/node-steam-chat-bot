@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Changelog
+group: content
 ---
 
 Post-2.2.0 (unreleased as yet)
