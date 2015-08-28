@@ -1,17 +1,14 @@
 <div id="header_wrap" class="outer">
   <header class="inner">
-    <a id="forkme_banner" href="https://github.com/{{ site.author.github }}" target="_blank">View on GitHub</a>
-
+    {% if site.author.github %}<a id="forkme_banner" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}" target="_blank">View on GitHub</a>{% endif %}
     <h1 id="project_title">{{ site.title }}</h1>
     <h2 id="project_tagline">{{ site.tagline }}
 </h2>
 
-    {% if site.github_project %}
     <section id="downloads">
-      <a class="npm_download_link" href="https://npmjs.com/package/{{ site.npm_name }}" alt="npm install {{ site.npm_name }}" title="npm install {{ page.npm_name }}">Download this project through NPM</a>
-      <a class="zip_download_link" href="https://github.com/{{ site.github_project }}/zipball/master">Download this project as a .zip file</a>
-      <a class="tar_download_link" href="https://github.com/{{ site.github_project }}/tarball/master">Download this project as a tar.gz file</a>
+      {% if site.author.npm_name %}<a class="npm_download_link" href="https://npmjs.com/package/{{ site.author.npm_name }}" alt="npm install {{ site.author.npm_name }}" title="npm install {{ site.author.npm_name }}">Download this project through NPM</a>{% endif %}
+      {% if site.author.github and site.author.github_project %}<a class="zip_download_link" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}/zipball/master">Download this project as a .zip file</a>
+      <a class="tar_download_link" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}/tarball/master">Download this project as a tar.gz file</a>{% endif %}
     </section>
-    {% endif %}
   </header>
 </div>

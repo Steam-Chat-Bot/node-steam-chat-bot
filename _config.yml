@@ -13,8 +13,11 @@ tagline: Simplified interface for a steam chat bot
 author :
   name : Efreak
   email : efreak@users.noreply.github.com
-  github : Efreak/node-steam-chat-bot
   twitter : Efreak2004
+  github : Efreak
+  github_project : node-steam-chat-bot
+  npm_name : steam-chat-bot
+
 #  feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
@@ -129,9 +132,6 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
-github_project : 'efreak\node-steam-chat-bot'
-npm_name : 'steam-chat-bot'
-
 markdown: kramdown
 kramdown:
   use_coderay: true

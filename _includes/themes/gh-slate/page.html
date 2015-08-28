@@ -8,8 +8,13 @@
     {{ content }}
   </div>
 </div>
-<h2>All Pages</h2>
+{% if page.listInFooter or site.listInFooter %}
+<h2>{% if page.groupDisplay %}{{ page.groupDisplay }}{% else %}All Pages{% endif %}</h2>
 <ul>
 {% assign pages_list = site.pages %}
+{% if page.group %}
+  {% assign group = page.group %}
+{% endif %}
 {% include JB/pages_list %}
 </ul>
+{% endif %}
