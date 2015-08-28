@@ -87,19 +87,32 @@ var assholes = { //I can't report you to steamrep for spamming, but I will add y
 	crowley: '76561197986549862',	//abusing !roll
 }
 
-var trustedBots = {
-	bansheebot: '76561198233180832',
-	otherbansheebot: '76561198164977236',
-	sgsbot: '76561198055589142',
-	zay: '76561198212058096',
-	miley: '76561198055685680'
+var trustedBots = { //these bots are so-called 'trusted' because they won't be checked for having bad profiles, as they're bots, not people.
+	BansheeKeyBot: '76561198233180832',	//Banshee
+	NewTrierBot: '76561198164977236',	//Banshee
+	Dellatrix: '76561198190392221',		//BeautifulShrill
+	'/r/SGS Bot': '76561198055589142',	//Efreak
+	Zay: '76561198212058096',		//??
+	Miley: '76561198055685680'		//Efreak
+	MariePoppo: '76561198240914582',	//??
+}
+var otherBots = { //these bots are also ignored, but they're not trusted, so not added to trustedbots. If you know who owns any given bot, please let me know.
+	//if you invite any of these bots to the bot dev for something other than dev-related discussion, they will be banned. So will you if we find out who you are.
+	lewdbot: '76561198178278582',
+	'0x0bf3f39': '76561198107682909',
+	aoi2: '76561198157712509',
+	aoi: '76561198065031569'
 }
 var globalIgnores = []; //generate the global ignores list by adding everyone from the 'asshole' list. This list is used on all 3 bots.
 for(var name in assholes) {
 	globalIgnores.push(assholes[name]);
 }
-
-
+for (var bot in trustedBots) { //Let i.imgur.com/GR3aU0N.png be a lesson to you: Make your bots ignore all the other bots lest they get in feedback loops. This one went on for nearly 20 minutes. i.imgur.com/3WsfhCb.png
+	globalIgnores.push(trustedBots[bot]);
+}
+for (var bot in otherBots) {
+	globalIgnores.push(otherBots[bot]);
+}
 //ignoredBots is basically bots that will be ignored by my bots. Feel free to steal this code. ignoredBots get added to global ignores. There's also a function for admins (me) to add other bots (or annoying users) to the list with.
 var fs = require('fs');
 var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
