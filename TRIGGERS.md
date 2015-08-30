@@ -91,6 +91,13 @@ Options:
 - exact - *boolean* - if this is true, the message received must be an exact match, if it's false the message just must contain the match (both case-insensitive)
 - users - *array of string* - the steamIds of the users that can trigger a response, can be null or empty to match all users
 - respond - *string* - where to respond? in 'group', 'pm', or nothing to respond wherever the command was sent (default)
+- 
+### `ChooseTrigger`
+ 
+Chooses a random item from a list supplied.
+ 
+Options:
+- command (string) - defaults to "!choose"
 
 ### `CleverbotTrigger`
 
