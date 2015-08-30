@@ -27,7 +27,7 @@ lib/chatBot.private.js
 *.bak
 npm-debug.log
 changelog.dev
-.vs
+.vs/
 
 # these folders contain working trees in my clone, so I don't have to check them out.
 gh-pages
