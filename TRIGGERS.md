@@ -93,11 +93,11 @@ Options:
 - respond - *string* - where to respond? in 'group', 'pm', or nothing to respond wherever the command was sent (default)
 - 
 ### `ChooseTrigger`
-
-Adds the ability to make the bot make a choice when given various options. Each option is seperated via space.
-Example: 
-User: !choose Cats Dogs Hamsters Birds
-Bot: I have chosen Birds
+ 
+Chooses a random item from a list supplied.
+ 
+Options:
+- command (string) - defaults to "!choose"
 
 ### `CleverbotTrigger`
 
