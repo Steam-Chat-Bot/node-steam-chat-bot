@@ -28,6 +28,7 @@ temp/
 changelog.dev
 gh-pages
 master
+.vs
 
 _site/*
 _theme_packages/*
