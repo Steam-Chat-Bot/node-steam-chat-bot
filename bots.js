@@ -93,8 +93,8 @@ var trustedBots = { //these bots are so-called 'trusted' because they won't be c
 	Dellatrix: '76561198190392221',		//BeautifulShrill
 	'/r/SGS Bot': '76561198055589142',	//Efreak
 	Zay: '76561198212058096',		//??
-	Miley: '76561198055685680'		//Efreak
 	MariePoppo: '76561198240914582',	//??
+	Miley: '76561198055685680'		//Efreak
 }
 var otherBots = { //these bots are also ignored, but they're not trusted, so not added to trustedbots. If you know who owns any given bot, please let me know.
 	//if you invite any of these bots to the bot dev for something other than dev-related discussion, they will be banned. So will you if we find out who you are.
@@ -253,6 +253,7 @@ miley.addTriggers([
 	{ name: 'SetStatusTrigger',    type: 'SetStatusTrigger',    options: { users: [users.efreak] } }, //!status
 	{ name: 'SetNameTrigger',      type: 'SetNameTrigger',      options: { users: [users.efreak] } }, //!name
 	{ name: 'JoinChatTrigger',     type: 'JoinChatTrigger',     options: { users: [users.efreak] } }, //!join
+	{ name: 'CrockfordTrigger',    type: 'JsonTrigger',         options: { command: "!crock", url:'http://crockfordfacts.org/random.json', parser: function(r,u,t,m,b) { b._sendMessageAfterDelay(t,r); return true;} } },
 	{ name: 'RemoveFriendTrigger', type: 'RemoveFriendTrigger', options: { users: [users.efreak] } }, //!unfriend
 	{ name: 'AddFriendTrigger',    type: 'AddFriendTrigger',    options: { users: [users.efreak] } }, //!friend
 	{ name: 'InfoTrigger',         type: 'InfoTrigger',         options: { users: [users.efreak] } }, //!botinfo
