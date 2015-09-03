@@ -238,6 +238,14 @@ everything. Removes blank lines.
 - logConsole - log chatter to console?
 - liveUrl, logURL, etc - see the trigger definition file for more help.
 
+### `MathTrigger`
+
+Does math for you!
+
+Options: 
+
+- mathcommand - defaults to "!math"
+
 ### `MemeBotTrigger`
 
 Adds ">" before a message it will send. How does it work? Who knows?
