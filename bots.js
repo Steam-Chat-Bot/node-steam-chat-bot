@@ -325,6 +325,9 @@ miley.addTriggers([
 	{ name: 'Youtube',         type: 'YoutubeTrigger',         options: { command: '!yt',ignore: [rooms.Reddit],rickrollChance: .05	} },
         { name: 'UD',              type: 'UrbanDictionaryTrigger', options: { command: '!ud', timeout: 1000 } },
 	{ name: 'SteamrepOnJoin',  type: 'SteamrepOnJoinTrigger',  options: { ignore: [users.efreak] } },
+	{ name: 'MathTrigger',     type: 'MathTrigger',            options: { command:'!calc'} },
+	{ name: 'ChooseTrigger',   type: 'ChooseTrigger'},
+	{ name: 'RollTrigger',     type: 'RollTrigger'},
 	{ name: 'RedditTrigger',   type: 'RedditTrigger',          options: cfg.redditrepOptions }
 ]);
 
