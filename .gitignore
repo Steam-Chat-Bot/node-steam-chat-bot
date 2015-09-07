@@ -14,8 +14,8 @@ sentry*
 *hash
 
 # Development stuff
-.sln
-.njsproj
+*.sln
+*.njsproj
 temp/
 test.js
 .ntvs_analysis.dat
