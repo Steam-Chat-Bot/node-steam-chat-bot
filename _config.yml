@@ -17,6 +17,7 @@ author :
   github : Efreak
   github_project : node-steam-chat-bot
   npm_name : steam-chat-bot
+favicon : /node-steam-chat-bot/assets/favicon.png
 
 #  feedburner : feedname
 
