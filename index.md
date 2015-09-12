@@ -1,7 +1,5 @@
 ---
 layout: page
-title: Steam Chat Bot
-tagline: Simplified interface for a steam chat bot
 group: content
 ---
 
