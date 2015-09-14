@@ -6,6 +6,7 @@
 		<script type="text/javascript" src="//rawgit.com/mudcube/console.json/master/console.json.js"></script>
 		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="webui.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/1.3.1/lodash.min.js"></script>
 		<script type="text/javascript" src="//rawgit.com/padolsey-archive/prettyprint.js/master/prettyprint.js"></script>
 	</head>
 	<body>
@@ -13,24 +14,28 @@
 		<div id="success"></div>
 		<div id="copyBox"></div>
 		<div id="constructor">
-			<div id="ignores" />
+			<div id="ignores"></div>
 			<input type="text" id="ignoreId" />
 			<input type="button" id="addIgnoreButton" value="Ignore ID" />
 			<input type="button" id="removeIgnoreButton" value="Unignore ID" />
 		</div>
-		<div id="info" class="container2">
-			<div id="rooms">
-				<h3>Active Rooms</h3>
-				<ol id="roomlist"></ol>
-			</div>
-			<div id="users">
-				<h3>Users in <span id="currentRoom"></span></h3>
-				<ol id="userlist"></ol>
-			</div>
-			<div id="triggers">
-				<h3 id="toggleTriggers">Show/Hide Triggers</h3>
-				<div id="triggerList"></div>
-			</div>
+		<div id="rooms" class="container2">
+			<h3>Active Rooms</h3>
+			<table><thead><tr>
+				<th>Name</th>
+				<th>ID</th>
+				<th>Users</th>
+			</tr></thead><tbody id="groupColumn"></tbody></table>
+		</div>
+		<div id="triggers" class="container2">
+			<h3 id="toggleTriggers">Show/Hide Triggers</h3>
+			<table id="triggerTable"><thead><tr>
+				<th id="thTriggerName">Name</th>
+				<th id="thTriggerTime">Type</th>
+				<th id="thTriggerOptions" class="TriggerOptions">Options</th>
+			</tr></thead>
+			<tbody id="TriggerTableBody"></tbody>
+			</table>
 		</div>
 		<div id="controls" class="container2">
 			<h2>Controls</h2>
@@ -91,24 +96,25 @@
 		<div id="logsContainer" class="container2">
 			<ol id="logs"></ol>
 		</div>
-		<ol id="stats">
-			<li>Runtime: <span id="sinceStart"></span></li>
-			<li id="sinceLogonCont">Logged In: <span id="sinceLogon"></span></li>
-			<li id="sinceLogoffCont">Logged Off: <span id="sinceLogoff"></span></li>
-			<li>Muted: <span id="muted"></span></li>
-			<li>Platform: <span id="platform"></span></li>
-			<li>Arch: <span id="arch"></span></li>
-			<li>Heap Used: <span id="heapUsed"></span></li>
-			<li>Heap Total: <span id="heapTotal"></span></li>
-			<li>RSS: <span id="rss"></span></li>
-			<li>steam-chat-bot <span id="botVersion"></span></li>
-			<li>node.js <span id="nodeVersion"></span></li>
-		</ol>
+		<table id="stats">
+			<tr><td>Runtime</td><td id="Stats-Runtime"></td></tr>
+			<tr id="Stats-SinceLogonRow"><td>Since Login</td><td id="Stats-SinceLogon"></td></tr>
+			<tr id="Stats-SinceLogoffRow"><td>Since Logoff</td><td id="Stats-SinceLogoff"></td></tr>
+			<tr><td>Muted</td><td id="Stats-Muted"></td></tr>
+			<tr><td>Platform</td><td id="Stats-Platform"></td></tr>
+			<tr><td>Architecture</td><td id="Stats-Architecture"></td></tr>
+			<tr><td>HeapUsed</td><td id="Stats-HeapUsed"></td></tr>
+			<tr><td>HeapTotal</td><td id="Stats-HeapTotal"></td></tr>
+			<tr><td>RSS</td><td id="Stats-RSS"></td></tr>
+			<tr><td>BotVersion</td><td id="Stats-BotVersion"></td></tr>
+			<tr><td>NodeJSVersion</td><td id="Stats-NodeJSVersion"></td></tr>
+		</table>
 		<div id="settings">
-			<input type="checkbox" checked id="settingShowLogs"/> Show Logs (in javascript console)<br>
+			<input type="checkbox" id="settingShowLogs"/> Show Logs (in javascript console)<br>
 			<input type="checkbox" checked id="settingPrettyPrint"/> PrettyPrint logs<br>
 			<input type="checkbox" checked id="settingUpdateStats"/>Update Stats (every 5s or localStorage.statsInterval)<br>
 			<input type="checkbox" checked id="settingUpdateTriggers"/>Update Triggers? (every 5min or localStorage.triggerInterval)<br>
+			<input type="checkbox" checked id="settingShowTriggerOptions"/>Show Trigger Options?<br>
 			<input type="checkbox" id="settingShowRequests"/>Show Web Requests in logs?<br>
 		</div>
 	</body>
