@@ -52,9 +52,12 @@ td {
 }
 table {
 	text-align: center;
-	width:100%;
+//	width:100%;
 	border:0;
 	border-collapse:collapse;
+}
+table table {
+	width: 100%;
 }
 tbody tr {
 	background-image:none;
