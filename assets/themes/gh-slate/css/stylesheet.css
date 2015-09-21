@@ -394,16 +394,21 @@ Add links to headers at left. Code stolen from http://ben.balter.com/2014/03/13/
 
 .header-link {
   position: absolute;
-  left: -0.5em;
-  opacity: 0;
+  left: -0.75em;
+  opacity: 0.1;
+  vertical-align:middle;
 
-  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  -moz-transition: opacity 0.2s ease-in-out 0.1s;
-  -ms-transition: opacity 0.2s ease-in-out 0.1s;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
 }
-
+a.header-link {
+  color:#000;
+}
 h2:hover .header-link, h3:hover .header-link, h4:hover .header-link, h5:hover .header-link, h6:hover .header-link {
   opacity: 1;
+  color: #0069ba;
+  text-shadow: #0090ff 0px 0px 2px;
 }
 
 /*******************************************************************************
