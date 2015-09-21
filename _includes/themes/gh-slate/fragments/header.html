@@ -1,8 +1,12 @@
 <div id="header_wrap" class="outer">
   <header class="inner">
-    {% if site.author.github %}<a id="github_banner" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}" target="_blank">&nbsp;</a>{% endif %}
-    {% if site.author.steam %}<a id="steam_banner" href="https://steamcommunity.com/groups/{{ site.author.steam }}" target="_blank">&nbsp;</a>{% endif %}
-    {% if site.author.reddit %}<a id="reddit_banner" href="https://reddit.com/r/{{ site.author.reddit }}" target="_blank">&nbsp;</a>{% endif %}
+    {% if site.author.github or site.author.steam or site.author.reddit %}
+      <div id="banner_container">View on 
+        {% if site.author.github %}<a id="github_banner" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}" target="_blank">&nbsp;</a>{% endif %}
+        {% if site.author.steam %}<a id="steam_banner" href="https://steamcommunity.com/groups/{{ site.author.steam }}" target="_blank">&nbsp;</a>{% endif %}
+        {% if site.author.reddit %}<a id="reddit_banner" href="https://reddit.com/r/{{ site.author.reddit }}" target="_blank">&nbsp;</a>{% endif %}
+      </div>
+    {% endif %}
     <h1 id="project_title">{{ site.title }}</h1>
     <h2 id="project_tagline">{{ site.tagline }}
 </h2>
