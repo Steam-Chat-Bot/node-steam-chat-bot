@@ -276,21 +276,28 @@ Full-Width Styles
   margin: 0 auto;
 }
 
-#forkme_banner {
+#github_banner, #reddit_banner, #steam_banner {
   display: block;
   position: absolute;
   top:0;
   right: 10px;
   z-index: 10;
-  padding: 10px 50px 10px 10px;
   color: #fff;
-  background: url('../img/blacktocat.png') #0090ff no-repeat 95% 50%;
+  padding: 10px 50px 10px 10px;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-
+#github_banner {
+  background: url('../img/link-img-gh.png') #0090ff no-repeat 95% 50%;
+}
+#reddit_banner {
+  background: url('../img/link-img-reddit.png') #ff4500 no-repeat 95% 50%;
+}
+#steam_banner {
+  background: url('../img/link-img-steam.png') #000000 no-repeat 95% 50%;
+}
 #header_wrap {
   background: #212121;
   background: -moz-linear-gradient(top, #373737, #212121);

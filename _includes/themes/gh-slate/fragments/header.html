@@ -1,6 +1,8 @@
 <div id="header_wrap" class="outer">
   <header class="inner">
-    {% if site.author.github %}<a id="forkme_banner" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}" target="_blank">View on GitHub</a>{% endif %}
+    {% if site.author.github %}< id="github_banner" href="https://github.com/{{ site.author.github }}/{{ site.author.github_project }}" target="_blank"></a>{% endif %}
+    {% if site.author.steam %}< id="steam_banner" href="https://steamcommunity.com/groups/{{ site.author.steam }}" target="_blank"></a>{% endif %}
+    {% if site.author.reddit %}< id="reddit_banner" href="https://reddit.com/r/{{ site.author.reddit }}" target="_blank"></a>{% endif %}
     <h1 id="project_title">{{ site.title }}</h1>
     <h2 id="project_tagline">{{ site.tagline }}
 </h2>
