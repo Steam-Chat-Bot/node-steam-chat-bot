@@ -1,9 +1,9 @@
 {
   "name": "steam-chat-bot",
-  "homepage": "https://github.com/Efreak/node-steam-chat-bot",
+  "homepage": "https://steam-chat-bot.github.io/node-steam-chat-bot",
   "version": "2.2.0-dev",
   "bugs": {
-    "url": "http://github.com/Efreak/node-steam-chat-bot/issues"
+    "url": "http://github.com/steam-chat-bot/node-steam-chat-bot/issues"
   },
   "description": "Simplified interface for a steam chat bot with lots of built-in functionality",
   "keywords": [
@@ -28,7 +28,7 @@
   "author": {
     "name": "See contributors",
     "email": "not@given.com",
-    "url": "http://www.github.com/Efreak/node-steam-chat-bot"
+    "url": "https://github.com/steam-chat-bot/node-steam-chat-bot/graphs/contributors"
   },
   "contributors": [
     {
@@ -101,7 +101,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Efreak/node-steam-chat-bot.git"
+    "url": "https://github.com/steam-chat-bot/node-steam-chat-bot.git"
   },
   "dependencies": {
     "express": "^4.10.0",
