@@ -392,6 +392,9 @@ Full-Width Styles
 Add links to headers at left. Code stolen from http://ben.balter.com/2014/03/13/pages-anchor-links
 *******************************************************************************/
 
+.fa {
+  vertical-align:middle;
+}
 .header-link {
   position: absolute;
   left: -0.75em;
