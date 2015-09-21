@@ -14,9 +14,11 @@ author :
   name : Efreak
   email : efreak@users.noreply.github.com
   twitter : Efreak2004
-  github : Efreak
+  github : Steam-Chat-Bot
   github_project : node-steam-chat-bot
   npm_name : steam-chat-bot
+  reddit : NodeSteamChatBot
+  steam : steam-chat-bot
 favicon : /node-steam-chat-bot/assets/favicon.png
 
 #  feedburner : feedname
