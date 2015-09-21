@@ -15,7 +15,7 @@ group: content
 [![Downloads per month](//img.shields.io/npm/dm/steam-chat-bot.svg?label=DLs)](https://npmjs.com/package/steam-chat-bot)
 
 [![Stats](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
-[![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=2)](https://nodei.co/npm/steam-chat-bot/)
+[![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=3)](https://nodei.co/npm/steam-chat-bot/)
 
 ### Note: In 2.1.1 GithubTrigger is currently broken. It does not work with the new webserver correctly. This should be fixed by next release.
 
