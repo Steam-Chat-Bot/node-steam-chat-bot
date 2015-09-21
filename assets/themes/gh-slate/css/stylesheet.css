@@ -395,7 +395,7 @@ Add links to headers at left. Code stolen from http://ben.balter.com/2014/03/13/
 .header-link {
   position: absolute;
   left: -0.75em;
-  opacity: 0.1;
+  opacity: 0.05;
   vertical-align:middle;
 
   -webkit-transition: opacity 0.2s;
@@ -403,12 +403,12 @@ Add links to headers at left. Code stolen from http://ben.balter.com/2014/03/13/
   -ms-transition: opacity 0.2s;
 }
 a.header-link {
-  color:#000;
+  color:#000!important;
 }
 h2:hover .header-link, h3:hover .header-link, h4:hover .header-link, h5:hover .header-link, h6:hover .header-link {
   opacity: 1;
-  color: #000000;
-  text-shadow: #111111 0px 0px 2px;
+  color: #000000!important;
+  text-shadow: #111111 0px 0px 2px!important;
 }
 
 /*******************************************************************************
