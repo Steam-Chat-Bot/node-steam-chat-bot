@@ -290,13 +290,13 @@ Full-Width Styles
   border-bottom-right-radius: 2px;
 }
 #github_banner {
-  background: url('../img/link-img-gh.png') #0090ff no-repeat 95% 50%;
+  background: url('../img/link-img-gh.svg') #0090ff no-repeat 95% 50%;
 }
 #reddit_banner {
-  background: url('../img/link-img-reddit.png') #ff4500 no-repeat 95% 50%;
+  background: url('../img/link-img-reddit.svg') #ff4500 no-repeat 95% 50%;
 }
 #steam_banner {
-  background: url('../img/link-img-steam.png') #000000 no-repeat 95% 50%;
+  background: url('../img/link-img-steam.svg') #000000 no-repeat 95% 50%;
 }
 #header_wrap {
   background: #212121;
