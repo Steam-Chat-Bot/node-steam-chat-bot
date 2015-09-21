@@ -286,24 +286,25 @@ Full-Width Styles
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   z-index: 10;
+  vertical-align:middle;
 }
-#github_banner, #reddit_banner, #steam_banner {
+#github_banner, #reddit_banner, #steam_banner, #prefix_banner {
   float:right;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
 #github_banner {
-  padding: 10px 21px 10px 10px;
-  background: url('../img/link-img-gh.svg') #0090ff no-repeat 95% 50%;
+  padding: 10px 30px 10px 10px;
+  background: url('../img/link-img-gh.svg') #0090ff no-repeat 50% 50%;
 }
 #reddit_banner {
-  padding: 10px 26px 10px 10px;
-  background: url('../img/link-img-reddit.svg') #ff4500 no-repeat 95% 50%;
+  padding: 10px 30px 10px 10px;
+  background: url('../img/link-img-reddit.svg') #ff4500 no-repeat 45% 50%;
 }
 #steam_banner {
-  padding: 10px 34px 10px 10px;
-  background: url('../img/link-img-steam.svg') #000000 no-repeat 95% 50%;
+  padding: 10px 40px 10px 10px;
+  background: url('../img/link-img-steam.svg') #000000 no-repeat 50% 50%;
 }
 #header_wrap {
   background: #212121;
