@@ -120,6 +120,17 @@ module.exports = [
 			timeout: 5000
 		}
 	},
+	// Weather trigger.
+	{
+		name: "Weather",
+		type: "WeatherTrigger",
+		options: {
+			apikey: "replaceme",
+			conditions: '!weather',
+			forecast: '!forecase',
+			forecastMetric: false;
+		}
+	},
 	// Reply triggers that will only respond to a particular user
 	{
 		name: "SingleUserReply",
