@@ -143,6 +143,17 @@ module.exports = [
 		}
 	},
 
+	//sends a message to a destination every X ms
+	{
+		name: "MessageIntervalTrigger",
+		type: "MessageIntervalTrigger",
+		options: {
+			interval: 5*60*1000, //every 5 minutes. You probably want it higher.
+			message: "something interesting, but not spammy",
+			destination: "103582791438731217" //please don't spam my chat
+		}
+	},
+
 	// Sample regex trigger,"mate" will be responded to with "mmaaaate",
 	// "mmaaaate" will be responded to with "mmmaaaaaaate",etc
 	{
