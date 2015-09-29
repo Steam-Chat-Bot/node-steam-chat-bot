@@ -12,6 +12,8 @@ logs/
 backup/
 sentry*
 *hash
+*.db
+*firstRun*
 
 # Development stuff
 *.sln
@@ -30,6 +32,7 @@ lib/chatBot.private.js
 npm-debug.log
 changelog.dev
 .vs/
+*.sublime*
 
 # these folders contain working trees in my clone, so I don't have to check them out.
 gh-pages

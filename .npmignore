@@ -29,3 +29,6 @@ changelog.dev
 .vs
 *.njsproj
 *.sln
+*.sublime*
+*.db
+*firstRun*
