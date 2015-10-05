@@ -22,8 +22,7 @@
 		<div id="rooms" class="container2">
 			<h3>Active Rooms</h3>
 			<table><thead><tr>
-				<th>Name</th>
-				<th>ID</th>
+				<th>Name<span class="groupid"><br>ID</span></th>
 				<th>Users</th>
 			</tr></thead><tbody id="groupColumn"></tbody></table>
 		</div>
@@ -42,7 +41,7 @@
 			<h4>To use multiple targets (users or rooms), separate them with commas.</h4>
 			<h4>Currently it is required to enter use steamids. There is no menu.</h4>
 			<div id="send">
-				<input type="text" placeholder="steamid" id="sendTarget" />
+				<input type="text" placeholder="steamid" id="sendTarget" class="groupid userid" />
 				<input type="text" placeholder="Message" id="sendMessage" />
 				<input type="button" id="sendButton" value="Send Message" />
 			</div>
@@ -61,7 +60,7 @@
 				<input type="button" id="statusPlay"    value="Play"    />
 			</div>
 			<div id="targetOnly">
-				<input type="text" placeholder="steamid" id="targetOnlyTargets" />
+				<input type="text" placeholder="steamid" id="targetOnlyTargets" class="groupid"/>
 				<input type="button" id="joinButton"   value="Join Chat(s)"   />
 				<input type="button" id="leaveButton"  value="Leave Chat(s)"  />
 				<input type="button" id="lockButton"   value="Lock Chat(s)"   />
@@ -70,15 +69,15 @@
 				<input type="button" id="unmodButton"  value="Unmod Chat(s)"  />
 			</div>
 			<div id="kickban">
-				<input type="text" placeholder="steamid" id="kickbanTargets" />
-				<input type="text" placeholder="roomid" id="kickbanRoom" />
+				<input type="text" placeholder="steamid" id="kickbanTargets" class="userid"/>
+				<input type="text" placeholder="roomid" id="kickbanRoom" class="groupid"/>
 				<input type="button" id="kickButton"  value="Kick User(s) from Chat"  />
 				<input type="button" id="banButton"   value="Ban User(s) from Chat"   />
 				<input type="button" id="unbanButton" value="Unban User(s) from Chat" />
 			</div>
 <!--
 			<div id="announce">
-				<input type="text" placeholder="steamid" id="announceTarget" />
+				<input type="text" placeholder="steamid" id="announceTarget" class="groupid"/>
 				<input type="text" placeholder="Headline" id="announceHeadline" />
 				<textarea id="announceBody" placeholder="Text"></textarea>
 				<input type="button" id="announceButton" value="Send Message" />
