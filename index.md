@@ -17,10 +17,6 @@ group: content
 [![Stats](https://nodei.co/npm/steam-chat-bot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/steam-chat-bot/)
 [![Downloads](https://nodei.co/npm-dl/steam-chat-bot.png?months=6&height=3)](https://nodei.co/npm/steam-chat-bot/)
 
-### Note: In 2.1.1 & 2.2.0 GithubTrigger is currently broken. It does not work with the new webserver correctly. This should be fixed by next release.
-
-####Edit: fixed in development
-
 # steam-chat-bot
 
 This module is based on the original steam-chat-bot written by [bonnici](https://github.com/bonnici). The original module link is [here](https://github.com/bonnici/node-steam-chat-bot).
