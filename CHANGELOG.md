@@ -1,4 +1,4 @@
-Post-2.2.0 (unreleased as yet)
+[2.3.0 / 2015-10-5 - GabenForPresident](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.3.0)
 ==================
 
   * Created website with jekyll, hosted on github pages. Send users here for support.
@@ -7,6 +7,18 @@ Post-2.2.0 (unreleased as yet)
   * Prevent abuse of roll trigger killing the bot
   * Fix examples
   * Fix YoutubeTrigger crash
+  * codacy stuff
+  * fix github trigger
+  * new triggers
+    * weather trigger - !weather and !forecast without using up free wolfram api quota
+    * antispam trigger - apply punishments when users spam
+    * mathTrigger - get calculations without using up wolfram free api quota
+    * evalTrigger - safely evaluate javascript outside (or, not so safely, inside) the context of the bot
+    * messageIntervalTrigger - send a message on a timer
+    * webui - very near completion, but not actually in this release (in alternate branch)
+  * changed the way sentry logic works
+  * all 'dependencies' of individual bots (sentry, autojoin file, etc) should be in the botname folder now
+  * allow chatReplyTrigger to specify that public command returns private results
 
 [2.2.0 / 2015-08-11 - PanStoXDexter](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.2.0)
 ==================
