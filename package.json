@@ -47,7 +47,7 @@
       "contributions": 2,
       "additions": 215,
       "deletions": 4,
-      "hireable": false
+      "hireable": null
     },
     {
       "name": "John",
@@ -56,7 +56,7 @@
       "contributions": 2,
       "additions": 8,
       "deletions": 2,
-      "hireable": false
+      "hireable": null
     },
     {
       "name": "Houston",
@@ -65,7 +65,7 @@
       "contributions": 11,
       "additions": 740,
       "deletions": 861,
-      "hireable": false
+      "hireable": null
     },
     {
       "name": "bonnici",
@@ -73,25 +73,35 @@
       "url": "https://github.com/bonnici",
       "contributions": 31,
       "additions": 4397,
-      "deletions": 915
+      "deletions": 915,
+      "hireable": null
     },
     {
       "name": "Kyle Smith",
       "email": "smith.kyle1734@gmail.com",
       "url": "https://github.com/dragonbanshee",
-      "contributions": 81,
-      "additions": 2233,
-      "deletions": 1410,
-      "hireable": false
+      "contributions": 102,
+      "additions": 2381,
+      "deletions": 1636,
+      "hireable": null
     },
     {
       "name": "Efreak",
       "email": "efreak@users.noreply.github.com",
       "url": "https://github.com/Efreak",
-      "contributions": 418,
-      "additions": 14465,
-      "deletions": 8195,
+      "contributions": 516,
+      "additions": 16805,
+      "deletions": 9804,
       "hireable": true
+    },
+    {
+      "name": "Esbeckett",
+      "email": "esbeckett@users.noreply.github.com",
+      "url": "https://github.com/Esbeckett",
+      "contributions": 4,
+      "additions": 144,
+      "deletions": 71,
+      "hireable": null
     }
   ],
   "main": "./lib/chatBot",
