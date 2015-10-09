@@ -237,6 +237,7 @@ miley.addTriggers([
 	{ name: 'Notification',        type: 'NotificationTrigger', options: { roomNames: roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
 	{ name: 'ChlorStatusTrigger',  type: 'StatusTrigger',       options: { rooms: rooms.Chlorique, admin: users.chlor} }, //!status(?)
 	{ name: 'EternaStatusTrigger', type: 'StatusTrigger',       options: { rooms: rooms.BraveSpirits, admin: users.eterna} }, //!status(?)
+	{ name: 'WeatherTrigger',      type: 'WeatherTrigger',      options: { apikey: cfg.wunderkey } },
 	{ name: 'JoinRedditGamesTrigger', type: 'BotCommandTrigger',options: { matches: ['!joinrg'], exact:true,callback: function(bot) { bot.joinChat(rooms.rg); setTimeout(function(){bot.sendMessage(rooms.rg,"Someone told me to join, so here I am!")},1000)}}},
 	{ name: 'SlipSlotJoinTrigger', type: 'BotCommandTrigger',   options: { users: [users.slipslot,users.lewislol,users.sagit,users.baertel], matches: ['join chats'], exact:true,callback: function(bot) { bot.joinChat(rooms.OPT2);bot.joinChat(rooms.OPT);bot.joinChat(rooms.OPS);bot.joinChat(rooms.OPG);}}},
 	{ name: 'SayTrigger',          type: 'SayTrigger',          options: { users: [users.efreak] } }, //!say
@@ -254,6 +255,7 @@ miley.addTriggers([
 	{ name: 'SetNameTrigger',      type: 'SetNameTrigger',      options: { users: [users.efreak] } }, //!name
 	{ name: 'JoinChatTrigger',     type: 'JoinChatTrigger',     options: { users: [users.efreak] } }, //!join
 	{ name: 'CrockfordTrigger',    type: 'JsonTrigger',         options: { command: "!crock", url:'http://crockfordfacts.org/random.json', parser: function(r,u,t,m,b) { b._sendMessageAfterDelay(t,r); return true;} } },
+	{ name: 'BadFanficTrigger',    type: 'JsonTrigger',         options: { command: "!badfic", url:'http://kaction.com/badfanfiction/str_only.php', parser: function(r,u,t,m,b) { b._sendMessageAfterDelay(t,r); return true;} } },
 	{ name: 'RemoveFriendTrigger', type: 'RemoveFriendTrigger', options: { users: [users.efreak] } }, //!unfriend
 	{ name: 'AddFriendTrigger',    type: 'AddFriendTrigger',    options: { users: [users.efreak] } }, //!friend
 	{ name: 'InfoTrigger',         type: 'InfoTrigger',         options: { users: [users.efreak] } }, //!botinfo
