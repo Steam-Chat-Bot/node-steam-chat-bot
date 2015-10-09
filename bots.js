@@ -206,7 +206,7 @@ miley.addTriggers([
 			defaults: {
 				ircOptions: {
 					userName: 'Efreak',
-					realName: 'https://steam-chat-bot.github.com/node-steam-chat-bot',
+					realName: 'https://steam-chat-bot.github.io/node-steam-chat-bot',
 				}
 			},
 			servers: [{
