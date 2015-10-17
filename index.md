@@ -3,10 +3,10 @@ layout: page
 group: content
 ---
 
-[![GitHub version](//img.shields.io/github/release/efreak/node-steam-chat-bot.svg?label=ver)](https://github.com/Efreak/node-steam-chat-bot/releases/latest)
-[![GitHub tag](//img.shields.io/github/tag/efreak/node-steam-chat-bot.svg)](https://github.com/Efreak/node-steam-chat-bot/tags/latest)
+[![GitHub version](//img.shields.io/github/release/Steam-Chat-Bot/node-steam-chat-bot.svg?label=ver)](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/releases/latest)
+[![GitHub tag](//img.shields.io/github/tag/Steam-Chat-Bot/node-steam-chat-bot.svg)](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/tags/latest)
 [![node](//img.shields.io/node/v/steam-chat-bot.svg)](https://npmjs.com/package/steam-chat-bot)
-[![Repo Size](//reposs.herokuapp.com/?path=Efreak/node-steam-chat-bot)]()
+[![Repo Size](//reposs.herokuapp.com/?path=Steam-Chat-Bot/node-steam-chat-bot)]()
 [![License](//img.shields.io/badge/license-MIT-44CC11.svg)](https://efreak.mit-license.org)
 
 [![Join the chat at https://gitter.im/Efreak/node-steam-chat-bot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Efreak/node-steam-chat-bot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -49,7 +49,7 @@ myBot.loadTriggers([
 ]);
 {% endhighlight %}
 
-There are also several example configurations in the [examples folder](https://github.com/Efreak/node-steam-chat-bot/tree/master/examples).
+There are also several example configurations in the [examples folder](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/tree/master/examples).
 
 If there is no example configuration for a specified trigger, please check the top of the trigger file for information on calling it. The trigger definition files may also have information on more advanced usage than is contained in the readme or wiki or example configs.
 
@@ -119,6 +119,6 @@ After you have example-heroku set up to your liking, follow the instructions [he
 
 ### Testing Policy: [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com "Because we care™"){: style="vertical-align:middle;"}
 
-In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Efreak/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Efreak/node-steam-chat-bot/compare/) a bug, you know what to do.
+In other words, I don't do a whole lot of testing. I do my best not to break things, but *stuff happens*. If you [found](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/issues/new) or [fixed](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/compare/) a bug, you know what to do.
 
 Note: Please read about [CONTRIBUTING](CONTRIBUTING) before creating a pull request. If your pull request goes against what is said, it will not be accepted and we will ask you to fix it. 
