@@ -444,7 +444,8 @@ sgsBot.addTriggers([
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },
 	{ name: 'BanCheckTrigger',     type: 'BanCheckTrigger'},
 	{ name: 'ReloadTriggers',      type: 'BotCommandTrigger',     options: { matches: ['!reload'],   exact: true, callback: function(bot) { var triggerDetails = bot.getTriggerDetails(); bot.clearTriggers(); bot.addTriggers(triggerDetails); } } },
-	{ name: 'MoneyTrigger',        type: 'MoneyTrigger',          options: { apikey: cfg.moneyapikey} }
+	{ name: 'MoneyTrigger',        type: 'MoneyTrigger',          options: { apikey: cfg.moneyapikey} },
+	{ name: 'KeyDropTrigger',      type: 'KeyDropTrigger',        options: { users: sgsAdmins, room: '103582791432826618'}}
 ]);
 sgsBot.onLogon = function(that){
 	that.setGames(sgsGamesList);
