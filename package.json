@@ -131,6 +131,7 @@
     "accounting": "^0.4.1",
     "body-parser": "^1.13.2",
     "cleverbot-node": "^0.2.1",
+    "coinbase": "^2.0.0",
     "dotenv": "^1.1.0",
     "express-session": "^1.11.3",
     "filendir": "0.0.1",
@@ -171,7 +172,7 @@
     "youtube-api": "^1.0.1"
   },
   "engines": {
-    "node": "0.12.x",
-    "npm": "1.4.x"
+    "node": "^4.0.0",
+    "npm": "^2.14.2"
   }
 }
