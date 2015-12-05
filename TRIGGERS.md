@@ -80,6 +80,15 @@ Options:
 - replacement - *string* - the word to replace the random word with.
 - probability - see global triggers.
 
+### `CSGOStatsTrigger`
+
+Retrieves a player's csgo stats from steamapi and replies with improtant information
+
+Options:
+
+- command - *string* - defaults to !csgostats, command that triggers the query
+- apiKey - *string* - steam apikey, use this or define it in chatbot options
+
 ### `ChatReplyTrigger`
 
 Detects a message (either an exact match or a "contains" match) and replies with a specified message.

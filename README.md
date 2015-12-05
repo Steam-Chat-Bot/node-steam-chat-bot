@@ -90,6 +90,7 @@ General bot-related and chat-related functions.
 #### Other popular triggers
 
 - `BotCommandTrigger` - Runs a specified callback when a specific command message is typed.
+- `CSGOStatsTrigger` - Retrieves a player's csgo stats from steam api
 - `ChatReplyTrigger` - Detects a message (either an exact match or a "contains" match) and replies with a specified message.
 - `CleverbotTrigger` - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 - `GoogleTrigger` - Prints out the title and link of the first search result on Google.
