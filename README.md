@@ -98,6 +98,7 @@ General bot-related and chat-related functions.
 - `OMDBTrigger` - Searches IMDB for  a specified movie.
 - `RandomGameTrigger` - Picks a random game from the calling user's games list, or that of any specified user with an open profile.
 - `RegexReplaceTrigger` - Detects a regex match in a message and uses the matches to construct a reply.
+- `SteamIDTrigger` - Converts someone's name to a SteamID
 - `TranslateTrigger` - Translates between languages using hablaa.
 - `TumblrTrigger` - Allows the bot to post things to a tumblr blog, either by commands, or by monitoring the chatrooms the bot is in for links.
 - `WolframAlphaTrigger` - Queries Wolfram Alpha. You will need an appId from http://products.wolframalpha.com/api/.

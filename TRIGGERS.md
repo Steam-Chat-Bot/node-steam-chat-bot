@@ -427,6 +427,14 @@ Options:
 - locate - string - where to store the statuses on disk. Defaults to ./BOTNAME/StatusTrigger/TRIGGERNAME. if you need storages to be shared, set them to `myBot.username + "/StatusTrigger"` or some such.
 - public - bool - send the message to the joining user, or to the chat? To the chat if true (default), to the user if false.
 
+### `SteamIDTrigger`
+
+Takes a player's name and converts to a SteamID, name doesn't need to be exact
+
+Options:
+
+- command - *string* - defaults to !steamid
+
 ### `SteamrepOnJoinTrigger`
 
 checks steamrep API whenever someone joins a chat the bot is in. If Steamrep lists the user as a scammer, then bot announces it and gives links for more info.
