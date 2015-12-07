@@ -61,6 +61,29 @@ Options:
 - command - *string* - defaults to "!ban"
 - user - *array* of *string*s. Who can use this trigger
 
+### `BitcoinTrigger`
+
+Does various actions over the BTC network. [Coinbase api](https://www.coinbase.com/settings/api) (create OAuth application). Must have webserver enabled.
+
+Options:
+
+Required:
+
+- clientID - *string* - Coinbase clientID
+- clientSecret * string* - Coinbase clientSecret
+- redirectURI *string* - redirectURI for OAauth app
+
+Optional:
+
+- clearcommand - *string* - defaults to !clear
+- authcommand - *string* - defaults to !auth
+- saveTimer - *integer* - database file save interval, defaults to 5 minutes
+- sellcommand - *string* - defaults to !sell
+- buycommand - *string* - defaults to !buy
+- balancecommand - *string* - defaults to !balance
+- pricescommand - *string* - defaults to !prices
+- dbFile - *string* - database file name
+
 ### `BotCommandTrigger`
 
 Runs a specified callback when a specific command message is typed. It is preferred to write an actual trigger, but for simple things (e.g. muting, unmuting), this is easier.

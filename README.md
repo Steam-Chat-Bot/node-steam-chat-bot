@@ -82,6 +82,7 @@ General bot-related and chat-related functions.
 #### Trade-related triggers
 
 - `BanCheckTrigger` - checks to see if a user has any VAC/economy/community bans via steam API. Requires a steam api key, defined as option apikey in the plugin, or globally defined as a chatBot option steamapikey
+- `BitcoinTrigger` - does various actions over the BTC network
 - `ProfileCheckTrigger` - When a user joins, look up their profile in steam API and if they have a private profile, or never bothered to set one up, announce it to the groupchat. Optional option: apikey can be defined in options, overriding any steamapikey can be defined in the bot constructor. If neither is defined, it won't be used (not required).
 - `RedditTrigger` - Check reddit flair/bans/username on command. Requires access to the /r/SGS API. Note: I will not help you with gaining access to the API, and everything I know about the API is used in this trigger.
 - `SteamrepTrigger` - checks steamrep API on command. If Steamrep lists the user as a scammer, then bot announces it and gives links for more info. See `SteamrepOnJoinTrigger` to do this whenever someone joins a chat.

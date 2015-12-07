@@ -328,5 +328,15 @@ module.exports = [
 	//check steamrep on every user who joins. Notify the channel if they're a scammer.
 	{	name: 'SteamrepOnJoin',
 		type: 'SteamrepOnJoinTrigger',
-		options: {} }
+		options: {} },
+
+	{
+		name: 'BTC',
+		type: 'BitcoinTrigger',
+		options: {
+			clientID: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+			clientSecret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+			redirectURI: 'http://localhost:8080/coinbase/'
+		}
+	}
 ];
