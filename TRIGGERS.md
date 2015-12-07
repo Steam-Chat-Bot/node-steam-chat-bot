@@ -70,7 +70,7 @@ Options:
 Required:
 
 - clientID - *string* - Coinbase clientID
-- clientSecret * string* - Coinbase clientSecret
+- clientSecret *string* - Coinbase clientSecret
 - redirectURI *string* - redirectURI for OAauth app
 
 Optional:
@@ -103,7 +103,7 @@ Options:
 - replacement - *string* - the word to replace the random word with.
 - probability - see global triggers.
 
-### `CSGOStatsTrigger`
+### `CSGOStatTrigger`
 
 Retrieves a player's csgo stats from steamapi and replies with improtant information
 
