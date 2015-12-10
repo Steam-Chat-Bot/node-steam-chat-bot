@@ -1,3 +1,15 @@
+/*
+.approveButton:hover span {display:none;}
+.approveButton:hover:before {content:"Approve Key"}
+.dropButton:hover span {display:none;}
+.dropButton:hover:before {content:"Drop Key"}
+.deleteButton:hover span {display:none;}
+.deleteButton:hover:before {content:"Delete Key"}
+.publicCheckContainer:hover label:before {content:"Drop in public?"}
+*/
+td:first-child {
+	min-width:100px;
+}
 #stats {
 	width: 300px;
 }
@@ -22,8 +34,9 @@ a {
 }
 
 input[type='button'], input[type='text'],textarea {
-	display: inline-block;
-	width: 150px;
+	display: block;
+	font-size:25pt;
+	width: 50%;
 	margin: 0.5em auto;
 	padding: 7px 5px;
 	border: 1px solid #438389;
@@ -65,7 +78,7 @@ table table {
 tbody tr {
 	background-image:none;
 }
-tbody tr:nth-child(2n+1)>td {
+tbody tr:nth-child(2n)>td {
 	/* a 1x1 square of translucent gray */
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAATSURBVHjaYmBgYDAGAAAA//8DAAA4ADRSEg8vAAAAAElFTkSuQmCC);
 	background-repeat: repeat;
