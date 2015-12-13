@@ -7,6 +7,18 @@
 .deleteButton:hover:before {content:"Delete Key"}
 .publicCheckContainer:hover label:before {content:"Drop in public?"}
 */
+#success, #error {
+	position:fixed;
+	text-align:center
+	width:100%;
+	font-size:x-large;
+}
+#success {
+	color:green;
+}
+#error {
+	color:red;
+}
 td:first-child {
 	min-width:100px;
 }
