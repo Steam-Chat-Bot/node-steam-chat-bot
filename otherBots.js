@@ -11,144 +11,21 @@ Miley Verisse: https://steamcommunity.com/profiles/76561198055685680/
   - Run for Reddit Game Swap only.
 Poonicorn: https://steamcommunity.com/profiles/76561198051144238/
   - Run for SteamGifts Trivia chat, and for some personal functions that aren't actually in this file (I use a separate bot process for those)
+rGOG: http://steamcommunity.com/profiles/76561198055562682
+  - Run for Reddit Gift Of Games only.
 
 ************************* */
 
 
-//the groupNames are easily readable below and easy to use in config (rooms.name), but for internal use in actual modules the format should be reversed (`for (var room in roomNames){ log.name=roomNames[room]; }`)
-var reverseObject = function(object) {
-	var newObj = {};
-	for(var key in object) {
-		if(!newObj[object[key]] || key.length > newObj[object[key]].length) { //also, I want something shorter than the full group name, but I don't wanna bother with keeping logfiles up to date. So when the group name is long, I can just stick it in there multiple times to shorten it, but the longer one will still be used internally
-			newObj[object[key]] = key;
-		}
-	}
-	return newObj;
-}
+var common = require('./common.js');
+var reverseObject = common.reverseObject;
+var rooms = common.rooms;
+var users = common.users;
+var globalIgnores = common.globalIgnores;
 
-//roomNames are used by several triggers, but mainly logTrigger (for filenames and webview). Not all of these chats are used anymore.
-var rooms = {
-//reddit chats
-	Reddit:				'103582791429796426', // Permission from ??? can't remember. Has since been blocked/banned due to abuse, but still listed.
-	'Reddit Games':			'103582791434253499', // Permission from ??? can't remember.
-	rg:				'103582791434253499', // ^
-	'/r/SGS':			'103582791432826618', // Permission from blueshiftlabs via reddit, contact = puck &c.
-	sgs:				'103582791432826618', // ^
-//various chats
-	Hookups:			'103582791432502936', // Requested by https://steamcommunity.com/profiles/76561198011647032/
-	BLG:				'103582791433859404', // Backlog Gaming. Permission from seph? can't remember.
-	BraveSpirits:			'103582791436428985', // Requested by https://steamcommunity.com/profiles/76561198119588813
-	Chlorique:			'103582791436501299', // Chlorique. Duh.
-	tknights:			'103582791438401769', // contacts: grizzly https://steamcommunity.com/profiles/76561198047371731 
-	'Trivia Knights':		'103582791438401769', // ^ ...and nasty: https://steamcommunity.com/profiles/76561198018527807
-	IGB:				'103582791432907531', // IGBWiki, permission from seph.
-//opium pulses groups, all joined by request, can't remember who. Contacts: slipslot, baertel, lewis. group admins I know are listed below.
-	OPGiveaways:			'103582791432751135', // ^ slipslot    https://steamcommunity.com/profiles/76561198057252542/
-	OPG:				'103582791432751135', // ^ baertel     https://steamcommunity.com/profiles/76561198057380644/
-	TradingAroundTheWorld:		'103582791433870096', // ^ manc        https://steamcommunity.com/profiles/76561198012794916/
-	OpiumTrading:			'103582791433402816', // ^ adrian      https://steamcommunity.com/profiles/76561198022422924/
-	OPSavings:			'103582791434485851', // ^ lewis       https://steamcommunity.com/profiles/76561198057322285/
-	OPS:				'103582791434485851', // ^ sagittarius https://steamcommunity.com/profiles/76561198028623034/
-	OPT:				'103582791433870096', // ^ shortcut
-	OPT2:				'103582791433402816', // ^ shortcut. Why does OP need TWO trading groups?
-//And my chats, of course
-	DLCGiveaways: '103582791434235788', DLCG: '103582791434235788', Freaktopia: '103582791433451569', YCJGTFO: '103582791433731577', botDev: '103582791438731217', 'Chat Bot Dev & Testing': '103582791438731217'
-}
+var OPAdmins = [users.slipslot, users.baertel, users.manc, users.adrian, users.lewis, users.sag, users.efreak] //I not an admin. shhhhhh!
 var OPRooms = [rooms.OPS,rooms.OPT,rooms.OPT2,rooms.OPG];
-var roomNames = reverseObject(rooms); //now reverse the object so it can be used by roomNames
 
-//stuff for /r/sgsBot (these usernames don't get used elsewhere)
-var sgsGamesList = [221410];
-var sgsGamesListMuted = [];
-var sgsAdminsNames = { //for easy reading and editing
-	'76561197981125077': 'blueshiftlabs',	'76561198054386037': 'rikker',	'76561198000824354': 'dux0r',	'76561198019530214': 'eliteArsenal',
-	'76561198052766460': 'WarNev3rChanges',	'76561197989914453': 'kodiak',	'76561198082770900': 'puck',	'76561197983311223': 'advicebanana',
-	'76561198056461793': 'notatraitor',	'76561197986551592': 'jon',	'76561198057961078': 'warheat',	'76561197965063884': 'grimbald',
-	'76561197998931747': 'so',		'76561198003266961': 'many',	'76561198059455420': 'people',	'76561198027913613': 'that',
-	'76561197961355969': 'I',		'76561198014974848': 'dont',	'76561198025292225': 'know', //sgs has too many admins, clean yourselves up pls...
-	'76561198008335925': 'efreak' //and me, because IM SPESHUL!
-}
-sgsAdmins = [];
-for (var id in sgsAdminsNames) { //for actual use
-	sgsAdmins.push(id);
-}
-
-var users = {
-	efreak: '76561198008335925',	chlor: '76561198068929225',	eterna: '76561198099203353',	slipslot: '76561198057252542',
-	lewislol: '76561198057322285',	sagit: '76561198028623034',	baertel: '76561198057380644',	lastbullet: '76561198054239317',
-	penny: '76561198058593967',	grizzly: '76561198047371731',	nasty: '76561198018527807',	husky: '76561198057012202',
-	chip: '76561198058003981',	emily: '76561198034699157',	nonos: '76561198029074027',	norma: '76561198036715264',
-	boar: '76561198065045875'
-}
-
-var assholes = { //I can't report you to steamrep for spamming, but I will add you to my asshole list.
-	darkonion: '76561198041977869',	//abusing infobot, spamming
-	halo: '76561197999716804',	//abusing infobot, spamming
-	crowley: '76561197986549862',	//abusing !roll
-}
-
-var trustedBots = { //these bots are so-called 'trusted' because they won't be checked for having bad profiles, as they're bots, not people.
-	BansheeKeyBot: '76561198233180832',	//Banshee
-	NewTrierBot: '76561198164977236',	//Banshee
-	Dellatrix: '76561198190392221',		//BeautifulShrill
-	'/r/SGS Bot': '76561198055589142',	//Efreak
-	Zay: '76561198212058096',		//??
-	MariePoppo: '76561198240914582',	//??
-	Miley: '76561198055685680'		//Efreak
-}
-var otherBots = { //these bots are also ignored, but they're not trusted, so not added to trustedbots. If you know who owns any given bot, please let me know.
-	//if you invite any of these bots to the bot dev for something other than dev-related discussion, they will be banned. So will you if we find out who you are.
-	lewdbot: '76561198178278582',
-	'0x0bf3f39': '76561198107682909',
-	aoi2: '76561198157712509',
-	aoi: '76561198065031569'
-}
-var globalIgnores = []; //generate the global ignores list by adding everyone from the 'asshole' list. This list is used on all 3 bots.
-for(var name in assholes) {
-	globalIgnores.push(assholes[name]);
-}
-for (var bot in trustedBots) { //Let i.imgur.com/GR3aU0N.png be a lesson to you: Make your bots ignore all the other bots lest they get in feedback loops. This one went on for nearly 20 minutes. i.imgur.com/3WsfhCb.png
-	globalIgnores.push(trustedBots[bot]);
-}
-for (var bot in otherBots) {
-	globalIgnores.push(otherBots[bot]);
-}
-//ignoredBots is basically bots that will be ignored by my bots. Feel free to steal this code. ignoredBots get added to global ignores. There's also a function for admins (me) to add other bots (or annoying users) to the list with.
-var fs = require('fs');
-var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
-for(var bot in ignoredBots) {
-	globalIgnores.push(ignoredBots[bot].id);
-}
-var addbot = function(chatBot,data) {
-	var info = data.message.match(/\!addbot[\s+]?([0-9]+)[\s+]?(.+)/)
-	if(!info || info.index!==0) {
-		chatBot.sendMessage(data.toId,"Bot id and comment required");
-		return;
-	}
-	data.comment = info[2];
-	data.botId = info[1];
-	chatBot.ignores.push(data.botId);
-	var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
-	ignoredBots[data.fromId] = data;
-	ignoredBots[data.fromId].time = (Date()-0);
-	fs.writeFileSync('bots.json',JSON.stringify(ignoredBots));
-	chatBot.sendMessage(data.toId, data.botId+" has been added as a bot. I will not respond to any input from them.");
-}
-var imabot = function(chatBot,data) {
-	var info = data.message.match(/\!addbot[\s+]?(.+)/)
-	if(!info || info.index!==0) {
-		chatBot.sendMessage(data.toId,"You need to have a comment saying who owns you. Please include the steamid64 of your owner/admin");
-		return false;
-	}
-	chatBot.ignores.push(data.fromId);
-	var ignoredBots = (function(){try {return JSON.parse(fs.readFileSync('bots.json'));}catch(err){return {}}})();
-	data.time = (Date()-0);
-	data.botId = data.fromId;
-	data.comment = info[1]
-	ignoredBots[data.fromId] = data;
-	fs.writeFileSync('bots.json',JSON.stringify(ignoredBots));
-	chatBot.sendMessage(data.toId,"You have been added as a bot. I will not respond to any more input from you.");
-}
 //store private areas of configuration separately so I can share this file
 var logLevel = 'info';
 
@@ -186,7 +63,7 @@ miley.addTriggers([
 		options: {
 			matches: ['!mute','stfu miley','miley, stfu','shut up, miley','miley, shut up'],
 			exact: true,
-			ignore: [rooms.Reddit,assholes.crowley],
+			ignore: [rooms.Reddit,common.assholes.crowley],
 			callback: function(bot) { bot.mute(); bot.setPrimaryGame(45100,250); }
 		}
 	},
@@ -196,7 +73,7 @@ miley.addTriggers([
 		options: {
 			matches: ['!unmute', '!unpause','wake up, miley','miley, wake up','wake up miley','miley wake up'],
 			exact: true,
-			ignore: [rooms.Reddit,assholes.crowley],
+			ignore: [rooms.Reddit,common.assholes.crowley],
 			callback: function(bot) { bot.unmute(); bot.setGames(gamesList); bot.setPrimaryGame(214610,250);}
 		}
 	},
@@ -228,13 +105,11 @@ miley.addTriggers([
 		public: cfg.miley.webUIPublic,
 		admins:[users.efreak]
 	} },
-	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!imabot'], exact:false, callback:imabot }},
-	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',   options: { matches: ['!stopplaying'],  exact:true, users:[users.efreak], callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at https://miley.efreakbnc.net/logs/files and you can find a live updating log with 100 lines of history at https://miley.efreakbnc.net/logs/live#room="+data.toId+"&lines=100");}}},
-	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames} }, //no commands.
+	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: common.roomNames} }, //no commands.
 	{ name: 'InfobotTrigger',      type: 'InfobotTrigger',      options: { admin: [users.efreak] } }, //!learn, !unlearn, !lockword, !unlockword, who/what is/are, !wordinfo
-	{ name: 'Notification',        type: 'NotificationTrigger', options: { roomNames: roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
+	{ name: 'Notification',        type: 'NotificationTrigger', options: { roomNames: common.roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
 	{ name: 'ChlorStatusTrigger',  type: 'StatusTrigger',       options: { rooms: rooms.Chlorique, admin: users.chlor} }, //!status(?)
 	{ name: 'EternaStatusTrigger', type: 'StatusTrigger',       options: { rooms: rooms.BraveSpirits, admin: users.eterna} }, //!status(?)
 	{ name: 'WeatherTrigger',      type: 'WeatherTrigger',      options: { apikey: cfg.wunderkey } },
@@ -286,7 +161,7 @@ miley.addTriggers([
 		}
 	},
 	{ name: 'Google',          type: 'GoogleTrigger',          options: { command: '!google' } },	{ name: 'Google2',          type: 'GoogleTrigger',          options: { command: '!g' } },
-	{ name: 'GoogleImages',    type: 'GoogleImagesTrigger',    options: { command: '!image' } },	{ name: 'GoogleImages2',    type: 'GoogleImagesTrigger',    options: { command: '!gi' } },
+//	{ name: 'GoogleImages',    type: 'GoogleImagesTrigger',    options: { command: '!image' } },	{ name: 'GoogleImages2',    type: 'GoogleImagesTrigger',    options: { command: '!gi' } },
 	{ name: 'EmptyQuoteReply', type: 'ChatReplyTrigger',       options: { matches: ['^'],            responses: ['^'], exact: true, delay: 1000,  ignore: [rooms.Hookups,rooms.OPT,rooms.OPT2,rooms.OPS,rooms.OPG], probability: 0.25, timeout: 30*1000 } },
 	{ name: 'PennyDealWithIt', type: 'ChatReplyTrigger',       options: { matches: ['deal with it'], responses: [':dealwithit:'], exact: false, delay: 500, users: [users.penny], rooms: [rooms.OPG], probability: 0.25, timeout: 5*60*1000 } }, 
 	{ name: 'GGGDealWithIt',   type: 'ChatReplyTrigger',       options: { matches: ['!dealwithit'],  responses: [':dealwithit:'], exact: true, delay: 500, rooms: [rooms.OPG], probability: 1, timeout: 10*1000 } },
@@ -330,11 +205,12 @@ miley.addTriggers([
 	{ name: 'MathTrigger',     type: 'MathTrigger',            options: { command:'!calc'} },
 	{ name: 'ChooseTrigger',   type: 'ChooseTrigger'},
 	{ name: 'RollTrigger',     type: 'RollTrigger'},
+	{ name: 'KeyDropTrigger',  type: 'KeyDropTrigger',         options: { users: OPAdmins, room: '103582791432751135'}},
 	{ name: 'RedditTrigger',   type: 'RedditTrigger',          options: cfg.redditrepOptions }
 ]);
 
 miley.express.get('/opglogin', function(req,res) {
-	res.redirect(301,"https://steamcommunity.com/openid/login?openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.return_to=http%3A%2F%2Fmiley.efreakbnc.net%2FOPGkeys%2Fverify&openid.realm=http%3A%2F%2Fmiley.efreakbnc.net%2FOPGkeys");
+	res.redirect(301,"https://steamcommunity.com/openid/login?openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.return_to=http%3A%2F%2Fmiley.efreakbnc.net%2Fkeys%2Fverify&openid.realm=http%3A%2F%2Fmiley.efreakbnc.net%2Fkeys");
 }); //seems like the openid implementation stores stuff in the global scope when it shouldn't
 
 miley.onLogon = function(that){
@@ -357,110 +233,6 @@ miley.onLogon = function(that){
 }
 miley.connect();
 
-
-
-
-
-
-
-
-
-
-
-
-var sgsBot = new ChatBot(cfg.sgs.username, cfg.sgs.password, {
-	guardCode: 'V4XFP',
-	logFile: true,
-	autoReconnect: true,
-	autojoinFile: cfg.sgs.autojoinFile,
-	steamapikey: cfg.steamapikey,
-	babysitTimer: 30000,
-//	sentryFile: cfg.sgs.sentryFile,
-	logLevel: logLevel,
-	consoleLogLevel: logLevel,
-	webServerPort: cfg.sgs.webServerPort,
-	ignores: globalIgnores
-});
-
-var sgsChats = {};
-sgsChats[rooms.sgs]= 'Hello! I was invited here by $invitername to tattle on scammers! :D:';
-sgsBot.addTriggers([
-	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',     options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at https://sgs.efreakbnc.net/logs/files/g-rSGS.txt and you can find a live updating log with 100 lines of history at https://sgs.efreakbnc.net/logs/live#room=103582791432826618&lines=100");}}},
-	{ name: 'WebUI',               type: 'WebUI',                 options: {
-		public: cfg.sgs.webUIPublic,
-		admins:[users.efreak]
-	} },
-	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!imabot'], exact:false, callback:imabot}},
-	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
-	{ name: 'stopplaying',         type: 'BotCommandTrigger',     options: { matches: ['!stopplaying'],  exact:true, users:sgsAdmins, callback: function(bot,data){bot.setGames([]);}}},
-	{ name: 'startplaying',        type: 'BotCommandTrigger',     options: { matches: ['!startplaying'], exact:true, users:sgsAdmins, callback: function(bot,data){bot.setGames(sgsGamesList);}}},
-	{ name: 'logTrigger',          type: 'LogTrigger',            options: {roomNames: roomNames, linesToSend:250} },
-	{ name: 'MuteCommand',         type: 'BotCommandTrigger',     options: { matches: ['!mute'],   exact: true, callback: function(bot) { bot.mute();   bot.setGames([sgsGamesListMuted]);      bot.setPersonaState(4); } } },
-	{ name: 'UnmuteCommand',       type: 'BotCommandTrigger',     options: { matches: ['!unmute'], exact: true, callback: function(bot) { bot.unmute(); bot.setGames(sgsGamesList); bot.setPersonaState(1); } } },
-	{ name: 'InfobotTrigger',      type: 'InfobotTrigger',        options: { admin: sgsAdmins,  userlearn:false } },
-	{ name: 'SayTrigger',          type: 'SayTrigger',            options: { users: sgsAdmins } },
-	{ name: 'JoinRedditGamesTrigger', type: 'BotCommandTrigger',  options: { matches: ['!joinrg','!joinrgs','!sgs','!joinchat'], exact:true,callback: function(bot) { bot.joinChat(rooms.sgs);}}},
-	{ name: 'Notification',        type: 'NotificationTrigger',   options: { roomNames: roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
-	{ name: 'PlayGameTrigger',     type: 'PlayGameTrigger',       options: { users: sgsAdmins } },
-	{ name: 'ModerateTrigger',     type: 'ModerateTrigger',       options: { users: sgsAdmins } },
-	{ name: "AcceptChatInvite",
-		type: "AcceptChatInviteTrigger",
-		options: {
-			chatrooms: sgsChats, //anyone can invite the bot to steamgameswap
-			joinAll: [users.efreak], //only efreak can invite the bot to other groupchats (used only for testing, or other admins would be allowed)
-			autoJoinAfterDisconnect: true
-		}
-	},
-	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',          options: { users: sgsAdmins}},
-	{ name: 'BanTrigger',          type: 'BanTrigger',            options: { users: sgsAdmins } },
-	{ name: 'KickTrigger',         type: 'KickTrigger',           options: { users: sgsAdmins } },
-	{ name: 'UnbanTrigger',        type: 'UnbanTrigger',          options: { users: sgsAdmins } },
-	{ name: 'UnmoderateTrigger',   type: 'UnmoderateTrigger',     options: { users: sgsAdmins } },
-	{ name: 'UnlockChatTrigger',   type: 'UnlockChatTrigger',     options: { users: sgsAdmins } },
-	{ name: 'LockChatTrigger',     type: 'LockChatTrigger',       options: { users: sgsAdmins } },
-	{ name: 'LeaveChatTrigger',    type: 'LeaveChatTrigger',      options: { users: sgsAdmins } },
-	{ name: 'SetStatusTrigger',    type: 'SetStatusTrigger',      options: { users: sgsAdmins } },
-	{ name: 'SetNameTrigger',      type: 'SetNameTrigger',        options: { users: sgsAdmins } },
-	{ name: 'JoinChatTrigger',     type: 'JoinChatTrigger',       options: { users: sgsAdmins } },
-	{ name: 'RemoveFriendTrigger', type: 'RemoveFriendTrigger',   options: { users: sgsAdmins } },
-	{ name: 'AddFriendTrigger',    type: 'AddFriendTrigger',      options: { users: sgsAdmins } },
-	{ name: 'InfoTrigger',         type: 'InfoTrigger',           options: { users: sgsAdmins } },
-	{ name: 'HelpCmd',             type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!help','!triggers','!cmds','!commands'], responses: ['Please view my profile for a list of public commands and other triggers. Not all triggers are allowed in all chats. For information on SGS, use !rules, !flair, or !faq (please use these commands in private)']} },
-	{ name: 'BugsCmd',             type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!bug','!bugs','!issue','!feature'],      responses: ['You can submit bugs and feature requests at https://github.com/Steam-Chat-Bot/node-steam-chat-bot/issues']} },
-	{ name: 'OwnerCmd',            type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!owner','!efreak'],                      responses: ['My owner is https://steamcommunity.com/profiles/76561198008335925/']} },
-	{ name: 'SourceCmd',           type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!source','!about'],                      responses: ['This bot is a slightly modified node-steam-chat-bot, https://github.com/Steam-Chat-Bot/node-steam-chat-bot']} },
-	{ name: 'FAQCmd',              type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!faq'],                                  responses: ['The FAQ can be found at https://www.reddit.com/r/SteamGameSwap/wiki/faq']} },
-	{ name: 'RulesCmd',            type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!rules'],                                responses: ['The rules can be found at https://www.reddit.com/r/SteamGameSwap/wiki/rules_and_restrictions']} },
-	{ name: 'FlairCmd',            type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!flair'],                                responses: ['The flair guide is at https://www.reddit.com/r/SteamGameSwap/wiki/flair']} },
-	{ name: 'Google',              type: 'GoogleTrigger',         options: { command: '!g' } },	{ name: 'Google2',             type: 'GoogleTrigger',         options: { command: '!google' } },
-	{ name: 'EvalTrigger',         type: 'EvalTrigger',           options: { users: [users.efreak],evalUnsafe:true }},
-	{ name: 'GoogleImages',        type: 'GoogleImagesTrigger',   options: { command: '!gi' } },	{ name: 'GoogleImages2',       type: 'GoogleImagesTrigger',   options: { command: '!image' } },
-	{ name: 'SingleUserReply',     type: 'ChatReplyTrigger',      options: { exact: true, delay: 0,   probability: 1, timeout: 0,             matches: ['hi bot'], responses: ['hi boss!'], users: sgsAdmins } },
-	{ name: 'PingReply',           type: 'ChatReplyTrigger',      options: { exact: true, delay: 0,   probability: 1, timeout: 30 * 1000,     matches: ['ping'],   responses: ['pong'] } },
-	{ name: 'RedditTrigger',       type: 'RedditTrigger',         options: cfg.redditrepOptions },
-	{ name: 'NameReply',           type: 'ChatReplyTrigger',      options: { exact: true, delay: 500, probability: 1, timeout: 5 * 60 * 1000, matches: ['/r/SGS Bot', 'SteamGameSwap Bot','/r/SGS Bot?', 'SteamGameSwap Bot?', 'bot?', 'what bot?'], responses: ['That\'s me! I\'m the official bot for /r/SGS groupchat! Please see my profile for available commands.'] } },
-	{ name: 'ProfileCheckTrigger', type: 'ProfileCheckTrigger',   options: { ignore: trustedBots }}, //these are bots that idle in my dev chat. Most of them have blank/locked/new/etc profiles.
-	{ name: 'SteamrepOnJoin',      type: 'SteamrepOnJoinTrigger'},
-	{ name: 'SteamrepCommand',     type: 'SteamrepTrigger',       options: { command: "!steamrep",    delay: 0,       timeout: 2 * 1000 } },
-//	{ name: 'IsUp',                type: 'isupTrigger',           options: { command: '!isup', delay: 500, timeout: 1 * 60 * 1000 } },
-	{ name: 'WolframReply',        type: 'WolframAlphaTrigger',   options: { command: '!wolfram', appId: cfg.wolframAppId } },
-	{ name: 'Youtube',             type: 'YoutubeTrigger',        options: { command: '!yt', rickrollChance: .01  } },
-	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },
-	{ name: 'BanCheckTrigger',     type: 'BanCheckTrigger'},
-	{ name: 'ReloadTriggers',      type: 'BotCommandTrigger',     options: { matches: ['!reload'],   exact: true, callback: function(bot) { var triggerDetails = bot.getTriggerDetails(); bot.clearTriggers(); bot.addTriggers(triggerDetails); } } },
-	{ name: 'MoneyTrigger',        type: 'MoneyTrigger',          options: { apikey: cfg.moneyapikey} },
-	{ name: 'KeyDropTrigger',      type: 'KeyDropTrigger',        options: { users: sgsAdmins, room: '103582791432826618', randomUserMessage: "Congratulations! You have been randomly chosen as a winner in this SteamGameSwap giveaway! Please see chat for information on how to get your winnings. If you do not respond in a timely fashion, you will forfeit your winnings."}}
-]);
-
-sgsBot.express.get('/sgskeys', function(req,res) {
-	res.redirect(301,"https://steamcommunity.com/openid/login?openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.return_to=http%3A%2F%2Fsgs.efreakbnc.net%2Fkeys%2Fverify&openid.realm=http%3A%2F%2Fsgs.efreakbnc.net%2Fkeys");
-}); //seems like the openid implementation stores stuff in the global scope when it shouldn't
-
-sgsBot.onLogon = function(that){
-	that.setGames(sgsGamesList);
-	that.unmute();
-}
-sgsBot.connect();
 
 
 
@@ -519,17 +291,15 @@ poonicorn.addTriggers([
 		public: cfg.poo.webUIPublic,
 		admins:[users.efreak]
 	} },
-	{ name: 'botident',            type: 'BotCommandTrigger',   options: { matches: ['!imabot'], exact:false, callback:imabot}},
-	{ name: 'addbot',              type: 'BotCommandTrigger',   options: { matches: ['!addbot'], exact:false, callback:addbot, users: [users.efreak]}},
 	{ name: 'KarmaTrigger',        type: 'KarmaTrigger',        options: { }},
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',   options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"Live log is available at https://trivia.efreakbnc.net/logs/live#room=103582791438401769&lines=100 Lines show up immediately, as soon as the bot sees them. A complete history is at https://trivia.efreakbnc.net/logs/g-Trivia%20Knights.txt");}}},
-	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: roomNames, pingTimer:5000} },
+	{ name: 'logTrigger',          type: 'LogTrigger',          options: { roomNames: common.roomNames, pingTimer:5000} },
 	{ name: 'TriviaTrigger',       type: 'TriviaTrigger',          options: { command: '!trivia', rooms:[rooms.tknights], admins: triviaAdmins}},
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',   options: { matches: ['!stopplaying'],  exact:true, users:triviaAdmins, callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'startplaying',        type: 'BotCommandTrigger',   options: { matches: ['!startplaying'], exact:true, users:triviaAdmins, callback: function(bot,data){bot.setGames(triviagamesList);}}},
 	{ name: 'EfreakInfobotFakeReply',     type: 'ChatReplyTrigger',       options: { matches: ['learn efreak'], responses: ["I'm sorry, I can't do that for you!"], exact: false, delay: 1000, probability: 1, timeout: 100 ,ignore: [users.efreak] } },
 	{ name: 'InfobotTrigger',      type: 'InfobotTrigger',      options: { admin: triviaAdmins, userlearn:false } },
-	{ name: 'Notification',        type: 'NotificationTrigger', options: { roomNames: roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
+	{ name: 'Notification',        type: 'NotificationTrigger', options: { roomNames: common.roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
 	{ name: 'JoinTKTrigger',       type: 'BotCommandTrigger',   options: { matches: ['!jointk','!join'], exact:true,callback: function(bot) { bot.joinChat(rooms.tknights); setTimeout(function(){bot.sendMessage(rooms.tknights,"Someone told me to join, so here I am!")},1000)}}},
 	{ name: 'SayTrigger',          type: 'SayTrigger',          options: { users: triviaAdmins } },
 	{ name: 'PlayGameTrigger',     type: 'PlayGameTrigger',     options: { users: triviaAdmins } },
@@ -565,7 +335,7 @@ poonicorn.addTriggers([
 		responses: ['This bot is based on node-steam-chat-bot. You can find full source code and some documentation and examples at https://github.com/Steam-Chat-Bot/node-steam-chat-bot'],
 		exact: true, probability: 1, timeout: 1000 } },
 	{ name: 'Google',          type: 'GoogleTrigger',          options: { command: '!g' } },	{ name: 'Google2',         type: 'GoogleTrigger',          options: { command: '!google' } },
-	{ name: 'GoogleImages',    type: 'GoogleImagesTrigger',    options: { command: '!gi' } },	{ name: 'GoogleImages2',   type: 'GoogleImagesTrigger',    options: { command: '!image' } },
+//	{ name: 'GoogleImages',    type: 'GoogleImagesTrigger',    options: { command: '!gi' } },	{ name: 'GoogleImages2',   type: 'GoogleImagesTrigger',    options: { command: '!image' } },
 //	{ name: 'EmptyQuoteReply', type: 'ChatReplyTrigger',       options: { matches: ['^'],            responses: ['^'], exact: true, delay: 1000,  ignore: [rooms.Hookups,rooms.OPS,rooms.OPT,rooms.OPG], probability: 0.25, timeout: 30*1000 } },
 	{ name: 'PingReply',       type: 'ChatReplyTrigger',       options: { matches: ['ping'],         responses: ['pong'], exact: true, delay: 1000, probability: 1, timeout: 30*1000 } },
 	{ name: 'EfreakReply',     type: 'ChatReplyTrigger',       options: { matches: ['Efreak','Efreak?','efreak','efreak?','efreak?','Efreak?'], responses: ['Efreak is master!'], exact: true, delay: 1000, probability: 0.5, timeout: 60*60*1000 ,ignore: [rooms.BLG] } },
