@@ -37,6 +37,7 @@ var rooms = {
 	'Gift of Games':		'103582791436617779', // reddit gift of games. Permission from Aakash http://steamcommunity.com/profiles/76561198034107051/
 	'/r/GOG':			'103582791436617779', // ^shortcut
 	rGOG:				'103582791436617779', // ^shortcut
+	gog:				'103582791436617779', // ^shortcut
 //And my chats, of course
 	DLCGiveaways: '103582791434235788', DLCG: '103582791434235788', Freaktopia: '103582791433451569', YCJGTFO: '103582791433731577', botDev: '103582791438731217', 'Chat Bot Dev & Testing': '103582791438731217'
 }
