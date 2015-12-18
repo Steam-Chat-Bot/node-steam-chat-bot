@@ -187,7 +187,7 @@ gogBot.addTriggers([
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',     options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at https://gog.efreakbnc.net/logs/files/g-rGOG.txt and you can find a live updating log with 100 lines of history at https://gog.efreakbnc.net/logs/live#room=103582791436617779&lines=100");}}},
 	{ name: 'WebUI',               type: 'WebUI',                 options: {
 		public: cfg.gog.webUIPublic,
-		admins:[users.efreak]
+		admins:[users.efreak,users.aakash]
 	} },
 	{ name: 'stopplaying',         type: 'BotCommandTrigger',     options: { matches: ['!stopplaying'],  exact:true, users:gogAdmins, callback: function(bot,data){bot.setGames([]);}}},
 	{ name: 'startplaying',        type: 'BotCommandTrigger',     options: { matches: ['!startplaying'], exact:true, users:gogAdmins, callback: function(bot,data){bot.setGames(gogGamesList);}}},
