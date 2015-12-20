@@ -181,7 +181,7 @@ var gogBot = new ChatBot(cfg.gog.username,cfg.gog.password, {
 	ignores: globalIgnores
 });
 var gogChats = {};
-gogChats[rooms.rGOG] = cfg.inviteMsg;
+gogChats[rooms.gog] = cfg.inviteMsg;
 
 gogBot.addTriggers([
 	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',     options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at https://gog.efreakbnc.net/logs/files/g-rGOG.txt and you can find a live updating log with 100 lines of history at https://gog.efreakbnc.net/logs/live#room=103582791436617779&lines=100");}}},
@@ -196,7 +196,7 @@ gogBot.addTriggers([
 	{ name: 'UnmuteCommand',       type: 'BotCommandTrigger',     options: { matches: ['!unmute'], exact: true, callback: function(bot) { bot.unmute(); bot.setGames(gogGamesList); bot.setPersonaState(1); } } },
 	{ name: 'InfobotTrigger',      type: 'InfobotTrigger',        options: { admin: gogAdmins,  userlearn:false } },
 	{ name: 'SayTrigger',          type: 'SayTrigger',            options: { users: gogAdmins } },
-	{ name: 'JoinRedditGOGTrigger', type: 'BotCommandTrigger',    options: { matches: ['!joingog','!joinrgog','!gog','!joinchat'], exact:true,callback: function(bot) { bot.joinChat(rooms.gog);}}},
+	{ name: 'JoinRedditGOGTrigger', type: 'BotCommandTrigger',    options: { matches: ['!joingog','!joinrgog','!gog','!joinchat'], exact:true,callback: function(bot) { bot.joinChat(rooms.rGOG);}}},
 	{ name: 'Notification',        type: 'NotificationTrigger',   options: { roomNames: common.roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
 	{ name: 'PlayGameTrigger',     type: 'PlayGameTrigger',       options: { users: gogAdmins } },
 	{ name: 'ModerateTrigger',     type: 'ModerateTrigger',       options: { users: gogAdmins } },
@@ -229,7 +229,7 @@ gogBot.addTriggers([
 	{ name: 'FAQCmd',              type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!faq'],                                  responses: ['The FAQ can be found at https://www.reddit.com/r/GiftofGames/wiki']} },
 	{ name: 'RulesCmd',            type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!rules'],                                responses: ['The rules can be found at https://www.reddit.com/r/giftofgames/wiki/rules']} },
 	{ name: 'FlairCmd',            type: 'ChatReplyTrigger',      options: { exact: true, probability: 1, timeout: 60 * 1000, matches: ['!flair'],                                responses: ['The flair guide is at https://www.reddit.com/r/giftofgames/wiki/flairinfo']} },
-	{ name: 'Google',              type: 'GoogleTrigger',         options: { command: '!g' } },	{ name: 'Google2',             type: 'GoogleTrigger',         options: { command: '!google' } },
+	{ name: 'Google',              type: 'GoogleTrigger',         options: { command: '!g', ignore: [rooms.rGOG]} },	{ name: 'Google2',             type: 'GoogleTrigger',         options: { command: '!google', ignore: [rooms.rGOG] } },
 	{ name: 'EvalTrigger',         type: 'EvalTrigger',           options: { users: [users.efreak],evalUnsafe:true }},
 //	{ name: 'GoogleImages',        type: 'GoogleImagesTrigger',   options: { command: '!gi' } },	{ name: 'GoogleImages2',       type: 'GoogleImagesTrigger',   options: { command: '!image' } },
 	{ name: 'SingleUserReply',     type: 'ChatReplyTrigger',      options: { exact: true, delay: 0,   probability: 1, timeout: 0,             matches: ['hi bot'], responses: ['hi boss!'], users: gogAdmins } },
@@ -239,7 +239,7 @@ gogBot.addTriggers([
 	{ name: 'SteamrepOnJoin',      type: 'SteamrepOnJoinTrigger'},
 	{ name: 'SteamrepCommand',     type: 'SteamrepTrigger',       options: { command: "!steamrep",    delay: 0,       timeout: 2 * 1000 } },
 //	{ name: 'IsUp',                type: 'isupTrigger',           options: { command: '!isup', delay: 500, timeout: 1 * 60 * 1000 } },
-	{ name: 'WolframReply',        type: 'WolframAlphaTrigger',   options: { command: '!wolfram', appId: cfg.wolframAppId } },
+//	{ name: 'WolframReply',        type: 'WolframAlphaTrigger',   options: { command: '!wolfram', appId: cfg.wolframAppId } },
 //no api key
 //	{ name: 'Youtube',             type: 'YoutubeTrigger',        options: { command: '!yt', rickrollChance: .01  } },
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },
