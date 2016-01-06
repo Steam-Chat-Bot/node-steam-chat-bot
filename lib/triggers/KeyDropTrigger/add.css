@@ -7,9 +7,13 @@
 .deleteButton:hover:before {content:"Delete Key"}
 .publicCheckContainer:hover label:before {content:"Drop in public?"}
 */
+#keysTitle {
+	z-index:50;
+}
 #success, #error {
+	display:none;
 	position:fixed;
-	text-align:center
+	text-align:center;
 	width:100%;
 	font-size:x-large;
 }
@@ -96,3 +100,8 @@ tbody tr:nth-child(2n)>td {
 	background-repeat: repeat;
 }
 tbody { width:100%; }
+.keycell {
+	max-width:20em;
+	overflow:none;
+	word-break:break-all;
+}

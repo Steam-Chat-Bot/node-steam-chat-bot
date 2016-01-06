@@ -7,9 +7,13 @@
 .deleteButton:hover:before {content:"Delete Key"}
 .publicCheckContainer:hover label:before {content:"Drop in public?"}
 */
+#keysTitle {
+	z-index:50;
+}
 #success, #error {
 	position:fixed;
-	text-align:center
+	display:none;
+	text-align:center;
 	width:100%;
 	font-size:x-large;
 }
