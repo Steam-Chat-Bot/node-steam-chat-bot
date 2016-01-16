@@ -36,7 +36,8 @@ var sgsAdminsNames = { //for easy reading and editing
 	'76561198056461793': 'notatraitor',	'76561197986551592': 'jon',	'76561198057961078': 'warheat',	'76561197965063884': 'grimbald',
 	'76561197998931747': 'so',		'76561198003266961': 'many',	'76561198059455420': 'people',	'76561198027913613': 'that',
 	'76561197961355969': 'I',		'76561198014974848': 'dont',	'76561198025292225': 'know', //sgs has too many admins, clean yourselves up pls...
-	'76561198008335925': 'efreak' //and me, because IM SPESHUL!
+	'76561198008335925': 'efreak', //and me, because IM SPESHUL!
+	'76561198074201273': 'NEO' //has a vac ban
 }
 sgsAdmins = [];
 for (var id in sgsAdminsNames) { //for actual use
@@ -184,7 +185,7 @@ var gogChats = {};
 gogChats[rooms.gog] = cfg.inviteMsg;
 
 gogBot.addTriggers([
-	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',     options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at https://gog.efreakbnc.net/logs/files/g-rGOG.txt and you can find a live updating log with 100 lines of history at https://gog.efreakbnc.net/logs/live#room=103582791436617779&lines=100");}}},
+	{ name: 'logInfoTrigger',      type: 'BotCommandTrigger',     options: { matches: ['!log','!logs','logs?'], exact:true, callback: function(bot,data){bot.sendMessage(data.toId,"You can find the complete log for this chat at https://gog.efreakbnc.net/logs/g-Gift%20of%20Games.txt and you can find a live updating log with 100 lines of history at https://gog.efreakbnc.net/logs/live#room=103582791436617779&lines=100");}}},
 	{ name: 'WebUI',               type: 'WebUI',                 options: {
 		public: cfg.gog.webUIPublic,
 		admins:[users.efreak,users.aakash]
@@ -194,7 +195,7 @@ gogBot.addTriggers([
 	{ name: 'logTrigger',          type: 'LogTrigger',            options: { roomNames: common.roomNames, linesToSend:250} },
 	{ name: 'MuteCommand',         type: 'BotCommandTrigger',     options: { matches: ['!mute'],   exact: true, callback: function(bot) { bot.mute();   bot.setGames([gogGamesListMuted]);      bot.setPersonaState(4); } } },
 	{ name: 'UnmuteCommand',       type: 'BotCommandTrigger',     options: { matches: ['!unmute'], exact: true, callback: function(bot) { bot.unmute(); bot.setGames(gogGamesList); bot.setPersonaState(1); } } },
-	{ name: 'InfobotTrigger',      type: 'InfobotTrigger',        options: { admin: gogAdmins,  userlearn:false } },
+	{ name: 'InfobotTrigger',      type: 'InfobotTrigger',        options: { admin: gogAdmins,  userlearn:false, timeout:30*1000 } },
 	{ name: 'SayTrigger',          type: 'SayTrigger',            options: { users: gogAdmins } },
 	{ name: 'JoinRedditGOGTrigger', type: 'BotCommandTrigger',    options: { matches: ['!joingog','!joinrgog','!gog','!joinchat'], exact:true,callback: function(bot) { bot.joinChat(rooms.rGOG);}}},
 	{ name: 'Notification',        type: 'NotificationTrigger',   options: { roomNames: common.roomNames, sendmailArgs:cfg.mailArgs,sendmailPath:cfg.mailPath,address:cfg.fromAddress,banned:globalIgnores}}, //!notification
@@ -243,7 +244,7 @@ gogBot.addTriggers([
 //no api key
 //	{ name: 'Youtube',             type: 'YoutubeTrigger',        options: { command: '!yt', rickrollChance: .01  } },
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },
-	{ name: 'BanCheckTrigger',     type: 'BanCheckTrigger'},
+	{ name: 'BanCheckTrigger',     type: 'BanCheckTrigger',       options: { ignore: [users.NEO]}},
 	{ name: 'ReloadTriggers',      type: 'BotCommandTrigger',     options: { matches: ['!reload'],   exact: true, callback: function(bot) { var triggerDetails = bot.getTriggerDetails(); bot.clearTriggers(); bot.addTriggers(triggerDetails); } } },
 	{ name: 'KeyDropTrigger',      type: 'KeyDropTrigger',        options: { users: gogAdmins, room: rooms.rGOG}}
 ]);
