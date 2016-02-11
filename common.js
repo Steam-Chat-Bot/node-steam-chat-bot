@@ -38,6 +38,7 @@ var rooms = {
 	'/r/GOG':			'103582791436617779', // ^shortcut
 	rGOG:				'103582791436617779', // ^shortcut
 	gog:				'103582791436617779', // ^shortcut
+	'Phoenix Council':		'103582791439828295', // Maester Mika http://steamcommunity.com/profiles/76561198085353243/
 //And my chats, of course
 	DLCGiveaways: '103582791434235788', DLCG: '103582791434235788', Freaktopia: '103582791433451569', YCJGTFO: '103582791433731577', botDev: '103582791438731217', 'Chat Bot Dev & Testing': '103582791438731217'
 }
@@ -49,7 +50,8 @@ var users = {
 	penny: '76561198058593967',	grizzly: '76561198047371731',	nasty: '76561198018527807',	husky: '76561198057012202',
 	chip: '76561198058003981',	emily: '76561198034699157',	nonos: '76561198029074027',	norma: '76561198036715264',
 	boar: '76561198065045875',	slipslot: '76561198057252542',	baertel: '76561198057380644',	manc: '76561198012794916',
-	adrian: '76561198022422924',	lewis: '76561198057322285',	sag: '76561198028623034',	aakash: '76561198034107051'
+	adrian: '76561198022422924',	lewis: '76561198057322285',	sag: '76561198028623034',	aakash: '76561198034107051',
+	mika: '76561198085353243'
 }
 
 var assholes = { //I can't report you to steamrep for spamming, but I will add you to my asshole list.
