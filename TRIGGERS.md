@@ -174,7 +174,7 @@ Options:
 - google - google object - Optional. Created if not pre-defined. Not entirely sure what the advantages are of this, possibly account logins.
 - command - *string* - defaults to "!google" 
 
-### `GoogleImagesTrigger`
+### `GoogleImagesTrigger` - __Does not work__
 
 Prints a link to the first search result on Google Images.
 
