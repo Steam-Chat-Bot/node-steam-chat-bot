@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div id="error" style="display:none"></div>
+		<div id="success" style="display:none;">Success! Please click the 'keys' header at the top to toggle display of keys.</div>
+		<br>
+		<div id="tables" class="container2">
+			<h2 id="keysTitle">Keys <small><small>(Toggle)</small></small></h2>
+			<table id="keysTable">
+				<thead><tr>
+					<td>Controls</td>
+					<td>Title<br>Secret Title</td>
+					<td class="keycell">Key<br>Obfuscated Key</td>
+					<td class="usercell">Donor</td>
+					<td class="usercell">Added by<br>at</td>
+					<td class="usercell">Approved by<br>at</td>
+					<td class="usercell">Dropped by<br>at</td>
+					<td class="msgcell">Redemption Message</td>
+				</tr></thead>
+				<tbody id="keysBody"></tbody>
+			</table>
+		</div>
+		<div id="controls" class="container2">
+			<h2>Controls</h2>
+			<h4>To add a key, please fill out the following fileds and click the submit button</h4>
+			<h4>Please note that only administrators have access to viewing the full list of currently available keys. Users can only view and delete their own keys.</h4>
+
+			<p>If you wish to keep the game title a secret from other users, please enter 'Mystery Game' into the title field and enter 
+			the title into the 'Secret Title' field instead; this way we can track what games were given away, and you can still give out 
+			the game as a mystery.</p>
+
+			<p>You may enter any combination of obfuscated and non-obfuscated key; if you enter both, the un-obfuscated key will be
+			displayed in private, and the obfuscated key will be used publicly. If your item is a tradable gift and not a key, you
+			should put instructions for redeeming it into the Message field. Having the winner send you their trade offer URL is easy
+			if you are giving out multiple items. Do not combine redemption message and key fields.</p>
+
+			<p>If you are an admin entering a key for another user, please enter their reddit username (prefixed by /u/) or steam username
+			 in the 'Donor' field, otherwise you will be credited as the donor. If it was an anonymous gift, please enter Anonymous.</p>
+
+			<p>If there is a custom redemption message, the bot will <i>ignore</i> the key fields (both of them); it is assumed that the
+			message contains all information needed to activate the game.</p>
+
+			<input type="text" placeholder="Game Title" id="game" required />
+			<input type="text" placeholder="Secret Title" id="secretname" />
+			<input type="text" placeholder="Game Key (or URL) in plain text" id="key" />
+			<input type="text" placeholder="Obfuscated Key" id="obfuscatedkey" />
+			<input type="text" placeholder="Donor's Reddit or Steam username" id="donor" required />
+			<input type="text" placeholder="Custom message for redemption" id="message" />
+			<input type="button" id="sendButton" value="Add Key" />
+		</div>
+	</body>
+</html>

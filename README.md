@@ -82,6 +82,7 @@ General bot-related and chat-related functions.
 #### Trade-related triggers
 
 - `BanCheckTrigger` - checks to see if a user has any VAC/economy/community bans via steam API. Requires a steam api key, defined as option apikey in the plugin, or globally defined as a chatBot option steamapikey
+- `BitcoinTrigger` - does various actions over the BTC network
 - `ProfileCheckTrigger` - When a user joins, look up their profile in steam API and if they have a private profile, or never bothered to set one up, announce it to the groupchat. Optional option: apikey can be defined in options, overriding any steamapikey can be defined in the bot constructor. If neither is defined, it won't be used (not required).
 - `RedditTrigger` - Check reddit flair/bans/username on command. Requires access to the /r/SGS API. Note: I will not help you with gaining access to the API, and everything I know about the API is used in this trigger.
 - `SteamrepTrigger` - checks steamrep API on command. If Steamrep lists the user as a scammer, then bot announces it and gives links for more info. See `SteamrepOnJoinTrigger` to do this whenever someone joins a chat.
@@ -90,6 +91,7 @@ General bot-related and chat-related functions.
 #### Other popular triggers
 
 - `BotCommandTrigger` - Runs a specified callback when a specific command message is typed.
+- `CSGOStatsTrigger` - Retrieves a player's csgo stats from steam api
 - `ChatReplyTrigger` - Detects a message (either an exact match or a "contains" match) and replies with a specified message.
 - `CleverbotTrigger` - Uses cleverbot to reply to a message, optionally only when a specific word is mentioned.
 - `GoogleTrigger` - Prints out the title and link of the first search result on Google.
@@ -97,6 +99,7 @@ General bot-related and chat-related functions.
 - `OMDBTrigger` - Searches IMDB for  a specified movie.
 - `RandomGameTrigger` - Picks a random game from the calling user's games list, or that of any specified user with an open profile.
 - `RegexReplaceTrigger` - Detects a regex match in a message and uses the matches to construct a reply.
+- `SteamIDTrigger` - Converts someone's name to a SteamID
 - `TranslateTrigger` - Translates between languages using hablaa.
 - `TumblrTrigger` - Allows the bot to post things to a tumblr blog, either by commands, or by monitoring the chatrooms the bot is in for links.
 - `WolframAlphaTrigger` - Queries Wolfram Alpha. You will need an appId from http://products.wolframalpha.com/api/.

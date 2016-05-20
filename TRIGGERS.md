@@ -61,6 +61,29 @@ Options:
 - command - *string* - defaults to "!ban"
 - user - *array* of *string*s. Who can use this trigger
 
+### `BitcoinTrigger`
+
+Does various actions over the BTC network. [Coinbase api](https://www.coinbase.com/settings/api) (create OAuth application). Must have webserver enabled.
+
+Options:
+
+Required:
+
+- clientID - *string* - Coinbase clientID
+- clientSecret *string* - Coinbase clientSecret
+- redirectURI *string* - redirectURI for OAauth app
+
+Optional:
+
+- clearcommand - *string* - defaults to !clear
+- authcommand - *string* - defaults to !auth
+- saveTimer - *integer* - database file save interval, defaults to 5 minutes
+- sellcommand - *string* - defaults to !sell
+- buycommand - *string* - defaults to !buy
+- balancecommand - *string* - defaults to !balance
+- pricescommand - *string* - defaults to !prices
+- dbFile - *string* - database file name
+
 ### `BotCommandTrigger`
 
 Runs a specified callback when a specific command message is typed. It is preferred to write an actual trigger, but for simple things (e.g. muting, unmuting), this is easier.
@@ -79,6 +102,15 @@ Options:
 
 - replacement - *string* - the word to replace the random word with.
 - probability - see global triggers.
+
+### `CSGOStatTrigger`
+
+Retrieves a player's csgo stats from steamapi and replies with improtant information
+
+Options:
+
+- command - *string* - defaults to !csgostats, command that triggers the query
+- apiKey - *string* - steam apikey, use this or define it in chatbot options
 
 ### `ChatReplyTrigger`
 
@@ -417,6 +449,14 @@ Options:
 - command - string - command to change the message. Defaults to !status
 - locate - string - where to store the statuses on disk. Defaults to ./BOTNAME/StatusTrigger/TRIGGERNAME. if you need storages to be shared, set them to `myBot.username + "/StatusTrigger"` or some such.
 - public - bool - send the message to the joining user, or to the chat? To the chat if true (default), to the user if false.
+
+### `SteamIDTrigger`
+
+Takes a player's name and converts to a SteamID, name doesn't need to be exact
+
+Options:
+
+- command - *string* - defaults to !steamid
 
 ### `SteamrepOnJoinTrigger`
 
