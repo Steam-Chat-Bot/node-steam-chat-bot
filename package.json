@@ -32,15 +32,6 @@
   },
   "contributors": [
     {
-      "name": "Paul Schow",
-      "email": "paulschow@users.noreply.github.com",
-      "url": "https://github.com/paulschow",
-      "contributions": 1,
-      "additions": 54,
-      "deletions": 0,
-      "hireable": true
-    },
-    {
       "name": "Divinux",
       "email": "Divinux@gmx.de",
       "url": "https://github.com/Divinux",
@@ -50,26 +41,26 @@
       "hireable": null
     },
     {
-      "name": "John",
-      "email": "jmcortinax@users.noreply.github.com",
-      "url": "https://github.com/JMCortinax",
+      "name": "lostandconfused",
+      "email": null,
+      "url": "https://github.com/lostandconfused",
       "contributions": 2,
-      "additions": 8,
-      "deletions": 2,
+      "additions": 4,
+      "deletions": 3,
       "hireable": null
     },
     {
-      "name": "Houston",
-      "email": "dungdung@users.noreply.github.com",
-      "url": "https://github.com/dungdung",
-      "contributions": 11,
-      "additions": 740,
-      "deletions": 861,
-      "hireable": null
+      "name": "Paul Schow",
+      "email": null,
+      "url": "https://github.com/paulschow",
+      "contributions": 1,
+      "additions": 54,
+      "deletions": 0,
+      "hireable": true
     },
     {
       "name": "bonnici",
-      "email": "lljksteveholt@gmail.com",
+      "email": null,
       "url": "https://github.com/bonnici",
       "contributions": 31,
       "additions": 4397,
@@ -77,30 +68,48 @@
       "hireable": null
     },
     {
-      "name": "Kyle Smith",
-      "email": "smith.kyle1734@gmail.com",
-      "url": "https://github.com/dragonbanshee",
-      "contributions": 102,
-      "additions": 2381,
-      "deletions": 1636,
+      "name": "Houston",
+      "email": null,
+      "url": "https://github.com/dungdung",
+      "contributions": 11,
+      "additions": 740,
+      "deletions": 861,
       "hireable": null
     },
     {
-      "name": "Efreak",
-      "email": "efreak@users.noreply.github.com",
-      "url": "https://github.com/Efreak",
-      "contributions": 516,
-      "additions": 16805,
-      "deletions": 9804,
-      "hireable": true
-    },
-    {
       "name": "Esbeckett",
-      "email": "esbeckett@users.noreply.github.com",
+      "email": null,
       "url": "https://github.com/Esbeckett",
       "contributions": 4,
       "additions": 144,
       "deletions": 71,
+      "hireable": null
+    },
+    {
+      "name": "Efreak",
+      "email": "github@efreakbnc.net",
+      "url": "https://github.com/Efreak",
+      "contributions": 578,
+      "additions": 20949,
+      "deletions": 11459,
+      "hireable": true
+    },
+    {
+      "name": "John",
+      "email": null,
+      "url": "https://github.com/JMCortinax",
+      "contributions": 2,
+      "additions": 8,
+      "deletions": 2,
+      "hireable": null
+    },
+    {
+      "name": "Kyle Smith",
+      "email": "smith.kyle1734@gmail.com",
+      "url": "https://github.com/dragonbanshee",
+      "contributions": 118,
+      "additions": 3168,
+      "deletions": 1830,
       "hireable": null
     }
   ],
