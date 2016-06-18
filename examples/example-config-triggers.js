@@ -128,7 +128,7 @@ module.exports = [
 			apikey: "replaceme",
 			conditions: '!weather',
 			forecast: '!forecase',
-			forecastMetric: false;
+			forecastMetric: false
 		}
 	},
 	// Reply triggers that will only respond to a particular user
