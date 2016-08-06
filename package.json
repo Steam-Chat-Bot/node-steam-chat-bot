@@ -1,7 +1,7 @@
 {
   "name": "steam-chat-bot",
   "homepage": "https://steam-chat-bot.github.io/node-steam-chat-bot",
-  "version": "2.3.0-dev",
+  "version": "2.4.0-dev",
   "bugs": {
     "url": "http://github.com/steam-chat-bot/node-steam-chat-bot/issues"
   },
