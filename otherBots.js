@@ -240,6 +240,7 @@ miley.connect();
 
 
 
+/*
 var triviagamesList = [221410];//,218800];
 var triviagamesListMuted = [];
 var triviaAdmins = [users.efreak,users.grizzly,users.nasty];
@@ -354,3 +355,4 @@ poonicorn.onLogon = function(that){
 	that.unmute();
 }
 poonicorn.connect();
+*/
