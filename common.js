@@ -58,6 +58,14 @@ var assholes = { //I can't report you to steamrep for spamming, but I will add y
 	darkonion: '76561198041977869',	//abusing infobot, spamming
 	halo: '76561197999716804',	//abusing infobot, spamming
 	crowley: '76561197986549862',	//abusing !roll
+	TheAzureDragon:"76561198086341931",		//abusing !randomgame
+	sddsddcp:"76561198140044938",			//abusing !randomgame
+	Miniboyss:"76561198068541106",			//abusing !randomgame
+	"White Wolf":"76561198142690154",		//abusing !randomgame
+	NEO:"76561198074201273",			//abusing !randomgame
+	Preacher:"76561198180424210",			//abusing !randomgame
+	ke7:"76561198083985186",			//abusing !randomgame
+	"The Green Teabagger":"76561198087674442",	//abusing !randomgame
 }
 
 var trustedBots = { //these bots are so-called 'trusted' because they won't be checked for having bad profiles, as they're bots, not people.
