@@ -22,7 +22,10 @@
     "/r/steamgameswap",
     "pushbullet",
     "logs",
-    "IMDB"
+    "IMDB",
+    "relay",
+    "IRC",
+    "discord"
   ],
   "license": "MIT",
   "author": {
@@ -134,6 +137,7 @@
     "cleverbot-node": "^0.2.1",
     "coinbase": "^2.0.0",
     "dotenv": "^1.1.0",
+    "eris": "abalabahaha/eris",
     "express-session": "^1.11.3",
     "filendir": "0.0.1",
     "firebase": "^2.2.6",
