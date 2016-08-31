@@ -77,6 +77,14 @@ miley.addTriggers([
 			callback: function(bot) { bot.unmute(); bot.setGames(gamesList); bot.setPrimaryGame(214610,250);}
 		}
 	},
+	{ name: 'DiscordRelay',        type: 'DiscordRelay',          options: {
+		token: cfg.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
+		steamChat: '103582791438731217',		//the steamid64 for your groupchat
+		discordChannelID: '215227458285338624',	//the ChannelID of your Discord chat.
+		discordServerID: '215227458285338624',
+		sendDiscordExtras: true,
+		owner: "Efreak"
+	}},
 	{ name: 'IRCRelay',          type: 'IRCRelay',            options: {
 			admins: [users.efreak],
 			respectsMute: false,
