@@ -4,6 +4,7 @@
   * Added Discord relay trigger
   * Removed wolfram trigger. If you feel like rewriting it without libxmljs, I'll accept a pull request
   * Update several dependencies (not done yet)
+  * I forgot to set the chatBot.js and package.json versions to 2.5.0, so they're still listed as 2.4.0. Oops.
   * More to come(?)
 
 [2.4.0 / 2016-5-20 - N/A](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/releases/tag/2.4.0)
