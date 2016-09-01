@@ -35,7 +35,7 @@
   "contributors": [
     {
       "name": "Paul Schow",
-      "email": "paulschow@users.noreply.github.com",
+      "email": null,
       "url": "https://github.com/paulschow",
       "contributions": 1,
       "additions": 54,
@@ -82,18 +82,18 @@
       "name": "Kyle Smith",
       "email": "smith.kyle1734@gmail.com",
       "url": "https://github.com/dragonbanshee",
-      "contributions": 102,
-      "additions": 2381,
-      "deletions": 1636,
+      "contributions": 117,
+      "additions": 3158,
+      "deletions": 1824,
       "hireable": null
     },
     {
       "name": "Efreak",
-      "email": "efreak@users.noreply.github.com",
+      "email": "github@efreakbnc.net",
       "url": "https://github.com/Efreak",
-      "contributions": 516,
-      "additions": 16805,
-      "deletions": 9804,
+      "contributions": 582,
+      "additions": 21212,
+      "deletions": 11583,
       "hireable": true
     },
     {
@@ -103,6 +103,15 @@
       "contributions": 4,
       "additions": 144,
       "deletions": 71,
+      "hireable": null
+    },
+    {
+      "name": "lostandconfused",
+      "email": null,
+      "url": "https://github.com/lostandconfused",
+      "contributions": 2,
+      "additions": 4,
+      "deletions": 3,
       "hireable": null
     }
   ],
