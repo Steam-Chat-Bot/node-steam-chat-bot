@@ -108,7 +108,7 @@ miley.addTriggers([
 			}]
 		}
 	},
-//	{ name: 'GithubTrigger',       type: 'GithubTrigger',       options: cfg.githubOptions },
+	{ name: 'GithubTrigger',       type: 'GithubTrigger',       options: cfg.githubOptions },
 	{ name: 'WebUI',               type: 'WebUI',               options: {
 		public: cfg.miley.webUIPublic,
 		admins:[users.efreak]
