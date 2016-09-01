@@ -296,13 +296,6 @@ module.exports = [
 			timeout: 2*1000,
 			delay: 500 } },
 
-/*	// Query Wolfram Alpha when a message starts with !wolfram
-	{	name: 'WolframReply', 
-		type: 'WolframAlphaTrigger', 
-		options: {
-			command: '!wolfram',
-			appId: 'XXX' } },
-*/
 /*	// Post all links from chat to tumblr, and also post things on command
 	{	name: 'TumblrTriggerYCJGTFO', type: 'TumblrTrigger', 
 		options: { autoPost: true, autoPostContext: false, blogName: 'ycjgtfo', 

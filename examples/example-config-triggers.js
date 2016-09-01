@@ -210,16 +210,9 @@ module.exports = [
 		}
 	},
 
-	// Query Wolfram Alpha when a message starts with !wolfram
-	{
-		name: "WolframReply",
-		type: "WolframAlphaTrigger",
-		options: {command: "!wolfram",appId: "XXXXXX" }
-	},
-
 	//Query Urban Dictionary using their *unofficial* api when a message starts with !urban
 	{
-		name: "WolframReply",
+		name: "UrbanDictionaryTrigger",
 		type: "UrbanDictionaryTrigger",
 		options: {command: "!urban" }
 	},
