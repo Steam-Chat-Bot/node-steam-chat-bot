@@ -1,3 +1,22 @@
+[2.5.0-beta / 2016-8-31 - TubbsDidNothingWrong](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/releases/tag/2.5.0-pre)
+==================
+
+  * Added Discord relay trigger
+  * Removed wolfram trigger. If you feel like rewriting it without libxmljs, I'll accept a pull request
+  * Update several dependencies (not done yet)
+  * More to come(?)
+
+[2.4.0 / 2016-5-20 - N/A](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/releases/tag/2.4.0)
+==================
+
+  * LinkNameTrigger allows validation and decodes html entities in the page title.
+  * WebUI added. Control the bot from your browser!
+  * KeyDropTrigger with web interface added. Do giveaways in chat!
+  * MultiMessageOnJoin more complex messageOnJoin trigger with settings that can be changed via chat--just set your admin user.
+  * BitcoinTrigger - for doing various actions on the bitcoin network (buying, selling, etc)
+  * SteamIDTrigger - for converting names to steamids
+  * CSGOStatTrigger - for checking a player's CSGO stats (similar to csgo-stats.com)
+
 [2.3.0 / 2015-10-5 - GabenForPresident](https://github.com/Efreak/node-steam-chat-bot/releases/tag/2.3.0)
 ==================
 
