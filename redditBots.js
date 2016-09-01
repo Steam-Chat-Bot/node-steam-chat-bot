@@ -146,7 +146,6 @@ sgsBot.addTriggers([
 	{ name: 'SteamrepOnJoin',      type: 'SteamrepOnJoinTrigger'},
 	{ name: 'SteamrepCommand',     type: 'SteamrepTrigger',       options: { command: "!steamrep",    delay: 0,       timeout: 2 * 1000 } },
 //	{ name: 'IsUp',                type: 'isupTrigger',           options: { command: '!isup', delay: 500, timeout: 1 * 60 * 1000 } },
-	{ name: 'WolframReply',        type: 'WolframAlphaTrigger',   options: { command: '!wolfram', appId: cfg.wolframAppId } },
 	{ name: 'Youtube',             type: 'YoutubeTrigger',        options: { command: '!yt', rickrollChance: .01  } },
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },
 	{ name: 'BanCheckTrigger',     type: 'BanCheckTrigger'},
@@ -248,7 +247,6 @@ gogBot.addTriggers([
 	{ name: 'SteamrepOnJoin',      type: 'SteamrepOnJoinTrigger'},
 	{ name: 'SteamrepCommand',     type: 'SteamrepTrigger',       options: { command: "!steamrep",    delay: 0,       timeout: 2 * 1000 } },
 //	{ name: 'IsUp',                type: 'isupTrigger',           options: { command: '!isup', delay: 500, timeout: 1 * 60 * 1000 } },
-//	{ name: 'WolframReply',        type: 'WolframAlphaTrigger',   options: { command: '!wolfram', appId: cfg.wolframAppId } },
 //no api key
 //	{ name: 'Youtube',             type: 'YoutubeTrigger',        options: { command: '!yt', rickrollChance: .01  } },
 	{ name: 'RandomGameTrigger',   type: 'RandomGameTrigger',     options: { timeout: 5*1000, delay: 500} },

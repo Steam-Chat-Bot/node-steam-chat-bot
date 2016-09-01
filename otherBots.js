@@ -206,7 +206,6 @@ miley.addTriggers([
 //wrong id...
 //	{ name: 'jcmatrixsEnter',  type: 'MessageOnJoinTrigger',   options: { user: users.boar, message: "Hello, awesome!",  probability: 1,  delay: 1000,  timeout: 60*60*1000, rooms: [rooms.IGB,rooms.OPS,rooms.OPT,rooms.OPG] } },
 	{ name: 'EightBall',       type: 'ChatReplyTrigger',       options: { matches: ['!8ball'], responses: ['It is certain','It is decidedly so','Without a doubt','Yes, definitely','You may rely on it','As I see it, yes','Most likely','Outlook good','Yes','Signs point to yes','Reply hazy, try again','Ask again later','Better not tell you now','Cannot predict now','Concentrate and ask again',"Don't count on it",'My sources say no','Outlook not so good','Very doubtful'], timeout: 2*1000, delay: 500, ignore: [rooms.Reddit,rooms.BLG,rooms.OPS,rooms.OPT,rooms.OPG]	} },
-	{ name: 'WolframReply',    type: 'WolframAlphaTrigger',    options: { command: '!wolfram', appId: cfg.wolframAppId } },
 	{ name: 'Youtube',         type: 'YoutubeTrigger',         options: { command: '!yt',ignore: [rooms.Reddit],rickrollChance: .05	} },
         { name: 'UD',              type: 'UrbanDictionaryTrigger', options: { command: '!ud', timeout: 1000 } },
 	{ name: 'SteamrepOnJoin',  type: 'SteamrepOnJoinTrigger',  options: { ignore: [users.efreak] } },
@@ -354,7 +353,6 @@ poonicorn.addTriggers([
 	{ name: 'NastyEnter',      type: 'MessageOnJoinTrigger',   options: { user: users.nasty,   message: "Yuck!",                probability: 1, delay: 1000, timeout: 60*60*1000 } },
 	{ name: 'GrizzlyEnter',    type: 'MessageOnJoinTrigger',   options: { user: users.grizzly, message: "ROAR!",                probability: 1, delay: 1000, timeout: 60*60*1000 } },
 	{ name: 'EightBall',       type: 'ChatReplyTrigger',       options: { matches: ['!8ball'], responses: ['It is certain','It is decidedly so','Without a doubt','Yes, definitely','You may rely on it','As I see it, yes','Most likely','Outlook good','Yes','Signs point to yes','Reply hazy, try again','Ask again later','Better not tell you now','Cannot predict now','Concentrate and ask again',"Don't count on it",'My sources say no','Outlook not so good','Very doubtful'], timeout: 2*1000, delay: 500, ignore: [rooms.Reddit,rooms.BLG,rooms.OPS,rooms.OPT,rooms.OPG]	} },
-	{ name: 'WolframReply',    type: 'WolframAlphaTrigger',    options: { command: '!wolfram', appId: cfg.wolframAppId } },
         { name: 'UD',              type: 'UrbanDictionaryTrigger', options: { command: '!ud', timeout: 1000 } },
 ]);
 
