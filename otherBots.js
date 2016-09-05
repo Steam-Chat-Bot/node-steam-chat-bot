@@ -80,21 +80,18 @@ miley.addTriggers([
 	{ name: 'DiscordRelay',        type: 'DiscordRelay',          options: {
 		token: cfg.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
 		steamChat: rooms.botDev,		//the steamid64 for your groupchat
-		discordChannelID: '215227458285338624',	//the ChannelID of your Discord chat.
-		discordServerID: '215227458285338624',
-		sendExtras: true,
-		owner: "Efreak",
-		rooms: [rooms.botDev]
-	}},
-	{ name: 'OPDiscordRelay',        type: 'DiscordRelay',          options: {
-		token: cfg.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
-		steamChat: rooms.OPG,			//the steamid64 for your groupchat
-		discordChannelID: '100171287267115008',	//the ChannelID of your Discord chat.
-		discordServerID: '100171287267115008',
-		sendExtras: false,
-		owner: "Efreak",
-		rooms: [rooms.OPG]
-	}},
+		relays: [{
+			discordChannelID: '215227458285338624',	//the ChannelID of your Discord chat.
+			discordServerID: '215227458285338624',
+			sendExtras: true,
+			steamChat: rooms.botDev
+		},{
+			steamChat: rooms.OPG,			//the steamid64 for your groupchat
+			discordChannelID: '100171287267115008',	//the ChannelID of your Discord chat.
+			discordServerID: '100171287267115008',
+			sendExtras: false,
+		}]
+	} },
 	{ name: 'IRCRelay',          type: 'IRCRelay',            options: {
 			admins: [users.efreak],
 			respectsMute: false,
