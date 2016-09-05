@@ -205,7 +205,7 @@ gogBot.addTriggers([
 		steamChat: '103582791436617779',		//the steamid64 for your groupchat
 		discordChannelID: '217737044347191306',	//the ChannelID of your Discord chat.
 		discordServerID: '217737044347191306',
-		sendDiscordExtras: true,
+		sendExtras: true,
 		owner: "Efreak"
 	}},
 	{ name: "AcceptChatInvite",
