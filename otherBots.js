@@ -90,6 +90,11 @@ miley.addTriggers([
 			discordChannelID: '100171287267115008',	//the ChannelID of your Discord chat.
 			discordServerID: '100171287267115008',
 			sendExtras: false,
+		},{
+			steamChat: rooms.YCJGTFO,		//the steamid64 for your groupchat
+			discordChannelID: '222197821087023104',	//the ChannelID of your Discord chat.
+			discordServerID: '215227458285338624',
+			sendExtras: true,
 		}]
 	} },
 	{ name: 'IRCRelay',          type: 'IRCRelay',            options: {
