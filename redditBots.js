@@ -202,12 +202,13 @@ gogBot.addTriggers([
 	{ name: 'ModerateTrigger',     type: 'ModerateTrigger',       options: { users: gogAdmins } },
 	{ name: 'DiscordRelay',        type: 'DiscordRelay',          options: {
 		token: cfg.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
-		steamChat: '103582791436617779',		//the steamid64 for your groupchat
-		discordChannelID: '217737044347191306',	//the ChannelID of your Discord chat.
-		discordServerID: '217737044347191306',
-		sendExtras: true,
-		owner: "Efreak"
-	}},
+		relays: [{
+			discordChannelID: '217737044347191306',	//the ChannelID of your Discord chat.
+			discordServerID: '217737044347191306',
+			steamChat: '103582791436617779',		//the steamid64 for your groupchat
+			sendExtras: true,
+		}]
+	} },
 	{ name: "AcceptChatInvite",
 		type: "AcceptChatInviteTrigger",
 		options: {
