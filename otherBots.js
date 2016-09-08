@@ -87,7 +87,7 @@ miley.addTriggers([
 			steamChat: rooms.botDev
 		},{
 			steamChat: rooms.OPG,			//the steamid64 for your groupchat
-			discordChannelID: '100171287267115008',	//the ChannelID of your Discord chat.
+			discordChannelID: '223530104221990912',	//the ChannelID of your Discord chat.
 			discordServerID: '100171287267115008',
 			sendExtras: false,
 		},{
