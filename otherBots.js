@@ -95,7 +95,8 @@ miley.addTriggers([
 			discordChannelID: '222197821087023104',	//the ChannelID of your Discord chat.
 			discordServerID: '215227458285338624',
 			sendExtras: true,
-		}]
+		}],
+		ignore: ["76561198221679956"]
 	} },
 	{ name: 'IRCRelay',          type: 'IRCRelay',            options: {
 			admins: [users.efreak],
