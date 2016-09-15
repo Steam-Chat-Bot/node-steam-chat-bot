@@ -81,7 +81,7 @@ miley.addTriggers([
 		token: cfg.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
 		steamChat: rooms.botDev,		//the steamid64 for your groupchat
 		relays: [{
-			discordChannelID: '215227458285338624',	//the ChannelID of your Discord chat.
+			discordChannelID: '225770030414036992',	//the ChannelID of your Discord chat.
 			discordServerID: '215227458285338624',
 			sendExtras: true,
 			steamChat: rooms.botDev
