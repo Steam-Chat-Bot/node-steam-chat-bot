@@ -95,6 +95,11 @@ miley.addTriggers([
 			discordChannelID: '222197821087023104',	//the ChannelID of your Discord chat.
 			discordServerID: '215227458285338624',
 			sendExtras: true,
+		},{
+			steamChat: rooms['Phoenix Council'],		//the steamid64 for your groupchat
+			discordChannelID: '227635897540018176',	//the ChannelID of your Discord chat.
+			discordServerID: '227635897540018176',
+			sendExtras: true,
 		}],
 		ignore: ["76561198221679956"]
 	} },
