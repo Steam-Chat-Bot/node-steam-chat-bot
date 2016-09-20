@@ -56,6 +56,7 @@ var users = {
 
 // ignores cleared 9/6/2016. Don't do it again or I'll initialize the ignore array to include your steamid *by default*.
 var assholes = { //I can't report you to steamrep for spamming, but I will add you to my asshole list.
+	obby: '76561198206503908',      //being obnoxious after being temporarily banned earns a permanent ban
 //	darkonion: '76561198041977869',	//abusing infobot, spamming
 //	halo: '76561197999716804',	//abusing infobot, spamming
 //	crowley: '76561197986549862',	//abusing !roll
