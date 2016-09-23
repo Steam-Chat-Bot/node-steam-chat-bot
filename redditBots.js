@@ -201,7 +201,7 @@ gogBot.addTriggers([
 	{ name: 'PlayGameTrigger',     type: 'PlayGameTrigger',       options: { users: gogAdmins } },
 	{ name: 'ModerateTrigger',     type: 'ModerateTrigger',       options: { users: gogAdmins } },
 	{ name: 'DiscordRelay',        type: 'DiscordRelay',          options: {
-		token: cfg.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
+		token: cfg.gog.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
 		relays: [{
 			discordChannelID: '217737044347191306',	//the ChannelID of your Discord chat.
 			discordServerID: '217737044347191306',
