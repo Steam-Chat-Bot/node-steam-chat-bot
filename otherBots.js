@@ -126,6 +126,17 @@ miley.addTriggers([
 			}]
 		}
 	},
+	{ name: 'MikaAntispamTrigger', type: 'AntispamTrigger',     options: {
+		ignores: [users.mika],
+		admins: [users.mika],
+		logLevel: "debug",
+		rooms: [rooms['Phoenix Council']],
+		score: { warn: 3, warnMax: 5, kick: 5, ban: 6, ignore: 8, tattle: 4, tattleMax: 5 },
+		msgPenalty: 1,
+		timers: { messages: 5000, unban: 30000, unignore: 30000 },
+		ptimer: { resolution: 1000, amount: 1 },
+		badwords: { nigger: 5, cunt: 5 }
+	} },
 	{ name: 'GithubTrigger',       type: 'GithubTrigger',       options: cfg.githubOptions },
 	{ name: 'WebUI',               type: 'WebUI',               options: {
 		public: cfg.miley.webUIPublic,
@@ -255,6 +266,7 @@ miley.onLogon = function(that){
 	delayedJoin(miley,rooms.Reddit,2500,3); //reddit
 	delayedJoin(miley,rooms.OPT2,2500,3); //OP Trading Revolution
 	delayedJoin(miley,rooms.botDev,2500,3); //chatbot testing etc
+	delayedJoin(miley,rooms['Phoenix Council'],2500,3);
 }
 miley.connect();
 
