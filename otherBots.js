@@ -133,7 +133,11 @@ miley.addTriggers([
 		rooms: [rooms['Phoenix Council']],
 		score: { warn: 3, warnMax: 5, kick: 5, ban: 6, ignore: 8, tattle: 4, tattleMax: 5 },
 		msgPenalty: 1,
-		timers: { messages: 5000, unban: 30000, unignore: 30000 },
+		timers: {
+			messages: 1000 * 5, //5 seconds
+			unban: 1000 * 60 * 60 * 24 * 365, //1 year
+			unignore: 1000 * 30 //30 seconds
+		},
 		ptimer: { resolution: 1000, amount: 1 },
 		badwords: { nigger: 5, cunt: 5 }
 	} },
