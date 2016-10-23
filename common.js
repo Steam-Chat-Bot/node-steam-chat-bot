@@ -51,7 +51,8 @@ var users = {
 	chip: '76561198058003981',	emily: '76561198034699157',	nonos: '76561198029074027',	norma: '76561198036715264',
 	boar: '76561198065045875',	slipslot: '76561198057252542',	baertel: '76561198057380644',	manc: '76561198012794916',
 	adrian: '76561198022422924',	lewis: '76561198057322285',	sag: '76561198028623034',	aakash: '76561198034107051',
-	mika: '76561198085353243'
+	mika: '76561198085353243',
+	dragonfighter: '76561198068160844'	//one of mika's admins
 }
 
 // ignores cleared 9/6/2016. Don't do it again or I'll initialize the ignore array to include your steamid *by default*.

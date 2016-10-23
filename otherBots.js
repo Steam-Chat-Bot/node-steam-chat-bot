@@ -128,7 +128,7 @@ miley.addTriggers([
 	},
 	{ name: 'MikaAntispamTrigger', type: 'AntispamTrigger',     options: {
 		ignores: [users.mika],
-		admins: [users.mika],
+		admins: [users.mika,users.dragonfighter],
 		logLevel: "debug",
 		rooms: [rooms['Phoenix Council']],
 		score: { warn: 3, warnMax: 5, kick: 5, ban: 6, ignore: 8, tattle: 4, tattleMax: 5 },
