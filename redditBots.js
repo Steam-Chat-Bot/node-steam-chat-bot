@@ -203,7 +203,7 @@ gogBot.addTriggers([
 	{ name: 'DiscordRelay',        type: 'DiscordRelay',          options: {
 		token: cfg.gog.discordToken,		//your discord bot's OAuth2 token. REQUIRED.
 		relays: [{
-			discordChannelID: '217737044347191306',	//the ChannelID of your Discord chat.
+			discordChannelID: '250566108258500608',	//the ChannelID of your Discord chat.
 			discordServerID: '217737044347191306',
 			steamChat: '103582791436617779',		//the steamid64 for your groupchat
 			sendExtras: true,
