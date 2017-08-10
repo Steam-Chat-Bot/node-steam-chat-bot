@@ -24,10 +24,10 @@ var users = common.users;
 var globalIgnores = common.globalIgnores;
 
 //stuff for /r/sgsBot (these usernames don't get used elsewhere)
-var sgsGamesList = [221410];
+var sgsGamesList = []; //[221410];
 var sgsGamesListMuted = [];
 
-var gogGamesList = [221410];
+var gogGamesList = []; //[221410];
 var gogGamesListMuted = [];
 
 var sgsAdminsNames = { //for easy reading and editing
