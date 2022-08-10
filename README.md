@@ -1,3 +1,5 @@
+If you'd like to take over this project, please find me on steam or matrix.
+
 [![GitHub version](https://img.shields.io/github/release/Steam-Chat-Bot/node-steam-chat-bot.svg?label=ver)](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/releases/latest)
 [![GitHub tag](https://img.shields.io/github/tag/Steam-Chat-Bot/node-steam-chat-bot.svg)](https://github.com/Steam-Chat-Bot/node-steam-chat-bot/tags/latest)
 [![node](https://img.shields.io/node/v/steam-chat-bot.svg)](https://npmjs.com/package/steam-chat-bot)
